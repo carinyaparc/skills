@@ -27,7 +27,7 @@ A backlog refinement MUST NOT:
 - Change the strategic direction of the product → that requires `product` review mode
   or a planning session, not a grooming activity
 - Add technical architecture decisions to stories → belongs in `solution.md`
-  or an ADR via `write-adr`
+  or an ADR via `adr write`
 - Write full EARS + Gherkin AC for stories the team will not pick up in the
   next sprint — defer detailed AC to the refinement session closest to the sprint
 
