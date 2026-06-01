@@ -16,7 +16,7 @@ assumptions, not just formatting problems.
 Mode is already `refine`. Scope is `$1`, name is `$2`. Optional:
 `--context <notes>` for sprint notes or changed priorities.
 
-- `portfolio`, `product`, `domain` — refines epic breakdown and epic detail. Focus: epics.
+- `product` — refines epic breakdown and epic detail at `docs/product/backlog.md`. Focus: epics.
 - `work-package` — refines stories in `work/{wp}/backlog.md`. Focus: sprint-ready stories.
 
 ## Negative constraints

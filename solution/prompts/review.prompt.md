@@ -37,7 +37,7 @@ A solution review MUST NOT:
   Required: the solution.md to review
   Recommended: product.md (to validate architectural alignment with product
   goals), ADR register (to check decision coverage)
-  Optional: tech-stack.md, existing work-package designs, codebase structure]
+  Optional: existing work-package designs, codebase structure]
 </artifacts>
 
 ## Steps
@@ -71,7 +71,7 @@ statements?
 
 Does the architectural style named here match what is actually described in
 the building block view? Are the key technology choices consistent with
-`tech-stack.md`? Does each principle name a concrete trade-off?
+`docs/architecture/solution.md` §3? Does each principle name a concrete trade-off?
 
 ### §4 Building block view
 

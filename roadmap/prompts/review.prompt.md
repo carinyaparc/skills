@@ -54,25 +54,7 @@ A roadmap review MUST NOT:
 
 ## Scope-specific review criteria
 
-### Portfolio scope
-
-**Product sequencing rationale.**
-Is the sequencing between products driven by a real constraint (technical,
-commercial, or strategic) or by preference? If the second product could ship
-before the first without consequence, the sequencing is unjustified — flag it.
-
-**Cross-product dependency completeness.**
-Does the roadmap name every dependency between products with an owner and a
-gate? A portfolio roadmap with cross-product phases but no explicit dependency
-tracking is an accident waiting to happen.
-
-**Phase outcomes vs. activity lists.**
-Do portfolio phases describe what each product phase proves, or do they
-describe what will be built? Outcomes ("Space alpha: runtime-agnostic substrate
-validated against two workspaces") are stronger than activity lists ("Build
-skills, scaffolder, sync"). Flag activity-list phases.
-
-### Product and domain scope
+### Product scope
 
 **Sequencing principles coherence.**
 Are the sequencing principles stated in the roadmap actually reflected in the

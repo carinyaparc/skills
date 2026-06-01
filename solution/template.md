@@ -7,7 +7,7 @@ status: Draft
 last_updated: <!-- YYYY-MM-DD -->
 related:
   - <!-- product.md -->
-  - <!-- contracts.md -->
+  - docs/architecture/decisions/register.md
 ---
 
 <!--
@@ -100,7 +100,7 @@ the quality goal it satisfies. -->
 ## 6. Data model and ubiquitous language
 
 <!-- Entities, relationships, invariants, and the glossary of canonical terms
-     used in code, docs, and conversation. Type definitions live in contracts.md. -->
+     used in code, docs, and conversation. Type definitions live in solution.md §6. -->
 
 [NEEDS CLARIFICATION]
 

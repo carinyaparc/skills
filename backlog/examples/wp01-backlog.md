@@ -7,7 +7,7 @@ scope: work-package
 
 Sprint-level backlog for `work/checkout/01-foundations/`, implementing CHK01 from `domain/checkout/backlog.md`.
 
-Companion artefacts: `./design.md` · `domain/checkout/solution.md` · `domain/checkout/contracts.md`
+Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
 ## 1. Summary
 
@@ -38,7 +38,7 @@ Companion artefacts: `./design.md` · `domain/checkout/solution.md` · `domain/c
       Given the checkout module is installed
       When a server component imports { OrderViewModel } from '@/modules/checkout'
       Then the import resolves without error
-      And the type matches contracts.md Section 2 exactly
+      And the type matches solution.md §6 exactly
     ```
 
 - [ ] **[CHK01-02] Orders API client**
@@ -100,7 +100,7 @@ Companion artefacts: `./design.md` · `domain/checkout/solution.md` · `domain/c
   - **Acceptance (EARS):**
     - THE SYSTEM SHALL export `orderToViewModel` mapping every field in `ApiOrder` to a corresponding `OrderViewModel` slice.
     - WHEN an optional `ApiOrder` field is absent, THE SYSTEM SHALL map it to `null` or a documented default.
-    - THE SYSTEM SHALL export `OrderPlacementErrorCode` covering every error code defined in `contracts.md Section 4`.
+    - THE SYSTEM SHALL export `OrderPlacementErrorCode` covering every error code defined in solution.md §7.
   - **Acceptance (Gherkin):**
 
     ```gherkin

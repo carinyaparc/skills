@@ -12,7 +12,7 @@ Read [SKILL.md](../SKILL.md) for scope paths and artefact boundaries.
 Mode is already `review`. Scope is `$1`, name is `$2` (identify target
 `backlog.md` from scope table in SKILL.md).
 
-Identify the scope from the backlog's frontmatter (`scope: portfolio|product|domain|work-package`)
+Identify the scope from the backlog's frontmatter (`scope: product|work-package`)
 and apply the relevant criteria below. Then apply the universal criteria.
 
 For each finding: state the gap, make an opinionated recommendation, and
@@ -46,7 +46,7 @@ A backlog review MUST NOT:
   Required: the backlog.md to review
   Recommended: product.md (strategic alignment), roadmap.md (phase gates and
   sequencing), solution.md (technical risks)
-  Optional: design.md (for WP scope), contracts.md, sprint retrospective notes]
+  Optional: design.md (for WP scope), sprint retrospective notes]
 </artifacts>
 
 ## Steps
@@ -63,17 +63,7 @@ A backlog review MUST NOT:
 
 ## Scope-specific review criteria
 
-### Portfolio and product scope (epics)
-
-Apply the same epic-quality criteria as domain scope. Additionally check:
-
-- Portfolio backlogs cross-reference sub-product strategies (`product/{p}/product.md`)
-  not domain-level strategies; every epic should trace to a sub-product outcome
-- Each epic's work-package path follows the scope convention:
-  `product/{name}/` for product-scoped work, `domain/{name}/` for domain work
-- Cross-product/product dependencies are explicit with named owner squads
-
-### Domain scope (epics)
+### Product scope (epics)
 
 Does every Now-phase epic trace to a product outcome in `product.md §7`? An
 epic with no outcome link is either undocumented scope or scope that should
@@ -184,7 +174,7 @@ of an earlier one? Are there duplicates?
 
 **Naming consistency.**
 Are entity names, route names, and domain terms consistent with the names in
-`solution.md` and `contracts.md`? Drift between the backlog and the
+`docs/architecture/solution.md`? Drift between the backlog and the
 technical artefacts causes implementation confusion.
 
 **Currency.**

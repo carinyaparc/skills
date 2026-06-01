@@ -17,7 +17,7 @@ DO NOT INCLUDE in backlog.md:
   - Architecture patterns, module boundaries, or technical rationale → solution.md
   - Business strategy, positioning, or target users                  → product.md
   - Phase dates, milestones, or delivery sequencing prose            → roadmap.md
-  - API shapes, schemas, type aliases, or code fences                → contracts.md
+  - API shapes, schemas, type aliases, or code fences                → docs/architecture/solution.md
   - Implementation detail for the active epic                        → design.md
 
 Domain scope: §3 is an epic breakdown table; §4 contains epic detail entries.

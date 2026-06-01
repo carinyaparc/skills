@@ -35,7 +35,7 @@ A solution refinement MUST NOT:
   Required: the solution.md to refine
   Recommended: sprint retrospective notes, design.md from the sprint's
   work packages, codebase changes (file names, new modules, changed APIs)
-  Optional: ADR register, contracts.md, tech-stack.md]
+  Optional: docs/architecture/decisions/register.md]
 </artifacts>
 
 ## Steps

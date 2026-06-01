@@ -8,12 +8,9 @@ last_updated: <!-- YYYY-MM-DD -->
 parent_product: product/product.md
 parent_roadmap: <!-- product/roadmap.md, or omit for platform -->
 related:
-  - domain/{domain}/product.md
-  - domain/{domain}/metrics.md
-  - domain/{domain}/requirements.md
-  - domain/{domain}/design.md
-  - domain/{domain}/contracts.md
-  - domain/{domain}/backlog.md
+  - docs/product/product.md
+  - docs/product/backlog.md
+  - docs/architecture/solution.md
 ---
 
 <!--
@@ -57,7 +54,7 @@ Alpha (foundation + internal) → Beta (commercially viable) → Feature-complet
 
 - **{EPIC-ID}** -- {title}. {one-sentence scope}.
 
-**Quality gates (cf. `metrics.md`):**
+**Quality gates:**
 
 - <!-- metric ID + condition, e.g. "CM-G01 meets target in Lighthouse on seeded data" -->
 

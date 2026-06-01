@@ -1,67 +1,47 @@
 ---
 name: product
 description: |
-  product.md artefact at portfolio, product, or domain scope. Modes: write (draft
-  pitch or full strategy), review (critical PM review with verdict), refine
-  (post-sprint currency pass). Use when the user mentions product doc, PRD, product
-  strategy, critique product.md, or update strategy after sprint. Product write:
-  pitch (Phase 0, ≤2 pages) or product stage (Phase 2+). Do NOT include tech stack
-  — use solution. Do NOT use for roadmaps — use roadmap.
+  product.md at docs/product/product.md. Modes: write (pitch or full strategy),
+  review (critical PM review), refine (post-sprint currency). Use for product doc,
+  PRD, product strategy. Write: pitch (Phase 0, ≤2 pages) or product stage (Phase 2+).
+  Do NOT use for roadmaps — use roadmap. Do NOT use for architecture — use solution.
 allowed-tools:
   - Read
   - Write
   - Glob
   - Grep
-argument-hint: "<mode: write|review|refine> <scope or path> [name] [flags]"
+argument-hint: "<mode: write|review|refine> [--stage pitch|product] [--context <notes>]"
 ---
 
 # Product
 
-One skill for the `product.md` artefact.
-
 ## Artefact
 
-`product.md` — strategy document defining _why_, _who_, and _what_. Readable by a
-non-technical stakeholder without a glossary.
-
-## Scope and save paths
-
-| Scope | Meaning | Save path |
-| ----- | ------- | --------- |
-| `portfolio` | Binds multiple products | `product/product.md` |
-| `product <name>` | Single product in a portfolio | `product/{name}/product.md` |
-| `product` (single-product workspace) | Single product | `product/product.md` |
-| `domain <name>` | Bounded context | `domain/{name}/product.md` |
-
-Domain scope: include `parent_product:` in frontmatter pointing to the owning
-product's `product/product.md`.
+`docs/product/product.md` — strategy document defining _why_, _who_, and _what_.
+Readable by a non-technical stakeholder without a glossary.
 
 ## Frontmatter
 
 ```yaml
 type: Product Strategy
-scope: portfolio # portfolio | product | domain
 ```
 
 ## Cross-artifact boundaries
 
 Do NOT put in `product.md`:
 
-- File paths, modules, classes, APIs, schemas, tech stack → `solution.md` / `contracts.md`
-- ADR rationales → `solution.md §9`
-- Deployment topology → `solution.md §8`
-- Epic lists or delivery sequencing → `roadmap.md` / `backlog.md`
+- File paths, modules, classes, APIs, schemas, tech stack → `docs/architecture/solution.md`
+- ADR rationales → `docs/architecture/solution.md` (ADR log section)
+- Epic lists or delivery sequencing → `docs/product/roadmap.md`, `docs/product/backlog.md`
 
 Delete the `DRAFTING AIDE` comment block before saving.
 
-## Stage (product and domain scope only)
+## Stage (write mode)
 
 | Stage | When | Format |
 | ----- | ---- | ------ |
 | `pitch` | Phase 0, pre-foundation | Shape Up, ≤2 pages |
-| `product` | Phase 2+, post-walking-skeleton | Extended, ≤5 pages (domain ≤3) |
-
-Portfolio scope has no stage flag.
+| `product` | Phase 2+, post-walking-skeleton | Extended, ≤5 pages |
 
 ## Supporting files
 
@@ -70,33 +50,14 @@ Portfolio scope has no stage flag.
 
 ## Related skills
 
-- Roadmap → `roadmap`
-- Backlog → `backlog`
-- Architecture → `solution`
+- `roadmap`, `backlog`, `solution`
 
 ## Router
 
-1. **Determine mode** — `write`, `review`, or `refine`.
-2. Read and follow **exactly one** mode prompt:
-   - write → [prompts/write.prompt.md](prompts/write.prompt.md)
-   - review → [prompts/review.prompt.md](prompts/review.prompt.md)
-   - refine → [prompts/refine.prompt.md](prompts/refine.prompt.md)
+1. Mode: `write`, `review`, or `refine`.
+2. Target file: `docs/product/product.md`.
+3. One prompt: [prompts/write.prompt.md](prompts/write.prompt.md) | [prompts/review.prompt.md](prompts/review.prompt.md) | [prompts/refine.prompt.md](prompts/refine.prompt.md).
 
-**write** — `$1` = scope, `$2` = name (if needed), `--stage pitch|product`.
+**write** — `--stage pitch|product` (default: ask if unclear).
 
-**review** / **refine** — path to `product.md` as first argument after mode;
-optional `--context`.
-
-## Mode routing
-
-| User intent | Mode |
-| ----------- | ---- |
-| Draft PRD, product strategy, pitch | `write` |
-| Critique strategy, is this any good | `review` |
-| Stale doc, sprint learnings, update baselines | `refine` |
-
-## Cross-mode rules
-
-- **review** challenges quality; **refine** updates currency without re-authoring.
-- Wrong thesis → **review**, not **refine**.
-- Technical content → **solution**, not product modes.
+**review** / **refine** — optional `--context`.
