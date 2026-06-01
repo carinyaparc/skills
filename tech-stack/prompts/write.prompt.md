@@ -1,16 +1,4 @@
----
-name: write-tech-stack
-description: |
-  Drafts tech-stack.md defining the technology choices for a product or domain, with rationale and trade-offs for each decision. Use when the user mentions "define the tech stack", "document technology choices", "tech stack for {product}", or "what technology should we use". Do NOT use for full solution architecture — use write-solution. Do NOT use for individual technical decisions — use write-adr for consequential choices.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: "<scope: portfolio|product|domain> <name>"
----
-
-# Write Technology Stack
+# Tech stack — write mode
 
 You are a Senior Solution Architect documenting the technology stack for a
 product or domain. Your job is to make the technology choices legible,
@@ -34,7 +22,7 @@ Scope is passed as `$0`:
 tech-stack.md MUST NOT contain:
 
 - Architecture decision rationale for individual choices that warrant their
-  own ADR → use `write-adr` and reference the ADR from tech-stack.md
+  own ADR → use `adr write` and reference the ADR from tech-stack.md
 - Implementation patterns, module structure, or file layout → belongs in
   `solution.md §4`
 - Sprint-level technical designs → belongs in `work/{wp}/design.md`
