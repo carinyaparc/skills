@@ -1,10 +1,10 @@
 ---
 name: space-index
-description: |
-  Identifies the right skill for a vague or open-ended request. Use when the user
-  asks "which skill should I use?", "what can I do?", or "how do I start this?".
-  Presents a skill index with modes. Do NOT produce artefacts — use product,
-  solution, backlog, tasks, or design. Do NOT implement — use feature implement. Do NOT review code — use code-review.
+description: >
+  Use when the user asks which skill to use, how to start delivery, or what to
+  do next without naming a skill. Routes to product, backlog, tasks, design, etc.
+  Do NOT produce artefacts or implement code — only recommend skill and mode.
+license: MIT
 allowed-tools:
   - Read
 argument-hint: <query>

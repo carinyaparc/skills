@@ -1,10 +1,11 @@
 ---
 name: sprint
-description: |
-  Sprint planning and retrospectives under work/sprint-{id}/. Modes: plan (sprint
-  plan.md before the sprint), retrospective (honest retro after). Use for sprint
-  plan, sprint retro, start sprint, end sprint. Do NOT update product strategy —
-  use product refine. Do NOT break down tasks — use tasks.
+description: >
+  Use when the user wants a sprint plan before the sprint or a retrospective
+  after, under work/sprint-{id}/plan.md or retrospective.md. Do NOT use for
+  product strategy (product), task Gherkin (tasks), epic doc refine pass (docs
+  refine), or epic validation (validate).
+license: MIT
 allowed-tools:
   - Read
   - Write

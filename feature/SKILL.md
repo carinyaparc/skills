@@ -1,10 +1,11 @@
 ---
 name: feature
-description: |
-  Implements a task against approved design.md and tasks.md. Use when the
-  user mentions implement story, build the feature, or feature implementation.
-  Do NOT use for code review — use code-review. Do NOT use for refactor after
-  review — use code-refactor.
+description: >
+  Use when the user wants to implement a story or task in code against approved
+  design.md and work/{epic}/tasks.md. Do NOT use for code review (code-review),
+  refactor after review (code-refactor), writing tasks (tasks), or design
+  (design write).
+license: MIT
 allowed-tools:
   - Read
   - Write

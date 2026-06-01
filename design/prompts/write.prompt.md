@@ -3,7 +3,8 @@
 You are a Senior Software Architect writing epic-level `design.md` for
 `work/{epic}/`. Resolve `{epic}` from the argument or `docs/product/backlog.md`.
 
-Read [SKILL.md](../SKILL.md) and [backlog/SKILL.md](../../backlog/SKILL.md).
+Read [SKILL.md](../SKILL.md) and
+[../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).
 
 Parent solution: `docs/architecture/solution.md` — cite sections; do not re-narrate.
 
@@ -30,16 +31,24 @@ Delete the `DRAFTING AIDE` block before saving.
 ## Steps (walking-skeleton)
 
 1. Read solution.md and epic in backlog.md
-2. §1 The slice, §2 Files shipped, §3 Acceptance gates, §4 Out of scope for this epic
-3. §5 Open questions closed, §6 Handoff to next epic
+2. Draft §1–§6 per template
+3. §4 must list what this epic did **not** ship
 
 ## Steps (TDD)
 
 1. Read all context
-2. §1 Scope, §2 Architecture fit, §3 Files, §4 Data contracts, §5 Runtime view
-3. §6 Cross-squad coordination (if applicable), §7 Error paths, §8 Observability
-4. §9 Testing strategy, §10 Acceptance gates, §11 Handoff, §12 Open questions
+2. Draft §1–§12 per template
+
+## Pre-save validation
+
+- [ ] Path is `work/{epic}/design.md` with correct slug (≤2 words, not Epic ID)
+- [ ] Solution cited by section; no duplicated architecture narrative
+- [ ] No Gherkin task scenarios (gates/slice only)
+- [ ] Mode-appropriate sections only (walking-skeleton vs tdd)
+- [ ] DRAFTING AIDE removed
 
 ## Output
 
 Save to `work/{epic}/design.md`. Use [assets/design.template.md](../assets/design.template.md).
+
+**Handoff:** suggest `tasks write {epic}`.

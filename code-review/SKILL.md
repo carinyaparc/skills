@@ -1,10 +1,10 @@
 ---
 name: code-review
-description: |
-  Performs a comprehensive code review of changes in a branch or PR against
-  design.md and tasks.md acceptance criteria. Use when the user mentions code
-  review, review this PR, review this branch, or review this code. Do NOT use to
-  implement — use feature implement. Do NOT use to fix findings — use code-refactor.
+description: >
+  Use when the user wants a code review of a branch, PR, or diff against
+  design.md and tasks.md acceptance criteria. Do NOT use to implement (feature),
+  fix findings (code-refactor), or epic completion sign-off (validate).
+license: MIT
 allowed-tools:
   - Read
   - Write

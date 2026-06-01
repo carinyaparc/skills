@@ -2,16 +2,21 @@
 
 Review `work/{epic}/tasks.md` for sprint readiness.
 
-Read [SKILL.md](../SKILL.md). Resolve `{epic}` from the argument or backlog.
+Read [SKILL.md](../SKILL.md) and
+[../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).
+Resolve `{epic}` from the argument or backlog.
 
 ## Context
 
 [Required: tasks.md. Recommended: design.md, backlog epic row, solution.md]
 
-## Review criteria
+## Review checklist
 
-Sprint feasibility, task independence, Gherkin required, EARS conditional (see SKILL.md),
-traceability to design.md, DoD, naming vs solution.md.
+- [ ] Every task has ≥1 Gherkin scenario; `Then` clauses are observable
+- [ ] Tasks trace to design.md sections; no scope outside epic
+- [ ] Sprint feasibility: dependencies acyclic; estimates present
+- [ ] No architecture re-write; no new epics
+- [ ] EARS only where warranted (or `--ears` was requested on write)
 
 ## Verdict
 
@@ -19,4 +24,4 @@ traceability to design.md, DoD, naming vs solution.md.
 
 ## Output
 
-Amend tasks.md; report findings.
+Amend tasks.md for non-blocking fixes; report findings.

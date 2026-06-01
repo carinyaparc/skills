@@ -1,9 +1,11 @@
 ---
 name: product
-description: |
-  product.md — default docs/product/product.md. Modes: write (pitch or full
-  strategy), review, refine. Use for product doc, PRD, product strategy.
-  Do NOT use for roadmaps or architecture.
+description: >
+  Use when the user wants a product strategy doc, PRD, pitch, vision, personas,
+  or outcomes at docs/product/product.md (write, review, refine). Do NOT use for
+  phased delivery plan (roadmap), epics or backlog (backlog), architecture
+  (solution), tasks or Gherkin (tasks), or implementation (feature).
+license: MIT
 allowed-tools:
   - Read
   - Write
@@ -24,21 +26,11 @@ Readable by a non-technical stakeholder without a glossary.
 If the user names a different file path in their request, read and write that
 path instead of the default.
 
-## Frontmatter
+## Gotchas
 
-```yaml
-type: Product Strategy
-```
-
-## Cross-artifact boundaries
-
-Do NOT put in `product.md`:
-
-- File paths, modules, classes, APIs, schemas, tech stack → `docs/architecture/solution.md`
-- ADR rationales → `docs/architecture/solution.md` (ADR log section)
-- Epic lists or delivery sequencing → `docs/product/roadmap.md`, `docs/product/backlog.md`
-
-Delete the `DRAFTING AIDE` comment block before saving.
+- **No file paths, APIs, or schemas** — those belong in solution.md.
+- **No epic tables** — roadmap and backlog own sequencing and epics.
+- **Delete DRAFTING AIDE** block before saving.
 
 ## Stage (write mode)
 
@@ -63,5 +55,3 @@ Delete the `DRAFTING AIDE` comment block before saving.
 3. One prompt under [prompts/](prompts/).
 
 **write** — `--stage pitch|product` (default: ask if unclear).
-
-**review** / **refine** — optional `--context`.

@@ -1,0 +1,17 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate skill frontmatter and epic paths
+        run: |
+          chmod +x scripts/validate-skills.sh backlog/scripts/check-epic-paths.sh
+          ./scripts/validate-skills.sh

@@ -1,30 +1,42 @@
 ---
 name: design
-description: |
-  Epic design at work/{epic}/design.md: write (walking-skeleton or TDD) or review.
-  Use for technical design before tasks. Cite solution.md — do not re-narrate.
-  Do NOT use for product backlog — use backlog. Do NOT write tasks.md — use tasks.
+description: >
+  Use when the user wants epic-level technical design at work/{epic}/design.md,
+  walking-skeleton or TDD design, or design review before tasks. Pass epic slug or
+  ID (CHK01). Cite solution.md — do not re-narrate architecture. Do NOT use for
+  product backlog or epics (backlog), task Gherkin (tasks), system-wide
+  architecture (solution), ADR write (adr), code implementation (feature), or
+  doc-only sprint-end pass (docs refine).
+license: MIT
 allowed-tools:
   - Read
   - Write
   - Glob
   - Grep
-argument-hint: "<mode: write|review> <epic> [flags]"
+argument-hint: "<mode: write|review> <epic> [--mode walking-skeleton|tdd] [--context <notes>]"
 ---
 
 # Design
+
+## Conventions
+
+Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+when resolving `{epic}` or checking artefact boundaries.
 
 ## Artefact
 
 `work/{epic}/design.md` — implementation specification for one epic (walking-skeleton or TDD).
 
-## Epic slug (`{epic}`)
-
-Kebab-case from epic title or short title, max two words (see **backlog** SKILL.md). User may pass slug, epic ID, or full path.
-
 ## Path resolution
 
 Default: `work/{epic}/design.md`. User-named paths under `work/` override.
+
+## Gotchas
+
+- **Do not copy solution.md** — cite `solution.md §{N.M}` instead.
+- **Task Gherkin** belongs in `tasks.md`, not design (gates/slice scope only).
+- **`walking-skeleton`** is 2–4 pages; **`tdd`** is 5–10 — do not mix section sets.
+- **§4 Out of scope** must list what this epic explicitly did not ship.
 
 ## Supporting files
 

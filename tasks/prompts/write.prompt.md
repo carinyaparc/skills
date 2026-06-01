@@ -2,7 +2,8 @@
 
 Break an **epic** into implementable tasks with Gherkin-first acceptance criteria.
 
-Read [SKILL.md](../SKILL.md) and [backlog/SKILL.md](../../backlog/SKILL.md) for `{epic}` slug rules.
+Read [SKILL.md](../SKILL.md) and
+[../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).
 
 ## Path
 
@@ -28,9 +29,19 @@ Recommended: docs/product/backlog.md (epic row), docs/architecture/solution.md]
 ## Steps
 
 1. Read design.md (or spec), epic in backlog.md, solution.md
-2. Summary, conventions, tasks with canonical schema, traceability, DoD, handoff
+2. Draft using [assets/tasks.template.md](../assets/tasks.template.md)
+3. Summary, conventions, tasks with canonical schema, traceability, DoD, handoff
+
+## Pre-save validation
+
+- [ ] `{epic}` slug resolved correctly (ID → backlog row, not folder named `CHK01`)
+- [ ] Every task has ≥1 Gherkin scenario with observable `Then` clauses
+- [ ] No new epics, no architecture narrative, no full design copy-paste
+- [ ] Task IDs match epic prefix from backlog conventions
+- [ ] Depends-on references valid task IDs only
 
 ## Output
 
-[assets/tasks.template.md](../assets/tasks.template.md).
 Example: [examples/checkout-foundation.md](../examples/checkout-foundation.md).
+
+**Handoff:** suggest **feature implement** per task when design and tasks are approved.

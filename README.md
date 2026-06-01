@@ -43,7 +43,10 @@ Each skill documents default paths under `docs/` and `work/{epic}/`. Epic folder
 
 Skills follow the [Agent Skills](https://github.com/agentskills/agentskills) layout:
 `SKILL.md`, `prompts/` for mode instructions, `assets/*.template.md` for artefact
-scaffolds, and `examples/` for reference outputs.
+scaffolds, `examples/` for reference outputs, and `evals/` for trigger and output
+test cases. Shared path and boundary rules live in
+[backlog/references/delivery-conventions.md](backlog/references/delivery-conventions.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring and evaluation workflow.
 
 Skills work with [Cursor](https://cursor.com/docs/skills),
 [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), and any

@@ -1,8 +1,12 @@
 ---
 name: solution
-description: |
-  solution.md — default docs/architecture/solution.md. Modes: write (stub or
-  full arc42-lite), review, refine. Do NOT use for business strategy — use product.
+description: >
+  Use when the user wants to write, review, or refine system architecture at
+  docs/architecture/solution.md (stub or full arc42-lite). Do NOT use for business
+  strategy (product), delivery phases (roadmap), epic list (backlog), per-epic
+  design.md (design), task Gherkin (tasks), or ADR files (adr write). Story AC
+  belongs in work/{epic}/tasks.md.
+license: MIT
 allowed-tools:
   - Read
   - Write
@@ -12,6 +16,11 @@ argument-hint: "<mode: write|review|refine> [--stage stub|full] [--context <note
 ---
 
 # Solution
+
+## Conventions
+
+Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+for artefact boundaries.
 
 ## Artefact
 
@@ -29,10 +38,11 @@ path instead of the default.
 | `stub` | Phase 0 | §1–§2 only; §3–11 scaffolded |
 | `full` | Phase 2+ | All eleven sections |
 
-## Cross-artifact boundaries
+## Gotchas
 
-Do NOT put in `solution.md`: business strategy → `docs/product/product.md`; story
-AC → `work/{epic}/tasks.md`; phase sequencing → `docs/product/roadmap.md`.
+- **Per-epic files/APIs** → cite from `work/{epic}/design.md`, don't duplicate full specs.
+- **Story-level Gherkin** → `tasks.md`, not solution.
+- **Closed ADRs** → `ADR-NNNN-*.md`; proposals stay in register only.
 
 ## Supporting files
 

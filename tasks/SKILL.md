@@ -1,9 +1,13 @@
 ---
 name: tasks
-description: |
-  Breaks epic design or spec into work/{epic}/tasks.md with Gherkin AC (EARS when
-  --ears or warranted). Modes write, review, refine. Use after design for an epic.
-  Do NOT use for product backlog — use backlog. Do NOT implement — use feature.
+description: >
+  Use when the user wants to break an epic into tasks.md, write Gherkin acceptance
+  criteria, refine sprint-ready tasks, or review task breakdown for an epic
+  (checkout-foundation, CHK01, etc.). Default work/{epic}/tasks.md. Do NOT use for
+  epic list or work paths (backlog), product backlog stories only (backlog),
+  design.md (design), code implementation (feature), PR code review
+  (code-review), or epic completion sign-off (validate). EARS with --ears.
+license: MIT
 allowed-tools:
   - Read
   - Write
@@ -14,21 +18,15 @@ argument-hint: "<mode: write|review|refine> <epic> [--ears] [--context <notes>]"
 
 # Tasks
 
+## Conventions
+
+Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+when resolving `{epic}` or checking where content belongs.
+
 ## Artefact
 
 Default path: `work/{epic}/tasks.md` — tasks for one epic with Gherkin acceptance
 criteria by default.
-
-## Epic slug (`{epic}`)
-
-Kebab-case from the epic **title or short title**, **max two words** (see **backlog** SKILL.md).
-Examples: `checkout-foundation`, `payment-placement`.
-
-The user may pass:
-
-- The slug (`checkout-foundation`)
-- The epic ID (`CHK01`) — resolve slug from `docs/product/backlog.md`
-- A path (`work/checkout-foundation/` or `work/checkout-foundation/tasks.md`)
 
 ## Path resolution
 
@@ -50,13 +48,12 @@ Design (section link), **Acceptance (Gherkin)**.
 
 **Optional EARS:** with `--ears` or when rules warrant it (see write prompt).
 
-## Cross-artifact boundaries
+## Gotchas
 
-Do NOT put in `tasks.md`:
-
-- New epics → `docs/product/backlog.md`
-- Architecture → `docs/architecture/solution.md` or ADRs
-- Full design narrative → `work/{epic}/design.md`
+- **`CHK01` is not `{epic}`** — resolve slug from backlog (e.g. `checkout-foundation`).
+- **Do not add epics** here — new epics go in `docs/product/backlog.md`.
+- **Design narrative** stays in `design.md`; tasks link to design sections only.
+- **Gherkin `Then`** must be observable (no "should work correctly").
 
 ## Supporting files
 

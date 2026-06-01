@@ -1,8 +1,13 @@
 ---
 name: docs
-description: |
-  Pre-sprint alignment (review) or sprint-end documentation pass (refine) for an epic.
-  Product and solution under docs/; epic artefacts under work/{epic}/.
+description: >
+  Use for pre-sprint documentation alignment (review) or sprint-end epic
+  documentation pass (refine) — product, solution, and work/{epic}/design.md.
+  Produces refine-session.md on refine. Do NOT use for sprint retrospective
+  (sprint retrospective), epic validation against AC (validate), writing backlog
+  (backlog), or initial architecture (solution write). Not a substitute for code
+  review (code-review).
+license: MIT
 allowed-tools:
   - Read
   - Write
@@ -12,6 +17,11 @@ argument-hint: "<mode: review|refine> <epic> [--context <notes>]"
 ---
 
 # Docs
+
+## Conventions
+
+Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+when resolving `{epic}`.
 
 Pre-sprint and sprint-end passes on product, solution, and epic design.
 
@@ -25,11 +35,11 @@ Pre-sprint and sprint-end passes on product, solution, and epic design.
 | Epic design | `work/{epic}/design.md` |
 | Refine session | `work/{epic}/refine-session.md` |
 
-`{epic}` is the title or short title slug (max two words) — see **backlog** SKILL.md.
+## Gotchas
 
-## Path resolution
-
-User-named paths override defaults.
+- **Sprint retro** is `sprint retrospective`, not docs refine.
+- **Task AC** stays in `tasks.md` — refine does not rewrite Gherkin.
+- **ADR candidates** from design triage go to register via **adr**, not inline in solution.
 
 ## Supporting files
 

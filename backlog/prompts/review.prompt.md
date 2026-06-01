@@ -2,7 +2,8 @@
 
 Critical review of the **product backlog** for planning readiness.
 
-Read [SKILL.md](../SKILL.md) for path resolution and epic work folders.
+Read [SKILL.md](../SKILL.md) and
+[references/delivery-conventions.md](../references/delivery-conventions.md).
 
 ## Path
 
@@ -25,14 +26,14 @@ Optional: sprint retrospective notes]
 3. Verify each epic has a valid `work/{epic}/` path (title or short title slug, max two words)
 4. Apply epic criteria; amend unambiguous fixes; report verdict
 
-## Epic review criteria
+## Review checklist
 
-- Now-phase epics trace to product.md §7 outcomes
-- No contradiction with product §5 or roadmap deferred items
-- Epic granularity: one integration boundary / phase objective per epic
-- Work paths are unique and match title or short title slugs
-- Dependencies and estimates sound
-- Stories in product backlog are high-level only — flag full Gherkin as misplaced
+- [ ] Now-phase epics trace to product.md §7 outcomes
+- [ ] No contradiction with product §5 or roadmap deferred items
+- [ ] Epic granularity: one integration boundary / phase objective per epic
+- [ ] Work paths unique; slugs match title/short title (not Epic ID)
+- [ ] No full Gherkin in product backlog
+- [ ] Dependencies and estimates sound
 
 ## Verdict
 

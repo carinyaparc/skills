@@ -3,6 +3,10 @@
 You are a QA Lead performing a final stakeholder review to confirm an epic is
 production-ready and every acceptance criterion is satisfied.
 
+Read [SKILL.md](../SKILL.md) and
+[../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).
+Resolve `{epic}` from the user's epic slug or Epic ID via `docs/product/backlog.md`.
+
 ## Negative constraints
 
 A validation report MUST NOT:
@@ -103,7 +107,16 @@ Based on the acceptance matrix, update `work/{epic}/tasks.md`:
    `work/{epic}/tasks.md` following existing ID and format conventions
 5. **Epic status**: Update epic status in `docs/product/backlog.md` when the epic is complete
 
-### Phase 7: Produce the validation report
+### Phase 7: Pre-report validation
+
+Before writing the report, confirm:
+
+- [ ] Every task in `work/{epic}/tasks.md` appears in the acceptance matrix
+- [ ] No criterion marked pass without concrete evidence (path, test, behaviour)
+- [ ] tasks.md and backlog.md updates preserve existing ID and format conventions
+- [ ] Epic status in backlog set to complete only if all tasks are verified done
+
+### Phase 8: Produce the validation report
 
 ## Quality rules
 

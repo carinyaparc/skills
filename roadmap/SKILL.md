@@ -1,9 +1,11 @@
 ---
 name: roadmap
-description: |
-  roadmap.md — default docs/product/roadmap.md. Modes: write, review, refine.
-  Outcome-based phases with exit criteria. Requires product.md for write mode.
-  Do NOT list epics — use backlog.
+description: >
+  Use when the user wants outcome-based delivery phases, exit criteria, or
+  roadmap review at docs/product/roadmap.md. Requires product.md for write. Do
+  NOT use for epic breakdown or work paths (backlog), PRD (product), per-epic
+  design (design), tasks (tasks), or architecture detail (solution).
+license: MIT
 allowed-tools:
   - Read
   - Write
@@ -23,11 +25,10 @@ Default path: `docs/product/roadmap.md` — outcome-based phases with exit crite
 If the user names a different file path in their request, read and write that
 path instead of the default.
 
-## Cross-artifact boundaries
+## Gotchas
 
-Do NOT put in `roadmap.md`: story AC or epic detail → `docs/product/backlog.md`;
-tech stack or architecture → `docs/architecture/solution.md`; business strategy →
-`docs/product/product.md`.
+- **Epic rows and work paths** belong in backlog, not roadmap.
+- **Story AC** belongs in tasks.md, not phase exit criteria (keep exit criteria verifiable at phase level).
 
 ## Supporting files
 

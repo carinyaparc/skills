@@ -1,8 +1,11 @@
 ---
 name: adr
-description: |
-  ADRs under docs/architecture/decisions/. Modes: plan (register tables), write,
-  review. Proposals live in register.md only.
+description: >
+  Use when the user wants ADR register planning, writing ADR-NNNN files, or ADR
+  review under docs/architecture/decisions/. Do NOT use for full architecture
+  narrative (solution), epic design (design), or product strategy (product).
+  Proposals stay in register.md only until accepted.
+license: MIT
 allowed-tools:
   - Read
   - Write
