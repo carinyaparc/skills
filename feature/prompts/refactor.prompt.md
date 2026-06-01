@@ -22,10 +22,17 @@ be refactored, relevant existing codebase files]
    the finding
 5. Verify each change does not alter observable behaviour (no logic changes
    unless the review explicitly flagged a logic bug)
-6. Run the project's typecheck and test commands after each meaningful
-   change; fix any failures before moving on
-7. Review the full diff with `git diff` before committing
-8. Commit in logical units tied to the findings: `refactor(module): what
+6. Run typecheck and tests after each individual fix to confirm behaviour is preserved before moving to the next finding.
+7. Discover and run the project's full validation suite before committing:
+   a. Check AGENTS.md (or CLAUDE.md) first; if not documented there, read the CI config or the project manifest to identify the project's validation commands
+   b. Run format check
+   c. Run lint
+   d. Run typecheck
+   e. Run build / compile (if the project has a compile or emit step)
+   f. Run tests
+   All checks must pass. Fix every failure before proceeding to step 8.
+8. Review the full diff with `git diff` before committing
+9. Commit in logical units tied to the findings: `refactor(module): what
 and why`
 
 ## Quality rules
@@ -55,6 +62,7 @@ Feature **refactor** mode addresses review feedback. It MUST NOT:
   wrong, fix the test logic, not the criterion.
 - Suppress or skip failing tests to make the build pass — fix the
   underlying issue or split the story.
+- Commit while any validation check is failing (format, lint, typecheck, build, or tests) — fix every failure or split the story.
 - Add comments that cite external markdown documents, ticket IDs, or
   cross-repo file paths. Code must stand on its own.
 - Perform cosmetic reformatting outside the files named in the review —
@@ -89,5 +97,6 @@ After completing the refactor, write a summary:
 - Format: pass
 - Lint: pass (no new warnings)
 - Typecheck: pass
+- Build: pass (or n/a -- no compile step)
 - Tests: 14/14 pass
   </example>
