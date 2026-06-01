@@ -10,9 +10,26 @@ These skills are the executable form of a structured delivery method:
 - **EARS + Gherkin** acceptance criteria at story level
 - **Negative constraints** — every skill explicitly states what it is *not* for
 
-Designed to compose: each skill consumes upstream artefacts (`product.md`, `solution.md`,
-`backlog.md`, `design.md`, code) and produces a single named artefact downstream skills
-can read. Routing is description-based; **space-index** handles ambiguous requests.
+Designed to compose: each skill consumes upstream artefacts and produces a single
+named artefact downstream skills can read. Routing is description-based; **space-index**
+handles ambiguous requests.
+
+## Document layout (default)
+
+```text
+docs/
+├── product/
+│   ├── product.md
+│   ├── roadmap.md
+│   └── backlog.md
+└── architecture/
+    ├── solution.md
+    └── decisions/
+        ├── register.md
+        └── ADR-NNNN-{title}.md
+```
+
+Work-package artefacts (`work/{wp}/design.md`, `backlog.md`, etc.) stay under `work/` until domain layout is defined.
 
 Skills work with [Cursor](https://cursor.com/docs/skills),
 [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), and any
@@ -20,101 +37,61 @@ Skills work with [Cursor](https://cursor.com/docs/skills),
 
 ## Install
 
-Install everything:
-
 ```bash
 npx skills@latest add daddia/skills
-```
-
-Install one skill:
-
-```bash
 npx skills@latest add daddia/skills/backlog
 ```
 
-Source: skills are authored in
-[github.com/daddia/space](https://github.com/daddia/space) under
-`packages/skills/`. This repo is the public-facing distribution; PRs are welcome
-upstream.
+Source: [github.com/daddia/space](https://github.com/daddia/space) under `packages/skills/`.
 
 ## Skill catalogue
 
-Each topic skill uses `prompts/{mode}.prompt.md` for mode-specific instructions.
-
 | Skill | Modes | Artefact |
 | ----- | ----- | -------- |
-| **product** | write, review, refine | `product.md` |
-| **roadmap** | write, review, refine | `roadmap.md` |
-| **solution** | write, review, refine | `solution.md` |
-| **backlog** | write, review, refine | `backlog.md` |
-| **design** | write, review | `design.md` (work package) |
+| **product** | write, review, refine | `docs/product/product.md` |
+| **roadmap** | write, review, refine | `docs/product/roadmap.md` |
+| **backlog** | write, review, refine | `docs/product/backlog.md` or `work/{wp}/backlog.md` |
+| **solution** | write, review, refine | `docs/architecture/solution.md` |
+| **design** | write, review | `work/{wp}/design.md` |
 | **docs** | review, refine | review / `refine-session.md` |
-| **adr** | plan, write, review | `adr-plan.md`, `ADR-NNNN.md` |
+| **adr** | plan, write, review | `register.md`, `ADR-NNNN.md` |
 | **feature** | implement | code |
 | **code-review** | run | code review |
 | **code-refactor** | run | code |
-| **contracts** | write | `contracts.md` |
-| **tech-stack** | write | `tech-stack.md` |
-| **delivery** | plan | `delivery-plan.md` |
 | **validate** | run | validation report |
 | **create-mr** | run | MR / PR |
 | **retrospective** | write | `retrospective.md` |
-| **metrics-report** | write | `metrics-report.md` |
 | **space-index** | run | routing |
 
-### Examples
-
-```bash
-npx skills@latest add daddia/skills/product
-npx skills@latest add daddia/skills/backlog
-npx skills@latest add daddia/skills/feature
-```
-
-Invoke with mode as the first argument, e.g. `/backlog write domain checkout`.
+Invoke with mode first, e.g. `/product write --stage pitch`, `/backlog write work-package checkout-01`.
 
 ## Planning & strategy
 
-- **delivery** — `delivery plan` sequences Phase-0 artefacts before the foundation sprint.
-- **product** — Portfolio, product, or domain `product.md` (pitch or full strategy).
+- **product** — Pitch or full `product.md`.
 - **roadmap** — Outcome-based phases with exit criteria.
-- **backlog** — Epic- or story-level backlog with EARS + Gherkin at WP scope.
+- **backlog** — Epic-level under `docs/product/`; stories under `work/{wp}/`.
 
 ## Architecture & design
 
-- **solution** — Stub or full arc42-lite `solution.md`.
-- **tech-stack** — Technology choices with rationale.
-- **contracts** — Executable contract index for a domain.
-- **adr** — Plan, write, and review architecture decision records.
-- **design** — Work-package `design.md` (walking-skeleton or TDD).
+- **solution** — Stub or full arc42-lite architecture.
+- **adr** — Proposed rows in `register.md`; full ADRs as `ADR-NNNN-{title}.md`.
+- **design** — Work-package `design.md`.
 
 ## Implementation
 
-- **feature** — Implement a story against `design.md` and `backlog.md`.
-- **code-review** — Review a branch or PR against design and acceptance criteria.
-- **code-refactor** — Address review feedback without changing behaviour.
-- **validate** — Epic completion validation against AC and roadmap gates.
-- **create-mr** — Open merge request with generated description.
+- **feature**, **code-review**, **code-refactor**, **validate**, **create-mr**
 
 ## Review & refine
 
-Topic skills include **review** and **refine** modes where applicable (see table above).
-
-- **docs** — Pre-sprint alignment review or sprint-end `refine-session.md`.
-- **retrospective** — Sprint or epic retrospective.
-- **metrics-report** — Delivery and quality actuals.
+- **docs**, **retrospective**, topic **review** / **refine** modes
 
 ## Routing
 
-- **space-index** — Pick the right skill and mode for vague requests.
+- **space-index** — Pick skill and mode for vague requests.
 
 ## Compatibility
 
-These skills follow the [open agent skills](https://github.com/vercel-labs/skills)
-specification. They install into:
-
-- `.cursor/skills/` (Cursor 2.4+)
-- `.claude/skills/` (Claude Code)
-- `.agents/skills/` (canonical, picked up by both natively)
+[open agent skills](https://github.com/vercel-labs/skills) — `.cursor/skills/`, `.claude/skills/`, `.agents/skills/`.
 
 ## License
 

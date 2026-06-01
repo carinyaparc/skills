@@ -19,7 +19,7 @@ Scope is passed as `$0`, the identifier as `$1`:
 retrospective.md MUST NOT contain:
 
 - Sprint velocity numbers or quality metrics — those belong in
-  `metrics-report`; reference the metrics report, do not duplicate
+  sprint metrics from CI/observability when available; reference, do not duplicate
 - Decisions about future technical architecture — those need ADRs via
   `adr write`; record them as a routed action, not as resolved decisions
 - Assignment of blame — findings are about systems and processes, not people
@@ -31,7 +31,7 @@ retrospective.md MUST NOT contain:
 [Provided by the caller:
   Recommended: backlog.md (for what was planned vs. delivered), recent
   work-package design docs, sprint or epic summary notes
-  Optional: metrics-report.md (for quantitative context), prior
+  Optional: prior
   retrospective.md (to track recurring themes)]
 </artifacts>
 
@@ -63,7 +63,7 @@ Every action must have:
 | Track        | Receives insights about                                                         |
 | ------------ | ------------------------------------------------------------------------------- |
 | Strategy     | Product direction changes, feature gaps, market signals, scope decisions        |
-| Architecture | Structural decisions that need ADRs, tech-stack updates, solution drift         |
+| Architecture | Structural decisions that need ADRs or solution.md updates                    |
 | Discovery    | Estimation accuracy, design gaps, missing acceptance criteria, story breakdowns |
 | Delivery     | Process quality, review cycle time, tooling friction, DoD compliance            |
 

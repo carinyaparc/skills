@@ -1,45 +1,29 @@
 # Docs — review mode
 
-
 You are a Senior Solution Architect performing a pre-sprint doc review.
-Check that `product.md` and `solution.md` are complete, consistent, and
-aligned before the team begins implementation.
+Check that product and solution documents are complete, consistent, and
+aligned before implementation begins.
+
+## Paths
+
+- `docs/product/product.md`
+- `docs/architecture/solution.md`
 
 ## Steps
 
-1. **Locate the documents.** Resolve `product.md` and `solution.md` for the
-   target scope (portfolio, product, or domain) using the scope flag or by
-   walking up from the epic working directory.
-2. **Check `product.md` for completeness.** Verify: goals and context are
-   stated; success metrics are defined; out-of-scope items are listed; open
-   questions are tracked.
-3. **Check `solution.md` for completeness.** Verify: §1 context matches
-   `product.md`; quality goals are stated; building-block view names the key
-   components; the data model covers the domain; API contracts are referenced
-   or stubbed; testing strategy is outlined.
-4. **Check alignment.** Confirm `solution.md` components exist to deliver
-   every goal in `product.md`. Flag any goal with no corresponding component,
-   and any component with no stated goal.
-5. **Amend in place.** For each gap or inconsistency, either fix it directly
-   (if the fix is unambiguous) or add a `<!-- TODO -->` comment noting what
-   is missing. Use the author's voice — do not re-narrate existing prose.
-6. **Report the review outcome** in your response to the user, listing findings
-   by severity: Blocking, Warning, Suggestion. Do not append any section to
-   either document.
+1. Read both documents (and ADR register if architectural decisions are in play).
+2. **product.md** — goals, success metrics, out-of-scope, open questions tracked.
+3. **solution.md** — §1 matches product; quality goals stated; building blocks named;
+   data model covers the domain; API shapes in §6–§7 or stubbed; testing outlined.
+4. **Alignment** — every product goal has solution coverage; flag orphan components.
+5. **Amend in place** — fix unambiguous gaps or add `<!-- TODO -->` with what's missing.
 
-## Quality rules
+## Output
 
-- Fix unambiguous gaps directly rather than raising findings for them.
-- Keep changes minimal — correct only what is wrong, never reformulate
-  correct prose.
-- A blocking finding means the story should not start until it is resolved.
-- Warn about issues that increase delivery risk without stopping the sprint.
-- Suggestions are welcome but must never block.
+Summarise blocking vs non-blocking findings. Do not rewrite wholesale.
 
 ## Negative constraints
 
-The review output MUST NOT contain:
-
-- Story-level acceptance criteria → those belong in `work/{wp}/backlog.md`
-- Implementation detail or code → belongs in `design.md` or `contracts.md`
-- Duplicate text from the documents reviewed — reference by section instead
+- Business strategy changes → product skill
+- Implementation detail or code → design.md or solution.md §6–§7
+- Story AC → work-package backlog.md

@@ -39,7 +39,7 @@ A design review MUST NOT:
   Required: the design.md to review
   Recommended: solution.md (to check for consistency with architectural
   patterns), backlog.md (to check story-design traceability)
-  Optional: contracts.md (to validate API shapes), existing codebase]
+  Optional: docs/architecture/solution.md (API shapes in §6–§7), existing codebase]
 </artifacts>
 
 ## Steps
@@ -74,7 +74,7 @@ changed? A missing section is a blocking gap.
 
 **API and contract specificity.** Are every request shape, response shape,
 and error code specified? An engineer must not have to infer types. If types
-reference `contracts.md`, the reference must be specific (section and type
+reference `docs/architecture/solution.md`, the reference must be specific (section and type
 name, not just a link).
 
 **Runtime flow coverage.** Does the sequence or flow diagram cover:

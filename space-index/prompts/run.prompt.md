@@ -16,28 +16,22 @@ below to identify the best match and direct them to the right skill.
 
 ## Skill index
 
-<!-- BEGIN GENERATED — do not edit; run `pnpm generate:index` to refresh -->
 | Skill | Description (excerpt) | Artefact | Track | Role | Consumes | Produces |
 | --- | --- | --- | --- | --- | --- | --- |
-| adr | Architecture decisions: plan, write, or review ADRs and adr-plan.md | ADR / adr-plan | architecture | architect | solution.md | ADR-NNNN.md |
-| backlog | backlog.md: write, review, or refine epics and stories | backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
+| adr | Plan (register tables), write, or review ADRs | register.md / ADR-NNNN.md | architecture | architect | solution.md | ADR-NNNN.md |
+| backlog | Epic or story backlog: write, review, refine | backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
 | feature | Implements a story against design.md and backlog.md | code | delivery | engineer | design.md, backlog.md | code |
-| code-review | Comprehensive code review of a branch or PR | code review | delivery | engineer | design.md, backlog.md | review |
-| code-refactor | Refactoring to address code review feedback without behaviour change | code | delivery | engineer | review, code | code |
-| contracts | Produces contracts.md — types, Zod schemas, API contracts | contracts.md | architecture | architect | solution.md | contracts.md |
-| create-mr | Creates merge request for current branch after implementation | MR description | delivery | engineer | — | MR description |
-| design | work-package design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
-| docs | Pre-sprint doc review or sprint-end refine-session.md | doc review / refine-session | refine / discovery | architect | product.md, solution.md | review / refine-session |
-| metrics-report | metrics-report.md delivery and quality actuals | metrics-report.md | refine | delivery | metrics.md | metrics-report.md |
-| delivery | plan mode: sequences Phase-0 artefacts into delivery-plan.md | delivery-plan.md | strategy | pm | — | delivery-plan.md |
-| product | product.md: write, review, or refine strategy | product.md | strategy / refine | pm | — / product.md | product.md |
-| retrospective | retrospective.md for sprint or epic | retrospective.md | refine | delivery | backlog.md | retrospective.md |
-| roadmap | roadmap.md: write, review, or refine phased delivery | roadmap.md | strategy / refine | pm | product.md | roadmap.md |
-| solution | solution.md: write, review, or refine architecture | solution.md | architecture / refine | architect | product.md | solution.md |
+| code-review | Code review of a branch or PR | code review | delivery | engineer | design.md, backlog.md | review |
+| code-refactor | Refactor from review feedback without behaviour change | code | delivery | engineer | review, code | code |
+| create-mr | Merge request for current branch | MR description | delivery | engineer | — | MR description |
+| design | work/{wp}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
+| docs | Pre-sprint doc review or sprint-end refine-session | doc review / refine-session | refine / discovery | architect | product.md, solution.md | review / refine-session |
+| product | product.md: write, review, refine | docs/product/product.md | strategy / refine | pm | — / product.md | product.md |
+| retrospective | Sprint or epic retrospective | retrospective.md | refine | delivery | backlog.md | retrospective.md |
+| roadmap | Phased delivery roadmap | docs/product/roadmap.md | strategy / refine | pm | product.md | roadmap.md |
+| solution | Architecture solution.md | docs/architecture/solution.md | architecture / refine | architect | product.md | solution.md |
 | space-index | Routes vague requests to the right skill | skill-routing | utility | utility | — | skill-routing |
-| tech-stack | tech-stack.md technology choices and rationale | tech-stack.md | architecture | architect | product.md | tech-stack.md |
-| validate | Epic validation against backlog AC and roadmap gates | validation report | delivery | delivery | backlog.md, solution.md | validation |
-<!-- END GENERATED -->
+| validate | Epic validation vs AC and roadmap gates | validation report | delivery | delivery | backlog.md, solution.md | validation |
 
 ## Negative constraints
 

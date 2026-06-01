@@ -8,17 +8,8 @@ a work package. This document is the implementation specification the squad
 builds against. It lives at `work/{d}/{wp}/design.md` and sits one level below
 the owning domain or product solution document.
 
-The **parent solution** is the solution.md that covers the domain or product
-this work package belongs to:
-
-| Work package context          | Parent solution path                   |
-| ----------------------------- | -------------------------------------- |
-| Under a domain                | `domain/{d}/solution.md`               |
-| Under a portfolio sub-product | `product/{p}/architecture/solution.md` |
-| Under a single product        | `architecture/solution.md`             |
-
-References to "solution.md" throughout this skill mean the parent solution
-for this work package's context.
+The **parent solution** is `docs/architecture/solution.md`. References to
+"solution.md" throughout this skill mean that file.
 
 Mode is passed as `--mode`:
 
@@ -51,7 +42,7 @@ The design.md MUST NOT contain:
   Walking-skeleton mode: epic scope, list of stories from the parent backlog.md,
   parent solution.md (for pattern references)
   TDD mode: parent backlog.md (parent epic entry), work/{wp}/design.md context
-  (if updating), parent solution.md, parent contracts.md, relevant codebase
+  (if updating), docs/architecture/solution.md, relevant codebase
   files, Figma link (if applicable)]
 </artifacts>
 

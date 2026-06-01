@@ -52,7 +52,8 @@ This skill writes code against an approved design. It MUST NOT:
   `work/{d}/{wp}/backlog.md`; if scope needs to change, update the backlog
   first.
 - Introduce new public APIs or contract shapes that are not specified in
-  `contracts.md` or the design — if required, pause and update `contracts.md`.
+  `docs/architecture/solution.md` or the design — if required, pause and update
+  solution.md (or raise an ADR) before implementing.
 - Perform unsolicited refactoring outside the story's declared `Files Changed`
   set — scope creep invalidates the review.
 - Commit generated artefacts or build outputs — only source files tracked by

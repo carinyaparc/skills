@@ -3,7 +3,7 @@ name: retrospective
 description: |
   Drafts retrospective.md for a sprint or epic. Use for sprint retro, epic
   retrospective. Do NOT update product — use product refine. Do NOT collect
-  metrics — use metrics-report.
+  quantitative sprint data from CI or observability when available.
 allowed-tools:
   - Read
   - Write

@@ -11,7 +11,7 @@ last_updated: <!-- YYYY-MM-DD -->
 related:
   - <!-- solution.md -->
   - <!-- backlog.md -->
-  - <!-- contracts.md -->
+  - docs/architecture/solution.md
 ---
 
 <!--
