@@ -24,7 +24,7 @@ Mode is already `refine`. Scope is `$1`, name is `$2`. Optional:
 A backlog refinement MUST NOT:
 
 - Invent epics or stories not grounded in the product strategy and roadmap
-- Change the strategic direction of the product → that requires `review-product`
+- Change the strategic direction of the product → that requires `product` review mode
   or a planning session, not a grooming activity
 - Add technical architecture decisions to stories → belongs in `solution.md`
   or an ADR via `write-adr`

@@ -1,7 +1,7 @@
 ---
 name: plan-delivery
 description: |
-  Produces a delivery-plan.md that sequences the Phase-0 artefacts for a new portfolio, product, or domain before the foundation sprint starts. Use when the user mentions "plan delivery for {name}", "sequence the artefacts", or "how do I start this?". Do NOT use to author any individual artefact — use write-product, write-solution, write-roadmap, backlog (write mode), or write-contracts for that.
+  Produces a delivery-plan.md that sequences the Phase-0 artefacts for a new portfolio, product, or domain before the foundation sprint starts. Use when the user mentions "plan delivery for {name}", "sequence the artefacts", or "how do I start this?". Do NOT use to author any individual artefact — use product, solution, roadmap, backlog (write mode), or contracts for that.
 allowed-tools:
   - Read
   - Write
@@ -38,8 +38,8 @@ solution.md lives at `{prefix}solution.md` (i.e. `domain/{name}/solution.md`).
 1. **Confirm the scope, name, and business context.** Ask the user to summarise
    the item in one sentence. Record it in the plan header.
 
-2. **Product strategy — `write-product`.**
-   Invoke `write-product` with the matching scope (`portfolio`, `product`, or
+2. **Product strategy — `product` write mode.**
+   Invoke `product` with mode `write` and the matching scope (`portfolio`, `product`, or
    `domain`). Output: `{prefix}product.md`.
    For `portfolio` and `product` scopes, use pitch stage; for `domain`, also
    use pitch stage. Wait for approval before continuing.

@@ -26,7 +26,7 @@ as a blocker.
   write every missing EARS statement. It raises the finding; **refine** mode
   does the operational work.
 - It is NOT a product strategy review — product alignment findings point back
-  to `review-product`, not into the backlog itself.
+  to `product` review mode, not into the backlog itself.
 - It is NOT a rubber stamp — if the backlog is not ready, the verdict must
   say so clearly and block the sprint or planning cycle.
 

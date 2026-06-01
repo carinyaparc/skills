@@ -1,7 +1,7 @@
 ---
 name: review-design
 description: |
-  Reviews a work-package design.md for implementation readiness — checking that the design is implementable, APIs are fully specified, error handling covers all failure modes, and the test strategy is defined. Amends the document and appends a verdict. Use when the user mentions "review the design for {epic}", "is the WP design ready", or "check the design before the sprint". Do NOT use to review product strategy — use review-product. Do NOT use to review code — use review-code.
+  Reviews a work-package design.md for implementation readiness — checking that the design is implementable, APIs are fully specified, error handling covers all failure modes, and the test strategy is defined. Amends the document and appends a verdict. Use when the user mentions "review the design for {epic}", "is the WP design ready", or "check the design before the sprint". Do NOT use to review product strategy — use product review mode. Do NOT use to review code — use review-code.
 allowed-tools:
   - Read
   - Write

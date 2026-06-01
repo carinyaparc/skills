@@ -1,7 +1,7 @@
 ---
 name: space-index
 description: |
-  Identifies the right skill for a vague or open-ended request. Use when the user asks "which skill should I use?", "what can I do?", or "how do I start this?". Presents a CI-generated index of all stable skills with names, artefacts, phases, roles, and trigger conditions so the agent can route to the correct skill. Do NOT use to produce a delivery artefact -- use write-product, write-solution, backlog, or write-wp-design for that. Do NOT use to implement a story -- use implement.
+  Identifies the right skill for a vague or open-ended request. Use when the user asks "which skill should I use?", "what can I do?", or "how do I start this?". Presents a CI-generated index of all stable skills with names, artefacts, phases, roles, and trigger conditions so the agent can route to the correct skill. Do NOT use to produce a delivery artefact -- use product, solution, backlog, or design for that. Do NOT use to implement a story -- use implement.
 allowed-tools:
   - Read
 argument-hint: <query>
@@ -34,14 +34,13 @@ below to identify the best match and direct them to the right skill.
 | refactor-code | Performs targeted code refactoring to address issues raised in a code review or to improve quality without changing... | code | delivery | engineer | review, code | code |
 | backlog | backlog.md artefact: write, review, or refine mode. Draft, readiness gate, or groom epics/stories... | backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
 | refine-docs | Documents the sprint-end refinement session: promotes WP-local ADR candidates into solution.md, archives superseded... | refine-session.md | refine | architect | solution.md, design.md | refine-session.md |
-| refine-product | Refines product.md on a regular cadence by recording sprint learnings, updating metric baselines, closing resolved open... | product.md (refined) | refine | pm | product.md | product.md (refined) |
+| product | product.md artefact: write, review, or refine mode. Draft strategy, critical PM review, or post-sprint currency pass... | product.md | strategy / refine | pm | — / product.md | product.md |
 | refine-roadmap | Refines roadmap.md to reflect delivery reality — advancing phase status, recording exit-criteria evidence, updating... | roadmap.md (refined) | refine | pm | roadmap.md, product.md | roadmap.md (refined) |
 | refine-solution | Refines solution.md after a sprint or phase to reflect what was built — updating the building-block view, runtime... | solution.md (refined) | refine | architect | solution.md | solution.md (refined) |
 | review-adr | Reviews and finalises a draft Architecture Decision Record (ADR). Use when the user mentions "review this ADR",... | ADR review | architecture | architect | ADR-NNNN.md | review |
 | review-code | Performs a comprehensive code review of changes in a branch or PR. Use when the user mentions "review this code",... | code review | delivery | engineer | design.md, backlog.md | review |
 | review-design | Reviews a work-package design.md for implementation readiness — checking that the design is implementable, APIs are... | design.md review | discovery | architect | design.md, solution.md, backlog.md | design.md (amended), review summary |
 | review-docs | Reviews product.md and solution.md for completeness and alignment before development begins. Use when the user mentions... | doc review | discovery | architect | product.md, solution.md | review |
-| review-product | Reviews product.md at portfolio, product, or domain scope as a critical Senior Product Manager — checking strategy... | product.md review | strategy | pm | product.md | product.md (amended), review summary |
 | review-roadmap | Reviews roadmap.md at portfolio, product, or domain scope as a Senior Delivery Lead — checking phase coherence,... | roadmap.md review | strategy | pm | roadmap.md, product.md | roadmap.md (amended), review summary |
 | review-solution | Reviews solution.md as a Senior Solution Architect, checking structural soundness, section completeness, NFR... | solution.md review | architecture | architect | solution.md, product.md | solution.md (amended), review summary |
 | space-index | Identifies the right skill for a vague or open-ended request. Use when the user asks "which skill should I use?", "what... | skill-routing | utility | utility | — | skill-routing |
@@ -50,7 +49,6 @@ below to identify the best match and direct them to the right skill.
 | write-contracts | Produces contracts.md for a domain as an executable index of types, Zod schemas, API route contracts, and analytics... | contracts.md | architecture | architect | solution.md | contracts.md |
 | write-metrics | Drafts metrics.md defining north-star, input, and guardrail metrics for a domain. Use when the user mentions "write the... | metrics.md | discovery | pm | product.md | metrics.md |
 | write-metrics-report | Produces a metrics-report.md capturing actuals for delivery metrics (velocity, cycle time, PR merge rate) and quality... | metrics-report.md | refine | delivery | metrics.md | metrics-report.md |
-| write-product | Drafts product.md at portfolio, product, or domain scope. Portfolio scope binds multiple products with thesis,... | product.md | strategy | pm | — | product.md |
 | write-retrospective | Drafts a retrospective.md capturing what went well, what did not, and what to change, for a sprint or epic. Routes... | retrospective.md | refine | delivery | backlog.md | retrospective.md |
 | write-roadmap | Drafts roadmap.md at portfolio, product, or domain scope using outcome-based phases with exit criteria, not epic lists.... | roadmap.md | strategy | pm | product.md | roadmap.md |
 | write-solution | Drafts solution.md in stub mode (Phase 0, two sections) or full arc42-lite mode (Phase 2+, ten sections). Use when the... | solution.md | architecture | architect | product.md, contracts.md | solution.md |

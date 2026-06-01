@@ -1,70 +1,17 @@
----
-name: write-product
-description: |
-  Drafts product.md at portfolio, product, or domain scope. Portfolio scope binds multiple products with thesis, sequencing, and commercial model. Product scope produces a pitch (Phase 0, ≤2 pages) or full strategy (Phase 2+, ≤5 pages). Use when the user mentions "product doc", "PRD", "product strategy", or "what are we building". Do NOT include tech stack — use write-solution. Do NOT use for roadmaps — use write-roadmap. Do NOT review an existing strategy — use review-product.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: "<scope: portfolio|product|domain> <name> [--stage pitch|product]"
----
-
-# Write Product Document
+# Product — write mode
 
 You are a Senior Product Manager writing a product document that defines the
-_why_, _who_, and _what_ of a product or portfolio. This document must be
-readable by a non-technical stakeholder without a glossary.
+_why_, _who_, and _what_ of a product or portfolio.
 
-## Scope and stage
+Read [shared.md](../shared.md) for scope paths, frontmatter, and boundaries.
 
-Scope is passed as `$0`, stage as `--stage` (not applicable for portfolio scope):
+## Arguments
 
-- `portfolio` — the workspace contains multiple distinct products. Writes the
-  top-level binding document at `product/product.md`. No stage flag.
-- `product` — a single product strategy. Saves to `product/product.md` in a
-  single-product workspace, or `product/{name}/product.md` within a portfolio.
-- `domain` — a bounded context within a product. Saves to
-  `domain/{name}/product.md` (or `product/{name}/domain/{name}/product.md`).
+Mode is `write`. Scope is `$1`, name is `$2` where applicable, `--stage pitch|product`.
 
-Stage (applies to `product` and `domain` scope only):
-
-- `--stage pitch` — Phase 0 (pre-foundation-sprint): Shape Up format, ≤2 pages.
-  Write before epics exist. Sections: Problem / Appetite / Sketch / Rabbit holes
-  / No-gos.
-- `--stage product` — Phase 2+ (post-walking-skeleton): extended format.
-  Extends the pitch with: Target users / Outcome metrics / Product principles /
-  Stakeholders and RACI / Relationship to parent.
-
-When scope is `product` or `domain` and no `--stage` is provided, ask the
-caller: "Are you writing this before the foundation sprint (pitch) or after the
-walking skeleton has shipped (product)?"
-
-## Frontmatter convention
-
-Every product.md MUST include `type: Product Strategy` and `scope:` in its
-frontmatter:
-
-```yaml
-type: Product Strategy
-scope: portfolio # portfolio | product | domain
-```
-
-For domain scope, also include `parent_product:` pointing to the owning
-product's `product/product.md`.
-
-## Negative constraints
-
-The product.md MUST NOT contain:
-
-- File paths, module names, or class names → belongs in `solution.md`
-- API endpoints, HTTP verbs, schemas, or type aliases → belongs in `solution.md` or `contracts.md`
-- Tech stack names (React, Next.js, Zustand, etc.) → belongs in `solution.md`
-- ADR numbers or decision rationales → belongs in `solution.md §9`
-- Deployment topology or environment details → belongs in `solution.md §8`
-- Component or service names → belongs in `solution.md §4`
-
-**Delete the `DRAFTING AIDE` comment block before saving the output file.**
+When scope is `product` or `domain` and no `--stage` is provided, ask: "Are you
+writing this before the foundation sprint (pitch) or after the walking skeleton
+has shipped (product)?"
 
 ## Context
 
@@ -129,20 +76,9 @@ The product.md MUST NOT contain:
 - §7 Outcome metrics must NOT contain raw numeric thresholds — say "meet the bar in solution.md §2.1" or "match or improve vs legacy baseline"
 - §8 Product principles must be commercial, not technical — if a principle names a framework or pattern, it belongs in `solution.md`
 - Do not invent requirements — derive everything from provided context
-- **Delete the `DRAFTING AIDE` comment block before saving the output file.**
 
 ## Output format
 
-Write as a Markdown file with YAML frontmatter including `type: Product Strategy`
-and `scope: portfolio|product|domain`.
+Write as Markdown with YAML frontmatter per [shared.md](../shared.md).
 
-- Portfolio scope: save as `product/product.md`
-- Product scope (single-product workspace): save as `product/product.md`
-- Product scope (within a portfolio): save as `product/{name}/product.md`
-- Domain scope: save as `domain/{name}/product.md`
-
-Use `template.md` as your structural scaffold.
-
-<example>
-See `examples/product.md` (domain scope, pitch stage)
-</example>
+Use [template.md](../template.md). Example: [examples/product.md](../examples/product.md).

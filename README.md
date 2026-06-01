@@ -50,11 +50,10 @@ These skills sit at the front of the delivery loop — defining what to build, w
   npx skills@latest add daddia/skills/plan-delivery
   ```
 
-- **write-product** — Draft `product.md` at portfolio, product, or domain scope.
-  Pitch mode (Phase 0, ≤2 pages) or product mode (Phase 2+, ≤5 pages).
+- **product** — `product.md` artefact: **write** (pitch or full strategy), **review**, **refine**.
 
   ```bash
-  npx skills@latest add daddia/skills/write-product
+  npx skills@latest add daddia/skills/product
   ```
 
 - **write-roadmap** — Draft `roadmap.md` in Now / Next / Later format with outcome-based
@@ -154,12 +153,7 @@ Code production and pre-merge surface.
 
 Document and code review skills, role-aware and structured.
 
-- **review-product** — Review `product.md` as a critical Senior Product Manager —
-  strategy, scope, success metrics, calibration.
-
-  ```bash
-  npx skills@latest add daddia/skills/review-product
-  ```
+- **product** (review mode) — See **product** above.
 
 - **review-roadmap** — Review `roadmap.md` as a Senior Delivery Lead — phase coherence, exit criteria, sequencing, dependencies.
 

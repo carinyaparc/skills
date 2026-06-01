@@ -1,7 +1,7 @@
 ---
 name: write-roadmap
 description: |
-  Drafts roadmap.md at portfolio, product, or domain scope using outcome-based phases with exit criteria, not epic lists. Portfolio scope sequences multiple products; product scope phases a single product; domain scope phases a bounded context. Use when the user mentions "write the roadmap for {name}", "create the delivery roadmap", or "sequence the phases". Do NOT use to list epics — use backlog (write mode). Do NOT use before product.md exists — use write-product first.
+  Drafts roadmap.md at portfolio, product, or domain scope using outcome-based phases with exit criteria, not epic lists. Portfolio scope sequences multiple products; product scope phases a single product; domain scope phases a bounded context. Use when the user mentions "write the roadmap for {name}", "create the delivery roadmap", or "sequence the phases". Do NOT use to list epics — use backlog (write mode). Do NOT use before product.md exists — use product write mode first.
 allowed-tools:
   - Read
   - Write
