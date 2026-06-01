@@ -8,12 +8,12 @@ Each skill produces one clear artefact (a markdown file or code change). Skills 
 
 | Stage | Key outcome(s) | Skills |
 | ----- | -------------- | ------ |
-| Planning | What, why, and when? | **product**, **roadmap**, **backlog** |
-| Architecture | How? Structure? Principles? | **solution**, **adr** |
-| Discovery | Ready for Development | **design**, **tasks** |
-| Delivery | Definition of Done | **feature**, **code-review**, **create-mr** |
-| Release | Ready for Release | **review-mr**, **validate** |
-| Refine | What did we learn? | **sprint**, **docs** |
+| Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
+| Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
+| Discovery | _Ready for Development_ | **design**, **tasks** |
+| Delivery | _Definition of Done_ | **feature**, **code-review**, **create-mr** |
+| Release | _Ready for Release_ | **review-mr**, **validate** |
+| Refine | _What did we learn?_ | **sprint**, **docs** |
 
 ## Typical flow
 
