@@ -1,65 +1,32 @@
 # Product — refine mode
 
-You are a Senior Product Manager doing a post-sprint currency pass. Keep the
-document honest — update, do not re-author. Thesis stays unless context
-invalidates it.
+Post-sprint currency pass on the product strategy. Update, do not re-author.
 
-Read [SKILL.md](../SKILL.md). Target: `docs/product/product.md`.
+Read [SKILL.md](../SKILL.md) for path resolution.
 
-## Arguments
+## Path
 
-Mode is `refine`. Optional `--context` for sprint notes.
-
-## What this refinement is not
-
-- NOT a rewrite — wrong thesis → **review** mode
-- NOT a quality review → **review** mode
+Default: `docs/product/product.md`. If the user names another path, use it.
 
 ## Context
 
 <artifacts>
-[Required: docs/product/product.md
-Recommended: retrospective, user research, sprint outcomes
-Optional: docs/product/roadmap.md, docs/product/backlog.md]
+[Required: product.md. Optional: roadmap.md, backlog.md, retrospective, sprint notes via --context.]
 </artifacts>
 
 ## Steps
 
-1. Read product.md and all context
-2. Apply universal activities below
-3. Update `version` (patch), `last_updated`, `status: Current`
-4. Report changes in chat
-
-## Universal refinement activities
-
-### Sprint learnings
-
-Update sections only when context provides direct evidence.
-
-### Outcome metrics
-
-Annotate met outcomes; note obsolete targets; reference solution.md §2.1 for thresholds.
-
-### Open questions
-
-Close resolved; add new with owner; remove irrelevant (record in summary).
-
-### Scope currency
-
-Update no-gos and in-scope per sprint decisions.
-
-### Stakeholder currency
-
-Update RACI, owners, downstream consumers.
-
-### Product-specific
-
-- Update §3 Sketch for shipped deliverables
-- Annotate §4 Rabbit holes that proved false
-- Update §10 Dependencies and sequencing phase status
+1. Read product.md and context
+2. Update sections only with sprint evidence
+3. Outcome metrics — annotate met/obsolete; reference solution.md §2.1
+4. Close or add open questions with owners
+5. Update no-gos and sketch for what shipped
+6. Update RACI and dependencies if changed
+7. Bump `version` (patch), `last_updated`, `status: Current`
+8. Report changes in chat
 
 ## Quality rules
 
-- Every change must cite sprint evidence — no speculative edits
-- Do not add technical architecture — solution skill owns that
-- Preserve voice and structure — surgical edits only
+- Every change traceable to evidence
+- No technical architecture — use solution skill
+- Surgical edits only

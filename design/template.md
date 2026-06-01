@@ -1,6 +1,6 @@
 ---
 type: Design
-scope: work-package
+level: work-package
 mode: <!-- walking-skeleton | tdd -->
 work_package: <!-- e.g. 01-foundations -->
 epic: <!-- e.g. FEAT01 -->
@@ -17,7 +17,7 @@ related:
 <!--
 DRAFTING AIDE — DELETE THIS BLOCK BEFORE SAVING THE OUTPUT FILE.
 DO NOT INCLUDE in this design.md:
-  - Domain-wide patterns, policies, or decisions already in solution.md
+  - Architecture-wide patterns already in solution.md
     → cite solution.md §{N.M} instead; do not re-narrate
   - Business rationale                  → product.md
   - Phase sequencing                    → roadmap.md
@@ -37,7 +37,7 @@ TDD mode (5–10 pages): §1 Scope, §2 Architecture fit, §3 Files and componen
 <!-- Walking-skeleton: "Walking-skeleton design for the {Epic Title} work package."
      TDD: "TDD-mode design for the {Epic Title} work package." -->
 
-This work package implements {EPIC-ID}. Domain-wide patterns are authoritative in
+This work package implements {EPIC-ID}. Architecture-wide patterns are authoritative in
 [`solution.md`](solution.md) and are not repeated here.
 
 ## 1. Scope / The slice

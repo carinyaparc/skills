@@ -9,7 +9,7 @@ What shipped, what did not, what is now blocked, and what phase gate evidence
 now exists. The sequencing strategy stays intact unless the context
 explicitly requires a resequence.
 
-Identify the scope from the frontmatter and apply the relevant activities.
+Read [SKILL.md](../SKILL.md) for path resolution. Default: `docs/product/roadmap.md`.
 
 ## What this refinement is not
 
@@ -78,7 +78,7 @@ For each exit criterion in the current and previous phase:
 
 ### 3. Dependency status
 
-For each cross-domain or cross-squad dependency listed in the roadmap:
+For each external or cross-squad dependency listed in the roadmap:
 
 - Has it landed? Update the status from "In progress" or "Planned" to
   "Delivered" with a date.
@@ -107,18 +107,11 @@ If velocity data is available (points delivered, sprint cadence):
 - If the revised timeline implies a material slip on a critical date, record
   it as a risk in the refinement session summary. Do not hide it.
 
-## Scope-specific activities
-
-### Portfolio scope
-
-- For each product, advance its delivery state to match what shipped.
-- In the cross-product sequencing section, update which product is now
-  unblocking the other, if that status has changed.
-
-### Product and domain scope
+## Refinement activities
 
 - Update the milestone table: mark milestones reached with dates.
 - Update the review cadence section if the sprint changed the gate date.
+- Update external dependency status rows to match what shipped.
 
 ## Quality rules
 

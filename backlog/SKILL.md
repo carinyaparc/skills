@@ -1,29 +1,33 @@
 ---
 name: backlog
 description: |
-  backlog.md: epic-level at docs/product/backlog.md; work-package at work/{wp}/backlog.md
-  (domain paths coming later). Modes: write, review, refine. Use for backlog, epics,
-  stories, groom. Domain write defaults to Now-phase — use --depth full for all phases.
-  Do NOT use for solution — use solution. Do NOT use for roadmaps — use roadmap.
+  backlog.md — epic default docs/product/backlog.md; work-package default
+  work/{wp}/backlog.md. Modes: write, review, refine. Epic write defaults to
+  Now-phase detail — use --depth full for all phases.
 allowed-tools:
   - Read
   - Write
   - Glob
   - Grep
-argument-hint: "<mode: write|review|refine> <scope: product|work-package> [name] [flags]"
+argument-hint: "<mode: write|review|refine> [epic|work-package <wp>] [flags]"
 ---
 
 # Backlog
 
 ## Artefact paths
 
-| Scope | Save path |
-| ----- | --------- |
-| `product` (default) | `docs/product/backlog.md` — epic-level |
-| `work-package <wp>` | `work/{wp}/backlog.md` — story-level (unchanged until domain layout) |
+| Level | Default path |
+| ----- | ------------ |
+| Epic (product backlog) | `docs/product/backlog.md` |
+| Work package (stories) | `work/{wp}/backlog.md` |
 
-Epic backlogs decompose strategy into epics; work-package backlogs decompose epics
-into stories with EARS + Gherkin acceptance criteria.
+## Path resolution
+
+If the user names a different file path in their request, read and write that
+path instead of the default for the level they are working on.
+
+For work-package mode, the user may supply a work-package id (e.g. `checkout-01`)
+and the agent resolves `work/{wp}/backlog.md`, or they may supply the full path.
 
 ## Cross-artifact boundaries
 
@@ -33,9 +37,9 @@ Do NOT put in `backlog.md`:
 - Business strategy or positioning → `docs/product/product.md`
 - Phase dates or delivery sequencing prose → `docs/product/roadmap.md`
 - API shapes, schemas, or code fences → `docs/architecture/solution.md`
-- Implementation detail for the active epic → `design.md`
+- Implementation detail for the active epic → `work/{wp}/design.md`
 
-## Canonical story schema (work-package scope)
+## Canonical story schema (work-package)
 
 Each story includes: Status, Priority, Estimate, Epic, Labels, Depends on,
 Deliverable, Design (section link), Acceptance (EARS), Acceptance (Gherkin).
@@ -46,8 +50,9 @@ Deliverable, Design (section link), Acceptance (EARS), Acceptance (Gherkin).
 
 ## Supporting files
 
-- [template.md](template.md)
-- [examples/domain-backlog.md](examples/domain-backlog.md)
+- [template-epic.md](template-epic.md)
+- [template-work-package.md](template-work-package.md)
+- [examples/epic-backlog.md](examples/epic-backlog.md)
 - [examples/wp01-backlog.md](examples/wp01-backlog.md)
 
 ## Related skills
@@ -57,7 +62,7 @@ Deliverable, Design (section link), Acceptance (EARS), Acceptance (Gherkin).
 ## Router
 
 1. Mode: `write`, `review`, or `refine`.
-2. Scope: `product` (default) or `work-package <wp>`.
+2. Epic backlog unless the user targets a work package (`work-package <wp>` or path under `work/`).
 3. One prompt under [prompts/](prompts/).
 
-Pass `--depth full` on product-scope write for all phases.
+Pass `--depth full` on epic write for all phases.

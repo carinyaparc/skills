@@ -85,8 +85,9 @@ tracks, split it.
 
 ## Output format
 
-Save as `work/{product}/{EPIC}/retrospective.md` (epic scope) or
-`work/{product}/sprint-{N}/retrospective.md` (sprint scope).
+Default: `work/{wp}/retrospective.md` for epic or work-package retros;
+`work/sprint-{N}/retrospective.md` for sprint retros. If the user names another
+path under `work/`, use it.
 
 <example>
 ## Sprint 3 Retrospective

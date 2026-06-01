@@ -62,7 +62,7 @@ This skill writes code against an approved design. It MUST NOT:
   or the story must be split.
 - Commit while any validation check is failing (format, lint, typecheck, build, or tests) — fix every failure or split the story.
 - Add comments that cite external markdown documents, ticket IDs, or
-  cross-repo file paths (e.g. `CART02-07 | domain/cart/solution.md §5.1`).
+  cross-repo file paths (e.g. `CART02-07 | docs/architecture/solution.md §5.1`).
   Code must stand on its own. Comments should explain non-obvious intent or
   trade-offs in plain language — not trace back to planning artefacts.
 

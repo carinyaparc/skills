@@ -1,11 +1,11 @@
 ---
 type: Backlog
-scope: work-package
+level: work-package
 ---
 
 # Backlog -- Checkout Foundations (CHK01)
 
-Sprint-level backlog for `work/checkout/01-foundations/`, implementing CHK01 from `domain/checkout/backlog.md`.
+Sprint-level backlog for `work/checkout/01-foundations/`, implementing CHK01 from `docs/product/backlog.md`.
 
 Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
@@ -24,7 +24,7 @@ Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
 - [ ] **[CHK01-01] Checkout module scaffold and view-model types**
   - **Status:** Not started | **Priority:** P0 | **Estimate:** 2
-  - **Epic:** CHK01 | **Labels:** phase:alpha, domain:checkout, type:scaffold
+  - **Epic:** CHK01 | **Labels:** phase:alpha, checkout, type:scaffold
   - **Depends on:** -
   - **Deliverable:** `modules/checkout/` with `logic/types.ts` defining `OrderViewModel` and all slice types; server and client barrels.
   - **Design:** `./design.md#21-module-layout`
@@ -43,7 +43,7 @@ Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
 - [ ] **[CHK01-02] Orders API client**
   - **Status:** Not started | **Priority:** P0 | **Estimate:** 3
-  - **Epic:** CHK01 | **Labels:** phase:alpha, domain:checkout, type:integration
+  - **Epic:** CHK01 | **Labels:** phase:alpha, checkout, type:integration
   - **Depends on:** CHK01-01
   - **Deliverable:** `data/clients/orders-api.server.ts` with `createOrder()`, `getOrder()`, and `listOrders()`; `import 'server-only'` at the top.
   - **Design:** `./design.md#22-data-layer`
@@ -68,7 +68,7 @@ Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
 - [ ] **[CHK01-03] Checkout route group and page shell**
   - **Status:** Not started | **Priority:** P0 | **Estimate:** 5
-  - **Epic:** CHK01 | **Labels:** phase:alpha, domain:checkout, type:scaffold
+  - **Epic:** CHK01 | **Labels:** phase:alpha, checkout, type:scaffold
   - **Depends on:** CHK01-01
   - **Deliverable:** `app/(checkout)/checkout/page.tsx` RSC shell; `CheckoutSkeleton`; `placeOrder` Server Action returning `NOT_IMPLEMENTED` (placeholder until CHK02).
   - **Design:** `./design.md#24-route-group`
@@ -93,7 +93,7 @@ Companion artefacts: `./design.md` · `docs/architecture/solution.md`
 
 - [ ] **[CHK01-04] Mapper and error registry**
   - **Status:** Not started | **Priority:** P0 | **Estimate:** 3
-  - **Epic:** CHK01 | **Labels:** phase:alpha, domain:checkout, type:mapper
+  - **Epic:** CHK01 | **Labels:** phase:alpha, checkout, type:mapper
   - **Depends on:** CHK01-01
   - **Deliverable:** `data/mappers/order.mapper.ts` with `orderToViewModel(ApiOrder): OrderViewModel`; `OrderPlacementErrorCode` closed enum; `getOrderErrorMessage(code)` copy helper.
   - **Design:** `./design.md#23-mapper`

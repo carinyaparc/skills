@@ -9,8 +9,8 @@ no longer carry new information.
 
 `$0` is the work-package path (e.g. `work/checkout/01-foundations/`).
 
-Target solution: `docs/architecture/solution.md`  
-ADR register: `docs/architecture/decisions/register.md`
+Defaults: solution `docs/architecture/solution.md`, register
+`docs/architecture/decisions/register.md`. User-named paths override.
 
 ## Steps
 

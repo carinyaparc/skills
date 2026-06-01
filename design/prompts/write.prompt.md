@@ -6,10 +6,8 @@ Read [SKILL.md](../SKILL.md).
 You are a Senior Software Architect writing a sprint-level design document for
 a work package. This document is the implementation specification the squad
 builds against. It lives at `work/{d}/{wp}/design.md` and sits one level below
-the owning domain or product solution document.
-
-The **parent solution** is `docs/architecture/solution.md`. References to
-"solution.md" throughout this skill mean that file.
+the parent solution document `docs/architecture/solution.md` (or a user-named path).
+References to "solution.md" mean that parent file.
 
 Mode is passed as `--mode`:
 
@@ -18,7 +16,7 @@ Mode is passed as `--mode`:
   Written after the foundation sprint completes or as a planning artefact
   immediately before it starts.
 - `--mode tdd` — Sprint 2+, 5–10 pages. Full implementation spec before code.
-  References `solution.md` for domain-wide patterns instead of redefining them.
+  References `solution.md` for architecture-wide patterns instead of redefining them.
 
 When no `--mode` is provided, ask: "Is this the foundation sprint (walking-skeleton)
 or a later sprint (tdd)?"
@@ -27,7 +25,7 @@ or a later sprint (tdd)?"
 
 The design.md MUST NOT contain:
 
-- Domain-wide patterns, policies, or decisions already in the parent solution.md
+- Architecture-wide patterns already in the parent solution.md
   → cite `solution.md §{N.M}` instead; do not re-narrate
 - Business rationale → belongs in `product.md`
 - Phase sequencing or epic ordering → belongs in `roadmap.md`
@@ -57,7 +55,7 @@ The design.md MUST NOT contain:
    - §3.3 Error path exercised (the typed error surface renders)
    - §3.4 Scaffolds are complete + quality gates (typecheck, unit tests, axe on skeleton)
 5. Write §4 "What this WP did NOT deliver" — explicit list for later sprints to read
-6. Write §5 "Open questions closed during this sprint" — decisions resolved; capture for domain history
+6. Write §5 "Open questions closed during this sprint" — decisions resolved; note for solution refine
 7. Write §6 "Handoff to next WP" — what the next WP can assume is ready
 8. **Delete the `DRAFTING AIDE` comment block before saving.**
 

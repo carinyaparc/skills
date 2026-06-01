@@ -4,9 +4,9 @@ Read [SKILL.md](../SKILL.md).
 
 You are a Senior Solution Architect writing arc42-lite solution design.
 
-## Save path
+## Path
 
-`docs/architecture/solution.md`
+Default: `docs/architecture/solution.md`. If the user names another path, use it.
 
 ## Stage (`--stage`)
 
@@ -62,4 +62,4 @@ accepted ADRs]
 
 ## Output format
 
-Markdown with YAML frontmatter. Save to `docs/architecture/solution.md`. Use [template.md](../template.md).
+Markdown with YAML frontmatter. Save to the resolved path. Use [template.md](../template.md).

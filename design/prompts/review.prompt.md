@@ -112,7 +112,7 @@ the author any questions? If the reviewer finds themselves wanting to ask a
 clarifying question, that question is a gap in the design.
 
 **Scope discipline.** Does the design stay within the work-package boundary?
-If it describes behaviour owned by another domain, flag the boundary
+If it describes behaviour owned by another system or squad, flag the boundary
 violation.
 
 ## Quality rules

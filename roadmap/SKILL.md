@@ -1,10 +1,9 @@
 ---
 name: roadmap
 description: |
-  roadmap.md at docs/product/roadmap.md. Modes: write, review, refine. Use for
-  delivery roadmap, sequence phases, review roadmap. Outcome-based phases with exit
-  criteria. Do NOT list epics — use backlog. Requires docs/product/product.md first
-  for write mode.
+  roadmap.md — default docs/product/roadmap.md. Modes: write, review, refine.
+  Outcome-based phases with exit criteria. Requires product.md for write mode.
+  Do NOT list epics — use backlog.
 allowed-tools:
   - Read
   - Write
@@ -17,7 +16,12 @@ argument-hint: "<mode: write|review|refine> [--context <notes>]"
 
 ## Artefact
 
-`docs/product/roadmap.md` — outcome-based phases with exit criteria (not epic lists).
+Default path: `docs/product/roadmap.md` — outcome-based phases with exit criteria.
+
+## Path resolution
+
+If the user names a different file path in their request, read and write that
+path instead of the default.
 
 ## Cross-artifact boundaries
 
@@ -36,5 +40,5 @@ tech stack or architecture → `docs/architecture/solution.md`; business strateg
 ## Router
 
 1. Mode: `write`, `review`, or `refine`.
-2. Target file: `docs/product/roadmap.md`.
+2. Resolve target path (default or user override).
 3. One prompt under [prompts/](prompts/).

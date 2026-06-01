@@ -1,6 +1,5 @@
 ---
 type: Product Strategy
-scope: domain
 ---
 
 # Product -- Checkout

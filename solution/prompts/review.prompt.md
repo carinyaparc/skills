@@ -105,7 +105,7 @@ pipeline behaviour?
 
 ### §9 Architectural decisions (ADR log)
 
-Are all ADRs that govern this domain listed? Are any pending ADR candidates
+Are all ADRs that govern this system listed? Are any pending ADR candidates
 marked as `_(Not yet written)_`? Is there a decision that was clearly made
 during delivery but has no ADR entry?
 

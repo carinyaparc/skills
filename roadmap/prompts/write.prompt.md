@@ -5,9 +5,9 @@ Read [SKILL.md](../SKILL.md).
 You are a Senior Delivery Lead writing a phased delivery roadmap that sequences
 work against the product strategy.
 
-## Save path
+## Path
 
-`docs/product/roadmap.md`
+Default: `docs/product/roadmap.md`. If the user names another path, use it.
 
 ## Negative constraints
 
@@ -36,18 +36,18 @@ roadmap.md MUST NOT contain:
    - Exit criteria (specific, testable)
    - What is explicitly out of scope for this phase
 5. Build a milestones table: milestone, phase, customer-visibility, notes
-6. Map cross-domain dependencies: need, owner, gate, status
+6. Map external dependencies: need, owner squad, gate, status
 7. List items deferred beyond this roadmap cycle
 8. Define review cadence: weekly, pre-phase-gate, quarterly
 
 ## Quality rules
 
 - Every phase has named exit criteria — no subjective gates
-- Cross-domain dependencies have a named owner squad
+- External dependencies have a named owner squad
 - No exit criteria depend on work not assigned to any epic
 - Phases are sequential; parallelism lives within phases
 - Target 5–8 pages
 
 ## Output format
 
-Markdown with YAML frontmatter. Save to `docs/product/roadmap.md`. Use [template.md](../template.md).
+Markdown with YAML frontmatter. Save to the resolved path. Use [template.md](../template.md).

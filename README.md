@@ -29,7 +29,9 @@ docs/
         └── ADR-NNNN-{title}.md
 ```
 
-Work-package artefacts (`work/{wp}/design.md`, `backlog.md`, etc.) stay under `work/` until domain layout is defined.
+Work-package artefacts live under `work/{wp}/` (`design.md`, `backlog.md`, etc.).
+
+Each skill documents default paths under `docs/`. If you name a different path in your prompt, the agent uses that instead.
 
 Skills work with [Cursor](https://cursor.com/docs/skills),
 [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), and any
@@ -63,7 +65,7 @@ Source: [github.com/daddia/space](https://github.com/daddia/space) under `packag
 | **retrospective** | write | `retrospective.md` |
 | **space-index** | run | routing |
 
-Invoke with mode first, e.g. `/product write --stage pitch`, `/backlog write work-package checkout-01`.
+Invoke with mode first, e.g. `/product write --stage pitch`, `/backlog write work-package checkout-01`. Override paths in natural language when needed (e.g. "write product.md to `docs/acme/product.md`").
 
 ## Planning & strategy
 

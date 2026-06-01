@@ -9,7 +9,7 @@ execute it — not to validate the author's effort. Assume the plan is
 optimistic, the exit criteria are vaguer than they should be, and the
 cross-dependencies have not been pressure-tested.
 
-Identify the scope from the frontmatter and apply the relevant criteria.
+Read [SKILL.md](../SKILL.md) for path resolution. Apply the criteria below to the target roadmap file.
 
 ## What this review is not
 
@@ -54,7 +54,7 @@ A roadmap review MUST NOT:
 
 ## Scope-specific review criteria
 
-### Product scope
+### Roadmap review
 
 **Sequencing principles coherence.**
 Are the sequencing principles stated in the roadmap actually reflected in the
@@ -83,7 +83,7 @@ phase claims to deliver a capability but no backlog epic is referenced, the
 capability is aspirational, not planned.
 
 **Dependency completeness.**
-Does the roadmap name every cross-domain or cross-squad dependency with an
+Does the roadmap name every external or cross-squad dependency with an
 owner, current status, and the phase it gates? Unnamed dependencies become
 invisible blockers. An "In progress" dependency with no owner is functionally
 unnamed.

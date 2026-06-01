@@ -1,6 +1,5 @@
 ---
 type: Solution
-scope: <!-- platform | product | domain -->
 version: '0.1'
 owner: <!-- team or squad name -->
 status: Draft
@@ -108,7 +107,7 @@ the quality goal it satisfies. -->
 
 <!-- Observability, error taxonomy, security, feature flags, caching,
      accessibility, and testing strategy. Each pattern must reference a concrete
-     domain behaviour, not just name a tool. -->
+     system behaviour, not just name a tool. -->
 
 [NEEDS CLARIFICATION]
 

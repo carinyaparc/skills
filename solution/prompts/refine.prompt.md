@@ -67,7 +67,7 @@ A solution refinement MUST NOT:
 
 - Did the entity model change? (New fields, renamed entities, changed
   relationships.) Update the model section.
-- Were new domain terms introduced in the sprint that should be in the
+- Were new ubiquitous-language terms introduced in the sprint that should be in the
   glossary? Add them.
 - Were any terms renamed or deprecated? Update the glossary and note the
   change.

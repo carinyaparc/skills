@@ -1,10 +1,9 @@
 ---
 name: product
 description: |
-  product.md at docs/product/product.md. Modes: write (pitch or full strategy),
-  review (critical PM review), refine (post-sprint currency). Use for product doc,
-  PRD, product strategy. Write: pitch (Phase 0, ≤2 pages) or product stage (Phase 2+).
-  Do NOT use for roadmaps — use roadmap. Do NOT use for architecture — use solution.
+  product.md — default docs/product/product.md. Modes: write (pitch or full
+  strategy), review, refine. Use for product doc, PRD, product strategy.
+  Do NOT use for roadmaps or architecture.
 allowed-tools:
   - Read
   - Write
@@ -17,8 +16,13 @@ argument-hint: "<mode: write|review|refine> [--stage pitch|product] [--context <
 
 ## Artefact
 
-`docs/product/product.md` — strategy document defining _why_, _who_, and _what_.
+Default path: `docs/product/product.md` — strategy document (_why_, _who_, _what_).
 Readable by a non-technical stakeholder without a glossary.
+
+## Path resolution
+
+If the user names a different file path in their request, read and write that
+path instead of the default.
 
 ## Frontmatter
 
@@ -55,8 +59,8 @@ Delete the `DRAFTING AIDE` comment block before saving.
 ## Router
 
 1. Mode: `write`, `review`, or `refine`.
-2. Target file: `docs/product/product.md`.
-3. One prompt: [prompts/write.prompt.md](prompts/write.prompt.md) | [prompts/review.prompt.md](prompts/review.prompt.md) | [prompts/refine.prompt.md](prompts/refine.prompt.md).
+2. Resolve target path (default or user override).
+3. One prompt under [prompts/](prompts/).
 
 **write** — `--stage pitch|product` (default: ask if unclear).
 

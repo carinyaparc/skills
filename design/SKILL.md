@@ -23,7 +23,8 @@ Work-package `design.md` (walking-skeleton or TDD).
 | write | `--mode walking-skeleton\|tdd` |
 | review | path to design.md |
 
-Save under `work/{wp}/design.md`.
+Default save path: `work/{wp}/design.md`. If the user names another path under
+`work/`, use it.
 
 ## Router
 

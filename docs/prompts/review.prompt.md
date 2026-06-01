@@ -6,15 +6,15 @@ aligned before implementation begins.
 
 ## Paths
 
-- `docs/product/product.md`
-- `docs/architecture/solution.md`
+Defaults: `docs/product/product.md`, `docs/architecture/solution.md`.
+If the user names other paths, use them.
 
 ## Steps
 
 1. Read both documents (and ADR register if architectural decisions are in play).
 2. **product.md** — goals, success metrics, out-of-scope, open questions tracked.
 3. **solution.md** — §1 matches product; quality goals stated; building blocks named;
-   data model covers the domain; API shapes in §6–§7 or stubbed; testing outlined.
+   data model is complete; API shapes in §6–§7 or stubbed; testing outlined.
 4. **Alignment** — every product goal has solution coverage; flag orphan components.
 5. **Amend in place** — fix unambiguous gaps or add `<!-- TODO -->` with what's missing.
 

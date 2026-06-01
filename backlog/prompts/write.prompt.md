@@ -1,66 +1,49 @@
 # Backlog — write mode
 
-You are a Senior Delivery Engineer writing a backlog at product (epic) or
-work-package (story) scope.
+You are a Senior Delivery Engineer writing an epic backlog or a work-package
+story backlog.
 
-Read [SKILL.md](../SKILL.md) for save paths and artefact boundaries.
+Read [SKILL.md](../SKILL.md) for paths, boundaries, and path resolution.
+
+## Paths
+
+| Level | Default |
+| ----- | ------- |
+| Epic | `docs/product/backlog.md` |
+| Work package | `work/{wp}/backlog.md` |
+
+If the user names another path, use it. If they name a work package id, resolve `work/{wp}/backlog.md`.
 
 ## Arguments
 
-Mode is `write`. Scope: `product` (default) or `work-package <wp>`.
-
-| Flag | Applies to | Effect |
-| ---- | ---------- | ------ |
-| `--depth full` | product | Full epic detail for all phases (default: Now-phase only) |
-
-**Depth calibration (product scope):** Now-phase epics have full detail; later
-phases are placeholders unless `--depth full`.
+`--depth full` on epic write: detail for all phases (default: Now-phase only).
 
 ## Context
 
 <artifacts>
-[Product scope: docs/product/product.md, docs/product/roadmap.md,
-docs/architecture/solution.md
-Work-package scope: parent backlog.md (epic entry), work/{wp}/design.md,
-docs/architecture/solution.md]
+[Epic: docs/product/product.md, roadmap.md, solution.md
+Work package: parent epic in product backlog, work/{wp}/design.md, solution.md]
 </artifacts>
 
-## Steps (product scope)
+## Steps (epic)
 
-1. Read product.md, roadmap.md, and solution.md
-2. Write summary: objective, approach, prerequisites, out-of-scope pointer (reference product.md and roadmap.md — do not restate)
-3. Define conventions table: epic ID format, status, priority, estimation
-4. Build epic breakdown table (Now-phase full; Next/Later placeholders unless `--depth full`)
-5. Write full epic detail for Now-phase epics
-6. Dependency graph and critical path
-7. Parallelisation opportunities and minimum viable slice
-8. Assumptions and delivery risks; reference `solution.md §10.1` for technical risks — do not duplicate
+1. Read product.md, roadmap.md, solution.md
+2. Summary, conventions, epic table, Now-phase epic detail, dependency graph, risks
+3. Reference solution.md §10.1 for technical risks — do not duplicate
 
-## Save path (product)
+## Steps (work-package)
 
-`docs/product/backlog.md`
-
-## Steps (work-package scope)
-
-1. Read the parent epic in the owning backlog.md, `work/{wp}/design.md`, and solution.md
-2. Summary: epic ID, phase, priority, estimate, scope, deliverables, dependencies
-3. Conventions table
-4. Each story with canonical EARS + Gherkin schema (see SKILL.md)
-5. Traceability to solution sections and product outcomes
-6. Definition of Done
-7. WP-specific delivery risks (reference solution.md §10.1 for technical risks)
-8. Handoff: what this WP leaves stable, what comes next
-
-## Save path (work-package)
-
-`work/{wp}/backlog.md`
+1. Read parent epic, design.md, solution.md
+2. Summary, conventions, stories (canonical EARS + Gherkin), traceability, DoD, handoff
 
 ## Quality rules
 
-- Every epic has a named work-package path (even if "(planned)")
-- Work-package stories use EARS + Gherkin — no plain AC checklist
-- Delivery risks must not duplicate solution.md §10.1 technical risks
+- Every epic has a work-package path (even "(planned)")
+- WP stories use full EARS + Gherkin schema
+- Out-of-scope: cite product.md and roadmap.md, do not restate
 
-## Output format
+## Output
 
-Markdown with YAML frontmatter. Use [template.md](../template.md).
+YAML frontmatter + Markdown. Epic: [template-epic.md](../template-epic.md). WP: [template-work-package.md](../template-work-package.md).
+
+Examples: [epic-backlog.md](../examples/epic-backlog.md), [wp01-backlog.md](../examples/wp01-backlog.md).

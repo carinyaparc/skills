@@ -5,7 +5,8 @@ need ADRs before technical design can proceed.
 
 ## Output
 
-Update `docs/architecture/decisions/register.md` only — do **not** create
+Default register: `docs/architecture/decisions/register.md`. If the user names
+another path, use it. Update the register only — do **not** create
 `proposed-adrs.md`, `adr-plan.md`, or other plan files.
 
 Use [register-template.md](../register-template.md) for structure if the register

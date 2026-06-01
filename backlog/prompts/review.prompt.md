@@ -5,15 +5,15 @@ is to determine whether the backlog is fit for delivery — not to be
 encouraging. Assume the author is optimistic about scope, vague about
 criteria, and has not validated against the product strategy recently.
 
-Read [SKILL.md](../SKILL.md) for scope paths and artefact boundaries.
+Read [SKILL.md](../SKILL.md) for path resolution and artefact boundaries.
 
-## Arguments
+## Path
 
-Mode is already `review`. Scope is `$1`, name is `$2` (identify target
-`backlog.md` from scope table in SKILL.md).
+Review the backlog file the user names, or default epic `docs/product/backlog.md`
+/ work-package `work/{wp}/backlog.md` from context.
 
-Identify the scope from the backlog's frontmatter (`scope: product|work-package`)
-and apply the relevant criteria below. Then apply the universal criteria.
+Determine level from the document: epic backlog (under `docs/product/` or user path)
+vs work-package backlog (under `work/`). Apply the relevant criteria below, then universal criteria.
 
 For each finding: state the gap, make an opinionated recommendation, and
 directly amend the document where the fix is clear. If a finding requires a
@@ -54,7 +54,7 @@ A backlog review MUST NOT:
 1. Read the backlog.md and all provided context before writing anything
 2. Read product.md §4–§5 (Sketch / No-gos) and roadmap.md current phase —
    anything in the backlog that contradicts these is a blocking finding
-3. Identify the scope from frontmatter and apply the scope-specific criteria
+3. Determine epic vs work-package level and apply the level-specific criteria
 4. Apply the universal criteria
 5. For each finding: classify as **Blocking** or **Non-blocking**, make a
    recommendation, and directly amend the document if the fix is unambiguous
@@ -63,7 +63,7 @@ A backlog review MUST NOT:
 
 ## Scope-specific review criteria
 
-### Product scope (epics)
+### Epic level
 
 Does every Now-phase epic trace to a product outcome in `product.md §7`? An
 epic with no outcome link is either undocumented scope or scope that should
@@ -173,7 +173,7 @@ Do the stories/epics contradict each other? Does a later story undo the work
 of an earlier one? Are there duplicates?
 
 **Naming consistency.**
-Are entity names, route names, and domain terms consistent with the names in
+Are entity names, route names, and ubiquitous-language terms consistent with
 `docs/architecture/solution.md`? Drift between the backlog and the
 technical artefacts causes implementation confusion.
 
@@ -183,7 +183,7 @@ superseded? A story referencing a design that was rearchitected is a trap
 waiting for the engineer who picks it up.
 
 **Length discipline.**
-Domain backlog: Now-phase detail should be complete; Next/Later phases should
+Epic backlog: Now-phase detail should be complete; Next/Later phases should
 be single-line placeholders unless `--depth full` was explicitly used.
 Work-package backlog: each story should be self-contained; long prose
 paragraphs in story bodies usually indicate stories that are not yet broken
