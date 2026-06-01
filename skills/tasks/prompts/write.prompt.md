@@ -44,4 +44,4 @@ Recommended: docs/product/backlog.md (epic row), docs/architecture/solution.md]
 
 Example: [examples/checkout-foundation.md](../examples/checkout-foundation.md).
 
-**Handoff:** suggest **feature implement** per task when design and tasks are approved.
+**Handoff:** suggest **implement** per task when design and tasks are approved.

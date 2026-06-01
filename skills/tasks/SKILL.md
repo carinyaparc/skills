@@ -5,7 +5,7 @@ description: >
   criteria, refine sprint-ready tasks, or review task breakdown for an epic
   (checkout-foundation, CHK01, etc.). Default docs/work/{epic}/tasks.md. Do NOT use for
   epic list or work paths (backlog), product backlog stories only (backlog),
-  design.md (design), code implementation (feature), PR code review
+  design.md (design), code implementation (implement), PR code review
   (code-review), or epic completion sign-off (validate). EARS with --ears.
 license: MIT
 allowed-tools:
@@ -62,7 +62,7 @@ Design (section link), **Acceptance (Gherkin)**.
 
 ## Related skills
 
-- `backlog`, `design`, `feature`, `solution`, `sprint`
+- `backlog`, `design`, `implement`, `solution`, `sprint`
 
 ## Router
 

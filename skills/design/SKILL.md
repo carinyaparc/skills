@@ -5,7 +5,7 @@ description: >
   walking-skeleton or TDD design, or design review before tasks. Pass epic slug or
   ID (CHK01). Cite solution.md — do not re-narrate architecture. Do NOT use for
   product backlog or epics (backlog), task Gherkin (tasks), system-wide
-  architecture (solution), ADR write (adr), code implementation (feature), or
+  architecture (solution), ADR write (adr), code implementation (implement), or
   doc-only sprint-end pass (docs refine).
 license: MIT
 allowed-tools:

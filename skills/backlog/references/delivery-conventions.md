@@ -73,7 +73,7 @@ Cite `solution.md §{N.M}` — do not re-narrate architecture in `design.md`.
 | Epics, work paths, Now scope | **backlog** |
 | `design.md` for one epic | **design** |
 | `tasks.md`, Gherkin AC | **tasks** |
-| Implement code | **feature** |
+| Implement code | **implement** |
 | PR / branch code review | **code-review** |
 | Address code review feedback | **code-review** `fix` |
 | Epic done vs AC + roadmap gates | **validate** |

@@ -4,7 +4,7 @@ description: >
   Use when the user wants a code review of a branch, PR, or diff against
   design.md and tasks.md acceptance criteria, or to address review feedback
   without changing behaviour (code-review fix). Do NOT use to implement
-  (feature) or epic completion sign-off (validate).
+  (implement) or epic completion sign-off (validate).
 license: MIT
 allowed-tools:
   - Read

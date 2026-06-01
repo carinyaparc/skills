@@ -11,7 +11,7 @@ Each skill produces one clear artefact (a markdown file or code change). Skills 
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **design**, **tasks** |
-| Delivery | _Definition of Done_ | **feature**, **code-review**, **create-mr** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **create-mr** |
 | Release | _Ready for Release_ | **review-mr**, **validate** |
 | Refine | _What did we learn?_ | **sprint**, **docs** |
 
@@ -22,7 +22,7 @@ Each skill produces one clear artefact (a markdown file or code change). Skills 
                         ↓
             design → tasks (+ ADR optional)
                         ↓
-    feature → code-review → code-review fix → create-mr
+    implement → code-review → code-review fix → create-mr
                         ↓
           review-mr → validate (epic done?)
                         ↓
@@ -88,7 +88,7 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **feature** | implement | Implement against approved design and tasks | code |
+| **implement** | — | Implement a task against approved design and tasks | code |
 | **code-review** | review, fix | Review a branch or PR; **fix** addresses findings without behaviour changes | code review / code |
 | **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
 | **create-mr** | run | Merge request description from the branch | MR / PR |
@@ -138,7 +138,7 @@ Same skills; the plugin is convenience for local/team use.
 /backlog write
 /design write checkout-foundation --mode walking-skeleton
 /tasks write checkout-foundation
-/feature implement CHK01-01
+/implement CHK01-01
 /code-review
 /validate checkout-foundation
 ```

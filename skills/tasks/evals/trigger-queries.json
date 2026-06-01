@@ -15,7 +15,7 @@
   {
     "query": "Implement CHK01-03 — scaffold the checkout module.",
     "should_trigger": false,
-    "note": "feature"
+    "note": "implement"
   },
   {
     "query": "Validate epic CHK01 is complete against all acceptance criteria.",
