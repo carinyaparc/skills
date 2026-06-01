@@ -27,7 +27,7 @@ the design passes.
 - It is NOT a code review — it reviews the specification, not the
   implementation; use `review-code` after implementation
 - It is NOT a backlog review — AC completeness checks for stories belong in
-  `backlog` (review mode) or `review-backlog`
+  `backlog` (review mode)
 - It is NOT a rubber stamp — if the design is not ready, the verdict must
   block the sprint
 

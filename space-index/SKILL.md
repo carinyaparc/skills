@@ -33,13 +33,11 @@ below to identify the best match and direct them to the right skill.
 | plan-delivery | Produces a delivery-plan.md that sequences the Phase-0 artefacts for a new portfolio, product, or domain before the... | delivery-plan.md | strategy | pm | — | delivery-plan.md |
 | refactor-code | Performs targeted code refactoring to address issues raised in a code review or to improve quality without changing... | code | delivery | engineer | review, code | code |
 | backlog | backlog.md artefact: write, review, or refine mode. Draft, readiness gate, or groom epics/stories... | backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
-| refine-backlog | Alias — backlog refine mode. Refines backlog.md by grooming activities... | backlog.md (refined) | refine | delivery | backlog.md, product.md, roadmap.md | backlog.md (refined) |
 | refine-docs | Documents the sprint-end refinement session: promotes WP-local ADR candidates into solution.md, archives superseded... | refine-session.md | refine | architect | solution.md, design.md | refine-session.md |
 | refine-product | Refines product.md on a regular cadence by recording sprint learnings, updating metric baselines, closing resolved open... | product.md (refined) | refine | pm | product.md | product.md (refined) |
 | refine-roadmap | Refines roadmap.md to reflect delivery reality — advancing phase status, recording exit-criteria evidence, updating... | roadmap.md (refined) | refine | pm | roadmap.md, product.md | roadmap.md (refined) |
 | refine-solution | Refines solution.md after a sprint or phase to reflect what was built — updating the building-block view, runtime... | solution.md (refined) | refine | architect | solution.md | solution.md (refined) |
 | review-adr | Reviews and finalises a draft Architecture Decision Record (ADR). Use when the user mentions "review this ADR",... | ADR review | architecture | architect | ADR-NNNN.md | review |
-| review-backlog | Alias — backlog review mode. Reviews backlog.md as Senior Delivery Lead... | backlog.md review | discovery | delivery | backlog.md, product.md, roadmap.md | backlog.md (amended), review summary |
 | review-code | Performs a comprehensive code review of changes in a branch or PR. Use when the user mentions "review this code",... | code review | delivery | engineer | design.md, backlog.md | review |
 | review-design | Reviews a work-package design.md for implementation readiness — checking that the design is implementable, APIs are... | design.md review | discovery | architect | design.md, solution.md, backlog.md | design.md (amended), review summary |
 | review-docs | Reviews product.md and solution.md for completeness and alignment before development begins. Use when the user mentions... | doc review | discovery | architect | product.md, solution.md | review |
@@ -49,7 +47,6 @@ below to identify the best match and direct them to the right skill.
 | space-index | Identifies the right skill for a vague or open-ended request. Use when the user asks "which skill should I use?", "what... | skill-routing | utility | utility | — | skill-routing |
 | validate | Performs a final stakeholder validation that an epic is complete against its backlog.md acceptance criteria. Use when... | validation report | delivery | delivery | backlog.md, solution.md | validation |
 | write-adr | Documents a consequential architecture decision as an ADR-NNNN.md file. Use when the user mentions "write an ADR",... | ADR-NNNN.md | architecture | architect | solution.md | ADR-NNNN.md |
-| write-backlog | Alias — backlog write mode. Drafts domain or work-package backlog.md... | backlog.md | strategy | pm | product.md, solution.md, roadmap.md | backlog.md |
 | write-contracts | Produces contracts.md for a domain as an executable index of types, Zod schemas, API route contracts, and analytics... | contracts.md | architecture | architect | solution.md | contracts.md |
 | write-metrics | Drafts metrics.md defining north-star, input, and guardrail metrics for a domain. Use when the user mentions "write the... | metrics.md | discovery | pm | product.md | metrics.md |
 | write-metrics-report | Produces a metrics-report.md capturing actuals for delivery metrics (velocity, cycle time, PR merge rate) and quality... | metrics-report.md | refine | delivery | metrics.md | metrics-report.md |

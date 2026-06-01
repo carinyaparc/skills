@@ -72,9 +72,6 @@ These skills sit at the front of the delivery loop — defining what to build, w
   npx skills@latest add daddia/skills/backlog
   ```
 
-  Legacy aliases `write-backlog`, `review-backlog`, and `refine-backlog` redirect to the
-  same prompts with a fixed mode.
-
 ## Architecture & Design
 
 Solution architecture, ADRs, contracts, and work-package design.
@@ -182,7 +179,7 @@ Document and code review skills, role-aware and structured.
   npx skills@latest add daddia/skills/review-adr
   ```
 
-- **backlog** (review mode) — See **backlog** above; use review mode or alias `review-backlog`.
+- **backlog** (review mode) — See **backlog** above.
 
 - **review-design** — Review a work-package `design.md` for implementation readiness — implementable, APIs and contracts referenced, scope clear.
 
@@ -227,7 +224,7 @@ Sprint-end and cadence skills that close the loop and roll learnings forward.
   npx skills@latest add daddia/skills/refine-solution
   ```
 
-- **backlog** (refine mode) — See **backlog** above; use refine mode or alias `refine-backlog`.
+- **backlog** (refine mode) — See **backlog** above.
 
 - **refine-docs** — Document the sprint-end refinement session: promote work-package
   ADR candidates into `solution.md`, archive superseded design sections, capture every

@@ -45,6 +45,6 @@ Deliverable, Design (section link), Acceptance (EARS), Acceptance (Gherkin).
 
 ## Related skills
 
-- Solution architecture → `solution` / `write-solution`
-- Roadmap sequencing → `roadmap` / `write-roadmap`
-- Product strategy → `product` / `write-product`
+- Solution architecture → `solution`
+- Roadmap sequencing → `roadmap`
+- Product strategy → `product`

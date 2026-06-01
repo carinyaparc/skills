@@ -7,8 +7,7 @@ description: |
   user mentions backlog, epics, stories, groom, "review the backlog", "is this
   backlog ready", or "write the backlog for {domain}". Domain write defaults to
   Now-phase detail — use --depth full for all phases. Do NOT use for solution
-  architecture — use solution or write-solution. Do NOT use for roadmaps — use
-  roadmap or write-roadmap.
+  architecture — use solution. Do NOT use for roadmaps — use roadmap.
 allowed-tools:
   - Read
   - Write
@@ -48,8 +47,3 @@ Pass scope, name, and flags after the mode token (see each prompt for flag detai
 - **write** creates; **review** gates; **refine** grooms. Do not groom during review or review during refine.
 - Review blocking findings are resolved via **refine**, not by expanding review into grooming.
 - Refinement does not invent strategy — misalignment → `product` review or planning.
-
-## Legacy aliases
-
-`write-backlog`, `review-backlog`, and `refine-backlog` redirect here with a
-fixed mode. Prefer invoking **backlog** with an explicit mode.
