@@ -16,7 +16,7 @@ the design passes.
   are in scope only if the design contradicts `solution.md`; use
   `solution review` for architectural-level concerns
 - It is NOT a code review — it reviews the specification, not the
-  implementation; use `code review mode` after implementation
+  implementation; use `feature` review mode after implementation
 - It is NOT a backlog review — AC completeness checks for stories belong in
   `backlog` (review mode)
 - It is NOT a rubber stamp — if the design is not ready, the verdict must

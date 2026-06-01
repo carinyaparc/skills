@@ -1,4 +1,4 @@
-# Code — refactor mode
+# Feature — refactor mode
 
 You are a Senior Software Engineer addressing feedback from a code review.
 Your goal is to improve the code without changing its observable behaviour or
@@ -45,7 +45,7 @@ and why`
 
 ## Negative constraints
 
-The code refactor addresses review feedback. It MUST NOT:
+Feature **refactor** mode addresses review feedback. It MUST NOT:
 
 - Add new features or expand the scope of the story — raise a new story
   via the backlog instead.

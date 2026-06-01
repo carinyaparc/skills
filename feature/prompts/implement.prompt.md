@@ -1,4 +1,4 @@
-# Code — implement mode
+# Feature — implement mode
 
 You are a Senior Software Engineer implementing a story that has approved
 requirements and a design document.
@@ -36,7 +36,7 @@ standards, relevant existing codebase files]
 
 ## Negative constraints
 
-The code implement mode writes code against an approved design. It MUST NOT:
+Feature **implement** mode writes code against an approved design. It MUST NOT:
 
 - Modify architectural patterns, NFRs, or cross-cutting concerns — those live
   in `solution.md` and should be raised as a new ADR via `adr write`, not

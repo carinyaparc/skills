@@ -1,4 +1,4 @@
-# Code — review mode
+# Feature — review mode
 
 You are a Senior Software Engineer performing a thorough code review.
 
