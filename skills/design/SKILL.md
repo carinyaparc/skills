@@ -1,7 +1,7 @@
 ---
 name: design
 description: >
-  Use when the user wants epic-level technical design at work/{epic}/design.md,
+  Use when the user wants epic-level technical design at docs/work/{epic}/design.md,
   walking-skeleton or TDD design, or design review before tasks. Pass epic slug or
   ID (CHK01). Cite solution.md — do not re-narrate architecture. Do NOT use for
   product backlog or epics (backlog), task Gherkin (tasks), system-wide
@@ -25,11 +25,11 @@ when resolving `{epic}` or checking artefact boundaries.
 
 ## Artefact
 
-`work/{epic}/design.md` — implementation specification for one epic (walking-skeleton or TDD).
+`docs/work/{epic}/design.md` — implementation specification for one epic (walking-skeleton or TDD).
 
 ## Path resolution
 
-Default: `work/{epic}/design.md`. User-named paths under `work/` override.
+Default: `docs/work/{epic}/design.md`. User-named paths under `docs/work/` override.
 
 ## Gotchas
 

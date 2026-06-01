@@ -22,8 +22,8 @@ level: epic
 | Convention | Value |
 | ---------- | ----- |
 | Epic ID | `CHK{nn}` |
-| Epic work path | `work/{epic}/` — kebab-case from title or short title, max two words |
-| Task ID | `CHK{nn}-{nn}` in `work/{epic}/tasks.md` |
+| Epic work path | `docs/work/{epic}/` — kebab-case from title or short title, max two words |
+| Task ID | `CHK{nn}-{nn}` in `docs/work/{epic}/tasks.md` |
 | Priority | P0–P2 |
 | Estimation | Fibonacci points |
 
@@ -31,9 +31,9 @@ level: epic
 
 | Epic ID | Title | Phase | Priority | Deps | Points | Work path | Status |
 | ------- | ----- | ----- | -------- | ---- | ------ | --------- | ------ |
-| CHK01 | Checkout Foundation | Now | P0 | - | 13 | `work/checkout-foundation/` | Done |
-| CHK02 | Payment Placement | Now | P0 | CHK01 | 18 | `work/payment-placement/` | Not started |
-| CHK03 | Order Confirmation | Now | P0 | CHK02 | 8 | `work/order-confirmation/` | Not started |
+| CHK01 | Checkout Foundation | Now | P0 | - | 13 | `docs/work/checkout-foundation/` | Done |
+| CHK02 | Payment Placement | Now | P0 | CHK01 | 18 | `docs/work/payment-placement/` | Not started |
+| CHK03 | Order Confirmation | Now | P0 | CHK02 | 8 | `docs/work/order-confirmation/` | Not started |
 
 ## 4. Critical path
 

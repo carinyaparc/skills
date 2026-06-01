@@ -1,6 +1,6 @@
 # Design — review mode
 
-Review `work/{epic}/design.md` for implementation readiness. Resolve `{epic}` from argument or backlog.
+Review `docs/work/{epic}/design.md` for implementation readiness. Resolve `{epic}` from argument or backlog.
 
 Read [SKILL.md](../SKILL.md).
 

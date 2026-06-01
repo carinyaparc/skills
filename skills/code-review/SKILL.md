@@ -25,8 +25,8 @@ For large diffs or pre-PR review, spawn in parallel (Claude Code agents or Curso
 
 | Agent | File | Focus |
 | ----- | ---- | ----- |
-| tasks-ac-reviewer | [agents/tasks-ac-reviewer.md](agents/tasks-ac-reviewer.md) | Gherkin in `work/{epic}/tasks.md` vs diff |
-| design-drift-reviewer | [agents/design-drift-reviewer.md](agents/design-drift-reviewer.md) | Scope vs `work/{epic}/design.md` |
+| tasks-ac-reviewer | [agents/tasks-ac-reviewer.md](agents/tasks-ac-reviewer.md) | Gherkin in `docs/work/{epic}/tasks.md` vs diff |
+| design-drift-reviewer | [agents/design-drift-reviewer.md](agents/design-drift-reviewer.md) | Scope vs `docs/work/{epic}/design.md` |
 
 Merge agent outputs into one verdict. Default review scope: `git diff` unless the user specifies files.
 

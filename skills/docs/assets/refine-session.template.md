@@ -25,7 +25,7 @@ solution_updated: <!-- true | false -->
 
 | Section | Reason |
 | ------- | ------ |
-| work/{epic}/design.md §{n} | Promoted to solution.md §{m} |
+| docs/work/{epic}/design.md §{n} | Promoted to solution.md §{m} |
 
 ## Open questions carried forward
 

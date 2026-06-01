@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Validate work/{epic}/ paths in a backlog markdown file.
+# Validate docs/work/{epic}/ paths in a backlog markdown file.
 # Usage: check-epic-paths.sh [path-to-backlog.md]
 # Exit 0 if all paths pass; 1 if any fail.
 
@@ -24,9 +24,9 @@ check_slug() {
   fail=1
 }
 
-# Match work/slug/ in table cells
+# Match docs/work/slug/ in table cells
 while IFS= read -r line; do
-  if [[ "$line" =~ work/([a-z0-9-]+)/ ]]; then
+  if [[ "$line" =~ docs/work/([a-z0-9-]+)/ ]]; then
     slug="${BASH_REMATCH[1]}"
     # Count words (split on hyphen)
     IFS='-' read -ra parts <<< "$slug"
@@ -41,7 +41,7 @@ while IFS= read -r line; do
       fail=1
     fi
   fi
-done < <(grep -n 'work/[a-z0-9-]*/' "$BACKLOG" || true)
+done < <(grep -n 'docs/work/[a-z0-9-]*/' "$BACKLOG" || true)
 
 if [[ $fail -eq 0 ]]; then
   echo "ok: epic work paths in $BACKLOG"

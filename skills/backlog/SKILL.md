@@ -7,7 +7,7 @@ description: >
   strategy or PRD (product), phase exit criteria (roadmap), Gherkin tasks
   (tasks), epic design.md (design), architecture (solution), sprint retro
   (sprint), or pre-sprint doc alignment (docs). Task breakdown per epic lives at
-  work/{epic}/ via tasks.
+  docs/work/{epic}/ via tasks.
 license: MIT
 allowed-tools:
   - Read
@@ -38,13 +38,13 @@ path instead of the default.
 - **Epic-level (default):** epic breakdown table, Now-phase epic detail, dependency
   graph, delivery risks. Later phases are placeholders unless `--depth full`.
 - **With stories:** when the user requests `--stories`, a small product, or
-  explicitly asks — lightweight story rows only; full Gherkin → `work/{epic}/tasks.md`
+  explicitly asks — lightweight story rows only; full Gherkin → `docs/work/{epic}/tasks.md`
   via **tasks**.
 
 ## Gotchas
 
 - **Work path slug** comes from title or short title (max two words), not Epic ID.
-- **Full Gherkin** belongs in `work/{epic}/tasks.md`, not in the product backlog.
+- **Full Gherkin** belongs in `docs/work/{epic}/tasks.md`, not in the product backlog.
 - **`--stories`** adds high-level rows only; do not paste task-level AC here.
 - **Architecture and APIs** stay in `solution.md`; epic detail stays in `design.md`.
 

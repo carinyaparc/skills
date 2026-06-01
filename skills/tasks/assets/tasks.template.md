@@ -8,7 +8,7 @@ status: Draft
 last_updated: <!-- YYYY-MM-DD -->
 related:
   - docs/product/backlog.md
-  - work/{epic}/design.md
+  - docs/work/{epic}/design.md
   - docs/architecture/solution.md
 ---
 

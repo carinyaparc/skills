@@ -26,4 +26,4 @@ Summarise blocking vs non-blocking findings. Do not rewrite wholesale.
 
 - Business strategy changes → product skill
 - Implementation detail or code → design.md or solution.md §6–§7
-- Story AC → work/{epic}/tasks.md
+- Story AC → docs/work/{epic}/tasks.md

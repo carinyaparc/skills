@@ -1,6 +1,6 @@
 # Sprint — retrospective mode
 
-Produce `work/sprint-{id}/retrospective.md`. Compare to plan.md and epic `tasks.md` outcomes.
+Produce `docs/work/sprint-{id}/retrospective.md`. Compare to plan.md and epic `tasks.md` outcomes.
 
 Read [SKILL.md](../SKILL.md).
 

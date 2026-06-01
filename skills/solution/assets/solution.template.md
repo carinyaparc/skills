@@ -17,7 +17,7 @@ DO NOT INCLUDE in solution.md:
   - Strategic thesis or product principles      → product.md
   - Positioning or messaging                    → product.md
   - User quotes                                 → product.md
-  - Story-level acceptance criteria             → work/{epic}/tasks.md
+  - Story-level acceptance criteria             → docs/work/{epic}/tasks.md
   - Phase sequencing or epic ordering           → roadmap.md
 -->
 

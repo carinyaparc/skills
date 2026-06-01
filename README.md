@@ -4,6 +4,60 @@ Opinionated skills that guide an AI agent through the full product delivery loop
 
 Each skill produces one clear artefact (a markdown file or code change). Skills chain together: the agent reads what you already wrote and knows what *not* to put in the wrong document.
 
+## Skills overview
+
+| Stage | Key outcome(s) | Skills |
+| ----- | -------------- | ------ |
+| Planning | What, why, and when? | **product**, **roadmap**, **backlog** |
+| Architecture | How? Structure? Principles? | **solution**, **adr** |
+| Discovery | Ready for Development | **design**, **tasks** |
+| Delivery | Definition of Done | **feature**, **code-review**, **create-mr** |
+| Release | Ready for Release | **review-mr**, **validate** |
+| Refine | What did we learn? | **sprint**, **docs** |
+
+## Typical flow
+
+```text
+        product → solution → roadmap → backlog
+                        ↓
+            design → tasks (+ ADR optional)
+                        ↓
+    feature → code-review → code-review fix → create-mr
+                        ↓
+          review-mr → validate (epic done?)
+                        ↓
+            sprint retro, docs (ongoing)
+```
+
+## Where files live in your project
+
+Default layout the skills expect (override paths in your prompt if your repo differs):
+
+```text
+docs/
+├── product/
+│   ├── product.md
+│   ├── roadmap.md
+│   └── backlog.md
+├── architecture/
+│   ├── solution.md
+│   └── decisions/
+│       ├── register.md
+│       └── ADR-NNNN-{title}.md
+└── work/
+    ├── checkout-foundation/     # epic — slug from title (max two words)
+    │   ├── design.md
+    │   ├── tasks.md
+    │   └── refine-session.md
+    └── sprint-3/
+        ├── plan.md
+        └── retrospective.md
+```
+
+**Epic slug `{epic}`** — kebab-case from the epic title or short title, at most two words (`Checkout Foundation` → `checkout-foundation`). Epic IDs like `CHK01` stay in the backlog table; resolve the slug from that row when invoking skills.
+
+Full path and boundary rules: [delivery conventions](skills/backlog/references/delivery-conventions.md).
+
 ## Skill catalogue
 
 Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`.
@@ -27,8 +81,8 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **design** | write, review | `work/{epic}/design.md` (walking-skeleton or TDD) | `work/{epic}/design.md` |
-| **tasks** | write, review, refine | `work/{epic}/tasks.md` with Gherkin AC from design | `work/{epic}/tasks.md` |
+| **design** | write, review | `docs/work/{epic}/design.md` (walking-skeleton or TDD) | `docs/work/{epic}/design.md` |
+| **tasks** | write, review, refine | `docs/work/{epic}/tasks.md` with Gherkin AC from design | `docs/work/{epic}/tasks.md` |
 
 ### Delivery
 
@@ -39,12 +93,12 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 | **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
 | **create-mr** | run | Merge request description from the branch | MR / PR |
 
-### Governance
+### Refine
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **sprint** | plan, retrospective | `plan.md` before the sprint; `retrospective.md` after | `work/sprint-{id}/plan.md`, `retrospective.md` |
-| **docs** | review, refine | Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design | review / `work/{epic}/refine-session.md` |
+| **sprint** | plan, retrospective | `plan.md` before the sprint; `retrospective.md` after | `docs/work/sprint-{id}/plan.md`, `retrospective.md` |
+| **docs** | review, refine | Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design | review / `docs/work/{epic}/refine-session.md` |
 | **skills-index** | run | “Which skill should I use?” for open-ended questions | routing |
 
 ## Getting started
@@ -83,52 +137,6 @@ Same skills; the plugin is convenience for local/team use.
 ```
 
 Not sure where to start? Use **skills-index**, or follow the [typical flow](#typical-flow) below.
-
-## Where files live in your project
-
-Default layout the skills expect (override paths in your prompt if your repo differs):
-
-```text
-docs/
-├── product/
-│   ├── product.md
-│   ├── roadmap.md
-│   └── backlog.md
-└── architecture/
-    ├── solution.md
-    └── decisions/
-        ├── register.md
-        └── ADR-NNNN-{title}.md
-
-work/
-├── checkout-foundation/     # epic — slug from title (max two words)
-│   ├── design.md
-│   ├── tasks.md
-│   └── refine-session.md
-└── sprint-3/
-    ├── plan.md
-    └── retrospective.md
-```
-
-## Typical flow
-
-```text
-product → roadmap → backlog → solution (+ adr as needed)
-                              ↓
-                    design → tasks → feature → code-review
-                              ↓
-                         validate (epic done?)
-                              ↓
-              sprint plan / retro, docs refine (ongoing)
-```
-
-| Stage | Skills |
-| ----- | ------ |
-| Planning | **product**, **roadmap**, **backlog** |
-| Architecture | **solution**, **adr** |
-| Discovery | **design**, **tasks** |
-| Delivery | **feature**, **code-review**, **create-mr**, **validate** |
-| Governance | **sprint**, **docs** |
 
 ## License
 

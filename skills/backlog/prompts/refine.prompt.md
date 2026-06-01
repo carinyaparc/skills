@@ -10,7 +10,7 @@ Read [SKILL.md](../SKILL.md) and
 1. **Prioritise** — value, risk, dependencies
 2. **Break down** — split epics spanning multiple boundaries or phase objectives
 3. **Estimate** — epic points; TBD only with a spike noted
-4. **Define acceptance** — verifiable epic scope and deliverables (Gherkin in `work/{epic}/tasks.md`)
+4. **Define acceptance** — verifiable epic scope and deliverables (Gherkin in `docs/work/{epic}/tasks.md`)
 5. **Remove** — defer misaligned items; record in summary
 
 ## Steps

@@ -49,7 +49,7 @@ This skill writes code against an approved design. It MUST NOT:
   in `solution.md` and should be raised as a new ADR via `adr write`, not
   changed unilaterally during implementation.
 - Rewrite acceptance criteria or add new stories — story scope is fixed by
-  `work/{epic}/tasks.md`; if scope needs to change, update tasks via **tasks** skill
+  `docs/work/{epic}/tasks.md`; if scope needs to change, update tasks via **tasks** skill
   first.
 - Introduce new public APIs or contract shapes that are not specified in
   `docs/architecture/solution.md` or the design — if required, pause and update

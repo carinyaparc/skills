@@ -1,6 +1,6 @@
 # Tasks — review mode
 
-Review `work/{epic}/tasks.md` for sprint readiness.
+Review `docs/work/{epic}/tasks.md` for sprint readiness.
 
 Read [SKILL.md](../SKILL.md) and
 [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).

@@ -33,8 +33,8 @@ A solution refinement MUST NOT:
 <artifacts>
 [Provided by the caller:
   Required: the solution.md to refine
-  Recommended: work/sprint-{id}/retrospective.md, design.md from the sprint's
-  epic work folders under work/{epic}/, codebase changes (file names, new modules, changed APIs)
+  Recommended: docs/work/sprint-{id}/retrospective.md, design.md from the sprint's
+  epic work folders under docs/work/{epic}/, codebase changes (file names, new modules, changed APIs)
   Optional: docs/architecture/decisions/register.md]
 </artifacts>
 

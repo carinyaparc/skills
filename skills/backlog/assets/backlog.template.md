@@ -14,7 +14,7 @@ related:
 <!--
 DRAFTING AIDE — DELETE BEFORE SAVING.
 §3 epic breakdown table; §4 epic detail for Now-phase epics.
-Epic work path: work/{epic}/ — slug from title or short title, max two words, kebab-case.
+Epic work path: docs/work/{epic}/ — slug from title or short title, max two words, kebab-case.
 -->
 
 # Backlog -- {Name}
@@ -40,8 +40,8 @@ Epic work path: work/{epic}/ — slug from title or short title, max two words, 
 | Convention | Value |
 | ---------- | ----- |
 | Epic ID | `{PREFIX}{nn}` |
-| Epic work path | `work/{epic}/` (title or short title slug, max two words) |
-| Task ID | `{PREFIX}{nn}-{nn}` in `work/{epic}/tasks.md` |
+| Epic work path | `docs/work/{epic}/` (title or short title slug, max two words) |
+| Task ID | `{PREFIX}{nn}-{nn}` in `docs/work/{epic}/tasks.md` |
 | Status | Not started, In progress, In review, Done, Blocked |
 | Priority | P0–P3 |
 | Estimation | Fibonacci story points |
@@ -61,7 +61,7 @@ Epic work path: work/{epic}/ — slug from title or short title, max two words, 
 
 **Dependencies.**
 
-**Status.** **Work path:** `work/{epic}/`
+**Status.** **Work path:** `docs/work/{epic}/`
 
 ## 5. Dependency graph
 

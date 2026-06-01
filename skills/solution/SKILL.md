@@ -5,7 +5,7 @@ description: >
   docs/architecture/solution.md (stub or full arc42-lite). Do NOT use for business
   strategy (product), delivery phases (roadmap), epic list (backlog), per-epic
   design.md (design), task Gherkin (tasks), or ADR files (adr write). Story AC
-  belongs in work/{epic}/tasks.md.
+  belongs in docs/work/{epic}/tasks.md.
 license: MIT
 allowed-tools:
   - Read
@@ -40,7 +40,7 @@ path instead of the default.
 
 ## Gotchas
 
-- **Per-epic files/APIs** → cite from `work/{epic}/design.md`, don't duplicate full specs.
+- **Per-epic files/APIs** → cite from `docs/work/{epic}/design.md`, don't duplicate full specs.
 - **Story-level Gherkin** → `tasks.md`, not solution.
 - **Closed ADRs** → `ADR-NNNN-*.md`; proposals stay in register only.
 

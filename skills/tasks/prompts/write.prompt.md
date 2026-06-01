@@ -7,7 +7,7 @@ Read [SKILL.md](../SKILL.md) and
 
 ## Path
 
-Default: `work/{epic}/tasks.md`. Resolve `{epic}` from the argument or backlog row.
+Default: `docs/work/{epic}/tasks.md`. Resolve `{epic}` from the argument or backlog row.
 
 ## Arguments
 
@@ -16,7 +16,7 @@ Default: `work/{epic}/tasks.md`. Resolve `{epic}` from the argument or backlog r
 ## Context
 
 <artifacts>
-[Required: work/{epic}/design.md OR user spec
+[Required: docs/work/{epic}/design.md OR user spec
 Recommended: docs/product/backlog.md (epic row), docs/architecture/solution.md]
 </artifacts>
 

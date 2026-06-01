@@ -18,14 +18,14 @@ Default: `docs/architecture/solution.md`. If the user names another path, use it
 solution.md MUST NOT contain:
 
 - Commercial rationale, personas, positioning → `docs/product/product.md`
-- Story-level acceptance criteria → `work/{epic}/tasks.md`
+- Story-level acceptance criteria → `docs/work/{epic}/tasks.md`
 - Phase sequencing → `docs/product/roadmap.md`
 
 ## Context
 
 <artifacts>
 [Stub: docs/product/product.md, architecture principles, system boundary
-Full: product.md, work/{epic}/design.md (walking-skeleton), ADR register,
+Full: product.md, docs/work/{epic}/design.md (walking-skeleton), ADR register,
 accepted ADRs]
 </artifacts>
 

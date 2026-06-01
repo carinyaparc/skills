@@ -1,7 +1,7 @@
 # Design — write mode
 
 You are a Senior Software Architect writing epic-level `design.md` for
-`work/{epic}/`. Resolve `{epic}` from the argument or `docs/product/backlog.md`.
+`docs/work/{epic}/`. Resolve `{epic}` from the argument or `docs/product/backlog.md`.
 
 Read [SKILL.md](../SKILL.md) and
 [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md).
@@ -20,7 +20,7 @@ Do NOT put in design.md:
 - Architecture-wide patterns already in solution.md — cite `solution.md §{N.M}`
 - Business strategy → `docs/product/product.md`
 - Phase sequencing → `docs/product/roadmap.md`
-- Task-level Gherkin → `work/{epic}/tasks.md` via **tasks**
+- Task-level Gherkin → `docs/work/{epic}/tasks.md` via **tasks**
 
 Delete the `DRAFTING AIDE` block before saving.
 
@@ -41,7 +41,7 @@ Delete the `DRAFTING AIDE` block before saving.
 
 ## Pre-save validation
 
-- [ ] Path is `work/{epic}/design.md` with correct slug (≤2 words, not Epic ID)
+- [ ] Path is `docs/work/{epic}/design.md` with correct slug (≤2 words, not Epic ID)
 - [ ] Solution cited by section; no duplicated architecture narrative
 - [ ] No Gherkin task scenarios (gates/slice only)
 - [ ] Mode-appropriate sections only (walking-skeleton vs tdd)
@@ -49,6 +49,6 @@ Delete the `DRAFTING AIDE` block before saving.
 
 ## Output
 
-Save to `work/{epic}/design.md`. Use [assets/design.template.md](../assets/design.template.md).
+Save to `docs/work/{epic}/design.md`. Use [assets/design.template.md](../assets/design.template.md).
 
 **Handoff:** suggest `tasks write {epic}`.

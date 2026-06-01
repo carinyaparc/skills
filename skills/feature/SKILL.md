@@ -2,7 +2,7 @@
 name: feature
 description: >
   Use when the user wants to implement a story or task in code against approved
-  design.md and work/{epic}/tasks.md. Do NOT use for code review (code-review),
+  design.md and docs/work/{epic}/tasks.md. Do NOT use for code review (code-review),
   address review feedback (code-review fix), writing tasks (tasks), or design
   (design write).
 license: MIT

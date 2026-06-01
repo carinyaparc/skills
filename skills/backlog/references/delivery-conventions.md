@@ -1,16 +1,16 @@
 # Delivery conventions
 
 Canonical rules for paths, epics, and artefact boundaries. Skills that touch
-`work/{epic}/` should read this file when resolving `{epic}` or writing under
-`work/`.
+`docs/work/{epic}/` should read this file when resolving `{epic}` or writing under
+`docs/work/`.
 
 ## Document layout
 
 ```text
 docs/product/          product.md, roadmap.md, backlog.md
 docs/architecture/     solution.md, decisions/register.md, ADR-*.md
-work/{epic}/           design.md, tasks.md, refine-session.md
-work/sprint-{id}/      plan.md, retrospective.md
+docs/work/{epic}/           design.md, tasks.md, refine-session.md
+docs/work/sprint-{id}/      plan.md, retrospective.md
 ```
 
 Override paths when the user names them explicitly in the request.
@@ -22,7 +22,7 @@ Override paths when the user names them explicitly in the request.
 | Source | Epic **title** or **short title** from `docs/product/backlog.md` |
 | Format | kebab-case, **at most two words** |
 | Not the ID | `CHK01` → resolve row → e.g. `checkout-foundation` |
-| Work path | `work/{epic}/` (trailing slash in tables is fine) |
+| Work path | `docs/work/{epic}/` (trailing slash in tables is fine) |
 
 | Title | Slug | Invalid |
 | ----- | ---- | ------- |
@@ -34,7 +34,7 @@ Override paths when the user names them explicitly in the request.
 
 - Slug: `checkout-foundation`
 - Epic ID: `CHK01` → read backlog row → slug
-- Path: `work/checkout-foundation/` or `.../tasks.md`
+- Path: `docs/work/checkout-foundation/` or `.../tasks.md`
 
 ## Artefact boundaries
 
@@ -45,13 +45,13 @@ Override paths when the user names them explicitly in the request.
 | Epic list, deps, points, work paths | `docs/product/backlog.md` | roadmap detail |
 | Architecture, NFRs, cross-epic patterns | `docs/architecture/solution.md` | design (cite only) |
 | ADR decisions | `register.md`, `ADR-NNNN-*.md` | solution narrative |
-| Epic implementation spec | `work/{epic}/design.md` | solution, backlog |
-| Task Gherkin (and optional EARS) | `work/{epic}/tasks.md` | backlog, design |
-| Sprint plan / retro | `work/sprint-{id}/` | product backlog |
+| Epic implementation spec | `docs/work/{epic}/design.md` | solution, backlog |
+| Task Gherkin (and optional EARS) | `docs/work/{epic}/tasks.md` | backlog, design |
+| Sprint plan / retro | `docs/work/sprint-{id}/` | product backlog |
 
 ## Acceptance criteria
 
-- **Default:** Gherkin in `work/{epic}/tasks.md` (≥1 scenario per task).
+- **Default:** Gherkin in `docs/work/{epic}/tasks.md` (≥1 scenario per task).
 - **EARS:** optional via `tasks write --ears` or when rules are clearer than scenarios.
 - **Backlog:** epic scope only; no full Gherkin in `backlog.md` (use **tasks**).
 
