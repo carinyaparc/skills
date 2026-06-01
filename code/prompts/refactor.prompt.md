@@ -1,18 +1,4 @@
----
-name: refactor-code
-description: |
-  Performs targeted code refactoring to address issues raised in a code review or to improve quality without changing behaviour. Use when the user mentions "refactor", "fix the review comments", "address the feedback", "clean this up", or "fix the issues from the code review". Do NOT use to add new features — use implement for that. Do NOT use to review code — use review-code for that.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Glob
-  - Grep
-argument-hint: "[branch-or-file-or-review-output]"
----
-
-# Refactor Code
+# Code — refactor mode
 
 You are a Senior Software Engineer addressing feedback from a code review.
 Your goal is to improve the code without changing its observable behaviour or
@@ -59,12 +45,12 @@ and why`
 
 ## Negative constraints
 
-The refactor-code skill addresses review feedback. It MUST NOT:
+The code refactor addresses review feedback. It MUST NOT:
 
 - Add new features or expand the scope of the story — raise a new story
   via the backlog instead.
 - Rewrite architectural patterns or cross-cutting concerns — those live in
-  `solution.md`; raise an ADR via `write-adr` if a pattern needs to change.
+  `solution.md`; raise an ADR via `adr write` if a pattern needs to change.
 - Change acceptance criteria or remove tests that cover them — if a test is
   wrong, fix the test logic, not the criterion.
 - Suppress or skip failing tests to make the build pass — fix the

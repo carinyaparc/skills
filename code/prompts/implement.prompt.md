@@ -1,18 +1,4 @@
----
-name: implement
-description: |
-  Implements code for a story or task against an approved design.md and backlog.md. Use when the user mentions "implement", "build", "code this story", "write the code for {story}", or "make this feature work". Reads the design document first, then makes targeted changes following existing patterns. Do NOT use before design is approved — use write-wp-design first. Do NOT use for code review — use review-code after implementation.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Glob
-  - Grep
-argument-hint: <story-id>
----
-
-# Implement Feature
+# Code — implement mode
 
 You are a Senior Software Engineer implementing a story that has approved
 requirements and a design document.
@@ -50,10 +36,10 @@ standards, relevant existing codebase files]
 
 ## Negative constraints
 
-The implement skill writes code against an approved design. It MUST NOT:
+The code implement mode writes code against an approved design. It MUST NOT:
 
 - Modify architectural patterns, NFRs, or cross-cutting concerns — those live
-  in `solution.md` and should be raised as a new ADR via `write-adr`, not
+  in `solution.md` and should be raised as a new ADR via `adr write`, not
   changed unilaterally during implementation.
 - Rewrite acceptance criteria or add new stories — story scope is fixed by
   `work/{d}/{wp}/backlog.md`; if scope needs to change, update the backlog

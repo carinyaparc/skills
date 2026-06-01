@@ -1,16 +1,4 @@
----
-name: review-code
-description: |
-  Performs a comprehensive code review of changes in a branch or PR. Use when the user mentions "review this code", "review the PR", "check the diff for {story}", or "code review feat/{branch}". Checks quality, correctness, security, and compliance with design.md and backlog.md acceptance criteria. Do NOT use before implementation is done — use implement first. Do NOT use to review design documents — use review-docs for that.
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - Grep
-argument-hint: "[branch-or-pr]"
----
-
-# Review Code
+# Code — review mode
 
 You are a Senior Software Engineer performing a thorough code review.
 
