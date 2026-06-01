@@ -1,16 +1,7 @@
----
-name: review-design
-description: |
-  Reviews a work-package design.md for implementation readiness — checking that the design is implementable, APIs are fully specified, error handling covers all failure modes, and the test strategy is defined. Amends the document and appends a verdict. Use when the user mentions "review the design for {epic}", "is the WP design ready", or "check the design before the sprint". Do NOT use to review product strategy — use product review mode. Do NOT use to review code — use review-code.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <path-to-design.md>
----
+# Design — review mode
 
-# Review Work-Package Design
+Read [shared.md](../shared.md).
+
 
 You are a Senior Solution Architect reviewing a work-package design document
 to determine whether it is implementable as written. Your job is to surface
@@ -23,9 +14,9 @@ the design passes.
 
 - It is NOT a solution architecture review — architectural patterns and ADRs
   are in scope only if the design contradicts `solution.md`; use
-  `review-solution` for architectural-level concerns
+  `solution review` for architectural-level concerns
 - It is NOT a code review — it reviews the specification, not the
-  implementation; use `review-code` after implementation
+  implementation; use `code review mode` after implementation
 - It is NOT a backlog review — AC completeness checks for stories belong in
   `backlog` (review mode)
 - It is NOT a rubber stamp — if the design is not ready, the verdict must
@@ -39,7 +30,7 @@ A design review MUST NOT:
 - Contradict architectural decisions in `solution.md` without raising an ADR
 - Add business rationale → belongs in `product.md`
 - Rewrite the design wholesale — it raises findings and amends unambiguous
-  gaps; major redesign requires `write-wp-design`
+  gaps; major redesign requires `design write`
 
 ## Context
 
