@@ -147,4 +147,4 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 
 ## License
 
-Copyright (c) 2026 daddia. All rights reserved. Released under the [MIT](LICENSE).
+Copyright (c) 2026 daddia. Released under the [MIT License](LICENSE).
