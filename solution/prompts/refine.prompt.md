@@ -1,16 +1,7 @@
----
-name: refine-solution
-description: |
-  Refines solution.md after a sprint or phase to reflect what was built — updating the building-block view, runtime sequences, data model, risk register, ADR log, and emergent patterns. Use when the user mentions "update the solution architecture", "the solution.md has drifted", or "refine the architecture after this sprint". Do NOT write from scratch — use write-solution. Do NOT conduct a quality review — use review-solution.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <path-to-solution.md> [--context <sprint-notes>]
----
+# Solution — refine mode
 
-# Refine Solution Architecture
+Read [shared.md](../shared.md).
+
 
 You are a Senior Solution Architect doing a post-sprint currency pass on a
 solution design document. Your job is to close the gap between what was
@@ -21,11 +12,11 @@ mismatch that must be raised as a finding.
 ## What this refinement is not
 
 - It is NOT a redesign — if the architecture strategy is wrong, raise a
-  finding and create a new ADR via `write-adr`; do not silently overwrite
-- It is NOT an ADR promotion session — that is `refine-docs`; this skill
+  finding and create a new ADR via `adr write`; do not silently overwrite
+- It is NOT an ADR promotion session — that is `docs refine`; this skill
   focuses on solution.md sections, not the ADR register
 - It is NOT a quality review — structural soundness checks belong in
-  `review-solution`
+  `review mode`
 
 ## Negative constraints
 
@@ -92,7 +83,7 @@ A solution refinement MUST NOT:
 ### 5. ADR log (§9)
 
 - Were any ADR candidates from the sprint's design.md formalised into
-  actual ADRs via `write-adr`? Add the entry to the ADR log.
+  actual ADRs via `adr write`? Add the entry to the ADR log.
 - Were any decisions that were marked `_(Not yet written)_` now written?
   Update the status.
 

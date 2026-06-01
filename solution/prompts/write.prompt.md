@@ -1,16 +1,7 @@
----
-name: write-solution
-description: |
-  Drafts solution.md in stub mode (Phase 0, two sections) or full arc42-lite mode (Phase 2+, ten sections). Use when the user mentions "solution design", "architecture", "how will this work", or "what should we build". Stub mode produces a Phase 0 anchor with [NEEDS CLARIFICATION] placeholders; full mode reverse-engineers the architecture from a shipped walking skeleton. Do NOT use for business strategy — use write-product. Do NOT use for sprint TDD — use write-wp-design.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: "<scope: portfolio|product|domain> <name> [--stage stub|full]"
----
+# Solution — write mode
 
-# Write Solution Document
+Read [shared.md](../shared.md).
+
 
 You are a Senior Solution Architect writing a solution design that makes the
 architecture of a domain legible to engineers, adjacent squads, and AI agents.

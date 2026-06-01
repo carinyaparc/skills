@@ -1,16 +1,7 @@
----
-name: review-solution
-description: |
-  Reviews solution.md as a Senior Solution Architect, checking structural soundness, section completeness, NFR specificity, ADR coverage, and drift from what was actually built. Amends the document and appends a verdict. Use when the user mentions "review the architecture", "is the solution sound", or "review solution.md for {name}". Do NOT use to update solution.md incrementally — use refine-solution. Do NOT use to review product strategy — use review-product.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <path-to-solution.md>
----
+# Solution — review mode
 
-# Review Solution Architecture
+Read [shared.md](../shared.md).
+
 
 You are a Senior Solution Architect conducting a critical review of a
 solution design document. Your job is to determine whether the architecture
@@ -22,9 +13,9 @@ actually built.
 ## What this review is not
 
 - It is NOT an incremental update — recording what changed in a sprint
-  belongs in `refine-solution`
+  belongs in `refine mode`
 - It is NOT a product strategy review — if the architecture is doing the
-  wrong things, that is a `review-product` finding
+  wrong things, that is a `product review mode` finding
 - It is NOT a rubber stamp — if the solution is not sound, the verdict must
   say so and block Architecture sign-off
 
@@ -37,7 +28,7 @@ A solution review MUST NOT:
 - Add business rationale or commercial framing → belongs in `product.md`
 - Add story-level acceptance criteria → belongs in `work/{wp}/backlog.md`
 - Rewrite the solution wholesale — it raises findings and amends unambiguous
-  gaps directly; major restructuring requires `write-solution`
+  gaps directly; major restructuring requires `write mode`
 
 ## Context
 
@@ -139,7 +130,7 @@ full solution is a gap.
 
 **ADR alignment.** Does the solution cite the ADRs that govern its decisions?
 An architectural choice with no ADR reference for a consequential decision
-should trigger a `plan-adr` recommendation.
+should trigger a `adr plan` recommendation.
 
 ## Quality rules
 
