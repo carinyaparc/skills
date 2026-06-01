@@ -45,7 +45,7 @@ docs/
 │       ├── register.md
 │       └── ADR-NNNN-{title}.md
 └── work/
-    ├── checkout-foundation/     # epic — slug from title (max two words)
+    ├── checkout-foundation/     # epic
     │   ├── design.md
     │   ├── tasks.md
     │   └── refine-session.md
@@ -92,6 +92,13 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 | **code-review** | review, fix | Review a branch or PR; **fix** addresses findings without behaviour changes | code review / code |
 | **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
 | **create-mr** | run | Merge request description from the branch | MR / PR |
+
+### Release
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **review-mr** | run | Merge request description from the branch | MR / PR |
+| **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
 
 ### Refine
 
