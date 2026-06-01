@@ -1,16 +1,7 @@
----
-name: refine-roadmap
-description: |
-  Refines roadmap.md to reflect delivery reality — advancing phase status, recording exit-criteria evidence, updating cross-dependency statuses, and adjusting phase contents when sprint outcomes diverge from plan. Use when the user mentions "update the roadmap after this sprint", "advance the phase", or "the roadmap is out of date". Do NOT use for a critical credibility review — use review-roadmap. Do NOT use to write from scratch — use write-roadmap.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <path-to-roadmap.md> [--context <sprint-notes-or-gate-evidence>]
----
+# Roadmap — refine mode
 
-# Refine Delivery Roadmap
+Read [shared.md](../shared.md).
+
 
 You are a Senior Delivery Lead doing a post-sprint currency pass on a
 delivery roadmap. Your job is to reflect reality — not to redesign the plan.
@@ -23,7 +14,7 @@ Identify the scope from the frontmatter and apply the relevant activities.
 ## What this refinement is not
 
 - It is NOT a resequence — if the delivery strategy is wrong, that is a
-  `review-roadmap` finding, not a refinement task
+  `review mode` finding, not a refinement task
 - It is NOT a planning session — it records outcomes, not future commitments
 - It is NOT a phase redesign — phases are only restructured if the context
   provides evidence that the current structure is unworkable

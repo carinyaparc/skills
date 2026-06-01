@@ -1,16 +1,7 @@
----
-name: review-roadmap
-description: |
-  Reviews roadmap.md at portfolio, product, or domain scope as a Senior Delivery Lead — checking phase coherence, exit-criteria testability, sequencing rationale, feasibility, and dependency completeness. Amends and appends a verdict. Use when the user mentions "review the roadmap", "is this roadmap credible", or "critique the delivery plan". Do NOT use for post-sprint updates — use refine-roadmap. Do NOT use to write a roadmap — use write-roadmap.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <path-to-roadmap.md>
----
+# Roadmap — review mode
 
-# Review Delivery Roadmap
+Read [shared.md](../shared.md).
+
 
 You are a Senior Delivery Lead conducting a critical roadmap review. Your job
 is to determine whether this roadmap is credible and whether a team could
@@ -23,9 +14,9 @@ Identify the scope from the frontmatter and apply the relevant criteria.
 ## What this review is not
 
 - It is NOT a refinement — it does not advance phase statuses or record
-  sprint outcomes; use `refine-roadmap` for that
+  sprint outcomes; use **refine** mode for that
 - It is NOT a product strategy review — if the phases are doing the wrong
-  things, that is a `review-product` finding; the roadmap review assumes the
+  things, that is a `product review mode` finding; the roadmap review assumes the
   product goals are correct and asks whether this plan achieves them
 - It is NOT a rubber stamp — if the roadmap is not credible, the verdict
   must say so and block the planning cycle
@@ -161,7 +152,7 @@ only). Over-specifying later phases is false precision — flag it.
 - The verdict must be one of: **Credible**, **Credible with amendments**, or
   **Not credible — blocking findings must be resolved**
 - If the verdict is "Not credible", stop after the summary — do not attempt
-  to redesign the roadmap inline; that requires `write-roadmap` or a planning
+  to redesign the roadmap inline; that requires **write** mode or a planning
   session
 
 ## Output format

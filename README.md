@@ -56,11 +56,10 @@ These skills sit at the front of the delivery loop — defining what to build, w
   npx skills@latest add daddia/skills/product
   ```
 
-- **write-roadmap** — Draft `roadmap.md` in Now / Next / Later format with outcome-based
-  phases and exit criteria.
+- **roadmap** — `roadmap.md` artefact: **write**, **review**, **refine**.
 
   ```bash
-  npx skills@latest add daddia/skills/write-roadmap
+  npx skills@latest add daddia/skills/roadmap
   ```
 
 - **backlog** — `backlog.md` artefact with three modes: **write** (draft epics/stories),
@@ -155,11 +154,7 @@ Document and code review skills, role-aware and structured.
 
 - **product** (review mode) — See **product** above.
 
-- **review-roadmap** — Review `roadmap.md` as a Senior Delivery Lead — phase coherence, exit criteria, sequencing, dependencies.
-
-  ```bash
-  npx skills@latest add daddia/skills/review-roadmap
-  ```
+- **roadmap** (review mode) — See **roadmap** above.
 
 - **review-solution** — Review `solution.md` as a Senior Solution Architect — structural soundness, NFR coverage, section completeness.
 
@@ -197,19 +192,9 @@ Document and code review skills, role-aware and structured.
 
 Sprint-end and cadence skills that close the loop and roll learnings forward.
 
-- **refine-product** — Refine `product.md` on a regular cadence: record sprint
-  learnings, update metric baselines, close resolved open questions.
+- **product** (refine mode) — See **product** above.
 
-  ```bash
-  npx skills@latest add daddia/skills/refine-product
-  ```
-
-- **refine-roadmap** — Refine `roadmap.md` to reflect delivery reality — advance phase
-  status, record exit-criteria evidence, update next-phase scope.
-
-  ```bash
-  npx skills@latest add daddia/skills/refine-roadmap
-  ```
+- **roadmap** (refine mode) — See **roadmap** above.
 
 - **refine-solution** — Refine `solution.md` after a sprint or phase to reflect what was
   built — update building-block view, runtime, decisions taken.

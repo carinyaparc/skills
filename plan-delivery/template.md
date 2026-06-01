@@ -29,7 +29,7 @@ last_updated: <!-- YYYY-MM-DD -->
 | ---- | ------------------------- | ------------------------------ | ------ | ----- |
 | 1    | `domain/{d}/product.md`   | `product` write --stage pitch  | Draft  |       |
 | 2    | `domain/{d}/solution.md`  | `write-solution --stage stub`  | Draft  |       |
-| 3    | `domain/{d}/roadmap.md`   | `write-roadmap`                | Draft  |       |
+| 3    | `domain/{d}/roadmap.md`   | `roadmap` write                  | Draft  |       |
 | 4    | `domain/{d}/backlog.md`   | `backlog` write (domain scope) | Draft  |       |
 | 5    | `domain/{d}/contracts.md` | `write-contracts`              | Draft  |       |
 

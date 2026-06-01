@@ -50,8 +50,8 @@ solution.md lives at `{prefix}solution.md` (i.e. `domain/{name}/solution.md`).
    - `domain`: `{prefix}solution.md`
      Stubs §1 (context) and §2 (quality goals) only.
 
-4. **Roadmap — `write-roadmap`.**
-   Invoke `write-roadmap` with the matching scope. Output: `{prefix}roadmap.md`.
+4. **Roadmap — `roadmap` write mode.**
+   Invoke `roadmap` with mode `write` and the matching scope. Output: `{prefix}roadmap.md`.
    Uses the product strategy and solution stub as inputs.
 
 5. **Backlog — `backlog` write mode.**
