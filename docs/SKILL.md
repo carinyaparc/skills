@@ -29,6 +29,10 @@ Sprint-end and pre-sprint passes on product + solution and work-package design.
 
 If the user names different paths in their request, use those instead of the defaults.
 
+## Supporting files
+
+- [assets/refine-session.template.md](assets/refine-session.template.md)
+
 ## Router
 
 1. Mode: `review` or `refine`.

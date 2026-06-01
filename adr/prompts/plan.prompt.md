@@ -9,7 +9,7 @@ Default register: `docs/architecture/decisions/register.md`. If the user names
 another path, use it. Update the register only — do **not** create
 `proposed-adrs.md`, `adr-plan.md`, or other plan files.
 
-Use [register-template.md](../register-template.md) for structure if the register
+Use [assets/register.template.md](../assets/register.template.md) for structure if the register
 does not exist yet.
 
 ## Steps

@@ -50,8 +50,8 @@ Deliverable, Design (section link), Acceptance (EARS), Acceptance (Gherkin).
 
 ## Supporting files
 
-- [template-epic.md](template-epic.md)
-- [template-work-package.md](template-work-package.md)
+- [assets/backlog.template.md](assets/backlog.template.md) (epic)
+- [assets/backlog-work-package.template.md](assets/backlog-work-package.template.md)
 - [examples/epic-backlog.md](examples/epic-backlog.md)
 - [examples/wp01-backlog.md](examples/wp01-backlog.md)
 

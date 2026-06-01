@@ -49,4 +49,4 @@ Product stage: existing pitch product.md, user research, stakeholder map.]
 
 ## Output
 
-Markdown with YAML frontmatter. Use [template.md](../template.md).
+Markdown with YAML frontmatter. Use [assets/product.template.md](../assets/product.template.md).

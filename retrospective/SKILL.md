@@ -14,4 +14,8 @@ argument-hint: "<scope: sprint|epic|phase> <id-or-name>"
 
 # Retrospective
 
+## Supporting files
+
+- [assets/retrospective.template.md](assets/retrospective.template.md)
+
 Follow [prompts/write.prompt.md](prompts/write.prompt.md).

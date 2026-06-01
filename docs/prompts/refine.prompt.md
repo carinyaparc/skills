@@ -37,7 +37,7 @@ Defaults: solution `docs/architecture/solution.md`, register
 
    Do not delete sections — preserve for audit.
 
-5. **Record the session.** Write `{wp}/refine-session.md` using `template.md`.
+5. **Record the session.** Write `{wp}/refine-session.md` using [assets/refine-session.template.md](../assets/refine-session.template.md).
 
 ## Quality rules
 

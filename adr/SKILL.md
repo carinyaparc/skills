@@ -26,6 +26,11 @@ If the user names a different directory or file path in their request, use it
 for read/write instead of the defaults. Keep `ADR-####` numbering sequential
 within the register the user targets.
 
+## Supporting files
+
+- [assets/register.template.md](assets/register.template.md)
+- [assets/adr.template.md](assets/adr.template.md)
+
 ## Router
 
 1. Mode: `plan`, `write`, or `review`.

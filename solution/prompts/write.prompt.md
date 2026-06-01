@@ -62,4 +62,4 @@ accepted ADRs]
 
 ## Output format
 
-Markdown with YAML frontmatter. Save to the resolved path. Use [template.md](../template.md).
+Markdown with YAML frontmatter. Save to the resolved path. Use [assets/solution.template.md](../assets/solution.template.md).

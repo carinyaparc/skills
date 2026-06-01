@@ -49,7 +49,7 @@ Delete the `DRAFTING AIDE` comment block before saving.
 
 ## Supporting files
 
-- [template.md](template.md)
+- [assets/product.template.md](assets/product.template.md)
 - [examples/product.md](examples/product.md)
 
 ## Related skills

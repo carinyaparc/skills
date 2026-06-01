@@ -26,6 +26,10 @@ Work-package `design.md` (walking-skeleton or TDD).
 Default save path: `work/{wp}/design.md`. If the user names another path under
 `work/`, use it.
 
+## Supporting files
+
+- [assets/design.template.md](assets/design.template.md)
+
 ## Router
 
 1. Mode: `write` or `review`.

@@ -50,4 +50,4 @@ roadmap.md MUST NOT contain:
 
 ## Output format
 
-Markdown with YAML frontmatter. Save to the resolved path. Use [template.md](../template.md).
+Markdown with YAML frontmatter. Save to the resolved path. Use [assets/roadmap.template.md](../assets/roadmap.template.md).

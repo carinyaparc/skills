@@ -12,7 +12,7 @@ Defaults (override if the user names other paths):
 
 ## Steps
 
-1. Read [template.md](../template.md)
+1. Read [assets/adr.template.md](../assets/adr.template.md)
 2. Read the register to determine the next sequential ADR number
 3. Read related ADRs and `docs/architecture/solution.md`
 4. Fill problem, drivers, options, decision, consequences, confirmation

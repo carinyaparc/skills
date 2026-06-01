@@ -31,7 +31,7 @@ tech stack or architecture → `docs/architecture/solution.md`; business strateg
 
 ## Supporting files
 
-- [template.md](template.md)
+- [assets/roadmap.template.md](assets/roadmap.template.md)
 
 ## Related skills
 

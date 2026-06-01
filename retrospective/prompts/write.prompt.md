@@ -87,7 +87,7 @@ tracks, split it.
 
 Default: `work/{wp}/retrospective.md` for epic or work-package retros;
 `work/sprint-{N}/retrospective.md` for sprint retros. If the user names another
-path under `work/`, use it.
+path under `work/`, use it. Use [assets/retrospective.template.md](../assets/retrospective.template.md).
 
 <example>
 ## Sprint 3 Retrospective

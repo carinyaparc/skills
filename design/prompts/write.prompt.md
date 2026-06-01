@@ -89,7 +89,7 @@ The design.md MUST NOT contain:
 
 Write as a Markdown file with YAML frontmatter, saved as `work/{d}/{wp}/design.md`.
 
-Use `template.md` as your structural scaffold.
+Use [assets/design.template.md](../assets/design.template.md) as your structural scaffold.
 
 <example>
 See `examples/walking-skeleton.md` (walking-skeleton mode)

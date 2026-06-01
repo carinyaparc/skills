@@ -44,6 +44,6 @@ Work package: parent epic in product backlog, work/{wp}/design.md, solution.md]
 
 ## Output
 
-YAML frontmatter + Markdown. Epic: [template-epic.md](../template-epic.md). WP: [template-work-package.md](../template-work-package.md).
+YAML frontmatter + Markdown. Epic: [assets/backlog.template.md](../assets/backlog.template.md). WP: [assets/backlog-work-package.template.md](../assets/backlog-work-package.template.md).
 
 Examples: [epic-backlog.md](../examples/epic-backlog.md), [wp01-backlog.md](../examples/wp01-backlog.md).

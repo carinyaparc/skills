@@ -33,6 +33,10 @@ Work-package artefacts live under `work/{wp}/` (`design.md`, `backlog.md`, etc.)
 
 Each skill documents default paths under `docs/`. If you name a different path in your prompt, the agent uses that instead.
 
+Skills follow the [Agent Skills](https://github.com/agentskills/agentskills) layout:
+`SKILL.md`, `prompts/` for mode instructions, `assets/*.template.md` for artefact
+scaffolds, and `examples/` for reference outputs.
+
 Skills work with [Cursor](https://cursor.com/docs/skills),
 [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), and any
 [open agent skills](https://github.com/vercel-labs/skills) consumer.

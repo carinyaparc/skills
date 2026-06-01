@@ -36,7 +36,7 @@ AC → `work/{wp}/backlog.md`; phase sequencing → `docs/product/roadmap.md`.
 
 ## Supporting files
 
-- [template.md](template.md)
+- [assets/solution.template.md](assets/solution.template.md)
 
 ## Related skills
 
