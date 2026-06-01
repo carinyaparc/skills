@@ -116,12 +116,6 @@ specification. They install into:
 - `.claude/skills/` (Claude Code)
 - `.agents/skills/` (canonical, picked up by both natively)
 
-## Methodology
-
-Developed alongside [Space](https://github.com/daddia/space) and
-[Crew](https://github.com/daddia/crew). See
-[`daddia/space/architecture/skills/`](https://github.com/daddia/space/tree/main/architecture/skills).
-
 ## License
 
 [MIT](LICENSE)
