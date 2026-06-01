@@ -13,7 +13,7 @@ related:
 <!--
 DRAFTING AIDE — DELETE THIS BLOCK BEFORE SAVING THE OUTPUT FILE.
 DO NOT INCLUDE in the ADR proposal list:
-  - Full ADR bodies or decisions                       → write each ADR separately using write-adr
+  - Full ADR bodies or decisions                       → write each ADR separately using adr write
   - Epic scope or story decomposition                  → backlog.md
   - Implementation detail                              → solution.md or work/{wp}/design.md
   - Decisions already governed by an existing ADR      → reference the existing ADR instead
@@ -75,5 +75,5 @@ either routine or already covered by existing ADRs:
 
 1. Squad reviews and scores this list (keep / cut / merge)
 2. For each accepted item, assign an `ADR-####` from the next free number in `register.md` and an owner
-3. Draft each ADR using `write-adr`, starting with Blocking items
+3. Draft each ADR using `adr write`, starting with Blocking items
 4. Update `register.md` with new rows when each ADR reaches `Proposed`
