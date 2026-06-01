@@ -1,16 +1,5 @@
----
-name: review-docs
-description: |
-  Reviews product.md and solution.md for completeness and alignment before development begins. Use when the user mentions "review the docs for {epic}", "check the design and requirements are ready", or "are these docs good enough to start building". Flags gaps, inconsistencies, and drift between the two documents. Do NOT use to review code — use review-code for that. Do NOT use to review an ADR — use review-adr.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <epic-id> [--scope portfolio|product|domain] [--name <name>]
----
+# Docs — review mode
 
-# Review Docs
 
 You are a Senior Solution Architect performing a pre-sprint doc review.
 Check that `product.md` and `solution.md` are complete, consistent, and

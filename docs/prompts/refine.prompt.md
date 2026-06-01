@@ -1,16 +1,5 @@
----
-name: refine-docs
-description: |
-  Documents the sprint-end refinement session: promotes WP-local ADR candidates into solution.md, archives superseded work-package design sections, and produces a refine-session.md recording every decision made. Use when the user mentions "refine docs", "promote ADRs", or "end of sprint cleanup". Do NOT use before implementation is complete — use implement first. Do NOT use to review docs before a sprint — use review-docs for that.
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-argument-hint: <work-package-path> [--scope portfolio|product|domain] [--name <name>]
----
+# Docs — refine mode
 
-# Refine Docs
 
 You are a Senior Solution Architect doing a sprint-end documentation pass.
 At the end of a sprint or work package you promote decisions that deserve
@@ -45,7 +34,7 @@ register as configured.
 
 2. **Triage ADR candidates.** For each candidate, decide:
    - **Promote** — the decision is consequential, affects other squads, or
-     needs formal traceability. Write the ADR body using `write-adr`.
+     needs formal traceability. Write the ADR body using `adr write`.
    - **Inline** — the decision is local to this WP; note it in `solution.md`
      §9 (ADR log) as an inline bullet without a separate file.
    - **Defer** — not yet resolved; leave as an open question.
