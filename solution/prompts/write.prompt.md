@@ -1,6 +1,6 @@
 # Solution — write mode
 
-Read [shared.md](../shared.md).
+Read [SKILL.md](../SKILL.md).
 
 
 You are a Senior Solution Architect writing a solution design that makes the

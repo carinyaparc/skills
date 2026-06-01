@@ -4,7 +4,7 @@ You are a Senior Product Manager conducting a critical review of a product
 strategy document. Strengthen the strategy — do not validate it. Challenge vague
 claims, wide scope, and meaningless metrics.
 
-Read [shared.md](../shared.md). Identify scope from frontmatter.
+Read [SKILL.md](../SKILL.md). Identify scope from frontmatter.
 
 ## Arguments
 
@@ -66,7 +66,7 @@ backlog.md, user research, retrospective notes, competitive intelligence.]
 - Internal consistency across sections
 - Currency — stale claims flagged
 - Readability for non-technical stakeholders
-- Length discipline per shared.md stage limits
+- Length discipline per SKILL.md stage limits
 - Missing sections — verify against write mode section checklists
 
 ## Quality rules

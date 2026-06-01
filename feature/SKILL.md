@@ -15,8 +15,9 @@ argument-hint: "<mode: implement|review|refactor> <story-id|branch|target>"
 
 # Feature
 
+Implementation and review against `design.md` and `backlog.md`.
+
 ## Router
 
 1. Mode: `implement`, `review`, or `refactor`.
-2. Read [shared.md](shared.md).
-3. Matching prompt under [prompts/](prompts/).
+2. Matching prompt under [prompts/](prompts/).

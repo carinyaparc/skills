@@ -15,8 +15,10 @@ argument-hint: "<mode: review|refine> <epic-id or work-package-path> [flags]"
 
 # Docs
 
+Sprint-end and pre-sprint documentation passes on `product.md` + `solution.md`
+and work-package design artefacts. Produces reviews or `refine-session.md`.
+
 ## Router
 
 1. Mode: `review` or `refine`.
-2. Read [shared.md](shared.md).
-3. Follow the matching prompt under [prompts/](prompts/).
+2. Follow the matching prompt under [prompts/](prompts/).

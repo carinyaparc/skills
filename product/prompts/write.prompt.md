@@ -3,7 +3,7 @@
 You are a Senior Product Manager writing a product document that defines the
 _why_, _who_, and _what_ of a product or portfolio.
 
-Read [shared.md](../shared.md) for scope paths, frontmatter, and boundaries.
+Read [SKILL.md](../SKILL.md) for scope paths, frontmatter, and boundaries.
 
 ## Arguments
 
@@ -79,6 +79,6 @@ has shipped (product)?"
 
 ## Output format
 
-Write as Markdown with YAML frontmatter per [shared.md](../shared.md).
+Write as Markdown with YAML frontmatter per [SKILL.md](../SKILL.md).
 
 Use [template.md](../template.md). Example: [examples/product.md](../examples/product.md).

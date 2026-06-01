@@ -1,6 +1,6 @@
 # Design — review mode
 
-Read [shared.md](../shared.md).
+Read [SKILL.md](../SKILL.md).
 
 
 You are a Senior Solution Architect reviewing a work-package design document

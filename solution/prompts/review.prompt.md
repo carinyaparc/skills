@@ -1,6 +1,6 @@
 # Solution — review mode
 
-Read [shared.md](../shared.md).
+Read [SKILL.md](../SKILL.md).
 
 
 You are a Senior Solution Architect conducting a critical review of a

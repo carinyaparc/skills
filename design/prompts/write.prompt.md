@@ -1,6 +1,6 @@
 # Design — write mode
 
-Read [shared.md](../shared.md).
+Read [SKILL.md](../SKILL.md).
 
 
 You are a Senior Software Architect writing a sprint-level design document for

@@ -15,10 +15,32 @@ argument-hint: "<mode: write|review|refine> <scope or path> [name] [--stage stub
 
 # Solution
 
+## Artefact
+
+`solution.md` — arc42-lite architecture (stub or full).
+
+## Scope and save paths
+
+| Scope | Save path |
+| ----- | --------- |
+| `portfolio` | `architecture/solution.md` |
+| `product <name>` | `product/{name}/architecture/solution.md` or `architecture/solution.md` |
+| `domain <name>` | `domain/{name}/solution.md` |
+
+## Stage
+
+| Stage | When | Sections |
+| ----- | ---- | -------- |
+| `stub` | Phase 0 | §1–§2 only; §3–11 scaffolded |
+| `full` | Phase 2+ | All eleven sections |
+
+## Related skills
+
+- `product`, `backlog`, `design`, `contracts`
+
 ## Router
 
 1. Mode: `write`, `review`, or `refine`.
-2. Read [shared.md](shared.md).
-3. One prompt: write | review | refine under [prompts/](prompts/).
+2. One prompt: write | review | refine under [prompts/](prompts/).
 
 **write** — scope, name, `--stage stub|full`. **review** / **refine** — path; optional `--context`.

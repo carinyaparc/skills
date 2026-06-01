@@ -14,8 +14,18 @@ argument-hint: "<mode: write|review> <work-package-path or path-to-design.md> [f
 
 # Design
 
+## Artefact
+
+Work-package `design.md` (walking-skeleton or TDD).
+
+| Mode | Flag |
+| ---- | ---- |
+| write | `--mode walking-skeleton\|tdd` |
+| review | path to design.md |
+
+Save under `work/{wp}/design.md`.
+
 ## Router
 
 1. Mode: `write` or `review`.
-2. Read [shared.md](shared.md).
-3. [prompts/write.prompt.md](prompts/write.prompt.md) or [prompts/review.prompt.md](prompts/review.prompt.md).
+2. [prompts/write.prompt.md](prompts/write.prompt.md) or [prompts/review.prompt.md](prompts/review.prompt.md).

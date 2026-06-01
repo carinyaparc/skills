@@ -13,8 +13,9 @@ argument-hint: "<mode: plan|write|review> <target> [flags]"
 
 # ADR
 
+ADR register: `adr-plan.md`, `ADR-NNNN.md` files.
+
 ## Router
 
 1. Mode: `plan`, `write`, or `review`.
-2. Read [shared.md](shared.md).
-3. prompts/plan.prompt.md | write.prompt.md | review.prompt.md
+2. [prompts/plan.prompt.md](prompts/plan.prompt.md) | [prompts/write.prompt.md](prompts/write.prompt.md) | [prompts/review.prompt.md](prompts/review.prompt.md)

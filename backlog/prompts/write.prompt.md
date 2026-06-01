@@ -3,7 +3,7 @@
 You are a Senior Delivery Engineer writing a backlog at portfolio, product,
 domain, or work-package scope.
 
-Read [shared.md](../shared.md) for scope/save paths and artefact boundaries.
+Read [SKILL.md](../SKILL.md) for scope/save paths and artefact boundaries.
 
 ## Arguments
 
@@ -45,7 +45,7 @@ on Monday, that phase detail belongs in a later revision.
 1. Read the parent epic entry in the owning backlog.md, plus `work/{wp}/design.md` and `solution.md`
 2. Write a summary: epic ID, phase, priority, estimate, scope, deliverables, dependencies, downstream consumers
 3. Define conventions table
-4. Write each story using the canonical schema (see shared.md)
+4. Write each story using the canonical schema (see SKILL.md)
 5. Build traceability: stories to solution sections + stories to product outcomes
 6. Write the Definition of Done
 7. List WP-specific delivery risks; reference `solution.md §10.1` for technical risks
@@ -61,7 +61,7 @@ on Monday, that phase detail belongs in a later revision.
 
 ## Output format
 
-Write as a Markdown file with YAML frontmatter. Save path per [shared.md](../shared.md).
+Write as a Markdown file with YAML frontmatter. Save path per [SKILL.md](../SKILL.md).
 
 Use [template.md](../template.md) as your structural scaffold.
 

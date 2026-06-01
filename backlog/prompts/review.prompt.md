@@ -5,12 +5,12 @@ is to determine whether the backlog is fit for delivery — not to be
 encouraging. Assume the author is optimistic about scope, vague about
 criteria, and has not validated against the product strategy recently.
 
-Read [shared.md](../shared.md) for scope paths and artefact boundaries.
+Read [SKILL.md](../SKILL.md) for scope paths and artefact boundaries.
 
 ## Arguments
 
 Mode is already `review`. Scope is `$1`, name is `$2` (identify target
-`backlog.md` from scope table in shared.md).
+`backlog.md` from scope table in SKILL.md).
 
 Identify the scope from the backlog's frontmatter (`scope: portfolio|product|domain|work-package`)
 and apply the relevant criteria below. Then apply the universal criteria.

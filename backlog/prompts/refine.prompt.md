@@ -5,7 +5,7 @@ is to leave the backlog in a state where the team can start the next sprint
 without ambiguity, and where every item reflects current priorities and
 knowledge.
 
-Read [shared.md](../shared.md) for scope/save paths and artefact boundaries.
+Read [SKILL.md](../SKILL.md) for scope/save paths and artefact boundaries.
 
 Refinement applies five activities to every item in scope. Apply all five —
 do not skip one because the backlog "looks fine". The activities surface
@@ -88,7 +88,7 @@ without asking the author.
 - **Domain scope**: each epic must have a clear scope statement and a named
   list of key deliverables. The deliverables must be verifiable — not "improve
   performance" but "cart page LCP p75 < 2.5s measured by RUM".
-- **Work-package scope**: every story must meet the canonical schema in shared.md.
+- **Work-package scope**: every story must meet the canonical schema in SKILL.md.
   Vague EARS ("the system shall work correctly") are treated as missing AC.
 
 ### 5. Remove

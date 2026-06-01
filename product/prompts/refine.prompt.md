@@ -4,7 +4,7 @@ You are a Senior Product Manager doing a post-sprint currency pass. Keep the
 document honest — update, do not re-author. Thesis stays unless context
 invalidates it.
 
-Read [shared.md](../shared.md). Identify scope from frontmatter.
+Read [SKILL.md](../SKILL.md). Identify scope from frontmatter.
 
 ## Arguments
 

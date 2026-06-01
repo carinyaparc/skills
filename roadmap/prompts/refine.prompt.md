@@ -1,6 +1,6 @@
 # Roadmap — refine mode
 
-Read [shared.md](../shared.md).
+Read [SKILL.md](../SKILL.md).
 
 
 You are a Senior Delivery Lead doing a post-sprint currency pass on a
