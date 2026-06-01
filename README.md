@@ -1,16 +1,51 @@
 # Agent Skills for AI-First Product Delivery
 
-Opinionated skills that guide an AI agent through the full product delivery loop — from strategy and architecture to epics, implementation, review, and sprint-end refinement. Use them in **Cursor**, **Claude Code**, or any [open agent skills](https://github.com/vercel-labs/skills) host.
+Opinionated skills that guide an AI agent through the full product delivery loop — from strategy and architecture to epics, implementation, review, and sprint-end refinement.
 
 Each skill produces one clear artefact (a markdown file or code change). Skills chain together: the agent reads what you already wrote and knows what *not* to put in the wrong document.
 
-## What you get
+## Skill catalogue
 
-- **A consistent doc model** in your repo — product, roadmap, backlog, solution, per-epic design and tasks, sprint plans.
-- **Modes per topic** — `write`, `review`, and `refine` where it matters (e.g. `backlog write`, `tasks review`).
-- **Gherkin-first acceptance criteria** in `tasks.md`; optional **EARS** with `--ears` when rules are clearer than scenarios.
-- **Clear boundaries** — skills say what they are *not* for, so the agent does not dump architecture into the backlog or tasks into `product.md`.
-- **Help when you are unsure** — **skills-index** picks a skill and mode from a vague request.
+Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`.
+
+### Planning
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **product** | write, review, refine | Pitch or full `product.md` (_why_, _who_, _what_) | `docs/product/product.md` |
+| **roadmap** | write, review, refine | Outcome-based phases with exit criteria | `docs/product/roadmap.md` |
+| **backlog** | write, review, refine | Epics and work paths; optional `--stories` for small products | `docs/product/backlog.md` |
+
+### Architecture
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **solution** | write, review, refine | Stub or full arc42-lite `solution.md` | `docs/architecture/solution.md` |
+| **adr** | plan, write, review | Proposals in `register.md`; accepted decisions as `ADR-NNNN-{title}.md` | `register.md`, `ADR-NNNN.md` |
+
+### Discovery
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **design** | write, review | `work/{epic}/design.md` (walking-skeleton or TDD) | `work/{epic}/design.md` |
+| **tasks** | write, review, refine | `work/{epic}/tasks.md` with Gherkin AC from design | `work/{epic}/tasks.md` |
+
+### Delivery
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **feature** | implement | Implement against approved design and tasks | code |
+| **code-review** | review, fix | Review a branch or PR; **fix** addresses findings without behaviour changes | code review / code |
+| **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
+| **create-mr** | run | Merge request description from the branch | MR / PR |
+
+### Governance
+
+| Skill | Modes | Description | Artefact |
+| ----- | ----- | ----------- | -------- |
+| **sprint** | plan, retrospective | `plan.md` before the sprint; `retrospective.md` after | `work/sprint-{id}/plan.md`, `retrospective.md` |
+| **docs** | review, refine | Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design | review / `work/{epic}/refine-session.md` |
+| **skills-index** | run | “Which skill should I use?” for open-ended questions | routing |
 
 ## Getting started
 
@@ -24,7 +59,7 @@ npx skills@latest add daddia/skills
 npx skills@latest add daddia/skills/backlog
 ```
 
-### Install as a plugin (Cursor or Claude Code)
+### Install as a plugin
 
 For the full set in one package — all skills plus review helpers — install the **Space** plugin from this repository:
 
@@ -75,10 +110,6 @@ work/
     └── retrospective.md
 ```
 
-**Epic slug `{epic}`** — kebab-case from the epic **title or short title**, at most two words (`Checkout Foundation` → `checkout-foundation`). Epic IDs like `CHK01` stay in the backlog table; resolve the slug from that row when invoking skills.
-
-Full path and boundary rules: [delivery conventions](skills/backlog/references/delivery-conventions.md).
-
 ## Typical flow
 
 ```text
@@ -93,63 +124,11 @@ product → roadmap → backlog → solution (+ adr as needed)
 
 | Stage | Skills |
 | ----- | ------ |
-| Strategy | **product**, **roadmap**, **backlog** |
+| Planning | **product**, **roadmap**, **backlog** |
 | Architecture | **solution**, **adr** |
-| Per epic | **design**, **tasks** |
-| Build & ship | **feature**, **code-review**, **create-mr**, **validate** |
-| Cadence | **sprint**, **docs** |
-
-For large PRs, **code-review** can use focused sub-agents (AC coverage vs `tasks.md`, scope vs `design.md`) so review stays thorough without one overloaded prompt.
-
-## Skill catalogue
-
-| Skill | Modes | Artefact |
-| ----- | ----- | -------- |
-| **product** | write, review, refine | `docs/product/product.md` |
-| **roadmap** | write, review, refine | `docs/product/roadmap.md` |
-| **backlog** | write, review, refine | `docs/product/backlog.md` |
-| **tasks** | write, review, refine | `work/{epic}/tasks.md` |
-| **solution** | write, review, refine | `docs/architecture/solution.md` |
-| **design** | write, review | `work/{epic}/design.md` |
-| **docs** | review, refine | review / `work/{epic}/refine-session.md` |
-| **adr** | plan, write, review | `register.md`, `ADR-NNNN.md` |
-| **sprint** | plan, retrospective | `work/sprint-{id}/plan.md`, `retrospective.md` |
-| **feature** | implement | code |
-| **code-review** | review, fix | code review / code |
-| **validate** | run | validation report |
-| **create-mr** | run | MR / PR |
-| **skills-index** | run | routing |
-
-Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`.
-
-### Planning & strategy
-
-- **product** — Pitch or full `product.md` (_why_, _who_, _what_).
-- **roadmap** — Outcome-based phases with exit criteria.
-- **backlog** — Epics and work paths; optional `--stories` for small products.
-
-### Architecture & epic delivery
-
-- **solution** — Stub or full arc42-lite `solution.md`.
-- **adr** — Proposals in `register.md`; accepted decisions as `ADR-NNNN-{title}.md`.
-- **design** — `work/{epic}/design.md` (walking-skeleton or TDD).
-- **tasks** — `work/{epic}/tasks.md` with Gherkin AC from design.
-
-### Implementation & sign-off
-
-- **feature** — Implement against approved design and tasks.
-- **code-review** — Review a branch or PR; **fix** addresses findings without behaviour changes.
-- **validate** — Epic completion vs tasks and roadmap gates.
-- **create-mr** — Merge request description from the branch.
-
-### Sprint & documentation
-
-- **sprint** — `plan.md` before the sprint; `retrospective.md` after.
-- **docs** — Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design.
-
-### Skill Discovery
-
-- **skills-index** — “Which skill should I use?” for open-ended questions.
+| Discovery | **design**, **tasks** |
+| Delivery | **feature**, **code-review**, **create-mr**, **validate** |
+| Governance | **sprint**, **docs** |
 
 ## License
 
