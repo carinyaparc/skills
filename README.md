@@ -5,7 +5,7 @@ Opinionated agent skills for the full delivery loop — product strategy, archit
 These skills are the executable form of a structured delivery method:
 
 - **Phase model** — Phase 0 (walking skeleton) → Phase 2+ (TDD)
-- **Topic skills with modes** — e.g. `product write`, `backlog review`, `code implement`
+- **Topic skills with modes** — e.g. `product write`, `backlog review`, `feature implement`
 - **Artefact references** — `{source}:{path}` URI scheme for cross-repo links
 - **EARS + Gherkin** acceptance criteria at story level
 - **Negative constraints** — every skill explicitly states what it is *not* for
@@ -50,10 +50,10 @@ Each topic skill uses `prompts/{mode}.prompt.md` for mode-specific instructions.
 | **design** | write, review | `design.md` (work package) |
 | **docs** | review, refine | review / `refine-session.md` |
 | **adr** | plan, write, review | `adr-plan.md`, `ADR-NNNN.md` |
-| **code** | implement, review, refactor | code |
+| **feature** | implement, review, refactor | code |
 | **contracts** | write | `contracts.md` |
 | **tech-stack** | write | `tech-stack.md` |
-| **plan-delivery** | run | `delivery-plan.md` |
+| **delivery** | plan | `delivery-plan.md` |
 | **validate** | run | validation report |
 | **create-mr** | run | MR / PR |
 | **retrospective** | write | `retrospective.md` |
@@ -65,14 +65,14 @@ Each topic skill uses `prompts/{mode}.prompt.md` for mode-specific instructions.
 ```bash
 npx skills@latest add daddia/skills/product
 npx skills@latest add daddia/skills/backlog
-npx skills@latest add daddia/skills/code
+npx skills@latest add daddia/skills/feature
 ```
 
 Invoke with mode as the first argument, e.g. `/backlog write domain checkout`.
 
 ## Planning & strategy
 
-- **plan-delivery** — Sequence Phase-0 artefacts before the foundation sprint.
+- **delivery** — `delivery plan` sequences Phase-0 artefacts before the foundation sprint.
 - **product** — Portfolio, product, or domain `product.md` (pitch or full strategy).
 - **roadmap** — Outcome-based phases with exit criteria.
 - **backlog** — Epic- or story-level backlog with EARS + Gherkin at WP scope.
@@ -87,7 +87,7 @@ Invoke with mode as the first argument, e.g. `/backlog write domain checkout`.
 
 ## Implementation
 
-- **code** — Implement, review, or refactor against `design.md` and `backlog.md`.
+- **feature** — Implement, review, or refactor against `design.md` and `backlog.md`.
 - **validate** — Epic completion validation against AC and roadmap gates.
 - **create-mr** — Open merge request with generated description.
 

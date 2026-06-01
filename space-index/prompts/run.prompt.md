@@ -21,13 +21,13 @@ below to identify the best match and direct them to the right skill.
 | --- | --- | --- | --- | --- | --- | --- |
 | adr | Architecture decisions: plan, write, or review ADRs and adr-plan.md | ADR / adr-plan | architecture | architect | solution.md | ADR-NNNN.md |
 | backlog | backlog.md: write, review, or refine epics and stories | backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
-| code | implement, review, or refactor code against design and backlog | code | delivery | engineer | design.md, backlog.md | code |
+| feature | implement, review, or refactor against design and backlog | code | delivery | engineer | design.md, backlog.md | code |
 | contracts | Produces contracts.md — types, Zod schemas, API contracts | contracts.md | architecture | architect | solution.md | contracts.md |
 | create-mr | Creates merge request for current branch after implementation | MR description | delivery | engineer | — | MR description |
 | design | work-package design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
 | docs | Pre-sprint doc review or sprint-end refine-session.md | doc review / refine-session | refine / discovery | architect | product.md, solution.md | review / refine-session |
 | metrics-report | metrics-report.md delivery and quality actuals | metrics-report.md | refine | delivery | metrics.md | metrics-report.md |
-| plan-delivery | Sequences Phase-0 artefacts into delivery-plan.md | delivery-plan.md | strategy | pm | — | delivery-plan.md |
+| delivery | plan mode: sequences Phase-0 artefacts into delivery-plan.md | delivery-plan.md | strategy | pm | — | delivery-plan.md |
 | product | product.md: write, review, or refine strategy | product.md | strategy / refine | pm | — / product.md | product.md |
 | retrospective | retrospective.md for sprint or epic | retrospective.md | refine | delivery | backlog.md | retrospective.md |
 | roadmap | roadmap.md: write, review, or refine phased delivery | roadmap.md | strategy / refine | pm | product.md | roadmap.md |
