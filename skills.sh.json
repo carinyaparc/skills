@@ -20,7 +20,7 @@
     {
       "title": "Implementation",
       "description": "Build, review, validate, and ship changes.",
-      "skills": ["implement", "code-review", "merge-request", "merge-request-review", "validate"]
+      "skills": ["implement", "code-review", "ux-design-review", "merge-request", "merge-request-review", "validate"]
     },
     {
       "title": "Sprint",

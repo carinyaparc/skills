@@ -6,6 +6,47 @@ Git tags and the `version` field in `.cursor-plugin/plugin.json` and
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.5.0] - 2026-07-04
+
+### Added
+
+- **ux-design-review** skill (`skills/ux-design-review/`) — the experience
+  sibling of code-review: a live-environment-first UX review of implemented
+  UI against the discovered design source of truth. Modes: **review**
+  (default) and **fix** (action-tier scoped: `blocking` | `warning` | `all`),
+  mirroring code-review's router and finding labels.
+  - Five trigger-gated sub-agents: `accessibility-reviewer` (WCAG 2.2 AA —
+    axe-core scan plus the manual keyboard/focus/semantics pass automation
+    cannot cover), `interaction-states-reviewer` (flows, interactive and
+    lifecycle states, robustness, console audit), `design-fidelity-reviewer`
+    (rendered UI vs Figma via MCP / mockups / tokens),
+    `responsive-reviewer` (1440/768/375 viewports, overflow, touch targets,
+    dark mode / reduced motion), and `design-system-reviewer` (static pass:
+    tokens vs hard-coded values, component reuse, pattern adherence).
+  - `references/design-source-resolution.md` — the design-truth ladder:
+    explicit argument → work-item link → Figma via MCP → repo mockups →
+    tokens/style guide → principles doc → none (judge internal consistency
+    and say so).
+  - `references/environment-resolution.md` — the runnable-UI ladder
+    (running app → dev server → Storybook → static-only) with an explicit
+    coverage statement in every verdict; Playwright/Chromium and browser
+    MCP driving guidance.
+  - `references/accessibility-checklist.md` — condensed WCAG 2.2 AA split
+    into automatable vs manual halves; conformance never claimed from a
+    scan alone.
+  - `references/ux-heuristics.md` — hierarchy, consistency, feedback,
+    forgiveness, typography, motion, and copy standards for repos with no
+    design source.
+  - `references/finding-classification.md` — the code-review three-axis
+    model with UX categories; Accessibility findings at Medium+ confidence
+    are always blocking.
+
+### Changed
+
+- **code-review** SKILL.md description now routes rendered UI/UX review to
+  ux-design-review.
+- README, skills.sh.json, and skills-index updated for the new skill.
+
 ## [1.4.0] - 2026-07-04
 
 ### Changed

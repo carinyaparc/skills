@@ -23,6 +23,7 @@ below to identify the best match and direct them to the right skill.
 | tasks | Break epic design into tasks with Gherkin AC | docs/work/{epic}/tasks.md | discovery | delivery | design.md, backlog.md | tasks.md |
 | implement | Implements a task against design.md and tasks.md | code | delivery | engineer | design.md, tasks.md | code |
 | code-review | Code review of a branch or PR; `fix` addresses review feedback without behaviour change | code review / code | delivery | engineer | design.md, tasks.md, review | review / code |
+| ux-design-review | UX review of implemented UI vs its design source: fidelity, accessibility, states, responsiveness; `fix` addresses findings | UX review / code | delivery | engineer | design source, UI diff | review / code |
 | merge-request | Open an MR/PR for the current branch on any provider (`create`); `babysit` drives it to merge-ready | MR / PR | delivery | engineer | — | MR / PR |
 | merge-request-review | Review an MR/PR as its reviewer; publish inline comments and a verdict | published review | delivery | engineer | MR / PR | published review |
 | design | docs/work/{epic}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |

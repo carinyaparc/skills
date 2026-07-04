@@ -6,7 +6,8 @@ description: >
   repo), or to address review feedback without changing behaviour
   (code-review fix, optionally scoped to a blocking or warning action tier).
   Works with any language, delivery process, or issue tracker. Do NOT use to
-  implement code or sign off completion of a larger body of work.
+  implement code, sign off completion of a larger body of work, or review
+  rendered UI/UX (design fidelity, accessibility — use ux-design-review).
 license: MIT
 allowed-tools:
   - Read
