@@ -52,6 +52,7 @@ npx skills@latest add daddia/skills/backlog
 /tasks write checkout-foundation
 /implement CHK01-01
 /code-review
+/create-merge-request CHK01-01
 /validate checkout-foundation
 ```
 
@@ -64,8 +65,8 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **design**, **tasks** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **create-mr** |
-| Release | _Ready for Release_ | **review-mr**, **validate** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **create-merge-request** |
+| Release | _Ready for Release_ | **validate** |
 | Refine | _What did we learn?_ | **sprint**, **docs** |
 
 ## Typical flow
@@ -75,9 +76,9 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
                         ↓
             design → tasks (+ ADR optional)
                         ↓
-    implement → code-review → code-review fix → create-mr
+    implement → code-review → code-review fix
                         ↓
-          review-mr → validate (epic done?)
+create-merge-request (+ babysit) → validate (epic done?)
                         ↓
             sprint retro, docs (ongoing)
 ```
@@ -144,13 +145,12 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 | **implement** | — | Implement a task against approved design and tasks | code |
 | **code-review** | review | Review a branch or PR against design.md and tasks.md acceptance criteria | code review |
 | **code-review fix** | fix | Address review findings without behaviour changes | code |
-| **create-mr** | run | Merge request description from the branch | MR / PR |
+| **create-merge-request** | run, babysit | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with template-aware description; `babysit` drives it to merge-ready | MR / PR |
 
 ### Release
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **review-mr** | run | Merge request description from the branch | MR / PR |
 | **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
 
 ### Refine
