@@ -102,8 +102,8 @@ step — do not re-fetch:
    provider's default-reviewer config, matched against the changed paths.
    Confirm with the user before assigning people — assignment notifies them.
 9. **Report.** Print the output format below. Offer to babysit:
-   `create-merge-request babysit` watches CI, review comments, and conflicts
-   until the MR is merge-ready.
+   `merge-request babysit` watches CI, review comments, and conflicts until
+   the MR is merge-ready.
 
 ## Quality rules
 
@@ -139,6 +139,6 @@ enforces the budget before prompt construction.
 Closes PROJ-42
 
 ---
-Next: run `create-merge-request babysit` to watch CI and review comments
-until this MR is merge-ready.
+Next: run `merge-request babysit` to watch CI and review comments until
+this MR is merge-ready.
 </example>

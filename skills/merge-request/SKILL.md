@@ -1,15 +1,15 @@
 ---
-name: create-merge-request
+name: merge-request
 description: >
   Use when the user wants to open a merge request or pull request for the
-  current branch (create MR, create PR, open a merge request), with a
-  generated title, description, labels, and reviewer suggestions; or to
-  babysit an open MR/PR to a merge-ready state (create-merge-request
-  babysit) by watching CI, review comments, and merge conflicts. Works with
+  current branch (merge-request create — the default — with a generated
+  title, description, labels, and reviewer suggestions), or to babysit an
+  open MR/PR to a merge-ready state (merge-request babysit) by watching CI,
+  review comments, and merge conflicts. Works with
   any codebase and any git provider — GitHub, GitLab, or Bitbucket — using
   MCP tools where available, provider CLIs otherwise, and plain git as a
-  last resort. Do NOT use to review code (code-review) or to implement
-  changes (implement).
+  last resort. Do NOT use to review code or an MR as its reviewer
+  (code-review, merge-request-review) or to implement changes (implement).
 license: MIT
 allowed-tools:
   - Read
@@ -18,29 +18,32 @@ allowed-tools:
   - Grep
   - Shell
   - WebFetch
-argument-hint: "[work-item-id] [--draft] [--target <branch>] | babysit [mr-url]"
+argument-hint: "[create] [work-item-id] [--draft] [--target <branch>] | babysit [mr-url]"
 ---
 
-# Create merge request
+# Merge request
 
 Open a merge request / pull request for the current branch, or babysit an
 open one until it is merge-ready.
 
 ## Router
 
-1. Mode: default **run**, or `babysit`.
+1. Mode: default **create**, or `babysit`.
 2. One prompt under [prompts/](prompts/).
 
-**run** (default) — [prompts/run.prompt.md](prompts/run.prompt.md). Resolve
-change context and provider once, discover the repo's MR/PR template, compose
-a size-adaptive description, push, create, report the URL. Accepts an
-optional work-item ID, `--draft`, and `--target <branch>`.
+**create** (default) — [prompts/create.prompt.md](prompts/create.prompt.md).
+Resolve change context and provider once, discover the repo's MR/PR
+template, compose a size-adaptive description, push, create, report the URL.
+Accepts an optional work-item ID, `--draft`, and `--target <branch>`.
 
 **babysit** — [prompts/babysit.prompt.md](prompts/babysit.prompt.md). Drive
 an open MR/PR to a merge-ready state: watch CI, triage review comments, fix
 objective failures, sync conflicts, escalate design decisions. Accepts an
 MR/PR URL or number; defaults to the MR/PR for the current branch (typically
-the one `run` just created).
+the one `create` just opened).
+
+For reviewing an MR as its reviewer — inline comments, approve / request
+changes — use the **merge-request-review** skill, not this one.
 
 ## Sub-agents
 
@@ -51,7 +54,7 @@ the one `run` just created).
 Spawn `mr-babysitter` only in babysit mode, and only when the host supports
 background agents (Claude Code `Agent` tool, Cursor cloud agents) — it frees
 the main session while the loop runs. Otherwise run the babysit prompt
-inline. `run` mode spawns no agents: MR creation is a linear workflow.
+inline. `create` mode spawns no agents: MR creation is a linear workflow.
 
 ## References
 

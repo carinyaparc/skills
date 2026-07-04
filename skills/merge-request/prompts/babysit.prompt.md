@@ -31,8 +31,7 @@ Babysitting MUST NOT:
 
 <artifacts>
 [Provided by the caller: an MR/PR URL or number. Default: the open MR/PR for
-the current branch — typically the one `create-merge-request run` just
-created.]
+the current branch — typically the one `merge-request create` just opened.]
 </artifacts>
 
 ## The loop
