@@ -6,6 +6,36 @@ Git tags and the `version` field in `.cursor-plugin/plugin.json` and
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.4.0] - 2026-07-04
+
+### Changed
+
+- **create-merge-request** skill renamed to **merge-request**, aligning with
+  the catalogue's noun-first naming (`product write`, `sprint plan`). The
+  default mode is now **create** (`prompts/create.prompt.md`, renamed from
+  `run.prompt.md`); `babysit` is unchanged. Invoke with `/merge-request`,
+  `/merge-request create`, or `/merge-request babysit`.
+- README, skills.sh.json, and skills-index updated for the rename and the
+  new skill; typical flow now runs merge-request → merge-request-review →
+  validate.
+
+### Added
+
+- **merge-request-review** skill (`skills/merge-request-review/`) — the
+  reviewer side of the delivery loop, self-contained and provider-agnostic
+  (GitHub, GitLab, Bitbucket via MCP or CLI). Reviews an assigned MR/PR and
+  publishes the outcome: labelled inline comments anchored to the diff, an
+  approve / approve-with-nits / request-changes / comment verdict, and
+  thread resolution across re-review rounds. Supports `--verdict-only` and
+  `--no-publish`; always confirms with the user before publishing.
+  - `references/review-workflow.md` — pre-review gates, line-level
+    checklist, verdict rules, and re-review round handling.
+  - `references/comment-guidelines.md` — Conventional Comments-style
+    labels, comment anatomy, tone, and blocking discipline.
+  - `references/provider-operations.md` — per-provider read and publish
+    mechanics: GitHub pending-review flow, GitLab discussions and approval,
+    Bitbucket via the Rovo MCP tools.
+
 ## [1.3.0] - 2026-07-04
 
 ### Changed
