@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterAgentResponse": [
+      {
+        "command": "./hooks/ralph-capture.sh"
+      }
+    ],
+    "stop": [
+      {
+        "command": "./hooks/ralph-stop.sh",
+        "loop_limit": null
+      }
+    ]
+  }
+}

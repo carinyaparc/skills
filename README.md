@@ -65,7 +65,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **design**, **tasks** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **ux-design-review**, **merge-request** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **ux-design-review**, **merge-request**, **ralph** |
 | Release | _Ready for Release_ | **merge-request-review**, **validate** |
 | Refine | _What did we learn?_ | **sprint**, **docs** |
 
@@ -85,6 +85,16 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
                         ↓
             sprint retro, docs (ongoing)
 ```
+
+Or run the whole delivery stage autonomously: `/ralph setup {epic}` then
+`/ralph start` loops implement → code-review → fix → ux-design-review →
+commit per task, then epic review, validation, and the merge request —
+one step per iteration until the completion promise is genuinely true.
+
+The ralph skill is driven by this plugin's own stop hooks (`hooks/`),
+shipped for both Cursor and Claude Code. If you also have a standalone
+Ralph loop plugin installed (e.g. `ralph-loop-plugin` or `ralph-wiggum`),
+disable it — two stop hooks firing per turn would conflict.
 
 ## Where files live in your project
 
@@ -150,6 +160,7 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 | **code-review fix** | fix | Address review findings without behaviour changes | code |
 | **ux-design-review** | review, fix | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): fidelity, accessibility (WCAG 2.2 AA), states, responsiveness, design-system conformity | UX review / code |
 | **merge-request** | create, babysit | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with template-aware description; `babysit` drives it to merge-ready | MR / PR |
+| **ralph** | setup, start, status, cancel | Autonomous Ralph loop over an epic: one task per iteration through implement → review → fix → UX review → commit, then epic validation and MR; plugin hooks re-feed the loop until the completion promise | committed epic + MR |
 
 ### Release
 

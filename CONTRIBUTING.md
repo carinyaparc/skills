@@ -17,6 +17,8 @@ skills/{skill-name}/
 └── scripts/          # optional
 
 agents/               # plugin-level agents (eval-grader)
+hooks/                # plugin-level hooks: Cursor (hooks.json + ralph-*.sh),
+                      # Claude Code (claude/hooks.json + claude/stop-hook.sh)
 ```
 
 Shared rules: [skills/backlog/references/delivery-conventions.md](skills/backlog/references/delivery-conventions.md).

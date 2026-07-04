@@ -6,6 +6,47 @@ Git tags and the `version` field in `.cursor-plugin/plugin.json` and
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.6.0] - 2026-07-04
+
+### Added
+
+- **ralph** skill (`skills/ralph/`) — an autonomous Ralph loop (Ralph Wiggum
+  technique) that drives a whole epic through delivery, one task per
+  iteration: `implement → code-review → fix (budget 3) → ux-design-review
+  (UI only, fix budget 2) → validate_and_commit → task-progress`, then a
+  one-time final phase (epic-level review on the strongest model, full
+  branch validation, `/validate`, `/merge-request create --draft`). Modes:
+  **setup** (seed `.ralph/{epic}/` + `.ralph/loop.md` from templates —
+  never starts the loop), **start**, **status**, **cancel**. Also supports
+  simple ad-hoc prompt-repetition loops (`setup --prompt`).
+  - `references/loop-protocol.md` — the canonical step machine, budgets,
+    and guardrails (one step per iteration, fresh sub-agent per skill step,
+    state in files).
+  - `references/environment-resolution.md` — resolve branch, fast/full
+    validation commands, tracker actions (Jira / GitHub / GitLab / none),
+    and UI signals once at setup.
+  - `references/prompt-authoring.md` — completion promises, completion
+    criteria, self-correction, escape hatches.
+  - Templates under `assets/`: `loop.template.md` (frontmatter + step
+    machine), `context.template.md`, `loop-state.template.md`.
+- **Plugin-level hooks** (`hooks/`) — a self-contained loop engine, so no
+  external Ralph plugin is needed (disable `ralph-loop-plugin` /
+  `ralph-wiggum` if installed):
+  - Cursor: `hooks.json` + `ralph-stop.sh` (re-feeds `.ralph/loop.md` as a
+    `followup_message`) + `ralph-capture.sh` (detects
+    `<promise>TEXT</promise>`).
+  - Claude Code: `claude/hooks.json` + `claude/stop-hook.sh` (`decision:
+    block` with promise detection from the session transcript), wired via
+    the `hooks` field in `.claude-plugin/plugin.json`.
+  - Safety rails in both engines: `max_iterations`, and a stall guard that
+    stops the loop when the declared state file is unchanged for 3
+    consecutive iterations.
+
+### Changed
+
+- README, skills.sh.json, skills-index, and CONTRIBUTING updated for the
+  new skill and the plugin-level `hooks/` layout.
+
 ## [1.5.0] - 2026-07-04
 
 ### Added

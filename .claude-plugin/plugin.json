@@ -1,7 +1,7 @@
 {
   "name": "daddia-skills",
   "displayName": "daddia skills",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Agent skills for AI-first product delivery: strategy, architecture, backlog, design, implementation, review, and sprint refinement.",
   "author": {
     "name": "daddia"
@@ -9,5 +9,6 @@
   "license": "MIT",
   "keywords": ["product", "backlog", "gherkin", "architecture", "sprint", "space"],
   "skills": "./skills/",
-  "agents": "./agents/"
+  "agents": "./agents/",
+  "hooks": "./hooks/claude/hooks.json"
 }
