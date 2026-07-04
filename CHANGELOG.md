@@ -6,6 +6,54 @@ Git tags and the `version` field in `.cursor-plugin/plugin.json` and
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.3.0] - 2026-07-04
+
+### Changed
+
+- **create-mr** skill renamed to **create-merge-request** and rebuilt on the
+  modular pattern introduced for code-review in 1.2.0: a router `SKILL.md`,
+  one prompt per mode, self-contained references, and a packaged asset.
+- The skill is now self-contained and universal: change context is discovered
+  in any repo layout (explicit argument, linked work item, local spec file,
+  or `git log` fallback) instead of assuming the `docs/work/{epic}` layout.
+- Works with any git provider — GitHub, GitLab, or Bitbucket (Cloud and
+  self-hosted) — through a three-tier tool ladder: MCP tools where available,
+  provider CLIs (`gh`, `glab`) otherwise, plain git (GitLab push options,
+  push-output create URLs) as a last resort.
+- MR/PR descriptions are template-aware: the repo's own template
+  (`.github/PULL_REQUEST_TEMPLATE*`, `.gitlab/merge_request_templates/`,
+  `.bitbucket/pull_request_template.md`) is discovered and filled; the
+  packaged default is used only when the repo defines none.
+- Titles follow the repo's detected convention (commitlint config, merged
+  MR/PR history) with Conventional Commits as the fallback, and descriptions
+  adapt their sections to the size of the change.
+- README: removed the unimplemented **review-mr** skill from the Release
+  stage and typical flow; `create-merge-request babysit` covers the
+  post-creation follow-through.
+
+### Added
+
+- `create-merge-request babysit` mode (`prompts/babysit.prompt.md`) — drives
+  an open MR/PR to a merge-ready state: watches CI, fixes objective failures,
+  triages review comments, syncs unambiguous merge conflicts, and escalates
+  design decisions; capped at three fix-push-check cycles without progress.
+- `agents/mr-babysitter.md` — background-spawnable monitor agent for hosts
+  with background agent support.
+- `references/provider-resolution.md` — provider detection and the
+  MCP → CLI → plain-git tool ladder, with per-provider operation matrices.
+- `references/template-discovery.md` — per-provider template locations,
+  selection among multiple templates, and fill rules.
+- `references/description-guidelines.md` — title convention detection,
+  two-sentence summary rule, size-adaptive sections, metadata, and body
+  mechanics.
+- `assets/default-mr-template.md` — packaged default MR/PR description
+  template.
+
+### Removed
+
+- `skills/create-mr/` (renamed to `skills/create-merge-request/`; the old
+  single-prompt implementation is superseded).
+
 ## [1.2.0] - 2026-07-04
 
 ### Changed

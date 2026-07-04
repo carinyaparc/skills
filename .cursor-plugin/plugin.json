@@ -1,7 +1,7 @@
 {
   "name": "daddia-skills",
   "displayName": "daddia skills",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Agent skills for AI-first product delivery: strategy, architecture, backlog, design, implementation, review, and sprint refinement.",
   "author": {
     "name": "daddia"
