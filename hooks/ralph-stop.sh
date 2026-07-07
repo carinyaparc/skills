@@ -9,16 +9,19 @@
 #   Output: { "followup_message": "<text>" } to continue, or exit 0 with no output to stop
 #
 # State files (seeded by the ralph skill):
-#   .ralph/loop.md   active loop file: YAML frontmatter + prompt body
-#   .ralph/done      flag written by ralph-capture.sh when the completion promise is seen
-#   .ralph/stall     stall-guard tracking (hash + consecutive-unchanged count)
+#   .ralph-loop          pointer file: one line containing the ralph base dir (e.g. .cursor/ralph)
+#   {base}/loop.md       active loop file: YAML frontmatter + prompt body
+#   {base}/done          flag written by ralph-capture.sh when the completion promise is seen
+#   {base}/stall         stall-guard tracking (hash + consecutive-unchanged count)
 
 set -euo pipefail
 
 HOOK_INPUT=$(cat)
 
 PROJECT_DIR="${CURSOR_PROJECT_DIR:-.}"
-RALPH_DIR="$PROJECT_DIR/.ralph"
+# Resolve base directory from pointer file; fall back to .ralph
+RALPH_BASE=$(cat "$PROJECT_DIR/.ralph-loop" 2>/dev/null | head -1 | tr -d '[:space:]')
+RALPH_DIR="$PROJECT_DIR/${RALPH_BASE:-.ralph}"
 LOOP_FILE="$RALPH_DIR/loop.md"
 DONE_FLAG="$RALPH_DIR/done"
 STALL_FILE="$RALPH_DIR/stall"

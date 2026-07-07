@@ -11,14 +11,17 @@
 #           to continue, or exit 0 with no output to allow the stop.
 #
 # State files (seeded by the ralph skill, shared with the Cursor hooks):
-#   .ralph/loop.md   active loop file: YAML frontmatter + prompt body
-#   .ralph/stall     stall-guard tracking (hash + consecutive-unchanged count)
+#   .ralph-loop       pointer file: one line containing the ralph base dir (e.g. .claude/ralph)
+#   {base}/loop.md    active loop file: YAML frontmatter + prompt body
+#   {base}/stall      stall-guard tracking (hash + consecutive-unchanged count)
 
 set -euo pipefail
 
 HOOK_INPUT=$(cat)
 
-RALPH_DIR=".ralph"
+# Resolve base directory from pointer file; fall back to .ralph
+RALPH_BASE=$(cat ".ralph-loop" 2>/dev/null | head -1 | tr -d '[:space:]')
+RALPH_DIR="${RALPH_BASE:-.ralph}"
 LOOP_FILE="$RALPH_DIR/loop.md"
 DONE_FLAG="$RALPH_DIR/done"
 STALL_FILE="$RALPH_DIR/stall"

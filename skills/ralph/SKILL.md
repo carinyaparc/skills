@@ -29,12 +29,15 @@ machine on top.
 
 ## How the loop works
 
-1. `ralph setup` seeds `.ralph/{work-id}/` (context + state) and generates
-   the active loop file `.ralph/loop.md` — it does NOT start the loop.
+1. `ralph setup` resolves the agent base directory (e.g. `.cursor/ralph`
+   or `.claude/ralph`), seeds `{base}/{work-id}/` (context + state),
+   generates the active loop file `{base}/loop.md`, and writes a
+   `.ralph-loop` pointer file so hooks can find the base directory without
+   any agent-specific logic — it does NOT start the loop.
 2. `ralph start` verifies the seeded files and executes iteration 1.
 3. The plugin hooks (`hooks/`) take over: after every turn, the stop hook
-   re-feeds the body of `.ralph/loop.md`; the agent reads its own state and
-   runs the next step.
+   reads `.ralph-loop`, resolves `{base}/loop.md`, and re-feeds its body;
+   the agent reads its own state and runs the next step.
 4. The loop ends when the agent outputs `<promise>TEXT</promise>` matching
    the configured promise, `max_iterations` is reached, or the stall guard
    detects no state change for 3 consecutive iterations.
@@ -62,13 +65,14 @@ Every step runs this repo's skills in a fresh sub-agent.
 
 1. Mode: `setup`, `start`, **status**, or `cancel`. No default — if the mode
    is missing, infer from context: an epic argument implies `setup`; a bare
-   `/ralph` with a seeded `.ralph/loop.md` implies `start`; otherwise ask.
+   `/ralph` with a seeded `{base}/loop.md` implies `start`; otherwise ask.
 2. One prompt under [prompts/](prompts/).
 
 **setup** — [prompts/setup.prompt.md](prompts/setup.prompt.md). Resolve the
 epic (slug, ID, or path per delivery conventions), derive a dependency-safe
-task order, resolve the environment, seed `.ralph/{epic}/`, and generate
-`.ralph/loop.md`. `--prompt "..."` seeds an ad-hoc loop instead (no step
+task order, resolve the environment and agent base directory, seed
+`{base}/{epic}/`, and generate `{base}/loop.md`. `--prompt "..."` seeds an
+ad-hoc loop instead (no step
 machine). Never starts the loop.
 
 **start** — [prompts/start.prompt.md](prompts/start.prompt.md). Verify the

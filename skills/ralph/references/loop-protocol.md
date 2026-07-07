@@ -1,7 +1,8 @@
 # Loop protocol
 
 Canonical definition of the Ralph epic step machine. The executable version
-is generated into `.ralph/loop.md` from
+is generated into `{base}/loop.md` (where `{base}` is the agent-resolved
+ralph directory, e.g. `.cursor/ralph`) from
 [../assets/loop.template.md](../assets/loop.template.md); this file explains
 the design so changes to the template stay coherent.
 

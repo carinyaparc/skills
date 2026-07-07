@@ -6,7 +6,9 @@ verify the setup and run the first step.
 
 ## Preconditions
 
-1. **Loop file exists.** Read `.ralph/loop.md`. If it is missing:
+1. **Loop file exists.** Read `.ralph-loop` to resolve the base directory
+   (fall back to `.ralph` if absent), then read `{base}/loop.md`. If it is
+   missing:
    - If the user passed an inline prompt (`/ralph start "..."` with optional
      `--max-iterations` / `--completion-promise`), seed an ad-hoc loop file
      first per the "Ad-hoc loops" section of
@@ -28,7 +30,7 @@ verify the setup and run the first step.
 1. Confirm to the user, in one short block: epic (or ad-hoc prompt summary),
    branch, max iterations, completion promise, and current task/step from
    the state file (if any).
-2. Execute iteration 1 by following the body of `.ralph/loop.md` exactly —
+2. Execute iteration 1 by following the body of `{base}/loop.md` exactly —
    ONE step only, then end the turn. The stop hook feeds the prompt back
    for iteration 2.
 

@@ -4,10 +4,11 @@
     {
       "id": 1,
       "prompt": "Set up a ralph loop for epic checkout-foundation (CHK01) — don't start it yet.",
-      "expected_output": "Seeded .ralph/checkout-foundation/ (context.md, loop-state.md) and .ralph/loop.md from the templates with every placeholder substituted; summary of epic, branch, dependency-safe task sequence, max_iterations 50, completion promise; instruction to run /ralph start. No loop steps executed.",
+      "expected_output": "Resolved agent base directory, seeded {base}/checkout-foundation/ (context.md, loop-state.md) and {base}/loop.md from the templates with every placeholder substituted; wrote .ralph-loop pointer file; summary of epic, branch, dependency-safe task sequence, max_iterations 50, completion promise; instruction to run /ralph start. No loop steps executed.",
       "assertions": [
-        "Writes .ralph/loop.md with iteration: 1 and a completion_promise in frontmatter",
-        "Writes .ralph/checkout-foundation/context.md and loop-state.md with no unsubstituted {{PLACEHOLDER}} tokens",
+        "Writes {base}/loop.md with iteration: 1 and a completion_promise in frontmatter",
+        "Writes {base}/checkout-foundation/context.md and loop-state.md with no unsubstituted {{PLACEHOLDER}} tokens",
+        "Writes .ralph-loop containing the resolved base directory path",
         "Task sequence respects dependencies declared in tasks.md",
         "Does not start the loop, execute implement/review steps, or launch sub-agents",
         "Does not create or switch git branches",
@@ -17,9 +18,10 @@
     {
       "id": 2,
       "prompt": "Start a ralph loop: \"Get all unit tests passing. Output TESTS_GREEN when the full suite passes.\" --max-iterations 15 --completion-promise \"TESTS_GREEN\"",
-      "expected_output": "Ad-hoc loop file seeded at .ralph/loop.md (no state_file), loop confirmed active with prompt, promise, and iteration limit, then iteration 1 begins working on the task.",
+      "expected_output": "Ad-hoc loop file seeded at {base}/loop.md (no state_file), .ralph-loop pointer written, loop confirmed active with prompt, promise, and iteration limit, then iteration 1 begins working on the task.",
       "assertions": [
-        "Seeds .ralph/loop.md with max_iterations: 15 and completion_promise \"TESTS_GREEN\"",
+        "Seeds {base}/loop.md with max_iterations: 15 and completion_promise \"TESTS_GREEN\"",
+        "Writes .ralph-loop containing the resolved base directory path",
         "Ad-hoc loop has no state_file line and no run directory",
         "Confirms loop configuration before working",
         "Does not output <promise>TESTS_GREEN</promise> while tests are failing"
@@ -30,7 +32,7 @@
       "prompt": "What's the status of my ralph loop?",
       "expected_output": "Read-only status report: iteration N of max, current task and step, fix budgets used, completed tasks, review artefact verdicts, stall-guard count — or 'No active Ralph loop.' with run history.",
       "assertions": [
-        "Reads .ralph/loop.md and the declared state file without modifying anything",
+        "Reads .ralph-loop then {base}/loop.md and the declared state file without modifying anything",
         "Reports iteration, current task, current step, and completed tasks",
         "Handles the no-active-loop case gracefully"
       ]

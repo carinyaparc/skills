@@ -12,8 +12,11 @@ set -euo pipefail
 HOOK_INPUT=$(cat)
 
 PROJECT_DIR="${CURSOR_PROJECT_DIR:-.}"
-LOOP_FILE="$PROJECT_DIR/.ralph/loop.md"
-DONE_FLAG="$PROJECT_DIR/.ralph/done"
+# Resolve base directory from pointer file; fall back to .ralph
+RALPH_BASE=$(cat "$PROJECT_DIR/.ralph-loop" 2>/dev/null | head -1 | tr -d '[:space:]')
+RALPH_DIR="$PROJECT_DIR/${RALPH_BASE:-.ralph}"
+LOOP_FILE="$RALPH_DIR/loop.md"
+DONE_FLAG="$RALPH_DIR/done"
 
 # No active loop, nothing to do
 if [[ ! -f "$LOOP_FILE" ]]; then

@@ -27,13 +27,14 @@ to start.
   (topological by dependency references, stable by document order on ties).
 - MUST write every generated file by substituting placeholders in the
   packaged templates — do not hand-author the loop body.
-- MUST keep `.ralph/loop.md` as the only active loop file: the plugin hooks
-  read exactly that path.
-- MUST NOT overwrite an in-progress `.ralph/loop.md` (`iteration > 1` and no
-  `.ralph/done` flag) without warning and explicit confirmation.
+- MUST keep `{{RALPH_BASE}}/loop.md` as the only active loop file: the
+  plugin hooks resolve this path via the `.ralph-loop` pointer file.
+- MUST NOT overwrite an in-progress `{{RALPH_BASE}}/loop.md` (`iteration > 1`
+  and no `{{RALPH_BASE}}/done` flag) without warning and explicit
+  confirmation.
 - MUST verify the working branch matches the epic branch. Report the
   expected branch; do NOT create or switch branches.
-- MUST ensure `.ralph/` is gitignored (append to `.gitignore` if missing).
+- MUST ensure `.ralph-loop` and `{{RALPH_BASE}}/` are gitignored.
 - MUST NOT execute any loop steps or launch sub-agents — setup only writes
   files.
 
@@ -62,14 +63,23 @@ to start.
    - `{{TRACKER_SECTION}}` — resolved tracker actions or the no-tracker text
    - `{{UI_SIGNALS}}` — repo-specific globs/dirs that mark a diff as UI
 
-4. **Gather loop options** (defaults unless overridden in the invocation):
+4. **Resolve the ralph base directory.** Inspect the environment in order:
+   - `CURSOR_PROJECT_DIR` is set → use `.cursor/ralph`
+   - `CLAUDE_PLUGIN_ROOT` is set → use `.claude/ralph`
+   - `--ralph-dir <path>` flag present in the invocation → use that path
+   - None of the above → use `.ralph`
+
+   Record this as `{{RALPH_BASE}}`. Never create the directory here — it is
+   written in step 5.
+
+5. **Gather loop options** (defaults unless overridden in the invocation):
    - `{{MAX_ITERATIONS}}` — default `50`
    - `{{COMPLETION_PROMISE}}` — default `{EPIC}_COMPLETE` with the slug
      upper-snake-cased (e.g. `CHECKOUT_FOUNDATION_COMPLETE`)
    - `{{SEEDED_DATE}}` — today, YYYY-MM-DD
-   - `{{WORK_DIR}}` — `.ralph/{epic}`
+   - `{{WORK_DIR}}` — `{{RALPH_BASE}}/{epic}`
 
-5. **Seed the run directory.** Create `{{WORK_DIR}}/` and write, substituting
+6. **Seed the run directory.** Create `{{WORK_DIR}}/` and write, substituting
    every placeholder:
    - `{{WORK_DIR}}/context.md` from [../assets/context.template.md](../assets/context.template.md)
    - `{{WORK_DIR}}/loop-state.md` from [../assets/loop-state.template.md](../assets/loop-state.template.md)
@@ -77,13 +87,20 @@ to start.
    Review outputs (`review-{TASK_ID}.md`, `ux-review-{TASK_ID}.md`) are
    written here later by the loop.
 
-6. **Generate the active loop file.** Write `.ralph/loop.md` from
+7. **Generate the active loop file.** Write `{{RALPH_BASE}}/loop.md` from
    [../assets/loop.template.md](../assets/loop.template.md), substituting
    every placeholder. Frontmatter must keep `iteration: 1`.
 
-7. **Gitignore.** Ensure `.gitignore` covers `.ralph/`.
+8. **Write the pointer file.** Write `.ralph-loop` at the project root
+   containing a single line: `{{RALPH_BASE}}`. This lets the hook scripts
+   resolve the base directory without any agent-specific logic.
 
-8. **Print the setup summary**:
+9. **Gitignore.** Ensure `.gitignore` covers both `.ralph-loop` and
+   `{{RALPH_BASE}}/`. If `{{RALPH_BASE}}` is already covered by a broader
+   pattern (e.g. `.cursor/` or `.claude/` is gitignored), only add
+   `.ralph-loop`.
+
+10. **Print the setup summary**:
    - Files written (paths)
    - Epic, branch, task sequence, max_iterations, completion promise,
      tracker, validation commands
@@ -93,14 +110,15 @@ to start.
 
 Replace every one of these tokens in each template before writing:
 `{{EPIC}}`, `{{BRANCH}}`, `{{DESIGN_PATH}}`, `{{TASKS_PATH}}`,
-`{{WORK_DIR}}`, `{{TASK_SEQUENCE}}`, `{{FIRST_TASK_ID}}`,
+`{{RALPH_BASE}}`, `{{WORK_DIR}}`, `{{TASK_SEQUENCE}}`, `{{FIRST_TASK_ID}}`,
 `{{MAX_ITERATIONS}}`, `{{COMPLETION_PROMISE}}`, `{{SEEDED_DATE}}`,
 `{{FAST_VALIDATION_COMMANDS}}`, `{{VALIDATION_COMMANDS}}`,
 `{{TRACKER_SECTION}}`, `{{UI_SIGNALS}}`.
 
 ## Ad-hoc loops (`--prompt`)
 
-For a simple loop with no epic step machine, write `.ralph/loop.md` directly:
+For a simple loop with no epic step machine, resolve `{{RALPH_BASE}}` per
+step 4 above, then write `{{RALPH_BASE}}/loop.md` directly:
 
 ```markdown
 ---
@@ -115,7 +133,8 @@ completion_promise: "<TEXT, required — propose one if not given>"
 ```
 
 No `state_file` line (the stall guard only applies to step-machine loops),
-no run directory. Apply
+no run directory. Also write `.ralph-loop` and update `.gitignore` per
+steps 8–9. Apply
 [../references/prompt-authoring.md](../references/prompt-authoring.md):
 explicit completion criteria, a max-iterations safety net, and an escape
 hatch for being stuck.
@@ -123,7 +142,7 @@ hatch for being stuck.
 ## Anti-patterns
 
 - Hand-authoring the loop body instead of substituting templates.
-- Putting the active loop file anywhere other than `.ralph/loop.md`.
+- Putting the active loop file anywhere other than `{{RALPH_BASE}}/loop.md`.
 - Executing loop steps or launching sub-agents from setup.
 - Creating or switching git branches.
 - Inventing a task order that ignores declared dependencies.

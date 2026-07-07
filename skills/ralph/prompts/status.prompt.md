@@ -1,12 +1,14 @@
 # Ralph status
 
 Report the state of the Ralph loop without changing anything. Read-only:
-do not modify any file under `.ralph/`.
+do not modify any file under the resolved ralph base directory.
 
 ## Steps
 
-1. Read `.ralph/loop.md`. If missing, report "No active Ralph loop." — then
-   check for past run directories under `.ralph/` and list them as history.
+1. Read `.ralph-loop` to resolve the base directory. If missing, fall back
+   to `.ralph`. Then read `{base}/loop.md`. If missing, report "No active
+   Ralph loop." — then check for past run directories under `{base}/` and
+   list them as history.
 2. From the loop file frontmatter: `iteration`, `max_iterations`,
    `completion_promise`, `state_file`.
 3. If a `state_file` is declared, read it for: `current_task`,
@@ -15,7 +17,7 @@ do not modify any file under `.ralph/`.
 4. List review artefacts in the run directory (`review-*.md`,
    `ux-review-*.md`) with a one-line verdict each (read only the Result
    line).
-5. Check `.ralph/stall` — if present, report the consecutive-unchanged
+5. Check `{base}/stall` — if present, report the consecutive-unchanged
    count (the loop stops at 3).
 
 ## Output
