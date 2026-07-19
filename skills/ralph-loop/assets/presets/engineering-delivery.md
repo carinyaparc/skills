@@ -68,7 +68,7 @@ set `current_step: validate_and_commit` and end the turn.
 
 #### ux_review_fix
 
-1. Launch a sub-agent: `/ux-design-review fix blocking`.
+1. Launch a sub-agent: `/ux-design-review-fix blocking`.
 2. Increment `fix_count`.
 3. Set `current_step: ux_review`.
 

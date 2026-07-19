@@ -8,6 +8,78 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+UX design review rebuild. `ux-design-review` is split into a read-only reviewer and a
+separate writing fixer, flattened, consolidated from five lenses to three, and given a
+single shared capture step in place of three independent browser sessions.
+
+### Changed
+
+- **BREAKING: `ux-design-review fix` is removed.** Use the new `ux-design-review-fix`
+  skill. No alias, for the same reason as `code-review fix`: an alias forces the read
+  skill to keep `Write` and to keep advertising fix behaviour in its description.
+- **`ux-design-review` is read-only.** Writes only the capture bundle (`.ux-review/`,
+  gitignored) and review state (`.agency/reviews/`). Cannot modify source or styles.
+- **The browser is driven once, not three times.** `accessibility`, `interaction-states`,
+  and `responsive` each independently navigated, set up states, resized, and
+  screenshotted the same UI. A new **capture step** produces one shared evidence bundle
+  — screenshots across state × viewport, axe results, console, accessibility tree, and a
+  scripted keyboard traversal record — which every lens then reads. This removes triple
+  cost, and removes inconsistent evidence: when two lenses disagreed there was
+  previously no way to tell which render was the truth.
+- **Lenses consolidated from five to three**, per the one-agent-per-input-source rule:
+  - `interaction-states-reviewer` + `responsive-reviewer` → **`experience-reviewer`**.
+    Same evidence, same judgement, and splitting them lost the intersection: the error
+    state at 375px, where the most common real defect lives and neither lens owned it.
+  - `design-fidelity-reviewer` + `design-system-reviewer` → **`conformance-reviewer`**.
+    A card with 12px padding where the design says 16px and a token exists is one
+    defect; merged it returns as one finding with a screenshot *and* a `file:line`.
+  - `accessibility-reviewer` stays separate: conformance against cited criteria with a
+    compliance floor is a different kind of judgement from heuristic quality.
+- **Confidence is rated independently.** Lenses attach a prior; the new
+  `finding-verifier` rates each candidate without seeing the raising lens's reasoning.
+  Unlike code review, it may re-render one state to settle a finding outright.
+- **Accessibility coverage claim corrected.** The checklist said automation catches
+  "roughly a third" of WCAG issues. Deque's coverage study (13,000+ page states,
+  ~295,000 issues) puts it at 16 of 50 AA criteria but **57.38% by issue volume**.
+  Replaced with the volume figure plus the list of criteria with *zero* automated
+  coverage — 2.4.3, 2.4.7, 2.1.2, 1.4.11, 1.3.2, 1.4.10, 4.1.3, 2.4.4, 2.4.6, 1.3.3 —
+  which is what a reviewer can actually act on.
+- Risk matrix: high-severity / low-confidence now **escalates** as
+  `[warning] unverified` rather than dropping, matching `code-review`.
+- Agent tools constrained; `metadata.model_tier` and reading budgets added. No sub-agent
+  runs at `deep` — the capture step removed browser driving from every lens.
+
+### Added
+
+- **`ux-design-review-fix` skill** — accessibility first, fixes via tokens and library
+  components rather than local patches, re-renders and re-captures to verify, and
+  re-checks neighbours for shift. Kept separate from `code-review-fix` because there is
+  no typecheck for "looks right": its verification, its required resolutions, its fix
+  routing, and its conflict rule all differ.
+- **`references/capture-protocol.md`** — the evidence bundle, plus screenshot
+  determinism: fonts loaded, network idle, animation disabled, time and data frozen,
+  and **paired capture** so a region that differs between two captures is marked
+  unstable and excluded rather than reported as a deviation. Also resolves the
+  reduced-motion trap: disabling animation to stabilise a capture and verifying the app
+  honours `prefers-reduced-motion` are opposite operations on the same setting.
+- **`references/merge-protocol.md`** — dedupe on component + state + viewport + root
+  cause, so the same defect at three viewports is one finding with three captures.
+  Corroboration must be genuinely independent, which matters more here than in code
+  review because every lens now reads the same bundle.
+- **Incremental review** with **design-side drift detection** —
+  `.agency/reviews/ux-{branch}.json` records the design source ref, so a review can tell
+  the author "the design moved, your code didn't". No SaaS tool in the comparison set
+  does this; they all treat the design as fixed.
+- **`accepted_deviations` persisted**, so declared-intentional deviations stop being
+  re-litigated every run.
+- Coverage statement now names what was **not** covered: other browsers, themes, and
+  unreachable states.
+- `evals/evals.json` and `evals/trigger-queries.json` for both skills, with negative
+  routing cases in both directions, including `code-review-fix` vs `ux-design-review-fix`.
+- `docs/ux-design-review-uplift.md` — the evaluation this rebuild implements.
+
+---
+
 Spec alignment pass across all skills against the Agent Skills specification
 (agentskills.io/specification), plus flattening of every remaining single-mode
 skill.

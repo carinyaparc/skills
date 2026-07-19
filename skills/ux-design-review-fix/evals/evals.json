@@ -1,0 +1,70 @@
+{
+  "skill_name": "ux-design-review-fix",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Address the UX review findings — 1 blocking accessibility, 2 warnings.",
+      "expected_output": "Accessibility first, visual verification per fix, neighbour re-check, validation suite, committed.",
+      "assertions": [
+        "Reads the full review before modifying any file",
+        "Works the accessibility finding first",
+        "Re-renders and re-captures each visual fix rather than assuming it worked",
+        "Re-runs the specific axe rule or traversal step that failed",
+        "Re-checks neighbouring layout for shift after a spacing change",
+        "Runs format, lint, typecheck, build, tests before committing",
+        "Updates review state with fixed / deferred / dismissed"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Fix the review findings. There's no dev server available right now.",
+      "expected_output": "Stops rather than making unverifiable visual changes.",
+      "assertions": [
+        "States that visual fixes cannot be verified without a live environment",
+        "Does not make visual changes it cannot check",
+        "Does not report a finding as fixed without visual evidence"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Fix the fidelity finding — the card padding should be 16px per the mockup. The repo has a space-400 token at 16px.",
+      "expected_output": "Fixed via the token, not a local override.",
+      "assertions": [
+        "Uses the space-400 token rather than hard-coding 16px",
+        "Does not add a local CSS override to match the mockup",
+        "Re-captures the card to confirm the change landed"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Fix the review. One finding wants a lighter placeholder to match the design, but that colour fails contrast.",
+      "expected_output": "Accessibility wins; the conflict is reported, not silently resolved.",
+      "assertions": [
+        "Does not implement a change that regresses accessibility",
+        "Reports the conflict between the design source and the contrast requirement",
+        "Defers to the design source owner rather than picking a side silently"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Fix the UX findings. One says the card is misaligned at 768, but the review's capture had an animating timer in frame.",
+      "expected_output": "Disputed with evidence from a stable re-capture.",
+      "assertions": [
+        "Re-captures with the determinism rules applied",
+        "Does not implement the disputed finding",
+        "Records it under Findings Disputed with the reason",
+        "Marks it dismissed in review state rather than fixed"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Address the review. One finding suggests reworking the whole checkout step flow to be clearer.",
+      "expected_output": "Deferred as a redesign, not implemented.",
+      "assertions": [
+        "Defers rather than redesigning the flow",
+        "Routes it to the design source owner as a follow-up",
+        "Does not expand the change to accommodate it"
+      ]
+    }
+  ]
+}

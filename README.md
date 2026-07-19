@@ -65,7 +65,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **design**, **tasks** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **merge-request**, **ralph-loop** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-review-fix**, **merge-request**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **validate** |
 | Refine | _What did we learn?_ | **sprint**, **docs** |
 
@@ -77,7 +77,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
             design → tasks (+ ADR optional)
                         ↓
     implement → code-review → code-review-fix
-          (+ ux-design-review for UI changes)
+   (+ ux-design-review → ux-design-review-fix for UI changes)
                         ↓
    merge-request (+ babysit) → merge-request-review
                         ↓
@@ -166,7 +166,8 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 | **implement** | — | Implement a task against approved design and tasks | code |
 | **code-review** | — | Review a branch, PR, or working diff against its acceptance criteria and declared scope. Read-only: writes a verdict, never source | code review |
 | **code-review-fix** | blocking, warning, all | Address findings from a code review without changing observable behaviour; runs the project's validation suite and commits | code |
-| **ux-design-review** | review, fix | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): fidelity, accessibility (WCAG 2.2 AA), states, responsiveness, design-system conformity | UX review / code |
+| **ux-design-review** | — | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): accessibility (WCAG 2.2 AA), states, responsiveness, fidelity, design-system conformity. Read-only: drives the browser once, writes a verdict and captures, never source | UX review |
+| **ux-design-review-fix** | blocking, warning, all | Address UX review findings without changing functional behaviour; re-renders and re-captures to verify, re-checks neighbours, commits | code |
 | **merge-request** | create, babysit | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with template-aware description; `babysit` drives it to merge-ready | MR / PR |
 | **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | seeded loop |
 | **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed epic + MR |

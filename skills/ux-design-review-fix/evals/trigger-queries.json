@@ -1,0 +1,52 @@
+[
+  {
+    "query": "Fix the UX review findings.",
+    "should_trigger": true
+  },
+  {
+    "query": "Address the accessibility issues from the review — blocking only.",
+    "should_trigger": true
+  },
+  {
+    "query": "Action the design feedback on the summary card.",
+    "should_trigger": true
+  },
+  {
+    "query": "Apply the UX review comments and re-check the layout.",
+    "should_trigger": true
+  },
+  {
+    "query": "Swap the hard-coded padding for the token, as the review asked.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review the checkout page UI before I ship it.",
+    "should_trigger": false,
+    "note": "ux-design-review — read path must never route here"
+  },
+  {
+    "query": "Is this component accessible?",
+    "should_trigger": false,
+    "note": "ux-design-review"
+  },
+  {
+    "query": "Fix the review findings on my branch.",
+    "should_trigger": false,
+    "note": "code-review-fix — code findings, different verification toolchain"
+  },
+  {
+    "query": "Address the blocking issues from the code review.",
+    "should_trigger": false,
+    "note": "code-review-fix"
+  },
+  {
+    "query": "Redesign the checkout flow to reduce steps.",
+    "should_trigger": false,
+    "note": "not a fix — pattern-level redesign goes to the design source owner"
+  },
+  {
+    "query": "Build the new payment form component.",
+    "should_trigger": false,
+    "note": "implement"
+  }
+]
