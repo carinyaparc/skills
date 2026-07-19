@@ -19,8 +19,9 @@ same mode: close the gap between designed and built, then judge what remains.
 - It is NOT a redesign — if the architecture strategy is wrong, raise a finding
   and create a new ADR via `adr write`; do not silently overwrite. Major
   restructuring requires **write** mode
-- It is NOT an ADR promotion session — promoting design.md candidates into the
-  register is the **adr** skill; this skill maintains solution.md's own ADR log
+- It is NOT an ADR promotion session — harvesting decisions out of an epic's
+  design.md into the register is `adr plan <epic>`; this skill maintains
+  solution.md's own ADR log and archives what a new ADR supersedes
 - It is NOT a rubber stamp — if the solution is not sound, the verdict must say
   so and block Architecture sign-off
 
