@@ -6,7 +6,7 @@ description: >
   ID (CHK01). Cite solution.md — do not re-narrate architecture. Do NOT use for
   product backlog or epics (backlog), task Gherkin (tasks), system-wide
   architecture (solution), ADR write (adr), code implementation (implement), or
-  sprint-end cross-document pass (docs).
+  reviewing a set of documents for quality and consistency (docs-review).
 license: MIT
 allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review> <epic> [--mode walking-skeleton|tdd] [--context <notes>]"

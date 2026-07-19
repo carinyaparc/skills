@@ -67,7 +67,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Discovery | _Ready for Development_ | **design**, **tasks** |
 | Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-review-fix**, **merge-request**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **validate** |
-| Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs** |
+| Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs-review** |
 
 ## Typical flow
 
@@ -83,7 +83,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
                         ↓
               validate (epic done?)
                         ↓
-        sprint-retro, docs (ongoing)
+        sprint-retro, docs-review (ongoing)
 ```
 
 Or run the whole delivery stage autonomously: `/ralph-loop-setup {epic}`
@@ -185,7 +185,7 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | ----- | ----- | ----------- | -------- |
 | **sprint-planning** | — | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | `docs/work/sprint-{id}/plan.md` |
 | **sprint-retro** | — | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | `docs/work/sprint-{id}/retrospective.md` |
-| **docs** | review, refine | Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design | review / `docs/work/{epic}/refine-session.md` |
+| **docs-review** | — | Review any set of documents: writing and structure per document, boundaries and duplication between them, consistency and cohesion across the set. Read-only | doc review |
 | **skills-index** | run | “Which skill should I use?” for open-ended questions | routing |
 
 ## License

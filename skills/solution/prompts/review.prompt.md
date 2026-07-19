@@ -20,7 +20,7 @@ same mode: close the gap between designed and built, then judge what remains.
   and create a new ADR via `adr write`; do not silently overwrite. Major
   restructuring requires **write** mode
 - It is NOT an ADR promotion session — promoting design.md candidates into the
-  register is the **docs** skill; this skill maintains solution.md's own ADR log
+  register is the **adr** skill; this skill maintains solution.md's own ADR log
 - It is NOT a rubber stamp — if the solution is not sound, the verdict must say
   so and block Architecture sign-off
 

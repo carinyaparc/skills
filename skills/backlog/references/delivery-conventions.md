@@ -9,7 +9,7 @@ Canonical rules for paths, epics, and artefact boundaries. Skills that touch
 ```text
 docs/product/          product.md, roadmap.md, backlog.md
 docs/architecture/     solution.md, decisions/register.md, ADR-*.md
-docs/work/{epic}/           design.md, tasks.md, refine-session.md
+docs/work/{epic}/           design.md, tasks.md
 docs/work/sprint-{id}/      plan.md, retrospective.md
 ```
 
@@ -75,9 +75,9 @@ Cite `solution.md §{N.M}` — do not re-narrate architecture in `design.md`.
 | `tasks.md`, Gherkin AC | **tasks** |
 | Implement code | **implement** |
 | PR / branch code review | **code-review** |
-| Address code review feedback | **code-review** `fix` |
+| Address code review feedback | **code-review-fix** |
 | Epic done vs AC + roadmap gates | **validate** |
 | Sprint plan | **sprint-planning** |
 | Sprint retrospective | **sprint-retro** |
-| Pre-sprint doc review / post-sprint doc pass | **docs** |
+| Review a set of documents for quality, boundaries, consistency | **docs-review** |
 | Which skill to use? | **skills-index** |

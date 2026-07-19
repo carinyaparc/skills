@@ -6,7 +6,7 @@ description: >
   CHK01). Default artefact docs/product/backlog.md. Do NOT use for business
   strategy or PRD (product), phase exit criteria (roadmap), Gherkin tasks
   (tasks), epic design.md (design), architecture (solution), sprint retro
-  (sprint-retro), or pre-sprint doc alignment (docs). Task breakdown per epic lives at
+  (sprint-retro), or document quality review (docs-review). Task breakdown per epic lives at
   docs/work/{epic}/ via tasks.
 license: MIT
 allowed-tools: Read Write Glob Grep

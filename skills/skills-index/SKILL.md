@@ -51,7 +51,7 @@ which phase the user is in.
 | ralph-loop-setup | Seed and configure a Ralph loop: pick a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the completion promise and iteration budget; never starts the loop | seeded loop | delivery | delivery | design.md, tasks.md | loop files |
 | ralph-loop | Run an autonomous loop: one step per iteration until a completion promise or a safety rail (`start`, `status`, `cancel`) | committed epic + MR | delivery | delivery | seeded loop | code / MR |
 | design | docs/work/{epic}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
-| docs | Cross-document alignment pass over product, solution, and epic design; triages ADR candidates at sprint end | doc review / refine-session | discovery / delivery | architect | product.md, solution.md, design.md | review / refine-session |
+| docs-review | Review any set of documents: per-document writing and structure, boundaries and duplication between documents, consistency and cohesion across the set. Read-only | doc review | any | architect | any doc set | review |
 | product | product.md: write or review | docs/product/product.md | strategy | pm | — / product.md | product.md |
 | sprint-planning | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | docs/work/sprint-{id}/plan.md | delivery | delivery | backlog.md, tasks.md, prior retrospective.md | plan.md |
 | sprint-retro | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | docs/work/sprint-{id}/retrospective.md | delivery | delivery | plan.md, tasks.md | retrospective.md |
