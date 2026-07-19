@@ -36,7 +36,7 @@
         "code-review",
         "code-review-fix",
         "ux-design-review",
-        "ux-design-review-fix",
+        "ux-design-fix",
         "merge-request",
         "merge-request-review",
         "validate",

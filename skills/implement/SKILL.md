@@ -6,8 +6,9 @@ description: >
   "build this task", "write the code for this story". Reads the design and
   acceptance criteria, writes code and tests, runs the project's full
   validation suite, and commits in logical units. Do NOT use for code review
-  (code-review), addressing review feedback (code-review-fix), writing tasks
-  (tasks), or writing a design (design).
+  (code-review), addressing review feedback (code-review-fix), changing how
+  existing UI looks or behaves (ux-design-fix), writing tasks (tasks), or
+  writing a design (design).
 license: MIT
 compatibility: Requires git and the project's own validation toolchain (formatter, linter, typechecker, test runner).
 allowed-tools: Read Write Edit Glob Grep Bash

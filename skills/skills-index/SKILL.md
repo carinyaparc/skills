@@ -45,7 +45,7 @@ which phase the user is in.
 | code-review | Code review of a branch, PR, or working diff | code review | delivery | engineer | design.md, tasks.md | review |
 | code-review-fix | Addresses code review findings without behaviour change | code | delivery | engineer | review output | code |
 | ux-design-review | Read-only UX review of implemented UI vs its design source: accessibility, states, responsiveness, fidelity | UX review | delivery | engineer | design source, UI diff | review |
-| ux-design-review-fix | Address UX review findings without changing functional behaviour; verifies visually and commits | code | delivery | engineer | UX review output | code |
+| ux-design-fix | Change how existing UI looks or behaves, from a UX review verdict or a direct instruction; verifies visually and commits | code | delivery | engineer | UX review output, or an instruction | code |
 | merge-request | Open an MR/PR for the current branch on any provider (`create`); `babysit` drives it to merge-ready | MR / PR | delivery | engineer | — | MR / PR |
 | merge-request-review | Review an MR/PR as its reviewer; publish inline comments and a verdict | published review | delivery | engineer | MR / PR | published review |
 | ralph-loop-setup | Seed and configure a Ralph loop: pick a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the completion promise and iteration budget; never starts the loop | seeded loop | delivery | delivery | design.md, tasks.md | loop files |

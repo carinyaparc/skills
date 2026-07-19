@@ -54,9 +54,18 @@ single shared capture step in place of three independent browser sessions.
 
 ### Changed
 
-- **BREAKING: `ux-design-review fix` is removed.** Use the new `ux-design-review-fix`
+- **BREAKING: `ux-design-review fix` is removed.** Use the new `ux-design-fix`
   skill. No alias, for the same reason as `code-review fix`: an alias forces the read
   skill to keep `Write` and to keep advertising fix behaviour in its description.
+- **The fix skill is `ux-design-fix`, not `ux-design-review-fix`.** It is not only the
+  write half of a review — it takes a review verdict *or* a direct instruction ("the
+  summary card padding is off", "the modal breaks on mobile"). Naming it after the
+  review would have implied a dependency it does not have, and left ad-hoc UI changes
+  with no home: `implement` requires an epic, a design, and acceptance criteria, none of
+  which exist for "the spacing is wrong". The boundary is stated on both sides —
+  `implement` builds UI that does not exist, `ux-design-fix` changes UI that does.
+  Direct mode captures a baseline **before** editing, since no review recorded one;
+  without it the neighbour re-check that catches shifted siblings is guesswork.
 - **`ux-design-review` is read-only.** Writes only the capture bundle (`.ux-review/`,
   gitignored) and review state (`.agency/reviews/`). Cannot modify source or styles.
 - **The browser is driven once, not three times.** `accessibility`, `interaction-states`,

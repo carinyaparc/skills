@@ -106,5 +106,5 @@ prior.
 - **`finding-verifier`** — rates confidence independently. May re-render one state to
   settle a finding. Its rating replaces the prior.
 - **Main review** — rank by severity, apply the matrix to assign the action label
-  (`[blocking]` / `[warning]` / `[suggestion]` — the labels `ux-design-review-fix`
+  (`[blocking]` / `[warning]` / `[suggestion]` — the labels `ux-design-fix`
   routes on), then produce the verdict with the coverage statement.

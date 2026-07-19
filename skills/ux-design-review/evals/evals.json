@@ -13,7 +13,7 @@
         "Every finding prefixed with [blocking], [warning], or [suggestion]",
         "Every visual finding cites a screenshot path plus state and viewport",
         "Modifies no file outside .ux-review/ and .agency/reviews/",
-        "Closes by pointing at ux-design-review-fix rather than offering to fix"
+        "Closes by pointing at ux-design-fix rather than offering to fix"
       ]
     },
     {

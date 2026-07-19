@@ -22,12 +22,12 @@
   {
     "query": "Fix the UX review findings.",
     "should_trigger": false,
-    "note": "ux-design-review-fix — write path must never route here"
+    "note": "ux-design-fix — write path must never route here"
   },
   {
     "query": "Address the accessibility issues you found.",
     "should_trigger": false,
-    "note": "ux-design-review-fix"
+    "note": "ux-design-fix"
   },
   {
     "query": "Review my branch for bugs and security issues.",

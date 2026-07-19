@@ -9,7 +9,7 @@ description: >
   Live-environment-first: drives the rendered UI in a real browser where
   possible. Works with any framework or design tooling. Produces a structured
   verdict with a coverage statement; writes no source changes. Do NOT use to
-  address or fix UX findings (ux-design-review-fix), for code correctness or
+  address or fix UX findings (ux-design-fix), for code correctness or
   security review (code-review), to review a design.md document (design), or to
   implement features (implement).
 license: MIT
@@ -39,7 +39,7 @@ This skill writes two things: the capture bundle under `.ux-review/` (gitignored
 committed) and the review state under `.agency/reviews/`. It MUST NOT modify source,
 styles, tests, or configuration, and MUST NOT commit or publish.
 
-When the review is done, point the reader at `ux-design-review-fix`. Naming the next
+When the review is done, point the reader at `ux-design-fix`. Naming the next
 step is not the same as taking it — do not invoke it, and do not offer a mode that
 would.
 
@@ -226,7 +226,7 @@ design source ref, accepted deviations, and unreachable states.
 - Describe the problem and its user impact. Do not prescribe pixel values — the token is
   usually the fix.
 - Prefix every finding with its action label, then `Category | Severity | Confidence`,
-  so `ux-design-review-fix` can route it.
+  so `ux-design-fix` can route it.
 - Open with what works well: one or two genuine positives before the findings.
 - Never claim WCAG conformance from an automated scan alone.
 
@@ -236,7 +236,7 @@ design source ref, accepted deviations, and unreachable states.
 - Commit captures.
 - Mark PASS while live checks were skipped without a coverage statement naming exactly
   which lenses ran static and why.
-- Rewrite the implementation — that is `ux-design-review-fix`.
+- Rewrite the implementation — that is `ux-design-fix`.
 
 ## Output format
 
@@ -290,7 +290,7 @@ declined-payment state (needs gateway sandbox).
 
 ### Summary
 
-One paragraph. Then: to action these findings, run `ux-design-review-fix`.
+One paragraph. Then: to action these findings, run `ux-design-fix`.
 </example>
 
 ## References
