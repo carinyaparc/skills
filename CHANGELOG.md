@@ -8,6 +8,70 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+Docs skill generalised. `docs` becomes `docs-review`: a read-only review of any
+document set, in place of a write-capable alignment pass over three named
+delivery documents.
+
+### Changed
+
+- **BREAKING: `docs` is removed.** Use `docs-review`. The old skill only worked
+  on `product.md`, `solution.md`, and `docs/work/{epic}/design.md`, inside this
+  repo's delivery layout; pointed at a handbook, a wiki, or a docs site it had
+  nothing to say. `docs-review` works on any set, in any format.
+- **BREAKING: the sprint-end pass is removed**, along with
+  `assets/refine-session.template.md` and `docs/work/{epic}/refine-session.md`.
+  ADR triage, archiving superseded design sections, and writing a session record
+  were write operations wearing a review skill's name, and each depended on the
+  delivery-document knowledge the generalisation drops. ADRs are written via
+  **adr**; superseded content is the owning skill's `write` mode.
+- **BREAKING: `docs-review` is read-only.** The old skill amended documents in
+  place and inserted `<!-- TODO -->` markers. It now reports and changes nothing,
+  matching `code-review` and `ux-design-review`. `allowed-tools` drops `Write`
+  and `Edit` entirely.
+- **Argument is a path or glob**, not an epic slug: `/docs-review docs/`.
+
+### Added
+
+- **`docs-review`** — three concerns, in the order they should be fixed:
+  per-document writing and structure, boundaries and duplication between
+  documents, consistency and cohesion across the set. Plus set-level navigation,
+  coverage, and link integrity.
+- **`references/cross-document.md`** — the duplication taxonomy. Divergent
+  duplication (same question, two documents, different answers) is always
+  blocking: that failure has already happened and the reader cannot tell which
+  answer is current. Verbatim duplication is a warning. **Legitimate restatement
+  — repetition that orients a reader and points at the source of truth — is
+  explicitly not a finding**, which is what naive duplication detection gets
+  wrong and why its output gets ignored.
+- **`references/document-quality.md`** — per-document review against the
+  document's own job, using the tutorial / how-to / reference / explanation
+  distinction. A reference page that reads like a tutorial is a finding, and so
+  is the reverse.
+- **`document-quality-reviewer` agent** for large sets. Only the per-document
+  pass batches: boundaries, duplication, and consistency need the whole set in
+  view, and an agent given a batch would compare within it, miss every
+  relationship crossing a batch boundary, and sound equally confident. The
+  opposite of code review, where most lenses parallelise cleanly.
+- Reports end with a **recommended order of work**, rarely the order findings
+  appear. Boundary fixes come first — duplication and consistency findings often
+  dissolve once each document has one job.
+- `evals/` for trigger routing and behaviour, including negative cases for the
+  restatement test and for consistently-applied house style.
+
+### Fixed
+
+- **README advertised a `refine` mode** for `product`, `roadmap`, `backlog`,
+  `solution`, and `tasks` that those skills no longer have, plus a stale
+  `refine-session.md` in the layout tree. The delivery-conventions routing table
+  still pointed at `code-review fix` and a merged `sprint`. Stale routing
+  corrected in `design`, `backlog`, `skills-index`, and `solution` (which
+  credited **docs** with owning the ADR register — that is **adr**).
+- **`ralph-loop` declared `allowed-tools` as a YAML list**, which the Agent
+  Skills spec defines as a space-separated string. Converted, and the missing
+  `metadata` block added.
+
+---
+
 Mode simplification. Artefact skills drop from three modes to two: `write` and
 `review`.
 
@@ -100,7 +164,7 @@ single shared capture step in place of three independent browser sessions.
 
 ### Added
 
-- **`ux-design-review-fix` skill** — accessibility first, fixes via tokens and library
+- **`ux-design-fix` skill** — accessibility first, fixes via tokens and library
   components rather than local patches, re-renders and re-captures to verify, and
   re-checks neighbours for shift. Kept separate from `code-review-fix` because there is
   no typecheck for "looks right": its verification, its required resolutions, its fix
@@ -124,7 +188,7 @@ single shared capture step in place of three independent browser sessions.
 - Coverage statement now names what was **not** covered: other browsers, themes, and
   unreachable states.
 - `evals/evals.json` and `evals/trigger-queries.json` for both skills, with negative
-  routing cases in both directions, including `code-review-fix` vs `ux-design-review-fix`.
+  routing cases in both directions, including `code-review-fix` vs `ux-design-fix`.
 - `docs/ux-design-review-uplift.md` — the evaluation this rebuild implements.
 
 ---
