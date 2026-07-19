@@ -3,8 +3,8 @@ name: sprint
 description: >
   Use when the user wants a sprint plan before the sprint or a retrospective
   after, under docs/work/sprint-{id}/plan.md or retrospective.md. Do NOT use for
-  product strategy (product), task Gherkin (tasks), epic doc refine pass (docs
-  refine), or epic validation (validate).
+  product strategy (product), task Gherkin (tasks), cross-document alignment
+  pass (docs), or epic validation (validate).
 license: MIT
 allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: plan|retrospective> <sprint-id> [--context <notes>]"

@@ -2,14 +2,14 @@
 name: tasks
 description: >
   Use when the user wants to break an epic into tasks.md, write Gherkin acceptance
-  criteria, refine sprint-ready tasks, or review task breakdown for an epic
+  criteria, or review and groom the task breakdown for an epic
   (checkout-foundation, CHK01, etc.). Default docs/work/{epic}/tasks.md. Do NOT use for
   epic list or work paths (backlog), product backlog stories only (backlog),
   design.md (design), code implementation (implement), PR code review
   (code-review), or epic completion sign-off (validate). EARS with --ears.
 license: MIT
 allowed-tools: Read Write Glob Grep
-argument-hint: "<mode: write|review|refine> <epic> [--ears] [--context <notes>]"
+argument-hint: "<mode: write|review> <epic> [--ears] [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
@@ -65,7 +65,7 @@ Design (section link), **Acceptance (Gherkin)**.
 
 ## Router
 
-1. Mode: `write`, `review`, or `refine`.
+1. Mode: `write` or `review`.
 2. Resolve `{epic}` and `docs/work/{epic}/tasks.md`.
 3. One prompt under [prompts/](prompts/).
 

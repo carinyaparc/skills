@@ -26,7 +26,9 @@ to identify the best match and direct them to the right skill.
    **Track** matches the current delivery context.
 4. Tell the user: "The best skill for this is **{skill-name}**." followed by one
    sentence explaining why. Include the **mode** when the skill uses modes
-   (e.g. `backlog write`, `tasks write checkout-foundation`, `sprint plan 3`).
+   (e.g. `backlog write`, `tasks review checkout-foundation`, `sprint plan 3`).
+   Artefact skills have two modes: **write** drafts or re-authors from scratch;
+   **review** critiques, updates for currency, and amends in place.
 
 For end-to-end delivery, suggest the next skill in the flow
 (product → roadmap → backlog → design → tasks → implement → validate) or ask
@@ -37,8 +39,8 @@ which phase the user is in.
 | Skill | Description (excerpt) | Artefact | Track | Role | Consumes | Produces |
 | --- | --- | --- | --- | --- | --- | --- |
 | adr | Plan (register tables), write, or review ADRs | register.md / ADR-NNNN.md | architecture | architect | solution.md | ADR-NNNN.md |
-| backlog | Product backlog: write, review, refine epics | docs/product/backlog.md | strategy / discovery / refine | delivery | product.md, roadmap.md, solution.md | backlog.md |
-| tasks | Break epic design into tasks with Gherkin AC | docs/work/{epic}/tasks.md | discovery | delivery | design.md, backlog.md | tasks.md |
+| backlog | Product backlog: write or review/groom epics | docs/product/backlog.md | strategy / discovery | delivery | product.md, roadmap.md, solution.md | backlog.md |
+| tasks | Break epic design into tasks with Gherkin AC; review/groom for sprint readiness | docs/work/{epic}/tasks.md | discovery | delivery | design.md, backlog.md | tasks.md |
 | implement | Implements a task against design.md and tasks.md | code | delivery | engineer | design.md, tasks.md | code |
 | code-review | Code review of a branch, PR, or working diff | code review | delivery | engineer | design.md, tasks.md | review |
 | code-review-fix | Addresses code review findings without behaviour change | code | delivery | engineer | review output | code |
@@ -49,11 +51,11 @@ which phase the user is in.
 | ralph-loop-setup | Seed and configure a Ralph loop: pick a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the completion promise and iteration budget; never starts the loop | seeded loop | delivery | delivery | design.md, tasks.md | loop files |
 | ralph-loop | Run an autonomous loop: one step per iteration until a completion promise or a safety rail (`start`, `status`, `cancel`) | committed epic + MR | delivery | delivery | seeded loop | code / MR |
 | design | docs/work/{epic}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
-| docs | Pre-sprint doc review or sprint-end refine-session | doc review / refine-session | refine / discovery | architect | product.md, solution.md | review / refine-session |
-| product | product.md: write, review, refine | docs/product/product.md | strategy / refine | pm | — / product.md | product.md |
-| sprint | Sprint plan or retrospective | plan.md / retrospective.md | delivery / refine | delivery | tasks.md, backlog.md | plan.md / retrospective.md |
-| roadmap | Phased delivery roadmap | docs/product/roadmap.md | strategy / refine | pm | product.md | roadmap.md |
-| solution | Architecture solution.md | docs/architecture/solution.md | architecture / refine | architect | product.md | solution.md |
+| docs | Cross-document alignment pass over product, solution, and epic design; triages ADR candidates at sprint end | doc review / refine-session | discovery / delivery | architect | product.md, solution.md, design.md | review / refine-session |
+| product | product.md: write or review | docs/product/product.md | strategy | pm | — / product.md | product.md |
+| sprint | Sprint plan or retrospective | plan.md / retrospective.md | delivery | delivery | tasks.md, backlog.md | plan.md / retrospective.md |
+| roadmap | Phased delivery roadmap: write or review | docs/product/roadmap.md | strategy | pm | product.md | roadmap.md |
+| solution | Architecture solution.md: write or review | docs/architecture/solution.md | architecture | architect | product.md | solution.md |
 | skills-index | Routes vague requests to the right skill | skill-routing | utility | utility | — | skill-routing |
 | validate | Epic validation vs AC and roadmap gates | validation report | delivery | delivery | backlog.md, tasks.md, solution.md | validation |
 

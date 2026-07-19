@@ -2,12 +2,13 @@
 name: product
 description: >
   Use when the user wants a product strategy doc, PRD, pitch, vision, personas,
-  or outcomes at docs/product/product.md (write, review, refine). Do NOT use for
+  or outcomes at docs/product/product.md. Two modes: write (draft or re-author)
+  and review (critique, update for currency, amend in place). Do NOT use for
   phased delivery plan (roadmap), epics or backlog (backlog), architecture
   (solution), tasks or Gherkin (tasks), or implementation (implement).
 license: MIT
 allowed-tools: Read Write Glob Grep
-argument-hint: "<mode: write|review|refine> [--stage pitch|product] [--context <notes>]"
+argument-hint: "<mode: write|review> [--stage pitch|product] [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
@@ -49,7 +50,7 @@ path instead of the default.
 
 ## Router
 
-1. Mode: `write`, `review`, or `refine`.
+1. Mode: `write` or `review`.
 2. Resolve target path (default or user override).
 3. One prompt under [prompts/](prompts/).
 

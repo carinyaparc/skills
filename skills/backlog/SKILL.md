@@ -1,7 +1,7 @@
 ---
 name: backlog
 description: >
-  Use when the user wants to write, review, or refine the product backlog,
+  Use when the user wants to write or review the product backlog, groom or
   decompose delivery into epics, set Now-phase scope, or manage epic rows (e.g.
   CHK01). Default artefact docs/product/backlog.md. Do NOT use for business
   strategy or PRD (product), phase exit criteria (roadmap), Gherkin tasks
@@ -10,7 +10,7 @@ description: >
   docs/work/{epic}/ via tasks.
 license: MIT
 allowed-tools: Read Write Glob Grep
-argument-hint: "<mode: write|review|refine> [--depth full] [--stories] [--context <notes>]"
+argument-hint: "<mode: write|review> [--depth full] [--stories] [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
@@ -59,7 +59,7 @@ path instead of the default.
 
 ## Router
 
-1. Mode: `write`, `review`, or `refine`.
+1. Mode: `write` or `review`.
 2. Resolve path (default `docs/product/backlog.md`).
 3. One prompt under [prompts/](prompts/).
 

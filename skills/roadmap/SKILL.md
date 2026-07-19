@@ -2,12 +2,14 @@
 name: roadmap
 description: >
   Use when the user wants outcome-based delivery phases, exit criteria, or
-  roadmap review at docs/product/roadmap.md. Requires product.md for write. Do
+  roadmap review at docs/product/roadmap.md. Two modes: write (draft or
+  re-sequence) and review (judge credibility, record delivery evidence, amend in
+  place). Requires product.md for write. Do
   NOT use for epic breakdown or work paths (backlog), PRD (product), per-epic
   design (design), tasks (tasks), or architecture detail (solution).
 license: MIT
 allowed-tools: Read Write Glob Grep
-argument-hint: "<mode: write|review|refine> [--context <notes>]"
+argument-hint: "<mode: write|review> [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
@@ -39,6 +41,6 @@ path instead of the default.
 
 ## Router
 
-1. Mode: `write`, `review`, or `refine`.
+1. Mode: `write` or `review`.
 2. Resolve target path (default or user override).
 3. One prompt under [prompts/](prompts/).

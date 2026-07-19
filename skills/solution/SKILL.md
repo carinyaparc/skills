@@ -1,14 +1,14 @@
 ---
 name: solution
 description: >
-  Use when the user wants to write, review, or refine system architecture at
+  Use when the user wants to write or review system architecture at
   docs/architecture/solution.md (stub or full arc42-lite). Do NOT use for business
   strategy (product), delivery phases (roadmap), epic list (backlog), per-epic
   design.md (design), task Gherkin (tasks), or ADR files (adr write). Story AC
   belongs in docs/work/{epic}/tasks.md.
 license: MIT
 allowed-tools: Read Write Glob Grep
-argument-hint: "<mode: write|review|refine> [--stage stub|full] [--context <notes>]"
+argument-hint: "<mode: write|review> [--stage stub|full] [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
@@ -53,7 +53,7 @@ path instead of the default.
 
 ## Router
 
-1. Mode: `write`, `review`, or `refine`.
+1. Mode: `write` or `review`.
 2. Resolve target path (default or user override).
 3. One prompt under [prompts/](prompts/).
 
