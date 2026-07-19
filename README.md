@@ -122,8 +122,7 @@ docs/
 └── work/
     ├── checkout-foundation/     # epic
     │   ├── design.md
-    │   ├── tasks.md
-    │   └── refine-session.md
+    │   └── tasks.md
     └── sprint-3/
         ├── plan.md
         └── retrospective.md
@@ -141,15 +140,15 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **product** | write, review, refine | Pitch or full `product.md` (_why_, _who_, _what_) | `docs/product/product.md` |
-| **roadmap** | write, review, refine | Outcome-based phases with exit criteria | `docs/product/roadmap.md` |
-| **backlog** | write, review, refine | Epics and work paths; optional `--stories` for small products | `docs/product/backlog.md` |
+| **product** | write, review | Pitch or full `product.md` (_why_, _who_, _what_) | `docs/product/product.md` |
+| **roadmap** | write, review | Outcome-based phases with exit criteria | `docs/product/roadmap.md` |
+| **backlog** | write, review | Epics and work paths; optional `--stories` for small products | `docs/product/backlog.md` |
 
 ### Architecture
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **solution** | write, review, refine | Stub or full arc42-lite `solution.md` | `docs/architecture/solution.md` |
+| **solution** | write, review | Stub or full arc42-lite `solution.md` | `docs/architecture/solution.md` |
 | **adr** | plan, write, review | Proposals in `register.md`; accepted decisions as `ADR-NNNN-{title}.md` | `register.md`, `ADR-NNNN.md` |
 
 ### Discovery
@@ -157,7 +156,7 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
 | **design** | write, review | `docs/work/{epic}/design.md` (walking-skeleton or TDD) | `docs/work/{epic}/design.md` |
-| **tasks** | write, review, refine | `docs/work/{epic}/tasks.md` with Gherkin AC from design | `docs/work/{epic}/tasks.md` |
+| **tasks** | write, review | `docs/work/{epic}/tasks.md` with Gherkin AC from design | `docs/work/{epic}/tasks.md` |
 
 ### Delivery
 
