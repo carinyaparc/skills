@@ -46,7 +46,8 @@ which phase the user is in.
 | code-review-fix | Addresses code review findings without behaviour change | code | delivery | engineer | review output | code |
 | ux-design-review | Read-only UX review of implemented UI vs its design source: accessibility, states, responsiveness, fidelity | UX review | delivery | engineer | design source, UI diff | review |
 | ux-design-fix | Change how existing UI looks or behaves, from a UX review verdict or a direct instruction; verifies visually and commits | code | delivery | engineer | UX review output, or an instruction | code |
-| merge-request | Open an MR/PR for the current branch on any provider (`create`); `babysit` drives it to merge-ready | MR / PR | delivery | engineer | — | MR / PR |
+| merge-request | Open an MR/PR for the current branch on any provider: title, description, labels, reviewer suggestions | MR / PR | delivery | engineer | — | MR / PR |
+| merge-request-babysit | Drive an open MR/PR to merge-ready: watch CI, fix objective failures, triage threads, sync conflicts | merge-ready MR | delivery | engineer | open MR / PR | code / MR |
 | merge-request-review | Review an MR/PR as its reviewer; publish inline comments and a verdict | published review | delivery | engineer | MR / PR | published review |
 | ralph-loop-setup | Seed and configure a Ralph loop: pick a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the completion promise and iteration budget; never starts the loop | seeded loop | delivery | delivery | design.md, tasks.md | loop files |
 | ralph-loop | Run an autonomous loop: one step per iteration until a completion promise or a safety rail (`start`, `status`, `cancel`) | committed epic + MR | delivery | delivery | seeded loop | code / MR |

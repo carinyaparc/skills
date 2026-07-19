@@ -117,7 +117,7 @@ never promised over.
 
 #### create_mr
 
-Launch a sub-agent: `/merge-request create --draft`. Record the MR URL under
+Launch a sub-agent: `/merge-request --draft`. Record the MR URL under
 `## Notes`, then set `current_step: done`.
 
 #### done

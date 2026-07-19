@@ -38,6 +38,7 @@
         "ux-design-review",
         "ux-design-fix",
         "merge-request",
+        "merge-request-babysit",
         "merge-request-review",
         "validate",
         "ralph-loop-setup",
