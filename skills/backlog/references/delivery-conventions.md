@@ -77,6 +77,7 @@ Cite `solution.md §{N.M}` — do not re-narrate architecture in `design.md`.
 | PR / branch code review | **code-review** |
 | Address code review feedback | **code-review** `fix` |
 | Epic done vs AC + roadmap gates | **validate** |
-| Sprint plan or retro | **sprint** |
+| Sprint plan | **sprint-planning** |
+| Sprint retrospective | **sprint-retro** |
 | Pre-sprint doc review / post-sprint doc pass | **docs** |
 | Which skill to use? | **skills-index** |

@@ -26,7 +26,7 @@ to identify the best match and direct them to the right skill.
    **Track** matches the current delivery context.
 4. Tell the user: "The best skill for this is **{skill-name}**." followed by one
    sentence explaining why. Include the **mode** when the skill uses modes
-   (e.g. `backlog write`, `tasks review checkout-foundation`, `sprint plan 3`).
+   (e.g. `backlog write`, `tasks review checkout-foundation`, `sprint-planning 3`).
    Artefact skills have two modes: **write** drafts or re-authors from scratch;
    **review** critiques, updates for currency, and amends in place.
 
@@ -53,7 +53,8 @@ which phase the user is in.
 | design | docs/work/{epic}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
 | docs | Cross-document alignment pass over product, solution, and epic design; triages ADR candidates at sprint end | doc review / refine-session | discovery / delivery | architect | product.md, solution.md, design.md | review / refine-session |
 | product | product.md: write or review | docs/product/product.md | strategy | pm | — / product.md | product.md |
-| sprint | Sprint plan or retrospective | plan.md / retrospective.md | delivery | delivery | tasks.md, backlog.md | plan.md / retrospective.md |
+| sprint-planning | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | docs/work/sprint-{id}/plan.md | delivery | delivery | backlog.md, tasks.md, prior retrospective.md | plan.md |
+| sprint-retro | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | docs/work/sprint-{id}/retrospective.md | delivery | delivery | plan.md, tasks.md | retrospective.md |
 | roadmap | Phased delivery roadmap: write or review | docs/product/roadmap.md | strategy | pm | product.md | roadmap.md |
 | solution | Architecture solution.md: write or review | docs/architecture/solution.md | architecture | architect | product.md | solution.md |
 | skills-index | Routes vague requests to the right skill | skill-routing | utility | utility | — | skill-routing |

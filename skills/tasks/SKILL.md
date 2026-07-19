@@ -61,7 +61,7 @@ Design (section link), **Acceptance (Gherkin)**.
 
 ## Related skills
 
-- `backlog`, `design`, `implement`, `solution`, `sprint`
+- `backlog`, `design`, `implement`, `solution`, `sprint-planning`
 
 ## Router
 

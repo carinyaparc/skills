@@ -48,7 +48,8 @@
       "title": "Sprint",
       "description": "Sprint planning and retrospectives.",
       "skills": [
-        "sprint"
+        "sprint-planning",
+        "sprint-retro"
       ]
     },
     {

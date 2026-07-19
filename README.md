@@ -67,7 +67,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Discovery | _Ready for Development_ | **design**, **tasks** |
 | Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-review-fix**, **merge-request**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **validate** |
-| Refine | _What did we learn?_ | **sprint**, **docs** |
+| Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs** |
 
 ## Typical flow
 
@@ -83,7 +83,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
                         ↓
               validate (epic done?)
                         ↓
-            sprint retro, docs (ongoing)
+        sprint-retro, docs (ongoing)
 ```
 
 Or run the whole delivery stage autonomously: `/ralph-loop-setup {epic}`
@@ -135,7 +135,7 @@ Full path and boundary rules: [delivery conventions](skills/backlog/references/d
 
 ## Skill catalogue
 
-Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`.
+Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-planning 3`.
 
 ### Planning
 
@@ -183,7 +183,8 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint plan 3`
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **sprint** | plan, retrospective | `plan.md` before the sprint; `retrospective.md` after | `docs/work/sprint-{id}/plan.md`, `retrospective.md` |
+| **sprint-planning** | — | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | `docs/work/sprint-{id}/plan.md` |
+| **sprint-retro** | — | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | `docs/work/sprint-{id}/retrospective.md` |
 | **docs** | review, refine | Pre-sprint alignment or sprint-end doc pass on product, solution, and epic design | review / `docs/work/{epic}/refine-session.md` |
 | **skills-index** | run | “Which skill should I use?” for open-ended questions | routing |
 

@@ -6,7 +6,7 @@ description: >
   criteria. Triggers on "validate CHK01", "is this epic done", "sign off the
   epic". Builds an acceptance matrix with evidence, updates task and epic
   status, and produces a validation report. Do NOT use for PR or branch code
-  review (code-review), writing tasks (tasks), sprint retrospective (sprint),
+  review (code-review), writing tasks (tasks), sprint retrospective (sprint-retro),
   or drafting backlog or design.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
