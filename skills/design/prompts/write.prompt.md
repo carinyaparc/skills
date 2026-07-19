@@ -51,4 +51,4 @@ Delete the `DRAFTING AIDE` block before saving.
 
 Save to `docs/work/{epic}/design.md`. Use [assets/design.template.md](../assets/design.template.md).
 
-**Handoff:** suggest `tasks write {epic}`.
+**Handoff:** suggest `tasks {epic}`.

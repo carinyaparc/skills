@@ -97,11 +97,13 @@ than `Bash`. The spec supports constrained forms and they document intent.
 ## Local validation
 
 ```bash
-chmod +x scripts/validate-skills.sh skills/tasks/scripts/check-epic-paths.sh
-./scripts/validate-skills.sh
+python3 scripts/validate_skills.py
 ```
+
+No `chmod` step and no executable bit required — CI runs the same command, so a
+lost `+x` cannot take the build down. Pass `--quiet` to print failures only.
 
 ## Pull requests
 
-- Run `./scripts/validate-skills.sh`
+- Run `python3 scripts/validate_skills.py`
 - Update `skills.sh.json` if adding a skill that should appear in a curated group

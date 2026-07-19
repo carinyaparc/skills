@@ -39,7 +39,7 @@ claude --plugin-dir ~/.claude/plugins/daddia-skills
 npx skills@latest add daddia/skills
 
 # Or one skill at a time
-npx skills@latest add daddia/skills/backlog
+npx skills@latest add daddia/skills/tasks
 ```
 
 ### Try your first commands
@@ -47,9 +47,9 @@ npx skills@latest add daddia/skills/backlog
 ```text
 /product write --stage pitch
 /roadmap write
-/backlog write
+/tasks --product
 /design write checkout-foundation --mode walking-skeleton
-/tasks write checkout-foundation
+/tasks checkout-foundation
 /implement CHK01-01
 /code-review
 /merge-request CHK01-01
@@ -62,10 +62,10 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 
 | Stage | Key outcome(s) | Skills |
 | ----- | -------------- | ------ |
-| Planning | _What, why, and when?_ | **product**, **roadmap**, **backlog** |
+| Planning | _What, why, and when?_ | **product**, **roadmap**, **tasks** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
-| Discovery | _Ready for Development_ | **design**, **tasks** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **ralph-loop** |
+| Discovery | _Ready for Development_ | **design**, **tasks**, **backlog-refine** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **merge-request-babysit**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **validate** |
 | Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs-review** |
 
@@ -134,7 +134,9 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 
 ## Skill catalogue
 
-Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-planning 3`.
+Skills with modes take the mode first (`/product write`, `/adr plan CHK01`).
+The rest take their argument directly (`/tasks checkout-foundation`,
+`/sprint-planning 3`).
 
 ### Planning
 
@@ -142,7 +144,6 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | ----- | ----- | ----------- | -------- |
 | **product** | write, review | Pitch or full `product.md` (_why_, _who_, _what_) | `docs/product/product.md` |
 | **roadmap** | write, review | Outcome-based phases with exit criteria | `docs/product/roadmap.md` |
-| **backlog** | write, review | Epics and work paths; optional `--stories` for small products | `docs/product/backlog.md` |
 
 ### Architecture
 
@@ -156,7 +157,8 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
 | **design** | write, review | `docs/work/{epic}/design.md` (walking-skeleton or TDD) | `docs/work/{epic}/design.md` |
-| **tasks** | write, review | `docs/work/{epic}/tasks.md` with Gherkin AC from design | `docs/work/{epic}/tasks.md` |
+| **tasks** | — | Decompose anything into delivery work: a product into epics, an epic or its design into stories and tasks with Gherkin AC, or a spec/RFC/PRD into both | `docs/product/backlog.md`, `docs/work/{epic}/tasks.md` |
+| **backlog-refine** | — | Groom an existing backlog or judge sprint readiness: reprioritise, split, re-estimate, defer. Amends in place and reports a verdict | `backlog.md`, `tasks.md` |
 
 ### Delivery
 
@@ -164,10 +166,11 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | ----- | ----- | ----------- | -------- |
 | **implement** | — | Implement a task against approved design and tasks | code |
 | **code-review** | — | Review a branch, PR, or working diff against its acceptance criteria and declared scope. Read-only: writes a verdict, never source | code review |
-| **code-review-fix** | blocking, warning, all | Address findings from a code review without changing observable behaviour; runs the project's validation suite and commits | code |
+| **code-review-fix** | — | Address findings from a code review without changing observable behaviour; runs the project's validation suite and commits | code |
 | **ux-design-review** | — | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): accessibility (WCAG 2.2 AA), states, responsiveness, fidelity, design-system conformity. Read-only: drives the browser once, writes a verdict and captures, never source | UX review |
-| **ux-design-fix** | blocking, warning, all | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code |
-| **merge-request** | create, babysit | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with template-aware description; `babysit` drives it to merge-ready | MR / PR |
+| **ux-design-fix** | — | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code |
+| **merge-request** | — | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with a template-aware description. Never modifies source | MR / PR |
+| **merge-request-babysit** | — | Drive an open MR/PR to merge-ready: watch CI, fix objective failures, triage review threads, sync conflicts. Never merges | merge-ready MR |
 | **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | seeded loop |
 | **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed epic + MR |
 
@@ -175,8 +178,8 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **merge-request-review** | run | Review an MR/PR as its reviewer and publish inline comments and an approve / request-changes verdict; handles re-review rounds | published review |
-| **validate** | run | Epic completion vs tasks and roadmap gates | validation report |
+| **merge-request-review** | — | Review an MR/PR as its reviewer and publish inline comments and an approve / request-changes verdict; handles re-review rounds | published review |
+| **validate** | — | Epic completion vs tasks and roadmap gates | validation report |
 
 ### Refine
 
@@ -185,7 +188,7 @@ Invoke with the mode first: `/tasks write checkout-foundation`, `/sprint-plannin
 | **sprint-planning** | — | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | `docs/work/sprint-{id}/plan.md` |
 | **sprint-retro** | — | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | `docs/work/sprint-{id}/retrospective.md` |
 | **docs-review** | — | Review any set of documents: writing and structure per document, boundaries and duplication between them, consistency and cohesion across the set. Read-only | doc review |
-| **skills-index** | run | “Which skill should I use?” for open-ended questions | routing |
+| **skills-index** | — | “Which skill should I use?” for open-ended questions | routing |
 
 ## License
 
