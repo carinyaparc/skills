@@ -1,4 +1,4 @@
-# Agent Skills for AI-First Product Delivery
+# Carinya Parc Agent Skills for Digital Product Delivery
 
 Opinionated skills that guide an AI agent through the full product delivery loop — from strategy and architecture to epics, implementation, review, and sprint-end refinement.
 
@@ -54,6 +54,7 @@ npx skills@latest add carinyaparc/skills/ux-design-review
 /tasks checkout-foundation
 /implement CHK01-01
 /code-review
+/code-review-fix
 /merge-request CHK01-01
 /validate checkout-foundation
 ```
@@ -67,8 +68,8 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **tasks** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **design**, **tasks**, **backlog-refine** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **merge-request-babysit**, **ralph-loop** |
-| Release | _Ready for Release_ | **merge-request-review**, **validate** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **ralph-loop** |
+| Release | _Ready for Release_ | **merge-request-review**, **merge-request-babysit**, **validate** |
 | Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs-review** |
 
 ## Typical flow
@@ -140,7 +141,7 @@ Skills with modes take the mode first (`/product write`, `/adr plan CHK01`).
 The rest take their argument directly (`/tasks checkout-foundation`,
 `/sprint-planning 3`).
 
-### Planning
+### Product Strategy
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
@@ -172,7 +173,6 @@ The rest take their argument directly (`/tasks checkout-foundation`,
 | **ux-design-review** | — | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): accessibility (WCAG 2.2 AA), states, responsiveness, fidelity, design-system conformity. Read-only: drives the browser once, writes a verdict and captures, never source | UX review |
 | **ux-design-fix** | — | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code |
 | **merge-request** | — | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with a template-aware description. Never modifies source | MR / PR |
-| **merge-request-babysit** | — | Drive an open MR/PR to merge-ready: watch CI, fix objective failures, triage review threads, sync conflicts. Never merges | merge-ready MR |
 | **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | seeded loop |
 | **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed epic + MR |
 
@@ -181,6 +181,7 @@ The rest take their argument directly (`/tasks checkout-foundation`,
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
 | **merge-request-review** | — | Review an MR/PR as its reviewer and publish inline comments and an approve / request-changes verdict; handles re-review rounds | published review |
+| **merge-request-babysit** | — | Drive an open MR/PR to merge-ready: watch CI, fix objective failures, triage review threads, sync conflicts. Never merges | merge-ready MR |
 | **validate** | — | Epic completion vs tasks and roadmap gates | validation report |
 
 ### Refine
