@@ -6,12 +6,11 @@ description: >
   NOT use for epic breakdown or work paths (backlog), PRD (product), per-epic
   design (design), tasks (tasks), or architecture detail (solution).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review|refine> [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Roadmap

@@ -9,12 +9,11 @@ description: >
   (sprint), or pre-sprint doc alignment (docs). Task breakdown per epic lives at
   docs/work/{epic}/ via tasks.
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review|refine> [--depth full] [--stories] [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Backlog

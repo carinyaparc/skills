@@ -11,14 +11,11 @@ description: >
   last resort. Do NOT use to review code or an MR as its reviewer
   (code-review, merge-request-review) or to implement changes (implement).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Shell
-  - WebFetch
+allowed-tools: Read Write Glob Grep Bash WebFetch
 argument-hint: "[create] [work-item-id] [--draft] [--target <branch>] | babysit [mr-url]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Merge request

@@ -6,12 +6,11 @@ description: >
   narrative (solution), epic design (design), or product strategy (product).
   Proposals stay in register.md only until accepted.
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: plan|write|review> [target] [flags]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # ADR

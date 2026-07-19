@@ -6,12 +6,11 @@ description: >
   product strategy (product), task Gherkin (tasks), epic doc refine pass (docs
   refine), or epic validation (validate).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: plan|retrospective> <sprint-id> [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Sprint

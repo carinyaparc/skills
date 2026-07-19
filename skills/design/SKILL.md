@@ -8,12 +8,11 @@ description: >
   architecture (solution), ADR write (adr), code implementation (implement), or
   doc-only sprint-end pass (docs refine).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review> <epic> [--mode walking-skeleton|tdd] [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Design

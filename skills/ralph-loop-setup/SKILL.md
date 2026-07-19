@@ -9,13 +9,11 @@ description: >
   loop over. Do NOT use to start, inspect, or stop a loop (ralph-loop) — setup
   never executes loop steps.
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Shell
+allowed-tools: Read Write Glob Grep Bash
 argument-hint: "[<epic>|--prompt \"...\"] [--preset NAME] [--max-iterations N] [--completion-promise TEXT]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Ralph loop setup

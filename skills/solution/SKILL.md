@@ -7,12 +7,11 @@ description: >
   design.md (design), task Gherkin (tasks), or ADR files (adr write). Story AC
   belongs in docs/work/{epic}/tasks.md.
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review|refine> [--stage stub|full] [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Solution

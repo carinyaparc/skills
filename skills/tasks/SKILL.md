@@ -8,12 +8,11 @@ description: >
   design.md (design), code implementation (implement), PR code review
   (code-review), or epic completion sign-off (validate). EARS with --ears.
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review|refine> <epic> [--ears] [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Tasks

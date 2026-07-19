@@ -8,12 +8,11 @@ description: >
   (backlog), or initial architecture (solution write). Not a substitute for code
   review (code-review).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: review|refine> <epic> [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Docs

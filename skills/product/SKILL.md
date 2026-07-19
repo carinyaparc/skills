@@ -6,12 +6,11 @@ description: >
   phased delivery plan (roadmap), epics or backlog (backlog), architecture
   (solution), tasks or Gherkin (tasks), or implementation (implement).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
+allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review|refine> [--stage pitch|product] [--context <notes>]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # Product

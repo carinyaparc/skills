@@ -12,14 +12,11 @@ description: >
   code correctness/security review (code-review), to review a design.md
   document (design), or to implement features (implement).
 license: MIT
-allowed-tools:
-  - Read
-  - Write
-  - Glob
-  - Grep
-  - Shell
-  - WebFetch
+allowed-tools: Read Write Glob Grep Bash WebFetch
 argument-hint: "[fix [blocking|warning|all]] [branch-or-pr-or-url] [figma-url]"
+metadata:
+  author: daddia
+  version: "1.0"
 ---
 
 # UX design review
