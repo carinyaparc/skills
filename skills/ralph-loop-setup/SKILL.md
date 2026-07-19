@@ -14,6 +14,9 @@ argument-hint: "[<epic>|--prompt \"...\"] [--preset NAME] [--max-iterations N] [
 metadata:
   author: daddia
   version: "1.0"
+  owner: delivery
+  work_shape: planning
+  output_class: config
 ---
 
 # Ralph loop setup
@@ -62,7 +65,7 @@ Ask only what you cannot resolve yourself. Use structured questions, not prose.
 **engineering-delivery**
 
 - Resolve `{epic}` per
-  [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md):
+  [delivery-conventions.md](../tasks/references/delivery-conventions.md):
   a slug, an epic ID resolved via the backlog row, or a path.
 - Locate `tasks.md` and `design.md`. Fail loudly, naming the missing file, if
   either is absent.

@@ -21,7 +21,7 @@ hooks/                # plugin-level hooks: Cursor (hooks.json + ralph-*.sh),
                       # Claude Code (claude/hooks.json + claude/stop-hook.sh)
 ```
 
-Shared rules: [skills/backlog/references/delivery-conventions.md](skills/backlog/references/delivery-conventions.md).
+Shared rules: [skills/tasks/references/delivery-conventions.md](skills/tasks/references/delivery-conventions.md).
 
 ### `prompts/` or flat?
 
@@ -97,7 +97,7 @@ than `Bash`. The spec supports constrained forms and they document intent.
 ## Local validation
 
 ```bash
-chmod +x scripts/validate-skills.sh skills/backlog/scripts/check-epic-paths.sh
+chmod +x scripts/validate-skills.sh skills/tasks/scripts/check-epic-paths.sh
 ./scripts/validate-skills.sh
 ```
 

@@ -130,7 +130,7 @@ docs/
 
 **Epic slug `{epic}`** — kebab-case from the epic title or short title, at most two words (`Checkout Foundation` → `checkout-foundation`). Epic IDs like `CHK01` stay in the backlog table; resolve the slug from that row when invoking skills.
 
-Full path and boundary rules: [delivery conventions](skills/backlog/references/delivery-conventions.md).
+Full path and boundary rules: [delivery conventions](skills/tasks/references/delivery-conventions.md).
 
 ## Skill catalogue
 

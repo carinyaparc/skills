@@ -3,6 +3,8 @@ name: skills-index
 description: >
   Use when the user asks which skill to use, how to start delivery, or what to
   do next without naming a skill. Routes to product, backlog, tasks, design, etc.
+  Triggers on "which skill should I use", "what can I do here", "how do I
+  start", "what's next", "where do I begin".
   Do NOT produce artefacts or implement code — only recommend skill and mode.
 license: MIT
 allowed-tools: Read
@@ -10,6 +12,9 @@ argument-hint: <query>
 metadata:
   author: daddia
   version: "1.0"
+  owner: utility
+  work_shape: routing
+  output_class: decision-support
 ---
 
 # Skills index
@@ -26,21 +31,21 @@ to identify the best match and direct them to the right skill.
    **Track** matches the current delivery context.
 4. Tell the user: "The best skill for this is **{skill-name}**." followed by one
    sentence explaining why. Include the **mode** when the skill uses modes
-   (e.g. `backlog write`, `tasks review checkout-foundation`, `sprint-planning 3`).
-   Artefact skills have two modes: **write** drafts or re-authors from scratch;
-   **review** critiques, updates for currency, and amends in place.
+   (e.g. `product write`, `tasks checkout-foundation`, `sprint-planning 3`).
+   Artefact skills with modes have two: **write** drafts or re-authors from
+   scratch; **review** critiques, updates for currency, and amends in place.
 
 For end-to-end delivery, suggest the next skill in the flow
-(product → roadmap → backlog → design → tasks → implement → validate) or ask
+(product → roadmap → tasks → design → tasks → implement → validate) or ask
 which phase the user is in.
 
 ## Skill index
 
 | Skill | Description (excerpt) | Artefact | Track | Role | Consumes | Produces |
 | --- | --- | --- | --- | --- | --- | --- |
-| adr | Plan (register tables), write, or review ADRs | register.md / ADR-NNNN.md | architecture | architect | solution.md | ADR-NNNN.md |
-| backlog | Product backlog: write or review/groom epics | docs/product/backlog.md | strategy / discovery | delivery | product.md, roadmap.md, solution.md | backlog.md |
-| tasks | Break epic design into tasks with Gherkin AC; review/groom for sprint readiness | docs/work/{epic}/tasks.md | discovery | delivery | design.md, backlog.md | tasks.md |
+| adr | Plan the register — survey product/solution for decisions still to make, or `adr plan <epic>` to harvest decisions already made in design.md — then write or review ADRs | register.md / ADR-NNNN.md | architecture | architect | solution.md, design.md | ADR-NNNN.md |
+| tasks | Decompose anything into delivery work: product/roadmap into epics, an epic into stories and tasks with Gherkin AC, or any spec/RFC into both | backlog.md / tasks.md | strategy / discovery | delivery | product.md, roadmap.md, design.md, any spec | backlog.md, tasks.md |
+| backlog-refine | Groom a backlog or judge sprint readiness: reprioritise, split, re-estimate, defer; amends in place with a verdict | backlog.md / tasks.md | discovery / delivery | delivery | backlog.md, tasks.md | groomed artefact |
 | implement | Implements a task against design.md and tasks.md | code | delivery | engineer | design.md, tasks.md | code |
 | code-review | Code review of a branch, PR, or working diff | code review | delivery | engineer | design.md, tasks.md | review |
 | code-review-fix | Addresses code review findings without behaviour change | code | delivery | engineer | review output | code |

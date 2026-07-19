@@ -29,7 +29,7 @@ narrative is wrong: a sprint that "went well" but missed half its commitment did
 not go well, and a sprint that hit its commitment may have done so by quietly
 cutting quality.
 
-Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
 for artefact boundaries and epic path resolution.
 
 ## Artefact
@@ -87,9 +87,9 @@ routing; it does not perform the downstream change.
 
 | Finding is about                         | Track     | Actioned by         |
 | ---------------------------------------- | --------- | ------------------- |
-| Epic scope, priority, or missing epics   | backlog   | **backlog**         |
+| Epic scope, priority, or missing epics   | backlog   | **backlog-refine**  |
 | Task breakdown, estimates, vague AC      | tasks     | **tasks**           |
-| Architecture drift or an undocumented decision | architecture | **solution**, **adr** |
+| Architecture drift or an undocumented decision | architecture | **solution**, `adr plan <epic>` |
 | Stale or contradictory documentation     | docs      | **docs-review**     |
 | Delivery phase or exit criteria wrong    | roadmap   | **roadmap**         |
 | Code quality or review process           | delivery  | **code-review**     |
@@ -117,7 +117,7 @@ A retrospective MUST NOT:
 - Rewrite `plan.md` to match what happened — the plan is the historical record
   of what was committed; amending it destroys the evidence
 - Write task Gherkin, add epics, or edit architecture directly → record an
-  action routed to **tasks**, **backlog**, **solution**, or **adr**
+  action routed to **tasks**, **backlog-refine**, **solution**, or **adr**
 - Attribute a failure to a named individual — describe the system that allowed it
 - Record an action without an owner
 - Invent metrics, velocity, or incident history not present in the context

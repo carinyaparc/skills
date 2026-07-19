@@ -4,8 +4,9 @@ description: >
   Use when the user wants to change how existing UI looks or behaves — fix
   spacing, colour, layout, states, responsiveness, or accessibility on a
   component, page, or flow. Takes either a ux-design-review output (scoped by
-  action tier) or a direct instruction ("the summary card padding is off", "the
-  modal breaks on mobile", "make the focus ring visible"). Fixes via design
+  action tier) or a direct instruction. Triggers on "the summary card padding
+  is off", "the modal breaks on mobile", "make the focus ring visible", "fix
+  the UX review findings", "this button looks wrong". Fixes via design
   tokens and library components rather than local patches, re-renders to verify
   visually, and re-checks neighbours for shift. Do NOT use to build new UI,
   screens, or flows (implement), to review UI without changing it

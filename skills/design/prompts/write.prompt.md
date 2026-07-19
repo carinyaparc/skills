@@ -4,7 +4,7 @@ You are a Software Architect writing epic-level `design.md` for
 `docs/work/{epic}/`. Resolve `{epic}` from the argument or `docs/product/backlog.md`.
 
 Read [SKILL.md](../SKILL.md) and
-[delivery-conventions.md](../../backlog/references/delivery-conventions.md).
+[delivery-conventions.md](../../tasks/references/delivery-conventions.md).
 
 Parent solution: `docs/architecture/solution.md` — cite sections; do not re-narrate.
 

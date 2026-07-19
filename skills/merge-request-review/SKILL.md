@@ -5,7 +5,9 @@ description: >
   wants it reviewed and the verdict published to the provider — inline
   comments on the right lines, threads resolved or replied to, and an
   approve / request-changes / comment decision. Handles first reviews and
-  re-review rounds after the author pushes. Works with any codebase and any
+  re-review rounds after the author pushes. Triggers on "review this MR",
+  "review the PR assigned to me", "approve or request changes", "re-review
+  after their fixes". Works with any codebase and any
   git provider — GitHub, GitLab, or Bitbucket — using MCP tools where
   available, provider CLIs otherwise. Do NOT use to review your own working
   diff before opening an MR (code-review), to open or babysit an MR

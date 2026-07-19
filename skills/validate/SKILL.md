@@ -7,7 +7,7 @@ description: >
   epic". Builds an acceptance matrix with evidence, updates task and epic
   status, and produces a validation report. Do NOT use for PR or branch code
   review (code-review), writing tasks (tasks), sprint retrospective (sprint-retro),
-  or drafting backlog or design.
+  or drafting the breakdown (tasks) or design.
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "<epic-slug|epic-id>"
@@ -24,7 +24,7 @@ metadata:
 You are a QA Lead performing a final stakeholder review to confirm an epic is
 production-ready and every acceptance criterion is satisfied.
 
-Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
 when resolving `{epic}`. Resolve the slug from `docs/product/backlog.md` when
 the user passes only an Epic ID.
 

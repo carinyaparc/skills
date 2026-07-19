@@ -6,9 +6,9 @@ description: >
   for carry-over and capacity, and record dependencies, risks, and the sprint
   definition of done at docs/work/sprint-{id}/plan.md. Triggers on "plan sprint
   3", "what should we commit to", "set up the next sprint", "sprint planning".
-  Do NOT use to review a finished sprint (sprint-retro), write task Gherkin
-  (tasks), add epics (backlog), re-sequence delivery phases (roadmap), or sign
-  off an epic (validate).
+  Do NOT use to review a finished sprint (sprint-retro), write stories or task
+  Gherkin (tasks), groom the backlog (backlog-refine), re-sequence delivery
+  phases (roadmap), or sign off an epic (validate).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "<sprint-id> [--capacity <points>] [--context <notes>]"
@@ -27,7 +27,7 @@ job is to produce a commitment the team can actually meet — not a wish list.
 Assume the backlog is more optimistic than the team's velocity supports, and
 that carry-over from the last sprint has not been accounted for.
 
-Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
 for artefact boundaries and epic path resolution.
 
 ## Artefact
@@ -85,8 +85,9 @@ valid. If the user names a different path under `docs/work/`, use it.
 ## Quality rules
 
 - The sprint goal must be a single testable outcome
-- Every committed task must already exist in an epic's `tasks.md` with at least
-  one Gherkin scenario — if it does not, run **tasks** first and say so
+- Every committed task must already exist in an epic's `tasks.md`, under a story
+  with at least one Gherkin scenario — if it does not, run **tasks** first and
+  say so
 - Committed points must not exceed capacity minus carry-over; if they do, cut
   scope rather than adjusting the capacity figure to fit
 - Every committed task needs an estimate and an owner; `TBD` owner is acceptable
@@ -102,13 +103,14 @@ A sprint plan MUST NOT:
 
 - Write or rewrite Gherkin acceptance criteria → `docs/work/{epic}/tasks.md` via
   **tasks**
-- Add, split, or re-prioritise epics → `docs/product/backlog.md` via **backlog**
+- Add, split, or re-prioritise epics → `docs/product/backlog.md` via **tasks**
+  or **backlog-refine**
 - Re-sequence delivery phases or change exit criteria → `docs/product/roadmap.md`
   via **roadmap**
 - Add architecture or design detail → `solution.md` or `design.md`
 - Invent velocity, capacity, or team availability not supplied in the context
-- Commit tasks that are not sprint-ready — run `tasks review {epic}` first and
-  report the gap instead of committing anyway
+- Commit tasks that are not sprint-ready — run **backlog-refine** on the epic
+  first and report the gap instead of committing anyway
 - Record a commitment the capacity does not support in order to match a
   stakeholder expectation
 

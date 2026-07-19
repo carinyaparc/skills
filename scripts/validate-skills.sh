@@ -47,8 +47,8 @@ for skill_md in skills/*/SKILL.md; do
   echo "ok: $skill_name"
 done
 
-if [[ -x skills/backlog/scripts/check-epic-paths.sh ]] && [[ -f skills/backlog/examples/backlog.md ]]; then
-  skills/backlog/scripts/check-epic-paths.sh skills/backlog/examples/backlog.md || fail=1
+if [[ -x skills/tasks/scripts/check-epic-paths.sh ]] && [[ -f skills/tasks/examples/backlog.md ]]; then
+  skills/tasks/scripts/check-epic-paths.sh skills/tasks/examples/backlog.md || fail=1
 fi
 
 if [[ -f skills.sh.json ]]; then

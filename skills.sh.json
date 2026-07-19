@@ -7,8 +7,7 @@
       "description": "Product vision, phased roadmap, and epic backlog.",
       "skills": [
         "product",
-        "roadmap",
-        "backlog"
+        "roadmap"
       ]
     },
     {
@@ -25,7 +24,8 @@
       "skills": [
         "design",
         "tasks",
-        "docs-review"
+        "docs-review",
+        "backlog-refine"
       ]
     },
     {

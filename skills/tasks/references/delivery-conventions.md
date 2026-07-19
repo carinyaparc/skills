@@ -43,6 +43,7 @@ Override paths when the user names them explicitly in the request.
 | Business strategy, personas, outcomes | `docs/product/product.md` | backlog, solution |
 | Phase sequencing, exit criteria | `docs/product/roadmap.md` | backlog, product |
 | Epic list, deps, points, work paths | `docs/product/backlog.md` | roadmap detail |
+| Story statement, test criterion, AC | `docs/work/{epic}/tasks.md` | backlog (titles only) |
 | Architecture, NFRs, cross-epic patterns | `docs/architecture/solution.md` | design (cite only) |
 | ADR decisions | `register.md`, `ADR-NNNN-*.md` | solution narrative |
 | Epic implementation spec | `docs/work/{epic}/design.md` | solution, backlog |
@@ -51,9 +52,12 @@ Override paths when the user names them explicitly in the request.
 
 ## Acceptance criteria
 
-- **Default:** Gherkin in `docs/work/{epic}/tasks.md` (≥1 scenario per task).
-- **EARS:** optional via `tasks write --ears` or when rules are clearer than scenarios.
+- **Default:** Gherkin in `docs/work/{epic}/tasks.md`, on the **story**
+  (≥1 scenario each). A foundational task with no parent story carries its own.
+- **EARS:** via `tasks --ears`, or where a rule is clearer than a scenario.
+  Five patterns: see `skills/tasks/references/acceptance-criteria.md`.
 - **Backlog:** epic scope only; no full Gherkin in `backlog.md` (use **tasks**).
+- **Schema:** field-by-field rules in `skills/tasks/references/work-item-schema.md`.
 
 ## Design modes
 
@@ -70,9 +74,11 @@ Cite `solution.md §{N.M}` — do not re-narrate architecture in `design.md`.
 | ----------- | ----- |
 | PRD, vision, why/who/what | **product** |
 | Phases, exit criteria | **roadmap** |
-| Epics, work paths, Now scope | **backlog** |
+| Epics, work paths, Now scope | **tasks --product** |
 | `design.md` for one epic | **design** |
-| `tasks.md`, Gherkin AC | **tasks** |
+| `tasks.md`, stories, Gherkin AC | **tasks** |
+| Decompose any spec or RFC into a backlog | **tasks** |
+| Groom a backlog, check sprint readiness | **backlog-refine** |
 | Implement code | **implement** |
 | PR / branch code review | **code-review** |
 | Address code review feedback | **code-review-fix** |

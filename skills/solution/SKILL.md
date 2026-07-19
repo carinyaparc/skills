@@ -2,8 +2,10 @@
 name: solution
 description: >
   Use when the user wants to write or review system architecture at
-  docs/architecture/solution.md (stub or full arc42-lite). Do NOT use for business
-  strategy (product), delivery phases (roadmap), epic list (backlog), per-epic
+  docs/architecture/solution.md (stub or full arc42-lite). Triggers on "write
+  the architecture", "solution design", "arc42", "review the architecture",
+  "does solution.md match what we built". Do NOT use for business
+  strategy (product), delivery phases (roadmap), epic list (tasks), per-epic
   design.md (design), task Gherkin (tasks), or ADR files (adr write). Story AC
   belongs in docs/work/{epic}/tasks.md.
 license: MIT
@@ -12,13 +14,16 @@ argument-hint: "<mode: write|review> [--stage stub|full] [--context <notes>]"
 metadata:
   author: daddia
   version: "1.0"
+  owner: architecture
+  work_shape: authoring
+  output_class: delivery-artefact
 ---
 
 # Solution
 
 ## Conventions
 
-Read [../backlog/references/delivery-conventions.md](../backlog/references/delivery-conventions.md)
+Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
 for artefact boundaries.
 
 ## Artefact
@@ -49,7 +54,7 @@ path instead of the default.
 
 ## Related skills
 
-- `product`, `backlog`, `tasks`, `design`, `adr`
+- `product`, `tasks`, `design`, `adr`
 
 ## Router
 
