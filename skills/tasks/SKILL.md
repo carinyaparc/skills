@@ -15,7 +15,7 @@ license: MIT
 allowed-tools: Read Write Edit Glob Grep
 argument-hint: "<epic|spec-path|--product> [--ears] [--depth full] [--context <notes>]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "2.0"
   owner: delivery
   work_shape: decomposition

@@ -14,7 +14,7 @@ compatibility: Requires git and the project's own validation toolchain (formatte
 allowed-tools: Read Write Edit Glob Grep Bash
 argument-hint: "<task-id>"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: targeted-change

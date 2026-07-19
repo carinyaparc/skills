@@ -17,7 +17,7 @@ compatibility: Requires git. Live review needs a runnable UI plus Playwright or 
 allowed-tools: Read Glob Grep WebFetch Bash(git:*) Bash(gh:*) Bash(glab:*) Bash(npx:*) Bash(node:*) Write(.ux-review/**) Write(.agency/reviews/**)
 argument-hint: "[branch-or-pr-or-url] [figma-url] [--full]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "2.0"
   owner: web-development
   work_shape: review-and-gate

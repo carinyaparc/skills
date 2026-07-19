@@ -9,8 +9,8 @@ Each skill produces one clear artefact (a markdown file or code change). Skills 
 Ask your agent:
 
 ```text
-"Setup daddia skills locally from this repo:
-https://github.com/daddia/skills
+"Setup Carinya Parc skills locally from this repo:
+https://github.com/carinyaparc/skills
 
 Clone it and tell me:
 - What skills I have and what they do?
@@ -22,24 +22,26 @@ Clone it and tell me:
 #### Cursor
 
 ```bash
-git clone https://github.com/daddia/skills.git ~/.cursor/plugins/local/daddia-skills
+git clone https://github.com/carinyaparc/skills.git ~/.cursor/plugins/local/carinyaparc-agent-skills
 ```
 
 #### Claude Code
 
 ```sh
-git clone https://github.com/daddia/skills.git ~/.claude/plugins/daddia-skills
-claude --plugin-dir ~/.claude/plugins/daddia-skills
+git clone https://github.com/carinyaparc/skills.git ~/.claude/plugins/carinyaparc-agent-skills
+claude --plugin-dir ~/.claude/plugins/carinyaparc-agent-skills
 ```
 
 ### Install skills from [skills.sh](https://skills.sh)
 
 ```bash
 # All skills from this repo
-npx skills@latest add daddia/skills
+npx skills@latest add carinyaparc/skills
 
 # Or one skill at a time
-npx skills@latest add daddia/skills/tasks
+npx skills@latest add carinyaparc/skills/code-review
+npx skills@latest add carinyaparc/skills/sprint-planning
+npx skills@latest add carinyaparc/skills/ux-design-review
 ```
 
 ### Try your first commands
@@ -192,4 +194,4 @@ The rest take their argument directly (`/tasks checkout-foundation`,
 
 ## License
 
-Copyright (c) 2026 daddia. Released under the [MIT License](LICENSE).
+Copyright (c) 2026 Carinya Parc. Released under the [MIT License](LICENSE).

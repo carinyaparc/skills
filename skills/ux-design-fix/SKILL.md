@@ -17,7 +17,7 @@ compatibility: Requires git, the project's validation toolchain, and a runnable 
 allowed-tools: Read Write Edit Glob Grep Bash
 argument-hint: "[blocking|warning|all] [review-output-path | instruction]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: targeted-change

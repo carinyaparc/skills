@@ -13,7 +13,7 @@ license: MIT
 allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: write|review> [--context <notes>]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: product
   work_shape: planning

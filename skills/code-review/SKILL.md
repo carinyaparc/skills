@@ -16,7 +16,7 @@ compatibility: Requires git. Hosted PR/MR features require gh, glab, or an equiv
 allowed-tools: Read Glob Grep WebFetch Bash(git:*) Bash(gh:*) Bash(glab:*) Write(.agency/reviews/**)
 argument-hint: "[branch-or-pr] [--since <sha>] [--full]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: review-and-gate

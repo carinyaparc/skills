@@ -17,7 +17,7 @@ compatibility: Requires git. Publishing requires gh, glab, or an equivalent prov
 allowed-tools: Read Write Glob Grep WebFetch Bash(git:*) Bash(gh:*) Bash(glab:*)
 argument-hint: "[mr-url-or-number] [--verdict-only] [--no-publish]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: review-and-gate

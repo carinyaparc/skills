@@ -12,7 +12,7 @@ license: MIT
 allowed-tools: Read Write Glob Grep Bash
 argument-hint: "[<epic>|--prompt \"...\"] [--preset NAME] [--max-iterations N] [--completion-promise TEXT]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: delivery
   work_shape: planning

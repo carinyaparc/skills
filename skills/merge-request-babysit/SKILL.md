@@ -16,7 +16,7 @@ compatibility: Requires git and the project's validation toolchain. Provider fea
 allowed-tools: Read Write Edit Glob Grep WebFetch Bash
 argument-hint: "[mr-url-or-number]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: monitor-loop

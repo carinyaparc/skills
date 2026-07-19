@@ -10,7 +10,7 @@ license: MIT
 allowed-tools: Read
 argument-hint: <query>
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: utility
   work_shape: routing

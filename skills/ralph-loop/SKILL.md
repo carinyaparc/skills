@@ -13,7 +13,7 @@ license: MIT
 allowed-tools: Read Write Glob Grep Bash
 argument-hint: "[start|status|cancel] [--prompt \"...\"] [--max-iterations N] [--completion-promise TEXT]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
 ---
 

@@ -17,7 +17,7 @@ compatibility: Requires git. Hosted MR/PR creation requires gh, glab, or an equi
 allowed-tools: Read Write Glob Grep WebFetch Bash(git:*) Bash(gh:*) Bash(glab:*)
 argument-hint: "[work-item-id] [--draft] [--target <branch>]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: web-development
   work_shape: targeted-change

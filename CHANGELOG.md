@@ -5,6 +5,12 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
 
 ## [Unreleased]
 
+### Changed
+
+- Repository moved to [`carinyaparc/skills`](https://github.com/carinyaparc/skills).
+- Plugin renamed: `daddia-skills` → `carinyaparc-agent-skills`
+  (`Carinya Parc Agent Skills`); author → Carinya Parc.
+
 ## [2.1.0] - 2026-07-19
 
 ### Changed

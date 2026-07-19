@@ -16,7 +16,7 @@ compatibility: Requires read access to the documents. Staleness checks require g
 allowed-tools: Read Glob Grep Bash(git log:*) Bash(git diff:*)
 argument-hint: "[path-or-glob] [--focus quality|boundaries|consistency]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: architecture
   work_shape: review-and-gate

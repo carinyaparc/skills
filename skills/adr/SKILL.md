@@ -11,7 +11,7 @@ license: MIT
 allowed-tools: Read Write Glob Grep
 argument-hint: "<mode: plan|write|review> [epic|target] [flags]"
 metadata:
-  author: daddia
+  author: Carinya Parc
   version: "1.0"
   owner: architecture
   work_shape: authoring

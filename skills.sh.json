@@ -3,7 +3,7 @@
   "notGrouped": "bottom",
   "groupings": [
     {
-      "title": "Strategy",
+      "title": "Product Strategy",
       "description": "Product vision, phased roadmap, and epic backlog.",
       "skills": [
         "product",
@@ -15,21 +15,19 @@
       "description": "Solution architecture and architecture decision records.",
       "skills": [
         "solution",
-        "adr"
+        "adr",
+        "design"
       ]
     },
     {
       "title": "Epic delivery",
       "description": "Per-epic design, tasks, and documentation passes.",
       "skills": [
-        "design",
-        "tasks",
-        "docs-review",
-        "backlog-refine"
+        
       ]
     },
     {
-      "title": "Implementation",
+      "title": "Product Engineering",
       "description": "Build, review, validate, and ship changes.",
       "skills": [
         "implement",
@@ -46,11 +44,14 @@
       ]
     },
     {
-      "title": "Sprint",
+      "title": "Delivery Practice",
       "description": "Sprint planning and retrospectives.",
       "skills": [
         "sprint-planning",
-        "sprint-retro"
+        "sprint-retro",
+        "tasks",
+        "docs-review",
+        "backlog-refine"
       ]
     },
     {
