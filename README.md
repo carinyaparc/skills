@@ -146,7 +146,7 @@ The rest take their argument directly (`/tasks checkout-foundation`,
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
 | **product** | write | Pitch or full `product.md` (_why_, _who_, _what_); review via `docs-review` | `docs/product/product.md` |
-| **roadmap** | write, review | Outcome-based phases with exit criteria | `docs/product/roadmap.md` |
+| **roadmap** | write | Outcome-based phases with exit criteria; review via `docs-review` | `docs/product/roadmap.md` |
 
 ### Architecture
 

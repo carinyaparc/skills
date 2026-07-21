@@ -61,7 +61,7 @@ which phase the user is in.
 | product | product.md: write (review via docs-review) | docs/product/product.md | strategy | pm | — | product.md |
 | sprint-planning | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | docs/work/sprint-{id}/plan.md | delivery | delivery | backlog.md, tasks.md, prior retrospective.md | plan.md |
 | sprint-retro | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | docs/work/sprint-{id}/retrospective.md | delivery | delivery | plan.md, tasks.md | retrospective.md |
-| roadmap | Phased delivery roadmap: write or review | docs/product/roadmap.md | strategy | pm | product.md | roadmap.md |
+| roadmap | roadmap.md: write (review via docs-review) | docs/product/roadmap.md | strategy | pm | product.md | roadmap.md |
 | solution | Architecture solution.md: write or review | docs/architecture/solution.md | architecture | architect | product.md | solution.md |
 | skills-index | Routes vague requests to the right skill | skill-routing | utility | utility | — | skill-routing |
 | validate | Epic validation vs AC and roadmap gates | validation report | delivery | delivery | backlog.md, tasks.md, solution.md | validation |
