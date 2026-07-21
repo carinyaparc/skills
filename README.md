@@ -47,10 +47,10 @@ npx skills@latest add carinyaparc/skills/ux-design-review
 ### Try your first commands
 
 ```text
-/product write --stage pitch
-/roadmap write
+/product --stage pitch
+/roadmap
 /tasks --product
-/design write checkout-foundation --mode walking-skeleton
+/design checkout-foundation --mode walking-skeleton
 /tasks checkout-foundation
 /implement CHK01-01
 /code-review
@@ -137,9 +137,9 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 
 ## Skill catalogue
 
-Skills with modes take the mode first (`/product write`, `/adr plan CHK01`).
-The rest take their argument directly (`/tasks checkout-foundation`,
-`/sprint-planning 3`).
+`adr` is the only skill left with modes; it takes the mode first
+(`/adr plan CHK01`). The rest take their argument directly
+(`/tasks checkout-foundation`, `/sprint-planning 3`).
 
 ### Product Strategy
 
@@ -159,7 +159,7 @@ The rest take their argument directly (`/tasks checkout-foundation`,
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **design** | write, review | `docs/work/{epic}/design.md` (walking-skeleton or TDD) | `docs/work/{epic}/design.md` |
+| **design** | write | `docs/work/{epic}/design.md` (walking-skeleton or TDD); review via `docs-review` | `docs/work/{epic}/design.md` |
 | **tasks** | — | Decompose anything into delivery work: a product into epics, an epic or its design into stories and tasks with Gherkin AC, or a spec/RFC/PRD into both | `docs/product/backlog.md`, `docs/work/{epic}/tasks.md` |
 | **backlog-refine** | — | Groom an existing backlog or judge sprint readiness: reprioritise, split, re-estimate, defer. Amends in place and reports a verdict | `backlog.md`, `tasks.md` |
 

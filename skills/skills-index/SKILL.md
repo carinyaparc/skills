@@ -2,7 +2,7 @@
 name: skills-index
 description: >
   Use when the user asks which skill to use, how to start delivery, or what to
-  do next without naming a skill. Routes to product, backlog, tasks, design, etc.
+  do next without naming a skill. Routes to product, tasks, design, etc.
   Triggers on "which skill should I use", "what can I do here", "how do I
   start", "what's next", "where do I begin".
   Do NOT produce artefacts or implement code — only recommend skill and mode.
@@ -32,8 +32,10 @@ to identify the best match and direct them to the right skill.
 4. Tell the user: "The best skill for this is **{skill-name}**." followed by one
    sentence explaining why. Include the **mode** when the skill uses modes
    (e.g. `product write`, `tasks checkout-foundation`, `sprint-planning 3`).
-   Artefact skills with modes have two: **write** drafts or re-authors from
-   scratch; **review** critiques, updates for currency, and amends in place.
+   Most artefact skills are write-only — drafting or re-authoring from scratch.
+   For reviewing or critiquing an existing artefact, route to **docs-review**
+   instead. `adr` is the exception: it keeps its own **plan**, **write**, and
+   **review** modes.
 
 For end-to-end delivery, suggest the next skill in the flow
 (product → roadmap → tasks → design → tasks → implement → validate) or ask
@@ -56,7 +58,7 @@ which phase the user is in.
 | merge-request-review | Review an MR/PR as its reviewer; publish inline comments and a verdict | published review | delivery | engineer | MR / PR | published review |
 | ralph-loop-setup | Seed and configure a Ralph loop: pick a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the completion promise and iteration budget; never starts the loop | seeded loop | delivery | delivery | design.md, tasks.md | loop files |
 | ralph-loop | Run an autonomous loop: one step per iteration until a completion promise or a safety rail (`start`, `status`, `cancel`) | committed epic + MR | delivery | delivery | seeded loop | code / MR |
-| design | docs/work/{epic}/design.md: write or review | design.md | discovery | architect | solution.md, backlog.md | design.md |
+| design | docs/work/{epic}/design.md: write (review via docs-review) | design.md | discovery | architect | solution.md, backlog.md | design.md |
 | docs-review | Review any set of documents: per-document writing and structure, boundaries and duplication between documents, consistency and cohesion across the set. Read-only | doc review | any | architect | any doc set | review |
 | product | product.md: write (review via docs-review) | docs/product/product.md | strategy | pm | — | product.md |
 | sprint-planning | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | docs/work/sprint-{id}/plan.md | delivery | delivery | backlog.md, tasks.md, prior retrospective.md | plan.md |

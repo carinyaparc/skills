@@ -10,6 +10,11 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
 - Repository moved to [`carinyaparc/skills`](https://github.com/carinyaparc/skills).
 - Plugin renamed: `daddia-skills` → `carinyaparc-agent-skills`
   (`Carinya Parc Agent Skills`); author → Carinya Parc.
+- **BREAKING: `review` mode removed from `product`, `roadmap`, `design`, and
+  `solution`.** Each is now write-only; use `docs-review` to review or
+  critique an existing artefact. `prompts/write.prompt.md` folded into each
+  skill's `SKILL.md`; `prompts/` removed. `adr` is unaffected — it keeps its
+  own `plan`, `write`, and `review` modes.
 
 ## [2.1.0] - 2026-07-19
 
