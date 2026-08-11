@@ -115,10 +115,11 @@ list them under "Findings Not Addressed".
 10. **Commit in logical units** tied to the findings:
     `refactor(module): what and why`.
 
-11. **Update review state.** If `.agency/reviews/{branch}.json` exists, mark each
-    addressed finding `fixed`, each deferred one `deferred`, and each disputed
-    one `dismissed` with the reason. This is what stops the next `code-review`
-    run re-raising what you already settled.
+11. **Update review state.** If this branch has an entry in
+    `docs/reviews/code-review.local.json`, mark each addressed finding `fixed`,
+    each deferred one `deferred`, and each disputed one `dismissed` with the
+    reason. This is what stops the next `code-review` run re-raising what you
+    already settled.
 
 ## Quality rules
 
@@ -189,6 +190,6 @@ list them under "Findings Not Addressed".
 
 ### Review state
 
-`.agency/reviews/feat-PROJ-001-context-assembler.json` updated: 3 fixed,
-1 deferred, 1 dismissed.
+`docs/reviews/code-review.local.json` entry for
+`feat/PROJ-001-context-assembler` updated: 3 fixed, 1 deferred, 1 dismissed.
 </example>
