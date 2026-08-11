@@ -1,7 +1,7 @@
 ---
 type: Design
-epic: checkout-foundation
-epic_id: CHK01
+work_id: CHK01
+epic_slug: checkout-foundation
 level: walking-skeleton
 ---
 

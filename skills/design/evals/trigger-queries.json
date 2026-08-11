@@ -8,6 +8,10 @@
     "should_trigger": true
   },
   {
+    "query": "Design JIRA-123 — how should we build this story?",
+    "should_trigger": true
+  },
+  {
     "query": "Update solution.md with the orders API and module layout.",
     "should_trigger": false,
     "note": "solution"
