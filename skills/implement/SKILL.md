@@ -2,20 +2,20 @@
 name: implement
 description: >
   Use when the user wants to implement a task in code against an approved
-  design.md and docs/work/{epic}/tasks.md. Triggers on "implement CHK01-01",
-  "build this task", "write the code for this story". Reads the design and
-  acceptance criteria, writes code and tests, runs the project's full
-  validation suite, and commits in logical units. Do NOT use for code review
-  (code-review), addressing review feedback (code-review-fix), changing how
-  existing UI looks or behaves (ux-design-fix), writing tasks (tasks), or
-  writing a design (design).
+  design.md and docs/work/{work-id}/tasks.md. Triggers on "implement CHK01-01",
+  "implement JIRA-456", "build this task", "write the code for this story".
+  Reads the design and acceptance criteria, writes code and tests, runs the
+  project's full validation suite, and commits in logical units. Do NOT use
+  for code review (code-review), addressing review feedback (code-review-fix),
+  changing how existing UI looks or behaves (ux-design-fix), writing tasks
+  (tasks), or writing a design (design).
 license: MIT
 compatibility: Requires git and the project's own validation toolchain (formatter, linter, typechecker, test runner).
 allowed-tools: Read Write Edit Glob Grep Bash
 argument-hint: "<task-id>"
 metadata:
   author: Carinya Parc
-  version: "1.0"
+  version: "2.0"
   owner: web-development
   work_shape: targeted-change
   output_class: code-change
@@ -26,14 +26,20 @@ metadata:
 You are a Senior Software Engineer implementing a task that has approved
 requirements and a design document.
 
-Pass the task id after the skill name (e.g. `/implement CHK01-01`).
+Pass the task id after the skill name (e.g. `/implement CHK01-01` or
+`/implement JIRA-456`). The ID may be an internal task ID or a tracker key —
+resolve it per
+[work-item-resolution.md](../tasks/references/work-item-resolution.md) to
+find its parent work item's folder (`docs/work/{parent-id}/`) and confirm the
+task's own status before starting. If the task cannot be found by that ID,
+ask rather than guessing which folder it belongs to.
 
 ## Inputs
 
 | Input             | Location                       | Required  |
 | ----------------- | ------------------------------ | --------- |
-| Task + Gherkin AC | `docs/work/{epic}/tasks.md`    | Yes       |
-| Epic design       | `docs/work/{epic}/design.md`   | Yes       |
+| Task + Gherkin AC | `docs/work/{work-id}/tasks.md` | Yes       |
+| Work item design  | `docs/work/{work-id}/design.md`| Yes       |
 | Architecture      | `docs/architecture/solution.md`| If relevant |
 | Coding standards  | `AGENTS.md` or `CLAUDE.md`     | If present |
 
@@ -74,7 +80,7 @@ This skill writes code against an approved design. It MUST NOT:
   in `solution.md` and should be raised as a new ADR via **adr**, not changed
   unilaterally during implementation
 - Rewrite acceptance criteria or add new tasks — task scope is fixed by
-  `docs/work/{epic}/tasks.md`; if scope needs to change, update it via the
+  `docs/work/{work-id}/tasks.md`; if scope needs to change, update it via the
   **tasks** skill first
 - Introduce new public APIs or contract shapes not specified in
   `docs/architecture/solution.md` or the design — pause and update solution.md
