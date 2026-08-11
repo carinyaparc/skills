@@ -1,6 +1,14 @@
 # local
 *.local.md
 
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+
 # os
 .DS_Store
 Thumbs.db
