@@ -6,14 +6,14 @@ made.
 
 Plan runs in two directions, and the argument decides which:
 
-- **Forward (no epic argument)** — survey `product.md` and `solution.md` for
-  decisions that must be made *before* technical design can proceed.
-- **Harvest (`adr plan <epic>`)** — read `docs/work/{epic}/design.md` for
-  decisions that were *already made* during delivery and never formalised. A
-  decision made in an epic and left only in `design.md` is invisible to every
-  future reader of the architecture.
+- **Forward (no work-item argument)** — survey `product.md` and `solution.md`
+  for decisions that must be made *before* technical design can proceed.
+- **Harvest (`adr plan <work-id>`)** — read `docs/work/{work-id}/design.md`
+  for decisions that were *already made* during delivery and never
+  formalised. A decision made on a work item and left only in `design.md` is
+  invisible to every future reader of the architecture.
 
-Run both when an epic is named: harvest first, then survey.
+Run both when a work item is named: harvest first, then survey.
 
 ## Output
 
@@ -24,12 +24,13 @@ another path, use it. Update the register only — do **not** create
 Use [assets/register.template.md](../assets/register.template.md) for structure
 if the register does not exist yet.
 
-## Harvest pass (when an epic is named)
+## Harvest pass (when a work item is named)
 
-Resolve `{epic}` from the argument or the backlog, per
-[delivery-conventions.md](../../tasks/references/delivery-conventions.md).
+Resolve `{work-id}` per
+[work-item-resolution.md](../../tasks/references/work-item-resolution.md) —
+source system, canonical ID, and type — before reading anything else.
 
-1. Read `docs/work/{epic}/design.md` and collect every decision it records or
+1. Read `docs/work/{work-id}/design.md` and collect every decision it records or
    implies — explicit ADR candidates, technology choices, integration patterns,
    contract shapes, and data-model commitments.
 2. Cross-check each against the register's **Accepted** table and against
@@ -95,8 +96,8 @@ Plan mode MUST NOT:
 
 Report in chat:
 
-- **Harvested from `{epic}`** — each candidate with its `design.md` section and
-  triage outcome (omit when no epic was named)
+- **Harvested from `{work-id}`** — each candidate with its `design.md` section
+  and triage outcome (omit when no work item was named)
 - **Surveyed** — new proposals from product/solution, Blocking or Deferrable
 - **Register changes** — rows added, revised, or rejected
 - **Handoffs** — which candidates need `adr write`, which need **solution**,
