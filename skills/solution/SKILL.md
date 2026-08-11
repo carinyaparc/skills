@@ -6,9 +6,9 @@ description: >
   re-authors the document. Triggers on "write the architecture", "solution
   design", "arc42". For reviewing or critiquing an existing solution.md, use
   docs-review instead. Do NOT use for business strategy (product), delivery
-  phases (roadmap), epic list (tasks), per-epic design.md (design), task
+  phases (roadmap), epic list (tasks), work-item design.md (design), task
   Gherkin (tasks), or ADR files (adr write). Story AC belongs in
-  docs/work/{epic}/tasks.md.
+  docs/work/{work-id}/tasks.md.
 license: MIT
 allowed-tools: Read Write Glob Grep
 argument-hint: "[--stage stub|full] [--context <notes>]"
@@ -43,14 +43,14 @@ path instead of the default.
 solution.md MUST NOT contain:
 
 - Commercial rationale, personas, positioning → `docs/product/product.md`
-- Story-level acceptance criteria → `docs/work/{epic}/tasks.md`
+- Story-level acceptance criteria → `docs/work/{work-id}/tasks.md`
 - Phase sequencing → `docs/product/roadmap.md`
 
 ## Context
 
 <artifacts>
 [Stub: docs/product/product.md, architecture principles, system boundary
-Full: product.md, docs/work/{epic}/design.md (walking-skeleton), ADR register,
+Full: product.md, docs/work/{work-id}/design.md (walking-skeleton), ADR register,
 accepted ADRs]
 </artifacts>
 
@@ -87,7 +87,7 @@ accepted ADRs]
 
 ## Gotchas
 
-- **Per-epic files/APIs** → cite from `docs/work/{epic}/design.md`, don't duplicate full specs.
+- **Per-work-item files/APIs** → cite from `docs/work/{work-id}/design.md`, don't duplicate full specs.
 - **Story-level Gherkin** → `tasks.md`, not solution.
 - **Closed ADRs** → `ADR-NNNN-*.md`; proposals stay in register only.
 
