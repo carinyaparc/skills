@@ -47,6 +47,29 @@
         "EARS statements use THE SYSTEM SHALL",
         "EARS statements do not restate a Gherkin scenario"
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Write sub-tasks for JIRA-123.",
+      "expected_output": "Resolves the source system and type before writing anything; if Jira and Linear are both plausible or neither MCP tool is reachable, asks the user rather than guessing. Once resolved as a Jira story, writes sub-tasks inheriting the story's Gherkin AC to the story's own tasks.md (or as tracker sub-issues), using the Jira key as the canonical ID with no parallel internal ID invented.",
+      "assertions": [
+        "Reads work-item-resolution.md before acting",
+        "Does not guess between Jira and Linear when ambiguous — asks the user",
+        "Uses JIRA-123 as the canonical ID; does not invent an internal ID alongside it",
+        "Sub-tasks inherit the parent story's Gherkin scenario(s)",
+        "Writes to docs/work/JIRA-123/tasks.md (or creates tracker sub-issues), not the parent epic's tasks.md",
+        "If this is a fresh Jira/Linear resolution (not one already trusted from an existing TASKS.local.md), writes a TASKS.local.md pointer at the repo root"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Decompose CHK01-04 into sub-tasks.",
+      "expected_output": "CHK01-04 resolves to type task, a leaf item — confirms intent with the user rather than silently decomposing or refusing outright.",
+      "assertions": [
+        "Resolves the argument's type before acting",
+        "Does not silently decompose a task-type work item",
+        "Asks the user whether decomposition is genuinely intended, or suggests implement instead"
+      ]
     }
   ]
 }

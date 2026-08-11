@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Validate docs/work/{epic}/ paths in a backlog markdown file.
+# Validate docs/work/{work-id}/ paths in a backlog markdown file.
+# Filesystem-only fallback check (see references/work-item-resolution.md) —
+# not applicable once a tracker (Linear/Jira) resolves the work-id.
 # Usage: check-epic-paths.sh [path-to-backlog.md]
 # Exit 0 if all paths pass; 1 if any fail.
 

@@ -1,7 +1,7 @@
 ---
 type: Tasks
-epic: checkout-foundation
-epic_id: CHK01
+epic_slug: checkout-foundation
+work_id: CHK01
 version: '0.1'
 owner: commerce-squad
 status: Draft

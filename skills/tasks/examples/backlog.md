@@ -21,9 +21,9 @@ level: epic
 
 | Convention | Value |
 | ---------- | ----- |
-| Epic ID | `CHK{nn}` |
-| Epic work path | `docs/work/{epic}/` — kebab-case from title or short title, max two words |
-| Task ID | `CHK{nn}-{nn}` in `docs/work/{epic}/tasks.md` |
+| Epic ID | `CHK{nn}` (internal — this repo has no tracker resolved; see work-item-resolution.md) |
+| Epic work path | `docs/work/{work-id}/` — kebab-case from title or short title, max two words |
+| Task ID | `CHK{nn}-{nn}` in `docs/work/{work-id}/tasks.md` |
 | Priority | P0–P2 |
 | Estimation | Fibonacci points |
 
