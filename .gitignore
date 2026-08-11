@@ -1,5 +1,6 @@
 # local
 *.local.md
+*.local.json
 
 # python
 __pycache__/
