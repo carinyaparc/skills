@@ -7,7 +7,7 @@ description: >
   action them, at docs/work/sprint-{id}/retrospective.md. Triggers on "run the
   retro", "sprint retrospective", "what went wrong last sprint", "how did
   sprint 3 go". Do NOT use to plan the next sprint (sprint-planning), sign off
-  an epic against its acceptance criteria (validate), run a cross-document
+  a work item against its acceptance criteria (validate), run a cross-document
   alignment pass (docs-review), or review a diff (code-review).
 license: MIT
 allowed-tools: Read Write Edit Glob Grep
@@ -30,7 +30,7 @@ not go well, and a sprint that hit its commitment may have done so by quietly
 cutting quality.
 
 Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
-for artefact boundaries and epic path resolution.
+for artefact boundaries and work item path resolution.
 
 ## Artefact
 
@@ -45,9 +45,9 @@ valid. If the user names a different path under `docs/work/`, use it.
 | Input                  | Location                                   | Required |
 | ---------------------- | ------------------------------------------ | -------- |
 | Sprint plan            | `docs/work/sprint-{id}/plan.md`            | Yes      |
-| Epic tasks             | `docs/work/{epic}/tasks.md` for epics in scope | Yes  |
+| Work item tasks        | `docs/work/{work-id}/tasks.md` for work items in scope | Yes  |
 | Prior retrospective    | `docs/work/sprint-{id-1}/retrospective.md` | Recommended |
-| Epic design            | `docs/work/{epic}/design.md`               | If relevant |
+| Work item design       | `docs/work/{work-id}/design.md`            | If relevant |
 | CI, MR, or incident summaries | supplied via `--context`            | Optional |
 
 ## Steps
@@ -57,7 +57,7 @@ valid. If the user names a different path under `docs/work/`, use it.
    was committed — do not reconstruct a commitment from what shipped, which
    guarantees a flattering result.
 2. **Build the commitment-versus-actual picture.** For every committed task in
-   the plan, find its current status in the epic's `tasks.md`. Classify each as
+   the plan, find its current status in its work item's `tasks.md`. Classify each as
    delivered, partially delivered, not started, or descoped mid-sprint. Record
    points committed versus points delivered.
 3. **Check the sprint goal.** Was it met? The goal is met or not met — "mostly"
@@ -89,7 +89,7 @@ routing; it does not perform the downstream change.
 | ---------------------------------------- | --------- | ------------------- |
 | Epic scope, priority, or missing epics   | backlog   | **backlog-refine**  |
 | Task breakdown, estimates, vague AC      | tasks     | **tasks**           |
-| Architecture drift or an undocumented decision | architecture | **solution**, `adr plan <epic>` |
+| Architecture drift or an undocumented decision | architecture | **solution**, `adr plan <work-id>` |
 | Stale or contradictory documentation     | docs      | **docs-review**     |
 | Delivery phase or exit criteria wrong    | roadmap   | **roadmap**         |
 | Code quality or review process           | delivery  | **code-review**     |
@@ -121,7 +121,7 @@ A retrospective MUST NOT:
 - Attribute a failure to a named individual — describe the system that allowed it
 - Record an action without an owner
 - Invent metrics, velocity, or incident history not present in the context
-- Serve as sign-off that an epic is complete → that is **validate**
+- Serve as sign-off that a work item is complete → that is **validate**
 
 ## Output
 
