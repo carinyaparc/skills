@@ -53,8 +53,8 @@ stop at the first match (or use several if more than one is relevant):
 - Architecture references: `**/solution.md`, `ARCHITECTURE.md`,
   `docs/architecture/**`, ADR/decision folders (`**/decisions/**`,
   `**/adr/**`, `ADR-*.md`).
-- A `docs/work/{epic}/` (or similar) folder is one possible layout among many
-  — treat it as a candidate, never a requirement.
+- A `docs/work/{work-id}/` (or similar) folder is one possible layout among
+  many — treat it as a candidate, never a requirement.
 
 If nothing is found, scope is judged against the resolved intent only (does
 the diff do what the work item/PR description says, no more, no less).
