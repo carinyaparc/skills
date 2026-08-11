@@ -4,6 +4,8 @@ Opinionated skills that guide an AI agent through the full product delivery loop
 
 Each skill produces one clear artefact (a markdown file or code change). Skills chain together: the agent reads what you already wrote and knows what *not* to put in the wrong document.
 
+**Any work item, not just epics.** `tasks`, `design`, `validate`, `backlog-refine`, and `ralph-loop-setup` accept any work item ID — an epic, a story, a bug, or a spike — from Linear, Jira, GitHub/GitLab issues, or plain markdown. The agent resolves the source system and type first (asking you when it's ambiguous, never guessing) and decomposes or acts accordingly: `/tasks JIRA-123` on a story writes sub-tasks; `/tasks CHK01` on an epic writes stories and tasks. See [work item resolution](skills/tasks/references/work-item-resolution.md).
+
 ## Getting started
 
 Ask your agent:
@@ -84,14 +86,14 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
                         ↓
    merge-request (+ babysit) → merge-request-review
                         ↓
-              validate (epic done?)
+              validate (work item done?)
                         ↓
         sprint-retro, docs-review (ongoing)
 ```
 
-Or run the whole delivery stage autonomously: `/ralph-loop-setup {epic}`
+Or run the whole delivery stage autonomously: `/ralph-loop-setup {work-id}`
 then `/ralph-loop start` loops implement → code-review → code-review-fix →
-ux-design-review → commit per task, then epic review, validation, and the
+ux-design-review → commit per task, then a final review, validation, and the
 merge request — one step per iteration until the completion promise is
 genuinely true.
 
@@ -123,7 +125,7 @@ docs/
 │       ├── register.md
 │       └── ADR-NNNN-{title}.md
 └── work/
-    ├── checkout-foundation/     # epic
+    ├── checkout-foundation/     # epic (or a tracker key, e.g. JIRA-123/)
     │   ├── design.md
     │   └── tasks.md
     └── sprint-3/
@@ -131,7 +133,7 @@ docs/
         └── retrospective.md
 ```
 
-**Epic slug `{epic}`** — kebab-case from the epic title or short title, at most two words (`Checkout Foundation` → `checkout-foundation`). Epic IDs like `CHK01` stay in the backlog table; resolve the slug from that row when invoking skills.
+**Work item ID `{work-id}`** — resolved per [work-item-resolution.md](skills/tasks/references/work-item-resolution.md). When Linear or Jira is configured, `{work-id}` is the tracker's own key (`JIRA-123`, `ENG-45`) and skills write a `TASKS.local.md` pointer at your repo root so they don't re-detect it every time — add that file to `.gitignore`. With no tracker, `{work-id}` is an internal ID (`CHK01`) and the epic's folder name is a kebab-case slug of its title, at most two words (`Checkout Foundation` → `checkout-foundation`); resolve the slug from the backlog row when invoking skills. A story, bug, or spike given its own design or breakdown gets its own `docs/work/{work-id}/` folder alongside its parent epic's, not nested inside it.
 
 Full path and boundary rules: [delivery conventions](skills/tasks/references/delivery-conventions.md).
 
@@ -159,8 +161,8 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **design** | — | `docs/work/{epic}/design.md` (walking-skeleton or TDD); review via `docs-review` | `docs/work/{epic}/design.md` |
-| **tasks** | — | Decompose anything into delivery work: a product into epics, an epic or its design into stories and tasks with Gherkin AC, or a spec/RFC/PRD into both | `docs/product/backlog.md`, `docs/work/{epic}/tasks.md` |
+| **design** | — | `docs/work/{work-id}/design.md` for any work item — epic, story, bug, or spike (walking-skeleton or TDD); review via `docs-review` | `docs/work/{work-id}/design.md` |
+| **tasks** | — | Decompose any work item: a product into epics, an epic into stories and tasks with Gherkin AC, a story into sub-tasks, or a spec/RFC/PRD into both. Resolves Linear/Jira/GitHub/filesystem first | `docs/product/backlog.md`, `docs/work/{work-id}/tasks.md`, or the tracker directly |
 | **backlog-refine** | — | Groom an existing backlog or judge sprint readiness: reprioritise, split, re-estimate, defer. Amends in place and reports a verdict | `backlog.md`, `tasks.md` |
 
 ### Delivery
@@ -174,7 +176,7 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 | **ux-design-fix** | — | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code |
 | **merge-request** | — | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with a template-aware description. Never modifies source | MR / PR |
 | **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | seeded loop |
-| **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed epic + MR |
+| **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed work item + MR |
 
 ### Release
 
@@ -182,7 +184,7 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 | ----- | ----- | ----------- | -------- |
 | **merge-request-review** | — | Review an MR/PR as its reviewer and publish inline comments and an approve / request-changes verdict; handles re-review rounds | published review |
 | **merge-request-babysit** | — | Drive an open MR/PR to merge-ready: watch CI, fix objective failures, triage review threads, sync conflicts. Never merges | merge-ready MR |
-| **validate** | — | Epic completion vs tasks and roadmap gates | validation report |
+| **validate** | — | Work item completion vs tasks and, for an epic, roadmap gates | validation report |
 
 ### Refine
 

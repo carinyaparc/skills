@@ -1,3 +1,6 @@
+# local
+*.local.md
+
 # os
 .DS_Store
 Thumbs.db

@@ -15,6 +15,37 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
   critique an existing artefact. `prompts/write.prompt.md` folded into each
   skill's `SKILL.md`; `prompts/` removed. `adr` is unaffected — it keeps its
   own `plan`, `write`, and `review` modes.
+- **BREAKING: epic-only arguments → any work item.** `tasks`, `design`,
+  `validate`, `backlog-refine`, `ralph-loop-setup`, `implement`, and `adr`
+  (plan mode) now accept any work item ID — epic, story, task, bug, or
+  spike — and resolve its source system (Linear, Jira, GitHub/GitLab issues,
+  or filesystem) and type before acting. A story ID decomposes into
+  sub-tasks instead of stories; any work item can get its own `design.md`.
+  `docs/work/{epic}/` → `docs/work/{work-id}/` everywhere. When Linear or
+  Jira resolves, its native key is the canonical ID — no parallel internal
+  ID is generated — and a `TASKS.local.md` pointer is written at the repo
+  root to cache the detection (add it to `.gitignore`). Internal IDs
+  (`{PREFIX}{nn}`) remain filesystem-only fallback. Ambiguity in system, ID,
+  or type is never guessed — every affected skill asks. The old `type`
+  label vocabulary (`feature`, `integration`, `scaffold`, `migration`,
+  `chore`, `fix`) is removed; `work-item-schema.md` gains `bug` and `spike`
+  as first-class work item types instead.
+  **Also breaking:** the `ralph-loop` `engineering-delivery` preset's
+  substitution key renamed `{{EPIC}}` → `{{WORK_ID}}`, and its commit
+  trailer `Epic:` → `Work-item:`; `design.template.md` and
+  `tasks.template.md` frontmatter renamed `epic`/`epic_id` →
+  `epic_slug`/`work_id`. **Migration:** re-seed any in-flight loop with
+  `/ralph-loop-setup` (an old seed's `--set EPIC=` is no longer resolved);
+  regenerate or hand-edit the frontmatter of any `design.md`/`tasks.md`
+  written before this change.
+
+### Added
+
+- `skills/tasks/references/work-item-resolution.md` — source system
+  detection, the `TASKS.local.md` pointer, canonical ID rules, and the
+  ask-first checklist shared by every skill above.
+- `skills/tasks/assets/tasks-local.template.md` — the `TASKS.local.md`
+  pointer file template.
 
 ## [2.1.0] - 2026-07-19
 
