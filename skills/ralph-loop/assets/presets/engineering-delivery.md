@@ -1,12 +1,12 @@
 ## Preset: engineering delivery
 
-Drive epic `{{EPIC}}` to a merge request on branch `{{BRANCH}}`, one task per
-iteration.
+Drive work item `{{WORK_ID}}` to a merge request on branch `{{BRANCH}}`, one
+task per iteration.
 
 ### Sources
 
 - Tasks and acceptance criteria: `{{TASKS_PATH}}`
-- Epic design: `{{DESIGN_PATH}}`
+- Work item design: `{{DESIGN_PATH}}`
 - Run context (task order, validation commands, tracker): `{{RUN_DIR}}/context.md`
 
 ### Sub-agent rule
@@ -19,8 +19,8 @@ across a long run.
 ### Commit rule
 
 All commits target `{{BRANCH}}`. Verify with `git branch --show-current`
-before every commit. Message format `{TASK_ID}: <imperative summary>` with an
-`Epic: {{EPIC}}` trailer. No `Co-authored-by` trailers, no emojis.
+before every commit. Message format `{TASK_ID}: <imperative summary>` with a
+`Work-item: {{WORK_ID}}` trailer. No `Co-authored-by` trailers, no emojis.
 
 ### Per-task steps
 
@@ -89,8 +89,8 @@ Runs once, after every task is committed.
 
 #### final_review
 
-1. Launch a sub-agent reviewing the whole epic branch diff, not one task. Use
-   the strongest model available for sub-agents.
+1. Launch a sub-agent reviewing the whole work item's branch diff, not one
+   task. Use the strongest model available for sub-agents.
 2. If there are no `[blocking]` findings, or `fix_count` has reached 3, set
    `current_step: final_validation`. Otherwise set
    `current_step: final_review_fix`.
@@ -109,8 +109,8 @@ advance until green.
 
 #### final_validate
 
-Launch a sub-agent: `/validate {{EPIC}}`. This checks Gherkin acceptance
-criteria and roadmap exit criteria.
+Launch a sub-agent: `/validate {{WORK_ID}}`. This checks Gherkin acceptance
+criteria and, for an epic, roadmap exit criteria.
 
 Any gap stops the loop: record it under `## Notes` and do NOT advance. Gaps are
 never promised over.

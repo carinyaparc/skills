@@ -14,7 +14,8 @@ iteration — the prompt is the whole specification.
   loop. You cannot encode multiple outcomes (`SUCCESS` vs `BLOCKED`) in the
   promise; rely on `max_iterations` and the stall guard for the failure
   paths.
-- Epic loops default to `{EPIC}_COMPLETE` upper-snake-cased.
+- Engineering-delivery loops default to the work item's canonical ID (or
+  slug, filesystem-only) upper-snake-cased with `_COMPLETE`.
 
 ## Completion criteria
 

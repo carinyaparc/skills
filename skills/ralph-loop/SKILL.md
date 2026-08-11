@@ -5,16 +5,17 @@ description: >
   loop where a stop hook re-feeds the same prompt every turn until a completion
   promise is emitted or a safety rail fires (ralph-loop start, ralph-loop
   status, ralph-loop cancel). Works for any repeating multi-step job via
-  presets, including full epic delivery through implement, review, validate,
-  and merge request. Do NOT use to seed or configure a loop (ralph-loop-setup),
-  implement a single task once (implement), review a diff (code-review), or
-  sign off an epic (validate) — the loop orchestrates those skills.
+  presets, including full work-item delivery through implement, review,
+  validate, and merge request. Do NOT use to seed or configure a loop
+  (ralph-loop-setup), implement a single task once (implement), review a
+  diff (code-review), or sign off a work item (validate) — the loop
+  orchestrates those skills.
 license: MIT
 allowed-tools: Read Write Glob Grep Bash
 argument-hint: "[start|status|cancel] [--prompt \"...\"] [--max-iterations N] [--completion-promise TEXT]"
 metadata:
   author: Carinya Parc
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Ralph loop
