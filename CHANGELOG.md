@@ -38,6 +38,22 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
   `/ralph-loop-setup` (an old seed's `--set EPIC=` is no longer resolved);
   regenerate or hand-edit the frontmatter of any `design.md`/`tasks.md`
   written before this change.
+- **BREAKING: `.agency/reviews/` → `docs/reviews/` and
+  `docs/work/{work-id}/reviews/`.** `code-review` and `ux-design-review` now
+  track incremental review state in a single shared file per skill —
+  `docs/reviews/code-review.local.json` and
+  `docs/reviews/ux-design-review.local.json`, each holding one entry per
+  branch — instead of one `.agency/reviews/{branch}.json` file per branch.
+  Each run also writes a numbered, human-readable verdict to
+  `docs/work/{work-item}/reviews/{skill}-{nn}.local.md` (falling back to
+  `docs/reviews/{skill}-{branch}.local.md` when no work item resolves).
+  `code-review`'s learnings file moved from `.agency/review-learnings.md` to
+  `docs/reviews/review-learnings.local.md` (gitignored via `*.local.md`).
+  `code-review-fix` and `ux-design-fix`
+  read and update the same shared JSON file. `.ux-review/` (the gitignored
+  capture/screenshot bundle) is unaffected. **Migration:** delete any
+  `.agency/` directory; the next `code-review` or `ux-design-review` run
+  starts a fresh, full review. `*.local.json` added to `.gitignore`.
 
 ### Added
 
