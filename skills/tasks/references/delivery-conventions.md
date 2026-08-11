@@ -7,10 +7,16 @@ argument or writing under `docs/work/`.
 ## Document layout
 
 ```text
-docs/product/          product.md, roadmap.md, backlog.md
-docs/architecture/     solution.md, decisions/register.md, ADR-*.md
+docs/product/               product.md, roadmap.md, backlog.md
+docs/architecture/          solution.md, decisions/register.md, ADR-*.md
 docs/work/{work-id}/        design.md, tasks.md — one folder per resolved work item
+docs/work/{work-id}/reviews/  code-review-{nn}.local.md, ux-design-review-{nn}.local.md
+                            ({nn} sequential per skill prefix, not across skills)
 docs/work/sprint-{id}/      plan.md, retrospective.md
+docs/reviews/               code-review.local.json, ux-design-review.local.json,
+                             review-learnings.local.md, and the latest-only
+                             {skill}-{branch}.local.md fallback when no work
+                             item resolved
 ```
 
 Override paths when the user names them explicitly in the request.
@@ -68,6 +74,8 @@ filesystem-safe handle and slugging it again only adds a translation step.
 | Work item implementation spec | `docs/work/{work-id}/design.md` | solution, backlog |
 | Task Gherkin (and optional EARS) | `docs/work/{work-id}/tasks.md` | backlog, design |
 | Sprint plan / retro | `docs/work/sprint-{id}/` | product backlog |
+| Human-readable review verdict | `docs/work/{work-id}/reviews/{skill}-{nn}.local.md` | shared JSON state |
+| Review tracking state (per branch, incremental) | `docs/reviews/{skill}.local.json` | human-readable verdicts |
 
 `docs/product/backlog.md` is a filesystem-fallback artefact: it exists only
 in repos with no external tracker resolved. When Linear or Jira is the
