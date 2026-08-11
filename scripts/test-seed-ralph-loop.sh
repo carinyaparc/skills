@@ -146,7 +146,7 @@ assert_no_file "ad-hoc writes no state file" "$P/.claude/loop/ad-hoc/loop-state.
 P="$(new_project eng)"
 OUT="$(seed "$P" --agent claude --preset engineering-delivery --run-id ep-1 \
   --completion-promise EPIC_DONE --max-iterations 60 \
-  --set EPIC=checkout --set BRANCH=feat/checkout \
+  --set WORK_ID=checkout --set BRANCH=feat/checkout \
   --set TASKS_PATH=docs/work/checkout/tasks.md \
   --set DESIGN_PATH=docs/work/checkout/design.md \
   --set FIRST_ITEM=CHK01-01 --set 'WORK_SEQUENCE=1. CHK01-01' \
@@ -160,7 +160,7 @@ for F in active.md ep-1/loop-state.md ep-1/context.md; do
   assert_eq "no placeholders in $F" "" "${LEFTOVER// /}"
 done
 
-assert_contains "epic substituted" "checkout" "$(cat "$P/.claude/loop/active.md")"
+assert_contains "work item substituted" "checkout" "$(cat "$P/.claude/loop/active.md")"
 assert_contains "state_file points at the run dir" \
   "state_file: .claude/loop/ep-1/loop-state.md" "$(cat "$P/.claude/loop/active.md")"
 assert_contains "first item seeded into state" "current_item: CHK01-01" \
@@ -170,7 +170,7 @@ assert_contains "first item seeded into state" "current_item: CHK01-01" \
 # exact failure the script exists to prevent.
 P="$(new_project missing-set)"
 OUT="$(seed "$P" --agent claude --preset engineering-delivery --run-id ep-2 \
-  --completion-promise EPIC_DONE --set EPIC=checkout)"
+  --completion-promise EPIC_DONE --set WORK_ID=checkout)"
 assert_eq "missing --set values fail" "1" "$(seed_rc)"
 assert_contains "failure names the placeholders" "unresolved placeholders" "$OUT"
 assert_no_file "nothing written when placeholders unresolved" "$P/.claude/loop/active.md"
@@ -260,7 +260,7 @@ section 'Integration: seeded loop drives the real hook'
 P="$(new_project integration)"
 seed "$P" --agent claude --preset engineering-delivery --run-id run-1 \
   --completion-promise EPIC_DONE --max-iterations 12 --session-id sess-int \
-  --set EPIC=checkout --set BRANCH=feat/checkout \
+  --set WORK_ID=checkout --set BRANCH=feat/checkout \
   --set TASKS_PATH=t.md --set DESIGN_PATH=d.md \
   --set FIRST_ITEM=CHK01-01 --set 'WORK_SEQUENCE=1. CHK01-01' \
   --set 'GOAL=g' --set 'DONE_CRITERIA=d' --set 'PRESET_CONTEXT=c' >/dev/null
