@@ -28,7 +28,7 @@ Assume the backlog is more optimistic than the team's velocity supports, and
 that carry-over from the last sprint has not been accounted for.
 
 Read [delivery-conventions.md](../tasks/references/delivery-conventions.md)
-for artefact boundaries and epic path resolution.
+for artefact boundaries and work item path resolution.
 
 ## Artefact
 
@@ -41,12 +41,12 @@ valid. If the user names a different path under `docs/work/`, use it.
 
 | Input                  | Location                              | Required |
 | ---------------------- | ------------------------------------- | -------- |
-| Product backlog        | `docs/product/backlog.md`             | Yes      |
-| Epic tasks             | `docs/work/{epic}/tasks.md`           | Yes      |
+| Product backlog        | `docs/product/backlog.md`, or the tracker | Yes  |
+| Work item tasks        | `docs/work/{work-id}/tasks.md`        | Yes      |
 | Roadmap                | `docs/product/roadmap.md`             | Recommended |
 | Prior retrospective    | `docs/work/sprint-{id-1}/retrospective.md` | Recommended |
 | Prior plan             | `docs/work/sprint-{id-1}/plan.md`     | Recommended |
-| Epic design            | `docs/work/{epic}/design.md`          | If relevant |
+| Work item design       | `docs/work/{work-id}/design.md`       | If relevant |
 | Sprint dates, capacity | argument or `--context`               | Yes      |
 
 ## Steps
@@ -68,9 +68,9 @@ valid. If the user names a different path under `docs/work/`, use it.
 5. **Set the sprint goal.** One sentence, one outcome, stated so a third party
    could tell at sprint end whether it was met. Two goals joined by "and" are
    two sprints.
-6. **Select scope.** Pick epics that serve the roadmap's current phase. For each,
-   record Epic ID, title, work path, and phase. Pull candidate tasks from each
-   epic's `tasks.md`.
+6. **Select scope.** Pick work items that serve the roadmap's current phase. For
+   each, record its work item ID, title, work path, and phase. Pull candidate
+   tasks from each work item's `tasks.md`.
 7. **Commit.** Assign estimates and owners. Committed work must fit inside
    capacity minus carry-over. Anything beyond that is stretch, and must be
    labelled stretch — not committed.
@@ -101,7 +101,7 @@ valid. If the user names a different path under `docs/work/`, use it.
 
 A sprint plan MUST NOT:
 
-- Write or rewrite Gherkin acceptance criteria → `docs/work/{epic}/tasks.md` via
+- Write or rewrite Gherkin acceptance criteria → `docs/work/{work-id}/tasks.md` via
   **tasks**
 - Add, split, or re-prioritise epics → `docs/product/backlog.md` via **tasks**
   or **backlog-refine**
