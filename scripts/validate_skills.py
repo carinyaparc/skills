@@ -70,8 +70,12 @@ class Report:
         print(f"FAIL: {message}")
         if detail:
             lines = detail.splitlines() if isinstance(detail, str) else detail
-            for line in lines[:20]:
+            shown = lines[:20]
+            for line in shown:
                 print(f"  {line}")
+            remaining = len(lines) - len(shown)
+            if remaining > 0:
+                print(f"  ... {remaining} more line(s) truncated")
 
 
 def read_json(path: Path):
@@ -240,7 +244,8 @@ def check_shell_syntax(report: Report) -> None:
 
 
 def check_shellcheck(report: Report) -> None:
-    """Advisory: shellcheck is not a hard dependency, so CI without it still validates."""
+    """Absence is advisory (CI without shellcheck installed still validates via
+    a skip); presence is a hard dependency — any reported warning fails the run."""
     if not shutil.which("shellcheck"):
         report.skip("shellcheck not installed")
         return
@@ -301,6 +306,68 @@ def check_template_placeholders(report: Report) -> None:
     report.ok(f"template placeholders resolvable{suffix}")
 
 
+def check_preset_reachability(report: Report) -> None:
+    """Every preset step must set current_step somewhere in its own section,
+    or be a recognised terminal step.
+
+    A step that only has a failure-path transition and no success-path one is
+    unreachable-forward: the loop can enter it but nothing ever advances past
+    it on the happy path. That is precisely how `final_validate` in
+    `engineering-delivery.md` once had no route to `create_mr` — it specified
+    "on gap, stop" and never said what to do when there was no gap.
+
+    Deliberately shallow: this is a presence check on text, not a real
+    step-graph executor. It cannot prove EVERY path reaches `done`, but it
+    reliably catches the two cheapest, highest-consequence mistakes: a step
+    with zero forward transitions, and a transition naming a step that does
+    not exist (a typo or a rename that missed one reference).
+    """
+    presets_dir = SKILLS / "ralph-loop/assets/presets"
+    if not presets_dir.is_dir():
+        return
+
+    terminal_markers = ("emit the completion promise",)
+    heading_re = re.compile(r"^####\s+(\S+)\s*$", re.M)
+    transition_re = re.compile(r"current_step:\s*`?([A-Za-z0-9_-]+)`?")
+
+    problems: list[str] = []
+    for path in sorted(presets_dir.glob("*.md")):
+        text = path.read_text()
+        headings = list(heading_re.finditer(text))
+        if not headings:
+            continue
+        names = {m.group(1) for m in headings}
+
+        for i, m in enumerate(headings):
+            name = m.group(1)
+            start = m.end()
+            end = headings[i + 1].start() if i + 1 < len(headings) else len(text)
+            body = text[start:end]
+
+            targets = transition_re.findall(body)
+            for target in targets:
+                if target not in names:
+                    problems.append(
+                        f"{path.relative_to(ROOT)}: step '{name}' sets "
+                        f"current_step: {target}, which has no #### heading "
+                        "in this preset"
+                    )
+
+            is_terminal = any(marker in body for marker in terminal_markers)
+            if not targets and not is_terminal:
+                problems.append(
+                    f"{path.relative_to(ROOT)}: step '{name}' has no "
+                    "current_step transition on any path and does not emit "
+                    "the completion promise — the loop can enter this step "
+                    "and never leave it"
+                )
+
+    if problems:
+        report.fail("preset step graph has a dead end", problems)
+    else:
+        report.ok("preset step graphs have no dead-end steps")
+
+
 def run_suite(report: Report, rel: str, label: str) -> None:
     """Run a Ralph shell suite via bash, so a missing +x does not skip it."""
     script = ROOT / rel
@@ -353,6 +420,7 @@ def main() -> int:
     check_shellcheck(report)
     check_executable_bits(report)
     check_template_placeholders(report)
+    check_preset_reachability(report)
     run_suite(report, "scripts/test-ralph-hooks.sh", "ralph hook tests")
     run_suite(report, "scripts/test-seed-ralph-loop.sh", "ralph seed tests")
     check_manifests(report)

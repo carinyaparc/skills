@@ -81,16 +81,44 @@ MUTANTS: list[tuple[str, Path, str, str]] = [
     ),
     # --- Defect 3: transcript parsing ------------------------------------
     (
-        "transcript: tail -1 instead of tail -100 (original)",
+        "transcript: tail -1 instead of tail -N (original)",
         LIB,
-        "| tail -n 100)\" || lines=\"\"",
-        "| tail -n 1)\" || lines=\"\"",
+        'raw="$(tail -n "$RALPH_TRANSCRIPT_WINDOW" "$transcript" 2>/dev/null)" || raw=""',
+        'raw="$(tail -n 1 "$transcript" 2>/dev/null)" || raw=""',
     ),
     (
         "transcript: first text block instead of last",
         LIB,
         "| last // \"\"",
         "| first // \"\"",
+    ),
+    # --- P0-2: promise mention treated as fulfilment ----------------------
+    (
+        "promise: bare substring match instead of anchored to the final line",
+        LIB,
+        '/\\A(.*?)(?:^|\\n)[ \\t]*<promise>(.*?)<\\/promise>[ \\t]*\\n*\\z/s',
+        '/(.*?)<promise>(.*?)<\\/promise>/s',
+    ),
+    # --- P0-3: no turn boundary, stale promise reaches a fresh iteration --
+    (
+        "transcript: turn boundary never found (always scans the whole window)",
+        LIB,
+        "range(0; ($all | length))",
+        "range(0; 0)",
+    ),
+    # --- P0-2 fix-up: unclosed fenced quote bypassed the final-line anchor --
+    (
+        "promise: fence-parity check removed (unclosed fence bypasses anchor)",
+        LIB,
+        "      if ($fences % 2 == 0) {",
+        "      if (1) {",
+    ),
+    # --- P0-3 fix-up: bare-string user content not recognised as a boundary
+    (
+        "transcript: string-shaped user content ignored as a turn boundary",
+        LIB,
+        '(($all[.].message.content | type) == "string"\n                       and ($all[.].message.content | length) > 0)\n                     or ',
+        "",
     ),
     # --- Iteration bookkeeping -------------------------------------------
     (

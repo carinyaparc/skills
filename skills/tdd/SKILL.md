@@ -16,7 +16,7 @@ description: >
   ADR write (adr), or code implementation (implement).
 license: MIT
 compatibility: Tracker resolution uses Linear, Atlassian (Jira), or GitHub/GitLab MCP tools when available, or `git remote`/`gh`/`glab`; falls back to the filesystem when none are reachable.
-allowed-tools: Read Write Glob Grep Bash(git remote:*) Bash(git mv:*) Bash(gh:*) Bash(glab:*)
+allowed-tools: Read Write Edit Glob Grep Bash(git remote:*) Bash(git mv:*) Bash(gh:*) Bash(glab:*)
 argument-hint: "<work-id> [--mode skeleton|full] [--context <notes>]"
 metadata:
   author: Carinya Parc

@@ -5,6 +5,64 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
 
 ## [Unreleased]
 
+### Fixed
+
+- **CI was red.** `hooks/lib/ralph-common.sh` carried five `SC2034` shellcheck
+  warnings on documented cross-file out-parameters; annotated each with a
+  `disable=SC2034` and a reason. `validate_skills.py`'s `check_shellcheck`
+  docstring called the check "advisory" while its behaviour hard-failed on
+  any warning once shellcheck was installed; fixed the docstring to describe
+  the real (and correct) behaviour, and stopped `Report.fail` from silently
+  dropping detail lines past 20 — it now says how many were truncated.
+- **The ralph-loop completion promise could be fulfilled by the model merely
+  mentioning it.** `ralph_extract_promise` matched `<promise>X</promise>`
+  anywhere in the text; a turn saying *"I will only output
+  `<promise>DONE</promise>` once every task is committed"* satisfied it. The
+  tag must now be alone on the message's final line — including when that
+  line only looks final because the model opened a fenced code block to show
+  or reference the tag and never closed it; an odd count of `` ``` `` markers
+  before the tag now disqualifies the match the same way a closed fence
+  already did.
+- **A stale promise from an earlier iteration, or an earlier finished loop,
+  could stop a fresh loop at iteration 1.** `ralph_last_assistant_text`
+  scanned the last 100 assistant lines with no turn boundary; a turn that
+  delegates every step to a sub-agent ends on tool calls, so the scan could
+  reach back past the current turn's start. Scoped detection to the current
+  turn using the Stop-hook's own re-fed prompt as the boundary (a genuine new
+  user turn every continuation) — recognising that turn whether Claude Code
+  represents its plain-text `message.content` as a bare string or as an
+  array containing a text block, since either shape is real and only
+  recognising one would silently degrade back to the unscoped scan.
+- **`engineering-delivery`'s `final_validate` step had no route to
+  `create_mr`** — only a failure-path "stop and record" instruction, no
+  success-path transition. A run that genuinely passed validation stalled at
+  the last step. Added the missing `current_step: create_mr` transition, and
+  a new validator check (`check_preset_reachability`) that fails on any
+  preset step with no forward transition and no completion-promise emission.
+- **`adr` and `tdd` are told to edit files in place but were not granted
+  `Edit`.** Added it to both.
+- Corrected `loop-protocol.md` and two source comments describing the `done`
+  sentinel as "the primary signal on both agents; text scanning is the
+  fallback" — it is Cursor's *only* mechanism (its Stop hook receives no
+  response text to scan) and Claude's Stop hook has no sentinel to write, so
+  text-scanning there is not a fallback, it is the only mechanism available.
+- `code-review-fix` and `merge-request-review` named the wrong sibling skill
+  in their negative-trigger clauses (`ux-design-review` instead of
+  `ux-design-fix`; `merge-request` instead of `merge-request-babysit`),
+  including one eval note that certified the broken route.
+- `product`, `roadmap`, and `solution` each promised "for reviewing or
+  critiquing an existing document, use docs-review instead" — `docs-review`'s
+  own eval explicitly declines that (it checks writing quality and
+  cross-document consistency, not strategic/architectural soundness). Removed
+  the false promise; re-authoring is how these documents get revised.
+- Removed the empty `"Epic delivery"` group from `skills.sh.json`.
+- Added 14 negative-boundary test cases and 4 mutants covering the
+  promise-anchoring and turn-boundary fixes above (`scripts/test-ralph-hooks.sh`,
+  `scripts/mutation-test.py`); the CI/shellcheck and preset-reachability fixes
+  are independently verified by `shellcheck` and `check_preset_reachability`
+  directly, not by mutation testing — this harness only tracks the three
+  shell hook files, so it cannot exercise either.
+
 ## [3.0.0] - 2026-08-12
 
 ### Changed

@@ -171,6 +171,14 @@ make_transcript() {
         jq -nc --arg t "$payload" \
           '{role:"user", message:{content:[{type:"text", text:$t}]}}' >> "$path"
         ;;
+      userstr)
+        # A plain-text user turn whose message.content is a bare JSON string,
+        # not an array of content blocks. Claude Code has been observed to
+        # use either shape for a real text-only turn; the boundary detection
+        # must recognise both, not just the array-of-blocks one.
+        jq -nc --arg t "$payload" \
+          '{role:"user", message:{content:$t}}' >> "$path"
+        ;;
     esac
   done
 }
@@ -276,6 +284,109 @@ printf '{"role":"assistant" NOT JSON\n' > "$T"
 OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
 assert_eq "malformed transcript exits 0" "0" "$(last_rc)"
 assert_contains "malformed transcript still continues loop" '"decision": "block"' "$OUT"
+
+# ---------------------------------------------------------------------------
+section 'Defect 5 (P0-2): mentioning the promise must not fulfil it'
+# ---------------------------------------------------------------------------
+
+# The model talking ABOUT its own stop condition must not be read as meeting
+# it. A bare substring search matches all three of these; only a turn that
+# ENDS on the bare tag, alone on its own line, may stop the loop.
+
+P="$(new_project promise-mentioned-not-set)"
+write_loop "$P/.claude/loop" 3 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text 'I am NOT finished. I will only output <promise>EPIC_DONE</promise> once every task is committed.'
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "declaring intent to emit the promise later does not stop the loop" '"decision": "block"' "$OUT"
+assert_file "loop file survives a mentioned-not-set promise" "$P/.claude/loop/active.md"
+
+P="$(new_project promise-quoted-as-reminder)"
+write_loop "$P/.claude/loop" 3 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text 'Reminder: only output `<promise>EPIC_DONE</promise>` when true.'
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "a backtick-quoted reminder does not stop the loop" '"decision": "block"' "$OUT"
+
+P="$(new_project promise-in-closed-fence)"
+write_loop "$P/.claude/loop" 3 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text $'Here is the tag for reference:\n```\n<promise>EPIC_DONE</promise>\n```'
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "a closed fenced quote does not stop the loop (last line is the fence, not the tag)" '"decision": "block"' "$OUT"
+
+P="$(new_project promise-in-unclosed-fence)"
+write_loop "$P/.claude/loop" 3 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text $'Reminder about the tag:\n```\n<promise>EPIC_DONE</promise>'
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "an unclosed fenced quote does not stop the loop (tag is the last line, but still fenced)" '"decision": "block"' "$OUT"
+assert_file "loop file survives an unclosed-fence quote" "$P/.claude/loop/active.md"
+
+# The genuine case: the tag alone is the entire, final line of the turn.
+P="$(new_project promise-alone-on-final-line)"
+write_loop "$P/.claude/loop" 3 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text $'All tasks are committed and the tests pass.\n\n<promise>EPIC_DONE</promise>'
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_eq "promise alone on the final line stops the loop" "" "$OUT"
+assert_contains "stop reason names the promise" "EPIC_DONE" "$(last_stderr)"
+
+# ---------------------------------------------------------------------------
+section 'Defect 6 (P0-3): a stale promise from before this turn must not stop it'
+# ---------------------------------------------------------------------------
+
+# The exact reproduction: a promise sits earlier in the transcript (an
+# earlier iteration, or an already-finished prior loop), a genuine new user
+# turn follows (the Stop-hook re-feed), and every assistant line since is
+# tool-use-only. The old tail-100-assistant-lines scan reached back past the
+# turn boundary and found the stale promise; the current turn made none.
+P="$(new_project stale-promise-before-boundary)"
+write_loop "$P/.claude/loop" 1 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text "<promise>EPIC_DONE</promise>" \
+  user "Do the next step of the work." \
+  tool "Read" \
+  tool "Edit" \
+  tool "Bash"
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "stale promise before the turn boundary does not stop a fresh iteration" '"decision": "block"' "$OUT"
+assert_file "loop file survives the stale promise" "$P/.claude/loop/active.md"
+
+# Same shape, but the tag is genuinely emitted AFTER the boundary: must stop.
+P="$(new_project promise-after-boundary)"
+write_loop "$P/.claude/loop" 1 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text "<promise>NOT_YET</promise>" \
+  user "Do the next step of the work." \
+  tool "Read" \
+  text "<promise>EPIC_DONE</promise>"
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_eq "promise after the boundary stops the loop" "" "$OUT"
+assert_contains "stop reason names the current-turn promise" "EPIC_DONE" "$(last_stderr)"
+
+# Same shape, but the re-fed user turn is a bare JSON string rather than an
+# array of content blocks — the other real shape Claude Code can write for a
+# plain-text turn. The boundary detection must recognise this too, or it
+# silently degrades back to scanning the whole window.
+P="$(new_project stale-promise-before-string-boundary)"
+write_loop "$P/.claude/loop" 1 50 "EPIC_DONE"
+T="$P/transcript.jsonl"
+make_transcript "$T" \
+  text "<promise>EPIC_DONE</promise>" \
+  userstr "Do the next step of the work." \
+  tool "Read" \
+  tool "Edit"
+OUT="$(run_claude "$P" "$(claude_input "$T" sess-1)")"
+assert_contains "stale promise before a string-shaped turn boundary does not stop a fresh iteration" '"decision": "block"' "$OUT"
+assert_file "loop file survives the stale promise" "$P/.claude/loop/active.md"
 
 # ---------------------------------------------------------------------------
 section 'Defect 4: frontmatter parse bounded to the first block'

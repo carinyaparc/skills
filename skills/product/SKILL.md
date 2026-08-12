@@ -4,8 +4,9 @@ description: >
   Use when the user wants a product strategy doc, PRD, pitch, vision,
   personas, or outcomes at docs/product/product.md. Drafts or re-authors the
   document. Triggers on "write the PRD", "draft a product pitch", "who are
-  our personas". For reviewing or critiquing an existing product.md, use
-  docs-review instead. Do NOT use for phased delivery plan (roadmap), epics
+  our personas". Re-authoring is also how an existing product.md gets
+  critiqued or revised — docs-review checks writing quality and cross-document
+  consistency, not strategic soundness. Do NOT use for phased delivery plan (roadmap), epics
   or backlog (tasks), architecture (solution), tasks or Gherkin (tasks), or
   implementation (implement).
 license: MIT

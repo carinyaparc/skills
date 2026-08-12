@@ -4,8 +4,9 @@ description: >
   Use when the user wants to write system architecture at
   docs/architecture/solution.md (stub or full arc42-lite). Drafts or
   re-authors the document. Triggers on "write the architecture", "solution
-  design", "arc42". For reviewing or critiquing an existing solution.md, use
-  docs-review instead. Do NOT use for business strategy (product), delivery
+  design", "arc42". Re-authoring is also how an existing solution.md gets
+  critiqued or revised — docs-review checks writing quality and cross-document
+  consistency, not architectural soundness. Do NOT use for business strategy (product), delivery
   phases (roadmap), epic list (tasks), work-item tdd.md (tdd), task
   Gherkin (tasks), or ADR files (adr write). Story AC belongs in
   docs/work/{work-id}/tasks.md.

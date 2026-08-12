@@ -112,8 +112,9 @@ advance until green.
 Launch a sub-agent: `/validate {{WORK_ID}}`. This checks Gherkin acceptance
 criteria and, for an epic, roadmap exit criteria.
 
-Any gap stops the loop: record it under `## Notes` and do NOT advance. Gaps are
-never promised over.
+If there are no gaps, set `current_step: create_mr`. Any gap stops the loop
+instead: record it under `## Notes` and do NOT advance. Gaps are never
+promised over.
 
 #### create_mr
 

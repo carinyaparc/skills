@@ -10,7 +10,7 @@ description: >
   accepted.
 license: MIT
 compatibility: Tracker resolution (plan mode, when a work-id is named) uses Linear, Atlassian (Jira), or GitHub/GitLab MCP tools when available, or `git remote`/`gh`/`glab`; falls back to the filesystem when none are reachable.
-allowed-tools: Read Write Glob Grep Bash(git remote:*) Bash(gh:*) Bash(glab:*)
+allowed-tools: Read Write Edit Glob Grep Bash(git remote:*) Bash(gh:*) Bash(glab:*)
 argument-hint: "<mode: plan|write|review> [work-id|target] [flags]"
 metadata:
   author: Carinya Parc

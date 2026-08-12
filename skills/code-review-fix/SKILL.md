@@ -9,7 +9,7 @@ description: >
   warning, all). Makes targeted, behaviour-preserving changes, runs the
   project's validation suite, and commits in logical units. Do NOT use to
   perform a review (code-review), to implement new work or features
-  (implement), to address UX or design-fidelity findings (ux-design-review), or
+  (implement), to address UX or design-fidelity findings (ux-design-fix), or
   to open a PR/MR (merge-request).
 license: MIT
 compatibility: Requires git and the project's own validation toolchain (formatter, linter, typechecker, test runner).

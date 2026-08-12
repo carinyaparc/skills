@@ -4,8 +4,9 @@ description: >
   Use when the user wants outcome-based delivery phases or exit criteria at
   docs/product/roadmap.md. Drafts or re-sequences the document. Triggers on
   "build the roadmap", "what are our delivery phases", "phase exit criteria".
-  Requires product.md. For reviewing or critiquing an existing roadmap.md, use
-  docs-review instead. Do NOT use for epic breakdown or work paths (tasks),
+  Requires product.md. Re-authoring is also how an existing roadmap.md gets
+  critiqued or revised — docs-review checks writing quality and cross-document
+  consistency, not sequencing soundness. Do NOT use for epic breakdown or work paths (tasks),
   PRD (product), per-work-item technical design (tdd), tasks (tasks), or architecture
   detail (solution).
 license: MIT
