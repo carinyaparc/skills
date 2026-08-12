@@ -137,4 +137,5 @@ moving it (never by writing a second copy alongside).
 | Sprint plan | **sprint-planning** |
 | Sprint retrospective | **sprint-retro** |
 | Review a set of documents for quality, boundaries, consistency | **docs-review** |
+| Review or uplift an agent skill in this pack | **skill-review** |
 | Which skill to use? | **skills-index** |
