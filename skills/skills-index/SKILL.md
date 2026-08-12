@@ -60,6 +60,7 @@ which phase the user is in.
 | ralph-loop | Run an autonomous loop: one step per iteration until a completion promise or a safety rail (`start`, `status`, `cancel`) | committed work item + MR | delivery | delivery | seeded loop | code / MR |
 | tdd | Technical design document at docs/work/{work-id}/tdd.md for any work item — epic, story, bug, or spike (review via docs-review). Not test-driven development — that is implement | tdd.md | discovery | architect | solution.md, backlog.md | tdd.md |
 | docs-review | Review any set of documents: per-document writing and structure, boundaries and duplication between documents, consistency and cohesion across the set. Read-only | doc review | any | architect | any doc set | review |
+| skill-review | Research, review, or enhance an agent skill against agentskills.io and peer skills; apply agreed uplift | skill package + report | utility | utility | SKILL.md | skill package + report |
 | product | product.md: write (review via docs-review) | docs/product/product.md | strategy | pm | — | product.md |
 | sprint-planning | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | docs/work/sprint-{id}/plan.md | delivery | delivery | backlog.md, tasks.md, prior retrospective.md | plan.md |
 | sprint-retro | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | docs/work/sprint-{id}/retrospective.md | delivery | delivery | plan.md, tasks.md | retrospective.md |

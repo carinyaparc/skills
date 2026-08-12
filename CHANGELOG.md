@@ -1,7 +1,9 @@
 # Changelog
 
-Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
-`.claude-plugin/plugin.json`. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+Version numbers match `version` in `.cursor-plugin/plugin.json` and
+`.claude-plugin/plugin.json`. Released versions are tagged `vMAJOR.MINOR.PATCH`
+when published (tags begin at `v1.1.0`; `1.0.0` and `2.0.0` predate consistent
+tagging and exist only as changelog sections). Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 

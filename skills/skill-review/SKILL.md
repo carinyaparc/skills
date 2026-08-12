@@ -6,9 +6,10 @@ description: >
   compare with popular external skills, fix working issues, or align with
   agentskills.io. Triggers on "review this skill", "enhance the X skill",
   "weekly skills review", "uplift this skill", "align with agentskills.io".
-  Works on one skill or a batch. Do NOT use to create a skill from scratch
-  (create-skill / author a new skill), route which skill to use (skills-index),
-  or review product documentation (docs-review).
+  Works on one skill or a batch. Do NOT use to author a brand-new skill from
+  scratch — start from template/SKILL.md and CONTRIBUTING.md instead. Do NOT
+  use to route which skill to use (skills-index), or to review product
+  documentation (docs-review).
 license: MIT
 compatibility: Requires network access for external research. Spec validation optional via skills-ref.
 allowed-tools: Read Write Edit Glob Grep WebFetch WebSearch Bash

@@ -193,6 +193,7 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 | **sprint-planning** | — | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | `docs/work/sprint-{id}/plan.md` |
 | **sprint-retro** | — | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | `docs/work/sprint-{id}/retrospective.md` |
 | **docs-review** | — | Review any set of documents: writing and structure per document, boundaries and duplication between them, consistency and cohesion across the set. Read-only | doc review |
+| **skill-review** | review, enhance | Research, review, or uplift an agent skill against agentskills.io and peer skills; apply agreed fixes | skill package + report |
 | **skills-index** | — | “Which skill should I use?” for open-ended questions | routing |
 
 ## License

@@ -38,13 +38,14 @@
     },
     {
       "title": "Delivery Practice",
-      "description": "Sprint planning and retrospectives.",
+      "description": "Sprint planning, retrospectives, and skill-pack hygiene.",
       "skills": [
         "sprint-planning",
         "sprint-retro",
         "tasks",
         "docs-review",
-        "backlog-refine"
+        "backlog-refine",
+        "skill-review"
       ]
     },
     {
