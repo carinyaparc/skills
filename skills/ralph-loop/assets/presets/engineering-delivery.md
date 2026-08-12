@@ -6,7 +6,7 @@ task per iteration.
 ### Sources
 
 - Tasks and acceptance criteria: `{{TASKS_PATH}}`
-- Work item design: `{{DESIGN_PATH}}`
+- Work item technical design: `{{TDD_PATH}}`
 - Run context (task order, validation commands, tracker): `{{RUN_DIR}}/context.md`
 
 ### Sub-agent rule

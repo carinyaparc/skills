@@ -6,7 +6,7 @@ description: >
   re-authors the document. Triggers on "write the architecture", "solution
   design", "arc42". For reviewing or critiquing an existing solution.md, use
   docs-review instead. Do NOT use for business strategy (product), delivery
-  phases (roadmap), epic list (tasks), work-item design.md (design), task
+  phases (roadmap), epic list (tasks), work-item tdd.md (tdd), task
   Gherkin (tasks), or ADR files (adr write). Story AC belongs in
   docs/work/{work-id}/tasks.md.
 license: MIT
@@ -50,7 +50,7 @@ solution.md MUST NOT contain:
 
 <artifacts>
 [Stub: docs/product/product.md, architecture principles, system boundary
-Full: product.md, docs/work/{work-id}/design.md (walking-skeleton), ADR register,
+Full: product.md, docs/work/{work-id}/tdd.md (skeleton mode), ADR register,
 accepted ADRs]
 </artifacts>
 
@@ -87,7 +87,7 @@ accepted ADRs]
 
 ## Gotchas
 
-- **Per-work-item files/APIs** → cite from `docs/work/{work-id}/design.md`, don't duplicate full specs.
+- **Per-work-item files/APIs** → cite from `docs/work/{work-id}/tdd.md`, don't duplicate full specs.
 - **Story-level Gherkin** → `tasks.md`, not solution.
 - **Closed ADRs** → `ADR-NNNN-*.md`; proposals stay in register only.
 
@@ -102,5 +102,5 @@ Markdown with YAML frontmatter. Save to the resolved path. Use
 
 ## Related skills
 
-- `product`, `tasks`, `design`, `adr`
+- `product`, `tasks`, `tdd`, `adr`
 - `docs-review` — review or critique an existing solution.md

@@ -6,7 +6,7 @@ description: >
   "build the roadmap", "what are our delivery phases", "phase exit criteria".
   Requires product.md. For reviewing or critiquing an existing roadmap.md, use
   docs-review instead. Do NOT use for epic breakdown or work paths (tasks),
-  PRD (product), per-epic design (design), tasks (tasks), or architecture
+  PRD (product), per-work-item technical design (tdd), tasks (tasks), or architecture
   detail (solution).
 license: MIT
 allowed-tools: Read Write Glob Grep

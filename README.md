@@ -4,7 +4,7 @@ Opinionated skills that guide an AI agent through the full product delivery loop
 
 Each skill produces one clear artefact (a markdown file or code change). Skills chain together: the agent reads what you already wrote and knows what *not* to put in the wrong document.
 
-**Any work item, not just epics.** `tasks`, `design`, `validate`, `backlog-refine`, and `ralph-loop-setup` accept any work item ID — an epic, a story, a bug, or a spike — from Linear, Jira, GitHub/GitLab issues, or plain markdown. The agent resolves the source system and type first (asking you when it's ambiguous, never guessing) and decomposes or acts accordingly: `/tasks JIRA-123` on a story writes sub-tasks; `/tasks CHK01` on an epic writes stories and tasks. See [work item resolution](skills/tasks/references/work-item-resolution.md).
+**Any work item, not just epics.** `tasks`, `tdd`, `validate`, `backlog-refine`, and `ralph-loop-setup` accept any work item ID — an epic, a story, a bug, or a spike — from Linear, Jira, GitHub/GitLab issues, or plain markdown. The agent resolves the source system and type first (asking you when it's ambiguous, never guessing) and decomposes or acts accordingly: `/tasks JIRA-123` on a story writes sub-tasks; `/tasks CHK01` on an epic writes stories and tasks. See [work item resolution](skills/tasks/references/work-item-resolution.md).
 
 ## Getting started
 
@@ -52,7 +52,7 @@ npx skills@latest add carinyaparc/skills/ux-design-review
 /product --stage pitch
 /roadmap
 /tasks --product
-/design checkout-foundation --mode walking-skeleton
+/tdd checkout-foundation --mode skeleton
 /tasks checkout-foundation
 /implement CHK01-01
 /code-review
@@ -69,7 +69,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | ----- | -------------- | ------ |
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **tasks** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
-| Discovery | _Ready for Development_ | **design**, **tasks**, **backlog-refine** |
+| Discovery | _Ready for Development_ | **tdd**, **tasks**, **backlog-refine** |
 | Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **merge-request-babysit**, **validate** |
 | Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs-review** |
@@ -79,7 +79,7 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 ```text
         product → solution → roadmap → backlog
                         ↓
-            design → tasks (+ ADR optional)
+             tdd → tasks (+ ADR optional)
                         ↓
     implement → code-review → code-review-fix
    (+ ux-design-review → ux-design-fix for UI changes)
@@ -126,14 +126,14 @@ docs/
 │       └── ADR-NNNN-{title}.md
 └── work/
     ├── checkout-foundation/     # epic (or a tracker key, e.g. JIRA-123/)
-    │   ├── design.md
+    │   ├── tdd.md
     │   └── tasks.md
     └── sprint-3/
         ├── plan.md
         └── retrospective.md
 ```
 
-**Work item ID `{work-id}`** — resolved per [work-item-resolution.md](skills/tasks/references/work-item-resolution.md). When Linear or Jira is configured, `{work-id}` is the tracker's own key (`JIRA-123`, `ENG-45`) and skills write a `TASKS.local.md` pointer at your repo root so they don't re-detect it every time — add that file to `.gitignore`. With no tracker, `{work-id}` is an internal ID (`CHK01`) and the epic's folder name is a kebab-case slug of its title, at most two words (`Checkout Foundation` → `checkout-foundation`); resolve the slug from the backlog row when invoking skills. A story, bug, or spike given its own design or breakdown gets its own `docs/work/{work-id}/` folder alongside its parent epic's, not nested inside it.
+**Work item ID `{work-id}`** — resolved per [work-item-resolution.md](skills/tasks/references/work-item-resolution.md). When Linear or Jira is configured, `{work-id}` is the tracker's own key (`JIRA-123`, `ENG-45`) and skills write a `TASKS.local.md` pointer at your repo root so they don't re-detect it every time — add that file to `.gitignore`. With no tracker, `{work-id}` is an internal ID (`CHK01`) and the epic's folder name is a kebab-case slug of its title, at most two words (`Checkout Foundation` → `checkout-foundation`); resolve the slug from the backlog row when invoking skills. A story, bug, or spike given its own TDD or breakdown gets its own `docs/work/{work-id}/` folder alongside its parent epic's, not nested inside it.
 
 Full path and boundary rules: [delivery conventions](skills/tasks/references/delivery-conventions.md).
 
@@ -161,7 +161,7 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
-| **design** | — | `docs/work/{work-id}/design.md` for any work item — epic, story, bug, or spike (walking-skeleton or TDD); review via `docs-review` | `docs/work/{work-id}/design.md` |
+| **tdd** | — | Technical design document at `docs/work/{work-id}/tdd.md` for any work item — epic, story, bug, or spike (`skeleton` or `full`); review via `docs-review`. Not test-driven development — that is `implement` | `docs/work/{work-id}/tdd.md` |
 | **tasks** | — | Decompose any work item: a product into epics, an epic into stories and tasks with Gherkin AC, a story into sub-tasks, or a spec/RFC/PRD into both. Resolves Linear/Jira/GitHub/filesystem first | `docs/product/backlog.md`, `docs/work/{work-id}/tasks.md`, or the tracker directly |
 | **backlog-refine** | — | Groom an existing backlog or judge sprint readiness: reprioritise, split, re-estimate, defer. Amends in place and reports a verdict | `backlog.md`, `tasks.md` |
 

@@ -148,7 +148,7 @@ OUT="$(seed "$P" --agent claude --preset engineering-delivery --run-id ep-1 \
   --completion-promise EPIC_DONE --max-iterations 60 \
   --set WORK_ID=checkout --set BRANCH=feat/checkout \
   --set TASKS_PATH=docs/work/checkout/tasks.md \
-  --set DESIGN_PATH=docs/work/checkout/design.md \
+  --set TDD_PATH=docs/work/checkout/tdd.md \
   --set FIRST_ITEM=CHK01-01 --set 'WORK_SEQUENCE=1. CHK01-01' \
   --set 'GOAL=Ship checkout.' --set 'DONE_CRITERIA=MR raised.' \
   --set 'PRESET_CONTEXT=Node 20.')"
@@ -261,7 +261,7 @@ P="$(new_project integration)"
 seed "$P" --agent claude --preset engineering-delivery --run-id run-1 \
   --completion-promise EPIC_DONE --max-iterations 12 --session-id sess-int \
   --set WORK_ID=checkout --set BRANCH=feat/checkout \
-  --set TASKS_PATH=t.md --set DESIGN_PATH=d.md \
+  --set TASKS_PATH=t.md --set TDD_PATH=d.md \
   --set FIRST_ITEM=CHK01-01 --set 'WORK_SEQUENCE=1. CHK01-01' \
   --set 'GOAL=g' --set 'DONE_CRITERIA=d' --set 'PRESET_CONTEXT=c' >/dev/null
 assert_eq "integration seed succeeded" "0" "$(seed_rc)"

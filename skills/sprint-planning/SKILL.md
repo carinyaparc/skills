@@ -46,7 +46,7 @@ valid. If the user names a different path under `docs/work/`, use it.
 | Roadmap                | `docs/product/roadmap.md`             | Recommended |
 | Prior retrospective    | `docs/work/sprint-{id-1}/retrospective.md` | Recommended |
 | Prior plan             | `docs/work/sprint-{id-1}/plan.md`     | Recommended |
-| Work item design       | `docs/work/{work-id}/design.md`       | If relevant |
+| Work item design       | `docs/work/{work-id}/tdd.md`          | If relevant |
 | Sprint dates, capacity | argument or `--context`               | Yes      |
 
 ## Steps
@@ -107,7 +107,7 @@ A sprint plan MUST NOT:
   or **backlog-refine**
 - Re-sequence delivery phases or change exit criteria → `docs/product/roadmap.md`
   via **roadmap**
-- Add architecture or design detail → `solution.md` or `design.md`
+- Add architecture or design detail → `solution.md` or `tdd.md`
 - Invent velocity, capacity, or team availability not supplied in the context
 - Commit tasks that are not sprint-ready — run **backlog-refine** on the epic
   first and report the gap instead of committing anyway

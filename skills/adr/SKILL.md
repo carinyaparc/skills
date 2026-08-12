@@ -5,7 +5,7 @@ description: >
   review under docs/architecture/decisions/. Triggers on "do we need an ADR",
   "write ADR-0007", "record this decision", "what decisions need making",
   "harvest ADRs from this epic", "harvest ADRs from JIRA-123". Do NOT use for
-  full architecture narrative (solution), work-item design (design), or
+  full architecture narrative (solution), work-item technical design (tdd), or
   product strategy (product). Proposals stay in register.md only until
   accepted.
 license: MIT
@@ -46,7 +46,7 @@ within the register the user targets.
 2. Resolve paths (default or user override).
    **plan** takes an optional work item: `adr plan <work-id>` resolves it per
    [work-item-resolution.md](../tasks/references/work-item-resolution.md),
-   harvests decisions already made in `docs/work/{work-id}/design.md`, and
+   harvests decisions already made in `docs/work/{work-id}/tdd.md`, and
    triages them into the register. Without a work item it surveys product.md
    and solution.md for decisions still to be made.
 3. [prompts/plan.prompt.md](prompts/plan.prompt.md) | [prompts/write.prompt.md](prompts/write.prompt.md) | [prompts/review.prompt.md](prompts/review.prompt.md).

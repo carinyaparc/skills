@@ -10,6 +10,23 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
 - Repository moved to [`carinyaparc/skills`](https://github.com/carinyaparc/skills).
 - Plugin renamed: `daddia-skills` → `carinyaparc-agent-skills`
   (`Carinya Parc Agent Skills`); author → Carinya Parc.
+- **BREAKING: `design` skill renamed → `tdd`, and its artefact
+  `docs/work/{work-id}/design.md` → `docs/work/{work-id}/tdd.md`.** The skill
+  writes a technical design document; the name now says so. Its modes are
+  renamed with it — `--mode walking-skeleton|tdd` → `--mode skeleton|full` —
+  because `tdd --mode tdd` was incoherent, and the template's mode key is now
+  `mode:` everywhere (the worked example previously declared `level:`).
+  `assets/design.template.md` → `assets/tdd.template.md`. The `ralph-loop`
+  `engineering-delivery` preset's substitution key is renamed
+  `{{DESIGN_PATH}}` → `{{TDD_PATH}}`. Every consumer — `tasks`, `implement`,
+  `validate`, `adr plan`, `backlog-refine`, `sprint-planning`, `sprint-retro`,
+  `ralph-loop-setup` — now reads `tdd.md` and falls back to a legacy
+  `design.md` when only that exists. **Migration:** `git mv
+  docs/work/*/design.md` to `tdd.md` at your convenience; until you do, the
+  skills still find the old file and `tdd` offers to move it. Re-seed any
+  in-flight loop with `/ralph-loop-setup` — an old seed's `--set DESIGN_PATH=`
+  is no longer resolved. Note that `tdd` is a *design* skill: test-driven
+  development, red/green/refactor, and test authoring remain `implement`.
 - **BREAKING: `review` mode removed from `product`, `roadmap`, `design`, and
   `solution`.** Each is now write-only; use `docs-review` to review or
   critique an existing artefact. `prompts/write.prompt.md` folded into each
