@@ -5,6 +5,8 @@ Version numbers match Git tags and `version` in `.cursor-plugin/plugin.json` and
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-08-12
+
 ### Changed
 
 - Repository moved to [`carinyaparc/skills`](https://github.com/carinyaparc/skills).
