@@ -50,16 +50,23 @@ npx skills@latest add carinyaparc/skills/ux-design-review
 
 ```text
 /product --stage pitch
+/solution --stage stub
 /roadmap
 /tasks --product
+/roadmap                  # optional second pass once epic IDs exist
 /tdd checkout-foundation --mode skeleton
 /tasks checkout-foundation
 /implement CHK01-01
 /code-review
 /code-review-fix
 /merge-request CHK01-01
+/merge-request-babysit
 /validate checkout-foundation
 ```
+
+On a first run, `/roadmap` may land before `backlog.md` exists —
+`/tasks --product` creates that backlog (or reads the tracker). Re-run
+`/roadmap` afterward if you want phases to cite concrete epic IDs.
 
 Not sure where to start? Use **skills-index**, or follow the [typical flow](#typical-flow) below.
 
@@ -70,26 +77,32 @@ Not sure where to start? Use **skills-index**, or follow the [typical flow](#typ
 | Planning | _What, why, and when?_ | **product**, **roadmap**, **tasks** |
 | Architecture | _How? Structure? Principles?_ | **solution**, **adr** |
 | Discovery | _Ready for Development_ | **tdd**, **tasks**, **backlog-refine** |
-| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **ralph-loop** |
+| Delivery | _Definition of Done_ | **implement**, **code-review**, **code-review-fix**, **ux-design-review**, **ux-design-fix**, **merge-request**, **ralph-loop-setup**, **ralph-loop** |
 | Release | _Ready for Release_ | **merge-request-review**, **merge-request-babysit**, **validate** |
 | Refine | _What did we learn?_ | **sprint-planning**, **sprint-retro**, **docs-review** |
+| Utility | _Which skill?_ | **skills-index** |
 
 ## Typical flow
 
 ```text
-        product → solution → roadmap → backlog
+product → solution → roadmap → tasks → tdd → implement
+         (+ adr as architecture decisions arise)
                         ↓
-             tdd → tasks (+ ADR optional)
-                        ↓
-    implement → code-review → code-review-fix
+    code-review → code-review-fix
    (+ ux-design-review → ux-design-fix for UI changes)
                         ↓
-   merge-request (+ babysit) → merge-request-review
+   merge-request → merge-request-babysit
+   (+ merge-request-review when you are the assigned reviewer)
                         ↓
               validate (work item done?)
                         ↓
         sprint-retro, docs-review (ongoing)
 ```
+
+`tasks` appears once in the spine: after roadmap it decomposes the product into
+epics (`/tasks --product`); later you invoke it again on a work item to write
+stories and Gherkin (`/tasks checkout-foundation`). Same skill, two depths —
+not two stages.
 
 Or run the whole delivery stage autonomously: `/ralph-loop-setup {work-id}`
 then `/ralph-loop start` loops implement → code-review → code-review-fix →
@@ -97,11 +110,12 @@ ux-design-review → commit per task, then a final review, validation, and the
 merge request — one step per iteration until the completion promise is
 genuinely true.
 
-The loop is not limited to software. It ships three presets:
-`engineering-delivery` (the flow above), `ad-hoc` (repeat one prompt until
-done), and `custom` (your own steps). See
+The **loop machinery** (presets, hooks, stall guard) is domain-neutral and
+ships three presets: `engineering-delivery` (the flow above), `ad-hoc`
+(repeat one prompt until done), and `custom` (your own steps). See
 [preset authoring](skills/ralph-loop/references/preset-authoring.md) for a
-worked non-engineering example.
+worked non-engineering example. Most **delivery skills** in this pack
+(`implement`, `code-review`, `merge-request`, …) remain software-oriented.
 
 The ralph-loop skills are driven by this plugin's own stop hooks (`hooks/`),
 shipped for both Cursor and Claude Code. Loop state lives in `.claude/loop/`
@@ -118,19 +132,30 @@ docs/
 ├── product/
 │   ├── product.md
 │   ├── roadmap.md
-│   └── backlog.md
+│   └── backlog.md                 # filesystem-only; trackers replace this
 ├── architecture/
 │   ├── solution.md
 │   └── decisions/
 │       ├── register.md
 │       └── ADR-NNNN-{title}.md
+├── reviews/                       # shared review state (gitignored *.local.*)
+│   ├── code-review.local.json
+│   ├── ux-design-review.local.json
+│   └── review-learnings.local.md
 └── work/
-    ├── checkout-foundation/     # epic (or a tracker key, e.g. JIRA-123/)
+    ├── checkout-foundation/       # epic (or a tracker key, e.g. JIRA-123/)
     │   ├── tdd.md
-    │   └── tasks.md
+    │   ├── tasks.md
+    │   └── reviews/               # human-readable verdicts per work item
+    │       ├── code-review-01.local.md
+    │       └── ux-design-review-01.local.md
     └── sprint-3/
         ├── plan.md
         └── retrospective.md
+
+.ux-review/                        # UX capture bundle (gitignored)
+.claude/loop/                      # Ralph loop state (or .cursor/loop/)
+TASKS.local.md                     # tracker pointer at repo root (gitignored)
 ```
 
 **Work item ID `{work-id}`** — resolved per [work-item-resolution.md](skills/tasks/references/work-item-resolution.md). When Linear or Jira is configured, `{work-id}` is the tracker's own key (`JIRA-123`, `ENG-45`) and skills write a `TASKS.local.md` pointer at your repo root so they don't re-detect it every time — add that file to `.gitignore`. With no tracker, `{work-id}` is an internal ID (`CHK01`) and the epic's folder name is a kebab-case slug of its title, at most two words (`Checkout Foundation` → `checkout-foundation`); resolve the slug from the backlog row when invoking skills. A story, bug, or spike given its own TDD or breakdown gets its own `docs/work/{work-id}/` folder alongside its parent epic's, not nested inside it.
@@ -170,12 +195,12 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 | Skill | Modes | Description | Artefact |
 | ----- | ----- | ----------- | -------- |
 | **implement** | — | Implement a task against approved design and tasks | code |
-| **code-review** | — | Review a branch, PR, or working diff against its acceptance criteria and declared scope. Read-only: writes a verdict, never source | code review |
-| **code-review-fix** | — | Address findings from a code review without changing observable behaviour; runs the project's validation suite and commits | code |
-| **ux-design-review** | — | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): accessibility (WCAG 2.2 AA), states, responsiveness, fidelity, design-system conformity. Read-only: drives the browser once, writes a verdict and captures, never source | UX review |
-| **ux-design-fix** | — | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code |
+| **code-review** | — | Review a branch, PR, or working diff against its acceptance criteria and declared scope. Read-only: writes a verdict, never source | `docs/reviews/code-review.local.json`, `docs/work/{id}/reviews/code-review-{nn}.local.md` |
+| **code-review-fix** | — | Address findings from a code review without changing observable behaviour; runs the project's validation suite and commits | code (+ updates `docs/reviews/code-review.local.json`) |
+| **ux-design-review** | — | Live-first UX review of implemented UI vs its design source (Figma via MCP, mockups, tokens): accessibility (WCAG 2.2 AA), states, responsiveness, fidelity, design-system conformity. Read-only: drives the browser once, writes a verdict and captures, never source | `docs/reviews/ux-design-review.local.json`, `docs/work/{id}/reviews/ux-design-review-{nn}.local.md`, `.ux-review/` |
+| **ux-design-fix** | — | Change how existing UI looks or behaves — from a UX review verdict or a direct instruction. Fixes via tokens and library components, re-renders to verify, re-checks neighbours, commits | code (+ updates `docs/reviews/ux-design-review.local.json`) |
 | **merge-request** | — | Open an MR/PR on any provider (GitHub, GitLab, Bitbucket) with a template-aware description. Never modifies source | MR / PR |
-| **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | seeded loop |
+| **ralph-loop-setup** | (interview) | Seed and configure a Ralph loop: choose a preset (engineering delivery, ad-hoc, custom), resolve the environment, set the promise and iteration budget; writes the loop files, never starts them | `.claude/loop/` or `.cursor/loop/` |
 | **ralph-loop** | start, status, cancel | Run an autonomous loop: one step per iteration, plugin hooks re-feed the prompt until the completion promise is genuinely true or a safety rail fires | committed work item + MR |
 
 ### Release
@@ -192,7 +217,7 @@ Full path and boundary rules: [delivery conventions](skills/tasks/references/del
 | ----- | ----- | ----------- | -------- |
 | **sprint-planning** | — | Plan a sprint: goal, carry-over, capacity, committed scope, dependencies, DoD | `docs/work/sprint-{id}/plan.md` |
 | **sprint-retro** | — | Review a finished sprint: commitment vs actual, themes with evidence, actions routed to owning skills | `docs/work/sprint-{id}/retrospective.md` |
-| **docs-review** | — | Review any set of documents: writing and structure per document, boundaries and duplication between them, consistency and cohesion across the set. Read-only | doc review |
+| **docs-review** | — | Review any set of documents: writing and structure per document, boundaries and duplication between them, consistency and cohesion across the set. Read-only | report in conversation (no persisted path) |
 | **skills-index** | — | “Which skill should I use?” for open-ended questions | routing |
 
 ## License

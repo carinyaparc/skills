@@ -38,8 +38,12 @@ to identify the best match and direct them to the right skill.
    **review** modes.
 
 For end-to-end delivery, suggest the next skill in the flow
-(product → roadmap → tasks → tdd → tasks → implement → validate) or ask
-which phase the user is in.
+(product → solution → roadmap → tasks → tdd → implement → code-review →
+code-review-fix → merge-request → merge-request-babysit → validate),
+noting **adr** when architecture decisions arise and
+**ux-design-review** → **ux-design-fix** for UI changes — or ask which
+phase the user is in. `tasks` is one skill at two depths (`--product` for
+epics, then again on a work item for stories), not two stages.
 
 ## Skill index
 
