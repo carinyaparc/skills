@@ -1,0 +1,58 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Product Strategy",
+      "description": "Product vision, phased roadmap, and epic backlog.",
+      "skills": [
+        "product",
+        "roadmap"
+      ]
+    },
+    {
+      "title": "Architecture",
+      "description": "Solution architecture and architecture decision records.",
+      "skills": [
+        "solution",
+        "adr",
+        "tdd"
+      ]
+    },
+    {
+      "title": "Product Engineering",
+      "description": "Build, review, validate, and ship changes.",
+      "skills": [
+        "implement",
+        "code-review",
+        "code-review-fix",
+        "ux-design-review",
+        "ux-design-fix",
+        "merge-request",
+        "merge-request-babysit",
+        "merge-request-review",
+        "validate",
+        "ralph-loop-setup",
+        "ralph-loop"
+      ]
+    },
+    {
+      "title": "Delivery Practice",
+      "description": "Sprint planning and retrospectives.",
+      "skills": [
+        "sprint-planning",
+        "sprint-retro",
+        "tasks",
+        "docs-review",
+        "backlog-refine"
+      ]
+    },
+    {
+      "title": "Routing",
+      "description": "Find the right skill for an open-ended request.",
+      "skills": [
+        "skills-index"
+      ]
+    }
+  ]
+}
